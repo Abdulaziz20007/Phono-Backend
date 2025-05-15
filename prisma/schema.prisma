@@ -25,11 +25,11 @@ model User {
   balance              Float     @default(0)
   otp_id               BigInt?
   lang_id              BigInt    @default(1)
-  preferred_currency_id BigInt    @map("currency")
+  currency_id BigInt    @map("currency")
 
   otp               OTP?      @relation(fields: [otp_id], references: [id])
   language          Language  @relation(fields: [lang_id], references: [id])
-  preferred_currency Currency  @relation("UserPreferredCurrency", fields: [preferred_currency_id], references: [id])
+  currency Currency  @relation("UserPreferredCurrency", fields: [currency_id], references: [id])
 
   emails            Email[]
   additional_phones Phone[]          @relation("UserAdditionalPhones")
@@ -39,10 +39,6 @@ model User {
   comments          Comment[]
   payments          Payment[]
   blocks            Block[]
-
-  @@index([otp_id])
-  @@index([lang_id])
-  @@index([preferred_currency_id])
 }
 
 model OTP {
@@ -61,8 +57,6 @@ model Phone {
 
   user     User      @relation("UserAdditionalPhones", fields: [user_id], references: [id])
   products Product[]
-
-  @@index([user_id])
 }
 
 model Email {
@@ -71,8 +65,6 @@ model Email {
   user_id BigInt
 
   user User @relation(fields: [user_id], references: [id])
-
-  @@index([user_id])
 }
 
 model Address {
@@ -86,8 +78,6 @@ model Address {
 
   user     User      @relation(fields: [user_id], references: [id])
   products Product[]
-
-  @@index([user_id])
 }
 
 model Language {
@@ -107,8 +97,6 @@ model FavouriteItem {
   user    User    @relation(fields: [user_id], references: [id])
 
   @@unique([user_id, product_id])
-  @@index([product_id])
-  @@index([user_id])
 }
 
 model Product {
@@ -150,15 +138,6 @@ model Product {
   images        ProductImage[]
   favourited_by FavouriteItem[]
   comments      Comment[]
-
-  @@index([user_id])
-  @@index([brand_id])
-  @@index([model_id])
-  @@index([color_id])
-  @@index([currency_id])
-  @@index([address_id])
-  @@index([phone_id])
-  @@index([admin_id])
 }
 
 model ProductImage {
@@ -168,8 +147,6 @@ model ProductImage {
   is_main    Boolean @default(false)
 
   product Product @relation(fields: [product_id], references: [id])
-
-  @@index([product_id])
 }
 
 model Brand {
@@ -190,7 +167,6 @@ model Model {
   products Product[]
 
   @@unique([brand_id, name])
-  @@index([brand_id])
 }
 
 model Color {
@@ -224,8 +200,6 @@ model Admin {
   language         Language  @relation(fields: [lang_id], references: [id])
   blocks_issued    Block[]
   products_managed Product[]
-
-  @@index([lang_id])
 }
 
 model Block {
@@ -237,9 +211,6 @@ model Block {
 
   user  User  @relation(fields: [user_id], references: [id])
   admin Admin @relation(fields: [admin_id], references: [id])
-
-  @@index([user_id])
-  @@index([admin_id])
 }
 
 model Payment {
@@ -250,9 +221,6 @@ model Payment {
 
   user           User          @relation(fields: [user_id], references: [id])
   payment_method PaymentMethod @relation(fields: [payment_method_id], references: [id])
-
-  @@index([user_id])
-  @@index([payment_method_id])
 }
 
 model Comment {
@@ -263,9 +231,6 @@ model Comment {
 
   user    User    @relation(fields: [user_id], references: [id])
   product Product @relation(fields: [product_id], references: [id])
-
-  @@index([user_id])
-  @@index([product_id])
 }
 
 model PaymentMethod {
