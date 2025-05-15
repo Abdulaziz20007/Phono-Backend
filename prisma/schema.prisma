@@ -106,13 +106,13 @@ model Product {
   title            String   
   description      String   
   year             Int      
-  brand_id         BigInt
-  model_id         BigInt
-  custom_model     String   
+  brand_id         BigInt?
+  model_id         BigInt?
+  custom_model     String?  
   color_id         BigInt
   price            Float
-  floor_price      Boolean
-  currency_id      BigInt
+  floor_price      Boolean @default(true)
+  currency_id      BigInt @default(1)
   is_new           Boolean
   has_document     Boolean
   address_id       BigInt
@@ -123,18 +123,18 @@ model Product {
   is_archived      Boolean  @default(false)
   is_sold          Boolean  @default(false)
   is_checked       Boolean  @default(false)
-  admin_id         BigInt
+  admin_id         BigInt?
   is_top           Boolean  @default(false)
-  top_expire_date  DateTime
+  top_expire_date  DateTime?
 
   user          User     @relation(fields: [user_id], references: [id])
-  brand         Brand    @relation(fields: [brand_id], references: [id])
-  model         Model    @relation(fields: [model_id], references: [id])
+  brand         Brand?   @relation(fields: [brand_id], references: [id])
+  model         Model?   @relation(fields: [model_id], references: [id])
   color         Color    @relation(fields: [color_id], references: [id])
   currency      Currency @relation(fields: [currency_id], references: [id])
   address       Address  @relation(fields: [address_id], references: [id])
   contact_phone Phone    @relation(fields: [phone_id], references: [id])
-  admin         Admin    @relation(fields: [admin_id], references: [id])
+  admin         Admin?   @relation(fields: [admin_id], references: [id])
 
   images        ProductImage[]
   favourited_by FavouriteItem[]
@@ -173,6 +173,7 @@ model Model {
 model Color {
   id   BigInt @id @default(autoincrement())
   name String @unique
+  hex  String
 
   products Product[]
 }
@@ -193,9 +194,9 @@ model Admin {
   birth_date     DateTime 
   phone          String   @unique
   password       String   
-  avatar         String   
-  refresh_token  String   
-  lang_id        BigInt
+  avatar         String?   
+  refresh_token  String?   
+  lang_id        BigInt @default(1)
   is_creator     Boolean  @default(false)
 
   language         Language  @relation(fields: [lang_id], references: [id])
@@ -208,7 +209,7 @@ model Block {
   user_id     BigInt
   admin_id    BigInt
   reason      String   
-  expire_date DateTime @map("expire_data")
+  expire_date DateTime
 
   user  User  @relation(fields: [user_id], references: [id])
   admin Admin @relation(fields: [admin_id], references: [id])
