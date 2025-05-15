@@ -15,24 +15,24 @@ datasource db {
 }
 
 model User {
-  id                   BigInt   @id @default(autoincrement())
-  name                 String   @db.VarChar(255)
-  surname              String   @db.VarChar(255)
-  birth_date           DateTime @db.Date
-  phone                String   @db.VarChar(255)
-  avatar               String?  @db.VarChar(255)
-  refresh_token        String?  @db.VarChar(255)
-  balance              Float    @default(0)
+  id                   BigInt    @id @default(autoincrement())
+  name                 String    
+  surname              String    
+  birth_date           DateTime?
+  phone                String    
+  avatar               String?   
+  refresh_token        String?
+  balance              Float     @default(0)
   otp_id               BigInt?
-  lang_id              BigInt   @default(1)
-  preferred_currency_id BigInt   @map("currency")
+  lang_id              BigInt    @default(1)
+  preferred_currency_id BigInt    @map("currency")
 
   otp               OTP?      @relation(fields: [otp_id], references: [id])
-  language          Language @relation(fields: [lang_id], references: [id])
-  preferred_currency Currency @relation("UserPreferredCurrency", fields: [preferred_currency_id], references: [id])
+  language          Language  @relation(fields: [lang_id], references: [id])
+  preferred_currency Currency  @relation("UserPreferredCurrency", fields: [preferred_currency_id], references: [id])
 
   emails            Email[]
-  additional_phones Phone[]         @relation("UserAdditionalPhones")
+  additional_phones Phone[]          @relation("UserAdditionalPhones")
   favourite_items   FavouriteItem[]
   addresses         Address[]
   products          Product[]
@@ -47,16 +47,16 @@ model User {
 
 model OTP {
   id     BigInt   @id @default(autoincrement())
-  uuid   String   @db.VarChar(255)
-  otp    Int      @db.SmallInt
-  expire DateTime @db.Date
+  uuid   String   
+  otp    Int      
+  expire DateTime 
 
   users User[]
 }
 
 model Phone {
   id      BigInt @id @default(autoincrement())
-  phone   String @db.VarChar(255)
+  phone   String 
   user_id BigInt
 
   user     User      @relation("UserAdditionalPhones", fields: [user_id], references: [id])
@@ -67,7 +67,7 @@ model Phone {
 
 model Email {
   id      BigInt @id @default(autoincrement())
-  email   String @unique @db.VarChar(255)
+  email   String @unique
   user_id BigInt
 
   user User @relation(fields: [user_id], references: [id])
@@ -77,10 +77,10 @@ model Email {
 
 model Address {
   id             BigInt  @id @default(autoincrement())
-  name           String  @db.VarChar(255)
+  name           String  
   address_value  BigInt  @map("address")
-  lat            String  @db.VarChar(255)
-  long           String  @db.VarChar(255)
+  lat            String  
+  long           String  
   user_id        BigInt
   is_active      Boolean
 
@@ -92,7 +92,7 @@ model Address {
 
 model Language {
   id   BigInt @id @default(autoincrement())
-  name String @unique @db.VarChar(255)
+  name String @unique
 
   users  User[]
   admins Admin[]
@@ -114,12 +114,12 @@ model FavouriteItem {
 model Product {
   id               BigInt   @id @default(autoincrement())
   user_id          BigInt
-  title            String   @db.VarChar(255)
-  description      String   @db.VarChar(255)
-  year             Int      @db.SmallInt
+  title            String   
+  description      String   
+  year             Int      
   brand_id         BigInt
   model_id         BigInt
-  custom_model     String   @db.VarChar(255)
+  custom_model     String   
   color_id         BigInt
   price            Float
   floor_price      Boolean
@@ -136,7 +136,7 @@ model Product {
   is_checked       Boolean  @default(false)
   admin_id         BigInt
   is_top           Boolean  @default(false)
-  top_expire_date  DateTime @db.Date
+  top_expire_date  DateTime
 
   user          User     @relation(fields: [user_id], references: [id])
   brand         Brand    @relation(fields: [brand_id], references: [id])
@@ -163,7 +163,7 @@ model Product {
 
 model ProductImage {
   id         BigInt  @id @default(autoincrement())
-  url        String  @db.VarChar(255)
+  url        String  
   product_id BigInt
   is_main    Boolean @default(false)
 
@@ -174,8 +174,8 @@ model ProductImage {
 
 model Brand {
   id   BigInt @id @default(autoincrement())
-  name String @unique @db.VarChar(255)
-  logo String @db.VarChar(255)
+  name String @unique
+  logo String 
 
   models   Model[]
   products Product[]
@@ -183,7 +183,7 @@ model Brand {
 
 model Model {
   id       BigInt @id @default(autoincrement())
-  name     String @db.VarChar(255)
+  name     String 
   brand_id BigInt
 
   brand    Brand     @relation(fields: [brand_id], references: [id])
@@ -195,15 +195,15 @@ model Model {
 
 model Color {
   id   BigInt @id @default(autoincrement())
-  name String @unique @db.VarChar(255)
+  name String @unique
 
   products Product[]
 }
 
 model Currency {
   id     BigInt @id @default(autoincrement())
-  name   String @unique @db.VarChar(255)
-  symbol String @db.VarChar(255)
+  name   String @unique
+  symbol String 
 
   user_preferences User[]    @relation("UserPreferredCurrency")
   products         Product[]
@@ -211,13 +211,13 @@ model Currency {
 
 model Admin {
   id             BigInt   @id @default(autoincrement())
-  name           String   @db.VarChar(255)
-  surname        String   @db.VarChar(255)
-  birth_date     DateTime @db.Date
-  phone          String   @unique @db.VarChar(255)
-  password       String   @db.VarChar(255)
-  avatar         String   @db.VarChar(255)
-  refresh_token  String   @db.VarChar(255)
+  name           String   
+  surname        String   
+  birth_date     DateTime 
+  phone          String   @unique
+  password       String   
+  avatar         String   
+  refresh_token  String   
   lang_id        BigInt
   is_creator     Boolean  @default(false)
 
@@ -232,8 +232,8 @@ model Block {
   id          BigInt   @id @default(autoincrement())
   user_id     BigInt
   admin_id    BigInt
-  reason      String   @db.VarChar(255)
-  expire_date DateTime @map("expire_data") @db.Date
+  reason      String   
+  expire_date DateTime @map("expire_data")
 
   user  User  @relation(fields: [user_id], references: [id])
   admin Admin @relation(fields: [admin_id], references: [id])
@@ -259,7 +259,7 @@ model Comment {
   id         BigInt @id @default(autoincrement())
   user_id    BigInt
   product_id BigInt
-  text       String @db.VarChar(255)
+  text       String 
 
   user    User    @relation(fields: [user_id], references: [id])
   product Product @relation(fields: [product_id], references: [id])
@@ -270,7 +270,7 @@ model Comment {
 
 model PaymentMethod {
   id   BigInt @id @default(autoincrement())
-  name String @unique @db.VarChar(255)
+  name String @unique
 
   payments Payment[]
 }
