@@ -83,6 +83,8 @@ model Address {
 model Language {
   id   BigInt @id @default(autoincrement())
   name String @unique
+  short_name String @unique
+  flag_url String
 
   users  User[]
   admins Admin[]
