@@ -241,3 +241,4 @@ model PaymentMethod {
 
   payments Payment[]
 }
+
