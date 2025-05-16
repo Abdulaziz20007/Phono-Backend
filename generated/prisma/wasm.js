@@ -131,7 +131,11 @@ exports.Prisma.UserScalarFieldEnum = {
   balance: 'balance',
   otp_id: 'otp_id',
   lang_id: 'lang_id',
+<<<<<<< HEAD
   currency_id: 'currency_id'
+=======
+  preferredCurrencyId: 'preferredCurrencyId'
+>>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
 };
 
 exports.Prisma.OTPScalarFieldEnum = {
@@ -156,7 +160,11 @@ exports.Prisma.EmailScalarFieldEnum = {
 exports.Prisma.AddressScalarFieldEnum = {
   id: 'id',
   name: 'name',
+<<<<<<< HEAD
   address_value: 'address_value',
+=======
+  addressValue: 'addressValue',
+>>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   lat: 'lat',
   long: 'long',
   user_id: 'user_id',
@@ -165,8 +173,12 @@ exports.Prisma.AddressScalarFieldEnum = {
 
 exports.Prisma.LanguageScalarFieldEnum = {
   id: 'id',
+<<<<<<< HEAD
   name: 'name',
   flag_url: 'flag_url'
+=======
+  name: 'name'
+>>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
 };
 
 exports.Prisma.FavouriteItemScalarFieldEnum = {
@@ -224,8 +236,12 @@ exports.Prisma.ModelScalarFieldEnum = {
 
 exports.Prisma.ColorScalarFieldEnum = {
   id: 'id',
+<<<<<<< HEAD
   name: 'name',
   hex: 'hex'
+=======
+  name: 'name'
+>>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
 };
 
 exports.Prisma.CurrencyScalarFieldEnum = {
@@ -252,7 +268,11 @@ exports.Prisma.BlockScalarFieldEnum = {
   user_id: 'user_id',
   admin_id: 'admin_id',
   reason: 'reason',
+<<<<<<< HEAD
   expire_date: 'expire_date'
+=======
+  expireDate: 'expireDate'
+>>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
 };
 
 exports.Prisma.PaymentScalarFieldEnum = {
@@ -284,11 +304,14 @@ exports.Prisma.QueryMode = {
   insensitive: 'insensitive'
 };
 
+<<<<<<< HEAD
 exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
 };
 
+=======
+>>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
 
 exports.Prisma.ModelName = {
   User: 'User',

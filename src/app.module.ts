@@ -18,6 +18,7 @@ import { BlockModule } from './block/block.module';
 import { PaymentModule } from './payment/payment.module';
 import { CommentModule } from './comment/comment.module';
 import { PaymentMethodModule } from './payment-method/payment-method.module';
+<<<<<<< HEAD
 import { PrismaModule } from './prisma/prisma.module';
 
 @Module({
@@ -27,6 +28,15 @@ import { PrismaModule } from './prisma/prisma.module';
     }),
     PrismaModule,
     ProductModule,
+=======
+
+@Module({
+  imports: [
+    ProductModule,
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
+>>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     UserModule,
     OtpModule,
     PhoneModule,
