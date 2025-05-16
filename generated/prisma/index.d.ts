@@ -2417,13 +2417,8 @@ export namespace Prisma {
 
   export type UserCountOutputType = {
     emails: number
-<<<<<<< HEAD
     additional_phones: number
     favourite_items: number
-=======
-    additionalPhones: number
-    favouriteItems: number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses: number
     products: number
     comments: number
@@ -2433,13 +2428,8 @@ export namespace Prisma {
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     emails?: boolean | UserCountOutputTypeCountEmailsArgs
-<<<<<<< HEAD
     additional_phones?: boolean | UserCountOutputTypeCountAdditional_phonesArgs
     favourite_items?: boolean | UserCountOutputTypeCountFavourite_itemsArgs
-=======
-    additionalPhones?: boolean | UserCountOutputTypeCountAdditionalPhonesArgs
-    favouriteItems?: boolean | UserCountOutputTypeCountFavouriteItemsArgs
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses?: boolean | UserCountOutputTypeCountAddressesArgs
     products?: boolean | UserCountOutputTypeCountProductsArgs
     comments?: boolean | UserCountOutputTypeCountCommentsArgs
@@ -2468,22 +2458,14 @@ export namespace Prisma {
   /**
    * UserCountOutputType without action
    */
-<<<<<<< HEAD
   export type UserCountOutputTypeCountAdditional_phonesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-=======
-  export type UserCountOutputTypeCountAdditionalPhonesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     where?: PhoneWhereInput
   }
 
   /**
    * UserCountOutputType without action
    */
-<<<<<<< HEAD
   export type UserCountOutputTypeCountFavourite_itemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-=======
-  export type UserCountOutputTypeCountFavouriteItemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     where?: FavouriteItemWhereInput
   }
 
@@ -2662,21 +2644,13 @@ export namespace Prisma {
 
   export type ProductCountOutputType = {
     images: number
-<<<<<<< HEAD
     favourited_by: number
-=======
-    favouritedBy: number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     comments: number
   }
 
   export type ProductCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     images?: boolean | ProductCountOutputTypeCountImagesArgs
-<<<<<<< HEAD
     favourited_by?: boolean | ProductCountOutputTypeCountFavourited_byArgs
-=======
-    favouritedBy?: boolean | ProductCountOutputTypeCountFavouritedByArgs
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     comments?: boolean | ProductCountOutputTypeCountCommentsArgs
   }
 
@@ -2701,11 +2675,7 @@ export namespace Prisma {
   /**
    * ProductCountOutputType without action
    */
-<<<<<<< HEAD
   export type ProductCountOutputTypeCountFavourited_byArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-=======
-  export type ProductCountOutputTypeCountFavouritedByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     where?: FavouriteItemWhereInput
   }
 
@@ -2824,20 +2794,12 @@ export namespace Prisma {
    */
 
   export type CurrencyCountOutputType = {
-<<<<<<< HEAD
     user_preferences: number
-=======
-    userPreferences: number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     products: number
   }
 
   export type CurrencyCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-<<<<<<< HEAD
     user_preferences?: boolean | CurrencyCountOutputTypeCountUser_preferencesArgs
-=======
-    userPreferences?: boolean | CurrencyCountOutputTypeCountUserPreferencesArgs
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     products?: boolean | CurrencyCountOutputTypeCountProductsArgs
   }
 
@@ -2855,11 +2817,7 @@ export namespace Prisma {
   /**
    * CurrencyCountOutputType without action
    */
-<<<<<<< HEAD
   export type CurrencyCountOutputTypeCountUser_preferencesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-=======
-  export type CurrencyCountOutputTypeCountUserPreferencesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     where?: UserWhereInput
   }
 
@@ -2876,7 +2834,6 @@ export namespace Prisma {
    */
 
   export type AdminCountOutputType = {
-<<<<<<< HEAD
     blocks_issued: number
     products_managed: number
   }
@@ -2884,15 +2841,6 @@ export namespace Prisma {
   export type AdminCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     blocks_issued?: boolean | AdminCountOutputTypeCountBlocks_issuedArgs
     products_managed?: boolean | AdminCountOutputTypeCountProducts_managedArgs
-=======
-    blocksIssued: number
-    productsManaged: number
-  }
-
-  export type AdminCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    blocksIssued?: boolean | AdminCountOutputTypeCountBlocksIssuedArgs
-    productsManaged?: boolean | AdminCountOutputTypeCountProductsManagedArgs
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   // Custom InputTypes
@@ -2909,22 +2857,14 @@ export namespace Prisma {
   /**
    * AdminCountOutputType without action
    */
-<<<<<<< HEAD
   export type AdminCountOutputTypeCountBlocks_issuedArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-=======
-  export type AdminCountOutputTypeCountBlocksIssuedArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     where?: BlockWhereInput
   }
 
   /**
    * AdminCountOutputType without action
    */
-<<<<<<< HEAD
   export type AdminCountOutputTypeCountProducts_managedArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-=======
-  export type AdminCountOutputTypeCountProductsManagedArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     where?: ProductWhereInput
   }
 
@@ -2981,11 +2921,7 @@ export namespace Prisma {
     balance: number | null
     otp_id: number | null
     lang_id: number | null
-<<<<<<< HEAD
     currency_id: number | null
-=======
-    preferredCurrencyId: number | null
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type UserSumAggregateOutputType = {
@@ -2993,11 +2929,7 @@ export namespace Prisma {
     balance: number | null
     otp_id: bigint | null
     lang_id: bigint | null
-<<<<<<< HEAD
     currency_id: bigint | null
-=======
-    preferredCurrencyId: bigint | null
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type UserMinAggregateOutputType = {
@@ -3011,11 +2943,7 @@ export namespace Prisma {
     balance: number | null
     otp_id: bigint | null
     lang_id: bigint | null
-<<<<<<< HEAD
     currency_id: bigint | null
-=======
-    preferredCurrencyId: bigint | null
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type UserMaxAggregateOutputType = {
@@ -3029,11 +2957,7 @@ export namespace Prisma {
     balance: number | null
     otp_id: bigint | null
     lang_id: bigint | null
-<<<<<<< HEAD
     currency_id: bigint | null
-=======
-    preferredCurrencyId: bigint | null
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type UserCountAggregateOutputType = {
@@ -3047,11 +2971,7 @@ export namespace Prisma {
     balance: number
     otp_id: number
     lang_id: number
-<<<<<<< HEAD
     currency_id: number
-=======
-    preferredCurrencyId: number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     _all: number
   }
 
@@ -3061,11 +2981,7 @@ export namespace Prisma {
     balance?: true
     otp_id?: true
     lang_id?: true
-<<<<<<< HEAD
     currency_id?: true
-=======
-    preferredCurrencyId?: true
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type UserSumAggregateInputType = {
@@ -3073,11 +2989,7 @@ export namespace Prisma {
     balance?: true
     otp_id?: true
     lang_id?: true
-<<<<<<< HEAD
     currency_id?: true
-=======
-    preferredCurrencyId?: true
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type UserMinAggregateInputType = {
@@ -3091,11 +3003,7 @@ export namespace Prisma {
     balance?: true
     otp_id?: true
     lang_id?: true
-<<<<<<< HEAD
     currency_id?: true
-=======
-    preferredCurrencyId?: true
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type UserMaxAggregateInputType = {
@@ -3109,11 +3017,7 @@ export namespace Prisma {
     balance?: true
     otp_id?: true
     lang_id?: true
-<<<<<<< HEAD
     currency_id?: true
-=======
-    preferredCurrencyId?: true
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type UserCountAggregateInputType = {
@@ -3127,11 +3031,7 @@ export namespace Prisma {
     balance?: true
     otp_id?: true
     lang_id?: true
-<<<<<<< HEAD
     currency_id?: true
-=======
-    preferredCurrencyId?: true
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     _all?: true
   }
 
@@ -3225,7 +3125,6 @@ export namespace Prisma {
     id: bigint
     name: string
     surname: string
-<<<<<<< HEAD
     birth_date: Date | null
     phone: string
     avatar: string | null
@@ -3234,16 +3133,6 @@ export namespace Prisma {
     otp_id: bigint | null
     lang_id: bigint
     currency_id: bigint
-=======
-    birth_date: Date
-    phone: string
-    avatar: string
-    refresh_token: string
-    balance: number
-    otp_id: bigint
-    lang_id: bigint
-    preferredCurrencyId: bigint
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     _count: UserCountAggregateOutputType | null
     _avg: UserAvgAggregateOutputType | null
     _sum: UserSumAggregateOutputType | null
@@ -3276,7 +3165,6 @@ export namespace Prisma {
     balance?: boolean
     otp_id?: boolean
     lang_id?: boolean
-<<<<<<< HEAD
     currency_id?: boolean
     otp?: boolean | User$otpArgs<ExtArgs>
     language?: boolean | LanguageDefaultArgs<ExtArgs>
@@ -3284,15 +3172,6 @@ export namespace Prisma {
     emails?: boolean | User$emailsArgs<ExtArgs>
     additional_phones?: boolean | User$additional_phonesArgs<ExtArgs>
     favourite_items?: boolean | User$favourite_itemsArgs<ExtArgs>
-=======
-    preferredCurrencyId?: boolean
-    otp?: boolean | OTPDefaultArgs<ExtArgs>
-    language?: boolean | LanguageDefaultArgs<ExtArgs>
-    preferredCurrency?: boolean | CurrencyDefaultArgs<ExtArgs>
-    emails?: boolean | User$emailsArgs<ExtArgs>
-    additionalPhones?: boolean | User$additionalPhonesArgs<ExtArgs>
-    favouriteItems?: boolean | User$favouriteItemsArgs<ExtArgs>
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses?: boolean | User$addressesArgs<ExtArgs>
     products?: boolean | User$productsArgs<ExtArgs>
     comments?: boolean | User$commentsArgs<ExtArgs>
@@ -3312,17 +3191,10 @@ export namespace Prisma {
     balance?: boolean
     otp_id?: boolean
     lang_id?: boolean
-<<<<<<< HEAD
     currency_id?: boolean
     otp?: boolean | User$otpArgs<ExtArgs>
     language?: boolean | LanguageDefaultArgs<ExtArgs>
     currency?: boolean | CurrencyDefaultArgs<ExtArgs>
-=======
-    preferredCurrencyId?: boolean
-    otp?: boolean | OTPDefaultArgs<ExtArgs>
-    language?: boolean | LanguageDefaultArgs<ExtArgs>
-    preferredCurrency?: boolean | CurrencyDefaultArgs<ExtArgs>
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -3336,17 +3208,10 @@ export namespace Prisma {
     balance?: boolean
     otp_id?: boolean
     lang_id?: boolean
-<<<<<<< HEAD
     currency_id?: boolean
     otp?: boolean | User$otpArgs<ExtArgs>
     language?: boolean | LanguageDefaultArgs<ExtArgs>
     currency?: boolean | CurrencyDefaultArgs<ExtArgs>
-=======
-    preferredCurrencyId?: boolean
-    otp?: boolean | OTPDefaultArgs<ExtArgs>
-    language?: boolean | LanguageDefaultArgs<ExtArgs>
-    preferredCurrency?: boolean | CurrencyDefaultArgs<ExtArgs>
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectScalar = {
@@ -3360,7 +3225,6 @@ export namespace Prisma {
     balance?: boolean
     otp_id?: boolean
     lang_id?: boolean
-<<<<<<< HEAD
     currency_id?: boolean
   }
 
@@ -3372,19 +3236,6 @@ export namespace Prisma {
     emails?: boolean | User$emailsArgs<ExtArgs>
     additional_phones?: boolean | User$additional_phonesArgs<ExtArgs>
     favourite_items?: boolean | User$favourite_itemsArgs<ExtArgs>
-=======
-    preferredCurrencyId?: boolean
-  }
-
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "surname" | "birth_date" | "phone" | "avatar" | "refresh_token" | "balance" | "otp_id" | "lang_id" | "preferredCurrencyId", ExtArgs["result"]["user"]>
-  export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    otp?: boolean | OTPDefaultArgs<ExtArgs>
-    language?: boolean | LanguageDefaultArgs<ExtArgs>
-    preferredCurrency?: boolean | CurrencyDefaultArgs<ExtArgs>
-    emails?: boolean | User$emailsArgs<ExtArgs>
-    additionalPhones?: boolean | User$additionalPhonesArgs<ExtArgs>
-    favouriteItems?: boolean | User$favouriteItemsArgs<ExtArgs>
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses?: boolean | User$addressesArgs<ExtArgs>
     products?: boolean | User$productsArgs<ExtArgs>
     comments?: boolean | User$commentsArgs<ExtArgs>
@@ -3393,7 +3244,6 @@ export namespace Prisma {
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-<<<<<<< HEAD
     otp?: boolean | User$otpArgs<ExtArgs>
     language?: boolean | LanguageDefaultArgs<ExtArgs>
     currency?: boolean | CurrencyDefaultArgs<ExtArgs>
@@ -3402,36 +3252,17 @@ export namespace Prisma {
     otp?: boolean | User$otpArgs<ExtArgs>
     language?: boolean | LanguageDefaultArgs<ExtArgs>
     currency?: boolean | CurrencyDefaultArgs<ExtArgs>
-=======
-    otp?: boolean | OTPDefaultArgs<ExtArgs>
-    language?: boolean | LanguageDefaultArgs<ExtArgs>
-    preferredCurrency?: boolean | CurrencyDefaultArgs<ExtArgs>
-  }
-  export type UserIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    otp?: boolean | OTPDefaultArgs<ExtArgs>
-    language?: boolean | LanguageDefaultArgs<ExtArgs>
-    preferredCurrency?: boolean | CurrencyDefaultArgs<ExtArgs>
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "User"
     objects: {
-<<<<<<< HEAD
       otp: Prisma.$OTPPayload<ExtArgs> | null
       language: Prisma.$LanguagePayload<ExtArgs>
       currency: Prisma.$CurrencyPayload<ExtArgs>
       emails: Prisma.$EmailPayload<ExtArgs>[]
       additional_phones: Prisma.$PhonePayload<ExtArgs>[]
       favourite_items: Prisma.$FavouriteItemPayload<ExtArgs>[]
-=======
-      otp: Prisma.$OTPPayload<ExtArgs>
-      language: Prisma.$LanguagePayload<ExtArgs>
-      preferredCurrency: Prisma.$CurrencyPayload<ExtArgs>
-      emails: Prisma.$EmailPayload<ExtArgs>[]
-      additionalPhones: Prisma.$PhonePayload<ExtArgs>[]
-      favouriteItems: Prisma.$FavouriteItemPayload<ExtArgs>[]
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
       addresses: Prisma.$AddressPayload<ExtArgs>[]
       products: Prisma.$ProductPayload<ExtArgs>[]
       comments: Prisma.$CommentPayload<ExtArgs>[]
@@ -3442,7 +3273,6 @@ export namespace Prisma {
       id: bigint
       name: string
       surname: string
-<<<<<<< HEAD
       birth_date: Date | null
       phone: string
       avatar: string | null
@@ -3451,16 +3281,6 @@ export namespace Prisma {
       otp_id: bigint | null
       lang_id: bigint
       currency_id: bigint
-=======
-      birth_date: Date
-      phone: string
-      avatar: string
-      refresh_token: string
-      balance: number
-      otp_id: bigint
-      lang_id: bigint
-      preferredCurrencyId: bigint
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     }, ExtArgs["result"]["user"]>
     composites: {}
   }
@@ -3855,21 +3675,12 @@ export namespace Prisma {
    */
   export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-<<<<<<< HEAD
     otp<T extends User$otpArgs<ExtArgs> = {}>(args?: Subset<T, User$otpArgs<ExtArgs>>): Prisma__OTPClient<$Result.GetResult<Prisma.$OTPPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     language<T extends LanguageDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LanguageDefaultArgs<ExtArgs>>): Prisma__LanguageClient<$Result.GetResult<Prisma.$LanguagePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     currency<T extends CurrencyDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CurrencyDefaultArgs<ExtArgs>>): Prisma__CurrencyClient<$Result.GetResult<Prisma.$CurrencyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     emails<T extends User$emailsArgs<ExtArgs> = {}>(args?: Subset<T, User$emailsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmailPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     additional_phones<T extends User$additional_phonesArgs<ExtArgs> = {}>(args?: Subset<T, User$additional_phonesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PhonePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     favourite_items<T extends User$favourite_itemsArgs<ExtArgs> = {}>(args?: Subset<T, User$favourite_itemsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FavouriteItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-=======
-    otp<T extends OTPDefaultArgs<ExtArgs> = {}>(args?: Subset<T, OTPDefaultArgs<ExtArgs>>): Prisma__OTPClient<$Result.GetResult<Prisma.$OTPPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    language<T extends LanguageDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LanguageDefaultArgs<ExtArgs>>): Prisma__LanguageClient<$Result.GetResult<Prisma.$LanguagePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    preferredCurrency<T extends CurrencyDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CurrencyDefaultArgs<ExtArgs>>): Prisma__CurrencyClient<$Result.GetResult<Prisma.$CurrencyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    emails<T extends User$emailsArgs<ExtArgs> = {}>(args?: Subset<T, User$emailsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmailPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    additionalPhones<T extends User$additionalPhonesArgs<ExtArgs> = {}>(args?: Subset<T, User$additionalPhonesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PhonePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    favouriteItems<T extends User$favouriteItemsArgs<ExtArgs> = {}>(args?: Subset<T, User$favouriteItemsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FavouriteItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses<T extends User$addressesArgs<ExtArgs> = {}>(args?: Subset<T, User$addressesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AddressPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     products<T extends User$productsArgs<ExtArgs> = {}>(args?: Subset<T, User$productsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProductPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     comments<T extends User$commentsArgs<ExtArgs> = {}>(args?: Subset<T, User$commentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
@@ -3914,11 +3725,7 @@ export namespace Prisma {
     readonly balance: FieldRef<"User", 'Float'>
     readonly otp_id: FieldRef<"User", 'BigInt'>
     readonly lang_id: FieldRef<"User", 'BigInt'>
-<<<<<<< HEAD
     readonly currency_id: FieldRef<"User", 'BigInt'>
-=======
-    readonly preferredCurrencyId: FieldRef<"User", 'BigInt'>
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
     
 
@@ -4315,7 +4122,6 @@ export namespace Prisma {
   }
 
   /**
-<<<<<<< HEAD
    * User.otp
    */
   export type User$otpArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4335,8 +4141,6 @@ export namespace Prisma {
   }
 
   /**
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
    * User.emails
    */
   export type User$emailsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4361,15 +4165,9 @@ export namespace Prisma {
   }
 
   /**
-<<<<<<< HEAD
    * User.additional_phones
    */
   export type User$additional_phonesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-=======
-   * User.additionalPhones
-   */
-  export type User$additionalPhonesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     /**
      * Select specific fields to fetch from the Phone
      */
@@ -4391,15 +4189,9 @@ export namespace Prisma {
   }
 
   /**
-<<<<<<< HEAD
    * User.favourite_items
    */
   export type User$favourite_itemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-=======
-   * User.favouriteItems
-   */
-  export type User$favouriteItemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     /**
      * Select specific fields to fetch from the FavouriteItem
      */
@@ -7838,32 +7630,20 @@ export namespace Prisma {
 
   export type AddressAvgAggregateOutputType = {
     id: number | null
-<<<<<<< HEAD
     address_value: number | null
-=======
-    addressValue: number | null
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     user_id: number | null
   }
 
   export type AddressSumAggregateOutputType = {
     id: bigint | null
-<<<<<<< HEAD
     address_value: bigint | null
-=======
-    addressValue: bigint | null
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     user_id: bigint | null
   }
 
   export type AddressMinAggregateOutputType = {
     id: bigint | null
     name: string | null
-<<<<<<< HEAD
     address_value: bigint | null
-=======
-    addressValue: bigint | null
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     lat: string | null
     long: string | null
     user_id: bigint | null
@@ -7873,11 +7653,7 @@ export namespace Prisma {
   export type AddressMaxAggregateOutputType = {
     id: bigint | null
     name: string | null
-<<<<<<< HEAD
     address_value: bigint | null
-=======
-    addressValue: bigint | null
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     lat: string | null
     long: string | null
     user_id: bigint | null
@@ -7887,11 +7663,7 @@ export namespace Prisma {
   export type AddressCountAggregateOutputType = {
     id: number
     name: number
-<<<<<<< HEAD
     address_value: number
-=======
-    addressValue: number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     lat: number
     long: number
     user_id: number
@@ -7902,32 +7674,20 @@ export namespace Prisma {
 
   export type AddressAvgAggregateInputType = {
     id?: true
-<<<<<<< HEAD
     address_value?: true
-=======
-    addressValue?: true
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     user_id?: true
   }
 
   export type AddressSumAggregateInputType = {
     id?: true
-<<<<<<< HEAD
     address_value?: true
-=======
-    addressValue?: true
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     user_id?: true
   }
 
   export type AddressMinAggregateInputType = {
     id?: true
     name?: true
-<<<<<<< HEAD
     address_value?: true
-=======
-    addressValue?: true
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     lat?: true
     long?: true
     user_id?: true
@@ -7937,11 +7697,7 @@ export namespace Prisma {
   export type AddressMaxAggregateInputType = {
     id?: true
     name?: true
-<<<<<<< HEAD
     address_value?: true
-=======
-    addressValue?: true
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     lat?: true
     long?: true
     user_id?: true
@@ -7951,11 +7707,7 @@ export namespace Prisma {
   export type AddressCountAggregateInputType = {
     id?: true
     name?: true
-<<<<<<< HEAD
     address_value?: true
-=======
-    addressValue?: true
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     lat?: true
     long?: true
     user_id?: true
@@ -8052,11 +7804,7 @@ export namespace Prisma {
   export type AddressGroupByOutputType = {
     id: bigint
     name: string
-<<<<<<< HEAD
     address_value: bigint
-=======
-    addressValue: bigint
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     lat: string
     long: string
     user_id: bigint
@@ -8085,11 +7833,7 @@ export namespace Prisma {
   export type AddressSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
-<<<<<<< HEAD
     address_value?: boolean
-=======
-    addressValue?: boolean
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     lat?: boolean
     long?: boolean
     user_id?: boolean
@@ -8102,11 +7846,7 @@ export namespace Prisma {
   export type AddressSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
-<<<<<<< HEAD
     address_value?: boolean
-=======
-    addressValue?: boolean
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     lat?: boolean
     long?: boolean
     user_id?: boolean
@@ -8117,11 +7857,7 @@ export namespace Prisma {
   export type AddressSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
-<<<<<<< HEAD
     address_value?: boolean
-=======
-    addressValue?: boolean
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     lat?: boolean
     long?: boolean
     user_id?: boolean
@@ -8132,22 +7868,14 @@ export namespace Prisma {
   export type AddressSelectScalar = {
     id?: boolean
     name?: boolean
-<<<<<<< HEAD
     address_value?: boolean
-=======
-    addressValue?: boolean
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     lat?: boolean
     long?: boolean
     user_id?: boolean
     is_active?: boolean
   }
 
-<<<<<<< HEAD
   export type AddressOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "address_value" | "lat" | "long" | "user_id" | "is_active", ExtArgs["result"]["address"]>
-=======
-  export type AddressOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "addressValue" | "lat" | "long" | "user_id" | "is_active", ExtArgs["result"]["address"]>
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   export type AddressInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
     products?: boolean | Address$productsArgs<ExtArgs>
@@ -8169,11 +7897,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: bigint
       name: string
-<<<<<<< HEAD
       address_value: bigint
-=======
-      addressValue: bigint
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
       lat: string
       long: string
       user_id: bigint
@@ -8605,11 +8329,7 @@ export namespace Prisma {
   interface AddressFieldRefs {
     readonly id: FieldRef<"Address", 'BigInt'>
     readonly name: FieldRef<"Address", 'String'>
-<<<<<<< HEAD
     readonly address_value: FieldRef<"Address", 'BigInt'>
-=======
-    readonly addressValue: FieldRef<"Address", 'BigInt'>
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     readonly lat: FieldRef<"Address", 'String'>
     readonly long: FieldRef<"Address", 'String'>
     readonly user_id: FieldRef<"Address", 'BigInt'>
@@ -9075,28 +8795,19 @@ export namespace Prisma {
   export type LanguageMinAggregateOutputType = {
     id: bigint | null
     name: string | null
-<<<<<<< HEAD
     flag_url: string | null
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type LanguageMaxAggregateOutputType = {
     id: bigint | null
     name: string | null
-<<<<<<< HEAD
     flag_url: string | null
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type LanguageCountAggregateOutputType = {
     id: number
     name: number
-<<<<<<< HEAD
     flag_url: number
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     _all: number
   }
 
@@ -9112,28 +8823,19 @@ export namespace Prisma {
   export type LanguageMinAggregateInputType = {
     id?: true
     name?: true
-<<<<<<< HEAD
     flag_url?: true
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type LanguageMaxAggregateInputType = {
     id?: true
     name?: true
-<<<<<<< HEAD
     flag_url?: true
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type LanguageCountAggregateInputType = {
     id?: true
     name?: true
-<<<<<<< HEAD
     flag_url?: true
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     _all?: true
   }
 
@@ -9226,10 +8928,7 @@ export namespace Prisma {
   export type LanguageGroupByOutputType = {
     id: bigint
     name: string
-<<<<<<< HEAD
     flag_url: string
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     _count: LanguageCountAggregateOutputType | null
     _avg: LanguageAvgAggregateOutputType | null
     _sum: LanguageSumAggregateOutputType | null
@@ -9254,10 +8953,7 @@ export namespace Prisma {
   export type LanguageSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
-<<<<<<< HEAD
     flag_url?: boolean
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     users?: boolean | Language$usersArgs<ExtArgs>
     admins?: boolean | Language$adminsArgs<ExtArgs>
     _count?: boolean | LanguageCountOutputTypeDefaultArgs<ExtArgs>
@@ -9266,34 +8962,22 @@ export namespace Prisma {
   export type LanguageSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
-<<<<<<< HEAD
     flag_url?: boolean
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }, ExtArgs["result"]["language"]>
 
   export type LanguageSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
-<<<<<<< HEAD
     flag_url?: boolean
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }, ExtArgs["result"]["language"]>
 
   export type LanguageSelectScalar = {
     id?: boolean
     name?: boolean
-<<<<<<< HEAD
     flag_url?: boolean
   }
 
   export type LanguageOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "flag_url", ExtArgs["result"]["language"]>
-=======
-  }
-
-  export type LanguageOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name", ExtArgs["result"]["language"]>
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   export type LanguageInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     users?: boolean | Language$usersArgs<ExtArgs>
     admins?: boolean | Language$adminsArgs<ExtArgs>
@@ -9311,10 +8995,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: bigint
       name: string
-<<<<<<< HEAD
       flag_url: string
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     }, ExtArgs["result"]["language"]>
     composites: {}
   }
@@ -9742,10 +9423,7 @@ export namespace Prisma {
   interface LanguageFieldRefs {
     readonly id: FieldRef<"Language", 'BigInt'>
     readonly name: FieldRef<"Language", 'String'>
-<<<<<<< HEAD
     readonly flag_url: FieldRef<"Language", 'String'>
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
     
 
@@ -11625,15 +11303,9 @@ export namespace Prisma {
     title: string
     description: string
     year: number
-<<<<<<< HEAD
     brand_id: bigint | null
     model_id: bigint | null
     custom_model: string | null
-=======
-    brand_id: bigint
-    model_id: bigint
-    custom_model: string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     color_id: bigint
     price: number
     floor_price: boolean
@@ -11648,15 +11320,9 @@ export namespace Prisma {
     is_archived: boolean
     is_sold: boolean
     is_checked: boolean
-<<<<<<< HEAD
     admin_id: bigint | null
     is_top: boolean
     top_expire_date: Date | null
-=======
-    admin_id: bigint
-    is_top: boolean
-    top_expire_date: Date
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     _count: ProductCountAggregateOutputType | null
     _avg: ProductAvgAggregateOutputType | null
     _sum: ProductSumAggregateOutputType | null
@@ -11705,7 +11371,6 @@ export namespace Prisma {
     is_top?: boolean
     top_expire_date?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
-<<<<<<< HEAD
     brand?: boolean | Product$brandArgs<ExtArgs>
     model?: boolean | Product$modelArgs<ExtArgs>
     color?: boolean | ColorDefaultArgs<ExtArgs>
@@ -11715,17 +11380,6 @@ export namespace Prisma {
     admin?: boolean | Product$adminArgs<ExtArgs>
     images?: boolean | Product$imagesArgs<ExtArgs>
     favourited_by?: boolean | Product$favourited_byArgs<ExtArgs>
-=======
-    brand?: boolean | BrandDefaultArgs<ExtArgs>
-    model?: boolean | ModelDefaultArgs<ExtArgs>
-    color?: boolean | ColorDefaultArgs<ExtArgs>
-    currency?: boolean | CurrencyDefaultArgs<ExtArgs>
-    address?: boolean | AddressDefaultArgs<ExtArgs>
-    contactPhone?: boolean | PhoneDefaultArgs<ExtArgs>
-    admin?: boolean | AdminDefaultArgs<ExtArgs>
-    images?: boolean | Product$imagesArgs<ExtArgs>
-    favouritedBy?: boolean | Product$favouritedByArgs<ExtArgs>
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     comments?: boolean | Product$commentsArgs<ExtArgs>
     _count?: boolean | ProductCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["product"]>
@@ -11757,7 +11411,6 @@ export namespace Prisma {
     is_top?: boolean
     top_expire_date?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
-<<<<<<< HEAD
     brand?: boolean | Product$brandArgs<ExtArgs>
     model?: boolean | Product$modelArgs<ExtArgs>
     color?: boolean | ColorDefaultArgs<ExtArgs>
@@ -11765,15 +11418,6 @@ export namespace Prisma {
     address?: boolean | AddressDefaultArgs<ExtArgs>
     contact_phone?: boolean | PhoneDefaultArgs<ExtArgs>
     admin?: boolean | Product$adminArgs<ExtArgs>
-=======
-    brand?: boolean | BrandDefaultArgs<ExtArgs>
-    model?: boolean | ModelDefaultArgs<ExtArgs>
-    color?: boolean | ColorDefaultArgs<ExtArgs>
-    currency?: boolean | CurrencyDefaultArgs<ExtArgs>
-    address?: boolean | AddressDefaultArgs<ExtArgs>
-    contactPhone?: boolean | PhoneDefaultArgs<ExtArgs>
-    admin?: boolean | AdminDefaultArgs<ExtArgs>
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }, ExtArgs["result"]["product"]>
 
   export type ProductSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -11803,7 +11447,6 @@ export namespace Prisma {
     is_top?: boolean
     top_expire_date?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
-<<<<<<< HEAD
     brand?: boolean | Product$brandArgs<ExtArgs>
     model?: boolean | Product$modelArgs<ExtArgs>
     color?: boolean | ColorDefaultArgs<ExtArgs>
@@ -11811,15 +11454,6 @@ export namespace Prisma {
     address?: boolean | AddressDefaultArgs<ExtArgs>
     contact_phone?: boolean | PhoneDefaultArgs<ExtArgs>
     admin?: boolean | Product$adminArgs<ExtArgs>
-=======
-    brand?: boolean | BrandDefaultArgs<ExtArgs>
-    model?: boolean | ModelDefaultArgs<ExtArgs>
-    color?: boolean | ColorDefaultArgs<ExtArgs>
-    currency?: boolean | CurrencyDefaultArgs<ExtArgs>
-    address?: boolean | AddressDefaultArgs<ExtArgs>
-    contactPhone?: boolean | PhoneDefaultArgs<ExtArgs>
-    admin?: boolean | AdminDefaultArgs<ExtArgs>
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }, ExtArgs["result"]["product"]>
 
   export type ProductSelectScalar = {
@@ -11853,7 +11487,6 @@ export namespace Prisma {
   export type ProductOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "user_id" | "title" | "description" | "year" | "brand_id" | "model_id" | "custom_model" | "color_id" | "price" | "floor_price" | "currency_id" | "is_new" | "has_document" | "address_id" | "phone_id" | "storage" | "ram" | "views" | "is_archived" | "is_sold" | "is_checked" | "admin_id" | "is_top" | "top_expire_date", ExtArgs["result"]["product"]>
   export type ProductInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
-<<<<<<< HEAD
     brand?: boolean | Product$brandArgs<ExtArgs>
     model?: boolean | Product$modelArgs<ExtArgs>
     color?: boolean | ColorDefaultArgs<ExtArgs>
@@ -11863,23 +11496,11 @@ export namespace Prisma {
     admin?: boolean | Product$adminArgs<ExtArgs>
     images?: boolean | Product$imagesArgs<ExtArgs>
     favourited_by?: boolean | Product$favourited_byArgs<ExtArgs>
-=======
-    brand?: boolean | BrandDefaultArgs<ExtArgs>
-    model?: boolean | ModelDefaultArgs<ExtArgs>
-    color?: boolean | ColorDefaultArgs<ExtArgs>
-    currency?: boolean | CurrencyDefaultArgs<ExtArgs>
-    address?: boolean | AddressDefaultArgs<ExtArgs>
-    contactPhone?: boolean | PhoneDefaultArgs<ExtArgs>
-    admin?: boolean | AdminDefaultArgs<ExtArgs>
-    images?: boolean | Product$imagesArgs<ExtArgs>
-    favouritedBy?: boolean | Product$favouritedByArgs<ExtArgs>
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     comments?: boolean | Product$commentsArgs<ExtArgs>
     _count?: boolean | ProductCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type ProductIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
-<<<<<<< HEAD
     brand?: boolean | Product$brandArgs<ExtArgs>
     model?: boolean | Product$modelArgs<ExtArgs>
     color?: boolean | ColorDefaultArgs<ExtArgs>
@@ -11897,32 +11518,12 @@ export namespace Prisma {
     address?: boolean | AddressDefaultArgs<ExtArgs>
     contact_phone?: boolean | PhoneDefaultArgs<ExtArgs>
     admin?: boolean | Product$adminArgs<ExtArgs>
-=======
-    brand?: boolean | BrandDefaultArgs<ExtArgs>
-    model?: boolean | ModelDefaultArgs<ExtArgs>
-    color?: boolean | ColorDefaultArgs<ExtArgs>
-    currency?: boolean | CurrencyDefaultArgs<ExtArgs>
-    address?: boolean | AddressDefaultArgs<ExtArgs>
-    contactPhone?: boolean | PhoneDefaultArgs<ExtArgs>
-    admin?: boolean | AdminDefaultArgs<ExtArgs>
-  }
-  export type ProductIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
-    brand?: boolean | BrandDefaultArgs<ExtArgs>
-    model?: boolean | ModelDefaultArgs<ExtArgs>
-    color?: boolean | ColorDefaultArgs<ExtArgs>
-    currency?: boolean | CurrencyDefaultArgs<ExtArgs>
-    address?: boolean | AddressDefaultArgs<ExtArgs>
-    contactPhone?: boolean | PhoneDefaultArgs<ExtArgs>
-    admin?: boolean | AdminDefaultArgs<ExtArgs>
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type $ProductPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Product"
     objects: {
       user: Prisma.$UserPayload<ExtArgs>
-<<<<<<< HEAD
       brand: Prisma.$BrandPayload<ExtArgs> | null
       model: Prisma.$ModelPayload<ExtArgs> | null
       color: Prisma.$ColorPayload<ExtArgs>
@@ -11932,17 +11533,6 @@ export namespace Prisma {
       admin: Prisma.$AdminPayload<ExtArgs> | null
       images: Prisma.$ProductImagePayload<ExtArgs>[]
       favourited_by: Prisma.$FavouriteItemPayload<ExtArgs>[]
-=======
-      brand: Prisma.$BrandPayload<ExtArgs>
-      model: Prisma.$ModelPayload<ExtArgs>
-      color: Prisma.$ColorPayload<ExtArgs>
-      currency: Prisma.$CurrencyPayload<ExtArgs>
-      address: Prisma.$AddressPayload<ExtArgs>
-      contactPhone: Prisma.$PhonePayload<ExtArgs>
-      admin: Prisma.$AdminPayload<ExtArgs>
-      images: Prisma.$ProductImagePayload<ExtArgs>[]
-      favouritedBy: Prisma.$FavouriteItemPayload<ExtArgs>[]
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
       comments: Prisma.$CommentPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
@@ -11951,15 +11541,9 @@ export namespace Prisma {
       title: string
       description: string
       year: number
-<<<<<<< HEAD
       brand_id: bigint | null
       model_id: bigint | null
       custom_model: string | null
-=======
-      brand_id: bigint
-      model_id: bigint
-      custom_model: string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
       color_id: bigint
       price: number
       floor_price: boolean
@@ -11974,15 +11558,9 @@ export namespace Prisma {
       is_archived: boolean
       is_sold: boolean
       is_checked: boolean
-<<<<<<< HEAD
       admin_id: bigint | null
       is_top: boolean
       top_expire_date: Date | null
-=======
-      admin_id: bigint
-      is_top: boolean
-      top_expire_date: Date
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     }, ExtArgs["result"]["product"]>
     composites: {}
   }
@@ -12378,7 +11956,6 @@ export namespace Prisma {
   export interface Prisma__ProductClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-<<<<<<< HEAD
     brand<T extends Product$brandArgs<ExtArgs> = {}>(args?: Subset<T, Product$brandArgs<ExtArgs>>): Prisma__BrandClient<$Result.GetResult<Prisma.$BrandPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     model<T extends Product$modelArgs<ExtArgs> = {}>(args?: Subset<T, Product$modelArgs<ExtArgs>>): Prisma__ModelClient<$Result.GetResult<Prisma.$ModelPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     color<T extends ColorDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ColorDefaultArgs<ExtArgs>>): Prisma__ColorClient<$Result.GetResult<Prisma.$ColorPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
@@ -12388,17 +11965,6 @@ export namespace Prisma {
     admin<T extends Product$adminArgs<ExtArgs> = {}>(args?: Subset<T, Product$adminArgs<ExtArgs>>): Prisma__AdminClient<$Result.GetResult<Prisma.$AdminPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     images<T extends Product$imagesArgs<ExtArgs> = {}>(args?: Subset<T, Product$imagesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProductImagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     favourited_by<T extends Product$favourited_byArgs<ExtArgs> = {}>(args?: Subset<T, Product$favourited_byArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FavouriteItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-=======
-    brand<T extends BrandDefaultArgs<ExtArgs> = {}>(args?: Subset<T, BrandDefaultArgs<ExtArgs>>): Prisma__BrandClient<$Result.GetResult<Prisma.$BrandPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    model<T extends ModelDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ModelDefaultArgs<ExtArgs>>): Prisma__ModelClient<$Result.GetResult<Prisma.$ModelPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    color<T extends ColorDefaultArgs<ExtArgs> = {}>(args?: Subset<T, ColorDefaultArgs<ExtArgs>>): Prisma__ColorClient<$Result.GetResult<Prisma.$ColorPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    currency<T extends CurrencyDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CurrencyDefaultArgs<ExtArgs>>): Prisma__CurrencyClient<$Result.GetResult<Prisma.$CurrencyPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    address<T extends AddressDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AddressDefaultArgs<ExtArgs>>): Prisma__AddressClient<$Result.GetResult<Prisma.$AddressPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    contactPhone<T extends PhoneDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PhoneDefaultArgs<ExtArgs>>): Prisma__PhoneClient<$Result.GetResult<Prisma.$PhonePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    admin<T extends AdminDefaultArgs<ExtArgs> = {}>(args?: Subset<T, AdminDefaultArgs<ExtArgs>>): Prisma__AdminClient<$Result.GetResult<Prisma.$AdminPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    images<T extends Product$imagesArgs<ExtArgs> = {}>(args?: Subset<T, Product$imagesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProductImagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    favouritedBy<T extends Product$favouritedByArgs<ExtArgs> = {}>(args?: Subset<T, Product$favouritedByArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FavouriteItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     comments<T extends Product$commentsArgs<ExtArgs> = {}>(args?: Subset<T, Product$commentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -12850,7 +12416,6 @@ export namespace Prisma {
   }
 
   /**
-<<<<<<< HEAD
    * Product.brand
    */
   export type Product$brandArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -12908,8 +12473,6 @@ export namespace Prisma {
   }
 
   /**
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
    * Product.images
    */
   export type Product$imagesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -12934,15 +12497,9 @@ export namespace Prisma {
   }
 
   /**
-<<<<<<< HEAD
    * Product.favourited_by
    */
   export type Product$favourited_byArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-=======
-   * Product.favouritedBy
-   */
-  export type Product$favouritedByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     /**
      * Select specific fields to fetch from the FavouriteItem
      */
@@ -16318,28 +15875,19 @@ export namespace Prisma {
   export type ColorMinAggregateOutputType = {
     id: bigint | null
     name: string | null
-<<<<<<< HEAD
     hex: string | null
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type ColorMaxAggregateOutputType = {
     id: bigint | null
     name: string | null
-<<<<<<< HEAD
     hex: string | null
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type ColorCountAggregateOutputType = {
     id: number
     name: number
-<<<<<<< HEAD
     hex: number
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     _all: number
   }
 
@@ -16355,28 +15903,19 @@ export namespace Prisma {
   export type ColorMinAggregateInputType = {
     id?: true
     name?: true
-<<<<<<< HEAD
     hex?: true
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type ColorMaxAggregateInputType = {
     id?: true
     name?: true
-<<<<<<< HEAD
     hex?: true
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type ColorCountAggregateInputType = {
     id?: true
     name?: true
-<<<<<<< HEAD
     hex?: true
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     _all?: true
   }
 
@@ -16469,10 +16008,7 @@ export namespace Prisma {
   export type ColorGroupByOutputType = {
     id: bigint
     name: string
-<<<<<<< HEAD
     hex: string
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     _count: ColorCountAggregateOutputType | null
     _avg: ColorAvgAggregateOutputType | null
     _sum: ColorSumAggregateOutputType | null
@@ -16497,10 +16033,7 @@ export namespace Prisma {
   export type ColorSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
-<<<<<<< HEAD
     hex?: boolean
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     products?: boolean | Color$productsArgs<ExtArgs>
     _count?: boolean | ColorCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["color"]>
@@ -16508,34 +16041,22 @@ export namespace Prisma {
   export type ColorSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
-<<<<<<< HEAD
     hex?: boolean
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }, ExtArgs["result"]["color"]>
 
   export type ColorSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
-<<<<<<< HEAD
     hex?: boolean
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }, ExtArgs["result"]["color"]>
 
   export type ColorSelectScalar = {
     id?: boolean
     name?: boolean
-<<<<<<< HEAD
     hex?: boolean
   }
 
   export type ColorOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "hex", ExtArgs["result"]["color"]>
-=======
-  }
-
-  export type ColorOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name", ExtArgs["result"]["color"]>
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   export type ColorInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     products?: boolean | Color$productsArgs<ExtArgs>
     _count?: boolean | ColorCountOutputTypeDefaultArgs<ExtArgs>
@@ -16551,10 +16072,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: bigint
       name: string
-<<<<<<< HEAD
       hex: string
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     }, ExtArgs["result"]["color"]>
     composites: {}
   }
@@ -16981,10 +16499,7 @@ export namespace Prisma {
   interface ColorFieldRefs {
     readonly id: FieldRef<"Color", 'BigInt'>
     readonly name: FieldRef<"Color", 'String'>
-<<<<<<< HEAD
     readonly hex: FieldRef<"Color", 'String'>
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
     
 
@@ -17597,11 +17112,7 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     symbol?: boolean
-<<<<<<< HEAD
     user_preferences?: boolean | Currency$user_preferencesArgs<ExtArgs>
-=======
-    userPreferences?: boolean | Currency$userPreferencesArgs<ExtArgs>
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     products?: boolean | Currency$productsArgs<ExtArgs>
     _count?: boolean | CurrencyCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["currency"]>
@@ -17626,11 +17137,7 @@ export namespace Prisma {
 
   export type CurrencyOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "symbol", ExtArgs["result"]["currency"]>
   export type CurrencyInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-<<<<<<< HEAD
     user_preferences?: boolean | Currency$user_preferencesArgs<ExtArgs>
-=======
-    userPreferences?: boolean | Currency$userPreferencesArgs<ExtArgs>
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     products?: boolean | Currency$productsArgs<ExtArgs>
     _count?: boolean | CurrencyCountOutputTypeDefaultArgs<ExtArgs>
   }
@@ -17640,11 +17147,7 @@ export namespace Prisma {
   export type $CurrencyPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Currency"
     objects: {
-<<<<<<< HEAD
       user_preferences: Prisma.$UserPayload<ExtArgs>[]
-=======
-      userPreferences: Prisma.$UserPayload<ExtArgs>[]
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
       products: Prisma.$ProductPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
@@ -18045,11 +17548,7 @@ export namespace Prisma {
    */
   export interface Prisma__CurrencyClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-<<<<<<< HEAD
     user_preferences<T extends Currency$user_preferencesArgs<ExtArgs> = {}>(args?: Subset<T, Currency$user_preferencesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-=======
-    userPreferences<T extends Currency$userPreferencesArgs<ExtArgs> = {}>(args?: Subset<T, Currency$userPreferencesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     products<T extends Currency$productsArgs<ExtArgs> = {}>(args?: Subset<T, Currency$productsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProductPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -18471,15 +17970,9 @@ export namespace Prisma {
   }
 
   /**
-<<<<<<< HEAD
    * Currency.user_preferences
    */
   export type Currency$user_preferencesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-=======
-   * Currency.userPreferences
-   */
-  export type Currency$userPreferencesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     /**
      * Select specific fields to fetch from the User
      */
@@ -18749,13 +18242,8 @@ export namespace Prisma {
     birth_date: Date
     phone: string
     password: string
-<<<<<<< HEAD
     avatar: string | null
     refresh_token: string | null
-=======
-    avatar: string
-    refresh_token: string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     lang_id: bigint
     is_creator: boolean
     _count: AdminCountAggregateOutputType | null
@@ -18791,13 +18279,8 @@ export namespace Prisma {
     lang_id?: boolean
     is_creator?: boolean
     language?: boolean | LanguageDefaultArgs<ExtArgs>
-<<<<<<< HEAD
     blocks_issued?: boolean | Admin$blocks_issuedArgs<ExtArgs>
     products_managed?: boolean | Admin$products_managedArgs<ExtArgs>
-=======
-    blocksIssued?: boolean | Admin$blocksIssuedArgs<ExtArgs>
-    productsManaged?: boolean | Admin$productsManagedArgs<ExtArgs>
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     _count?: boolean | AdminCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["admin"]>
 
@@ -18845,13 +18328,8 @@ export namespace Prisma {
   export type AdminOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "surname" | "birth_date" | "phone" | "password" | "avatar" | "refresh_token" | "lang_id" | "is_creator", ExtArgs["result"]["admin"]>
   export type AdminInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     language?: boolean | LanguageDefaultArgs<ExtArgs>
-<<<<<<< HEAD
     blocks_issued?: boolean | Admin$blocks_issuedArgs<ExtArgs>
     products_managed?: boolean | Admin$products_managedArgs<ExtArgs>
-=======
-    blocksIssued?: boolean | Admin$blocksIssuedArgs<ExtArgs>
-    productsManaged?: boolean | Admin$productsManagedArgs<ExtArgs>
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     _count?: boolean | AdminCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type AdminIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -18865,13 +18343,8 @@ export namespace Prisma {
     name: "Admin"
     objects: {
       language: Prisma.$LanguagePayload<ExtArgs>
-<<<<<<< HEAD
       blocks_issued: Prisma.$BlockPayload<ExtArgs>[]
       products_managed: Prisma.$ProductPayload<ExtArgs>[]
-=======
-      blocksIssued: Prisma.$BlockPayload<ExtArgs>[]
-      productsManaged: Prisma.$ProductPayload<ExtArgs>[]
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     }
     scalars: $Extensions.GetPayloadResult<{
       id: bigint
@@ -18880,13 +18353,8 @@ export namespace Prisma {
       birth_date: Date
       phone: string
       password: string
-<<<<<<< HEAD
       avatar: string | null
       refresh_token: string | null
-=======
-      avatar: string
-      refresh_token: string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
       lang_id: bigint
       is_creator: boolean
     }, ExtArgs["result"]["admin"]>
@@ -19284,13 +18752,8 @@ export namespace Prisma {
   export interface Prisma__AdminClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     language<T extends LanguageDefaultArgs<ExtArgs> = {}>(args?: Subset<T, LanguageDefaultArgs<ExtArgs>>): Prisma__LanguageClient<$Result.GetResult<Prisma.$LanguagePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-<<<<<<< HEAD
     blocks_issued<T extends Admin$blocks_issuedArgs<ExtArgs> = {}>(args?: Subset<T, Admin$blocks_issuedArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BlockPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     products_managed<T extends Admin$products_managedArgs<ExtArgs> = {}>(args?: Subset<T, Admin$products_managedArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProductPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-=======
-    blocksIssued<T extends Admin$blocksIssuedArgs<ExtArgs> = {}>(args?: Subset<T, Admin$blocksIssuedArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BlockPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    productsManaged<T extends Admin$productsManagedArgs<ExtArgs> = {}>(args?: Subset<T, Admin$productsManagedArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProductPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -19726,15 +19189,9 @@ export namespace Prisma {
   }
 
   /**
-<<<<<<< HEAD
    * Admin.blocks_issued
    */
   export type Admin$blocks_issuedArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-=======
-   * Admin.blocksIssued
-   */
-  export type Admin$blocksIssuedArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     /**
      * Select specific fields to fetch from the Block
      */
@@ -19756,15 +19213,9 @@ export namespace Prisma {
   }
 
   /**
-<<<<<<< HEAD
    * Admin.products_managed
    */
   export type Admin$products_managedArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-=======
-   * Admin.productsManaged
-   */
-  export type Admin$productsManagedArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     /**
      * Select specific fields to fetch from the Product
      */
@@ -19833,11 +19284,7 @@ export namespace Prisma {
     user_id: bigint | null
     admin_id: bigint | null
     reason: string | null
-<<<<<<< HEAD
     expire_date: Date | null
-=======
-    expireDate: Date | null
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type BlockMaxAggregateOutputType = {
@@ -19845,11 +19292,7 @@ export namespace Prisma {
     user_id: bigint | null
     admin_id: bigint | null
     reason: string | null
-<<<<<<< HEAD
     expire_date: Date | null
-=======
-    expireDate: Date | null
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type BlockCountAggregateOutputType = {
@@ -19857,11 +19300,7 @@ export namespace Prisma {
     user_id: number
     admin_id: number
     reason: number
-<<<<<<< HEAD
     expire_date: number
-=======
-    expireDate: number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     _all: number
   }
 
@@ -19883,11 +19322,7 @@ export namespace Prisma {
     user_id?: true
     admin_id?: true
     reason?: true
-<<<<<<< HEAD
     expire_date?: true
-=======
-    expireDate?: true
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type BlockMaxAggregateInputType = {
@@ -19895,11 +19330,7 @@ export namespace Prisma {
     user_id?: true
     admin_id?: true
     reason?: true
-<<<<<<< HEAD
     expire_date?: true
-=======
-    expireDate?: true
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type BlockCountAggregateInputType = {
@@ -19907,11 +19338,7 @@ export namespace Prisma {
     user_id?: true
     admin_id?: true
     reason?: true
-<<<<<<< HEAD
     expire_date?: true
-=======
-    expireDate?: true
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     _all?: true
   }
 
@@ -20006,11 +19433,7 @@ export namespace Prisma {
     user_id: bigint
     admin_id: bigint
     reason: string
-<<<<<<< HEAD
     expire_date: Date
-=======
-    expireDate: Date
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     _count: BlockCountAggregateOutputType | null
     _avg: BlockAvgAggregateOutputType | null
     _sum: BlockSumAggregateOutputType | null
@@ -20037,11 +19460,7 @@ export namespace Prisma {
     user_id?: boolean
     admin_id?: boolean
     reason?: boolean
-<<<<<<< HEAD
     expire_date?: boolean
-=======
-    expireDate?: boolean
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     user?: boolean | UserDefaultArgs<ExtArgs>
     admin?: boolean | AdminDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["block"]>
@@ -20051,11 +19470,7 @@ export namespace Prisma {
     user_id?: boolean
     admin_id?: boolean
     reason?: boolean
-<<<<<<< HEAD
     expire_date?: boolean
-=======
-    expireDate?: boolean
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     user?: boolean | UserDefaultArgs<ExtArgs>
     admin?: boolean | AdminDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["block"]>
@@ -20065,11 +19480,7 @@ export namespace Prisma {
     user_id?: boolean
     admin_id?: boolean
     reason?: boolean
-<<<<<<< HEAD
     expire_date?: boolean
-=======
-    expireDate?: boolean
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     user?: boolean | UserDefaultArgs<ExtArgs>
     admin?: boolean | AdminDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["block"]>
@@ -20079,17 +19490,10 @@ export namespace Prisma {
     user_id?: boolean
     admin_id?: boolean
     reason?: boolean
-<<<<<<< HEAD
     expire_date?: boolean
   }
 
   export type BlockOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "user_id" | "admin_id" | "reason" | "expire_date", ExtArgs["result"]["block"]>
-=======
-    expireDate?: boolean
-  }
-
-  export type BlockOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "user_id" | "admin_id" | "reason" | "expireDate", ExtArgs["result"]["block"]>
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   export type BlockInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
     admin?: boolean | AdminDefaultArgs<ExtArgs>
@@ -20114,11 +19518,7 @@ export namespace Prisma {
       user_id: bigint
       admin_id: bigint
       reason: string
-<<<<<<< HEAD
       expire_date: Date
-=======
-      expireDate: Date
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     }, ExtArgs["result"]["block"]>
     composites: {}
   }
@@ -20548,11 +19948,7 @@ export namespace Prisma {
     readonly user_id: FieldRef<"Block", 'BigInt'>
     readonly admin_id: FieldRef<"Block", 'BigInt'>
     readonly reason: FieldRef<"Block", 'String'>
-<<<<<<< HEAD
     readonly expire_date: FieldRef<"Block", 'DateTime'>
-=======
-    readonly expireDate: FieldRef<"Block", 'DateTime'>
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
     
 
@@ -21170,11 +20566,7 @@ export namespace Prisma {
     amount?: boolean
     payment_method_id?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
-<<<<<<< HEAD
     payment_method?: boolean | PaymentMethodDefaultArgs<ExtArgs>
-=======
-    paymentMethod?: boolean | PaymentMethodDefaultArgs<ExtArgs>
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }, ExtArgs["result"]["payment"]>
 
   export type PaymentSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -21183,11 +20575,7 @@ export namespace Prisma {
     amount?: boolean
     payment_method_id?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
-<<<<<<< HEAD
     payment_method?: boolean | PaymentMethodDefaultArgs<ExtArgs>
-=======
-    paymentMethod?: boolean | PaymentMethodDefaultArgs<ExtArgs>
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }, ExtArgs["result"]["payment"]>
 
   export type PaymentSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -21196,11 +20584,7 @@ export namespace Prisma {
     amount?: boolean
     payment_method_id?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
-<<<<<<< HEAD
     payment_method?: boolean | PaymentMethodDefaultArgs<ExtArgs>
-=======
-    paymentMethod?: boolean | PaymentMethodDefaultArgs<ExtArgs>
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }, ExtArgs["result"]["payment"]>
 
   export type PaymentSelectScalar = {
@@ -21213,7 +20597,6 @@ export namespace Prisma {
   export type PaymentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "user_id" | "amount" | "payment_method_id", ExtArgs["result"]["payment"]>
   export type PaymentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
-<<<<<<< HEAD
     payment_method?: boolean | PaymentMethodDefaultArgs<ExtArgs>
   }
   export type PaymentIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -21223,28 +20606,13 @@ export namespace Prisma {
   export type PaymentIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
     payment_method?: boolean | PaymentMethodDefaultArgs<ExtArgs>
-=======
-    paymentMethod?: boolean | PaymentMethodDefaultArgs<ExtArgs>
-  }
-  export type PaymentIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
-    paymentMethod?: boolean | PaymentMethodDefaultArgs<ExtArgs>
-  }
-  export type PaymentIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
-    paymentMethod?: boolean | PaymentMethodDefaultArgs<ExtArgs>
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type $PaymentPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Payment"
     objects: {
       user: Prisma.$UserPayload<ExtArgs>
-<<<<<<< HEAD
       payment_method: Prisma.$PaymentMethodPayload<ExtArgs>
-=======
-      paymentMethod: Prisma.$PaymentMethodPayload<ExtArgs>
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     }
     scalars: $Extensions.GetPayloadResult<{
       id: bigint
@@ -21646,11 +21014,7 @@ export namespace Prisma {
   export interface Prisma__PaymentClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-<<<<<<< HEAD
     payment_method<T extends PaymentMethodDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PaymentMethodDefaultArgs<ExtArgs>>): Prisma__PaymentMethodClient<$Result.GetResult<Prisma.$PaymentMethodPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-=======
-    paymentMethod<T extends PaymentMethodDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PaymentMethodDefaultArgs<ExtArgs>>): Prisma__PaymentMethodClient<$Result.GetResult<Prisma.$PaymentMethodPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -24283,11 +23647,7 @@ export namespace Prisma {
     balance: 'balance',
     otp_id: 'otp_id',
     lang_id: 'lang_id',
-<<<<<<< HEAD
     currency_id: 'currency_id'
-=======
-    preferredCurrencyId: 'preferredCurrencyId'
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   };
 
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -24324,11 +23684,7 @@ export namespace Prisma {
   export const AddressScalarFieldEnum: {
     id: 'id',
     name: 'name',
-<<<<<<< HEAD
     address_value: 'address_value',
-=======
-    addressValue: 'addressValue',
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     lat: 'lat',
     long: 'long',
     user_id: 'user_id',
@@ -24340,12 +23696,8 @@ export namespace Prisma {
 
   export const LanguageScalarFieldEnum: {
     id: 'id',
-<<<<<<< HEAD
     name: 'name',
     flag_url: 'flag_url'
-=======
-    name: 'name'
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   };
 
   export type LanguageScalarFieldEnum = (typeof LanguageScalarFieldEnum)[keyof typeof LanguageScalarFieldEnum]
@@ -24421,12 +23773,8 @@ export namespace Prisma {
 
   export const ColorScalarFieldEnum: {
     id: 'id',
-<<<<<<< HEAD
     name: 'name',
     hex: 'hex'
-=======
-    name: 'name'
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   };
 
   export type ColorScalarFieldEnum = (typeof ColorScalarFieldEnum)[keyof typeof ColorScalarFieldEnum]
@@ -24462,11 +23810,7 @@ export namespace Prisma {
     user_id: 'user_id',
     admin_id: 'admin_id',
     reason: 'reason',
-<<<<<<< HEAD
     expire_date: 'expire_date'
-=======
-    expireDate: 'expireDate'
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   };
 
   export type BlockScalarFieldEnum = (typeof BlockScalarFieldEnum)[keyof typeof BlockScalarFieldEnum]
@@ -24516,7 +23860,6 @@ export namespace Prisma {
   export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
 
 
-<<<<<<< HEAD
   export const NullsOrder: {
     first: 'first',
     last: 'last'
@@ -24525,8 +23868,6 @@ export namespace Prisma {
   export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder]
 
 
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   /**
    * Field references
    */
@@ -24619,7 +23960,6 @@ export namespace Prisma {
     id?: BigIntFilter<"User"> | bigint | number
     name?: StringFilter<"User"> | string
     surname?: StringFilter<"User"> | string
-<<<<<<< HEAD
     birth_date?: DateTimeNullableFilter<"User"> | Date | string | null
     phone?: StringFilter<"User"> | string
     avatar?: StringNullableFilter<"User"> | string | null
@@ -24634,22 +23974,6 @@ export namespace Prisma {
     emails?: EmailListRelationFilter
     additional_phones?: PhoneListRelationFilter
     favourite_items?: FavouriteItemListRelationFilter
-=======
-    birth_date?: DateTimeFilter<"User"> | Date | string
-    phone?: StringFilter<"User"> | string
-    avatar?: StringFilter<"User"> | string
-    refresh_token?: StringFilter<"User"> | string
-    balance?: FloatFilter<"User"> | number
-    otp_id?: BigIntFilter<"User"> | bigint | number
-    lang_id?: BigIntFilter<"User"> | bigint | number
-    preferredCurrencyId?: BigIntFilter<"User"> | bigint | number
-    otp?: XOR<OTPScalarRelationFilter, OTPWhereInput>
-    language?: XOR<LanguageScalarRelationFilter, LanguageWhereInput>
-    preferredCurrency?: XOR<CurrencyScalarRelationFilter, CurrencyWhereInput>
-    emails?: EmailListRelationFilter
-    additionalPhones?: PhoneListRelationFilter
-    favouriteItems?: FavouriteItemListRelationFilter
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses?: AddressListRelationFilter
     products?: ProductListRelationFilter
     comments?: CommentListRelationFilter
@@ -24661,7 +23985,6 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     surname?: SortOrder
-<<<<<<< HEAD
     birth_date?: SortOrderInput | SortOrder
     phone?: SortOrder
     avatar?: SortOrderInput | SortOrder
@@ -24676,22 +23999,6 @@ export namespace Prisma {
     emails?: EmailOrderByRelationAggregateInput
     additional_phones?: PhoneOrderByRelationAggregateInput
     favourite_items?: FavouriteItemOrderByRelationAggregateInput
-=======
-    birth_date?: SortOrder
-    phone?: SortOrder
-    avatar?: SortOrder
-    refresh_token?: SortOrder
-    balance?: SortOrder
-    otp_id?: SortOrder
-    lang_id?: SortOrder
-    preferredCurrencyId?: SortOrder
-    otp?: OTPOrderByWithRelationInput
-    language?: LanguageOrderByWithRelationInput
-    preferredCurrency?: CurrencyOrderByWithRelationInput
-    emails?: EmailOrderByRelationAggregateInput
-    additionalPhones?: PhoneOrderByRelationAggregateInput
-    favouriteItems?: FavouriteItemOrderByRelationAggregateInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses?: AddressOrderByRelationAggregateInput
     products?: ProductOrderByRelationAggregateInput
     comments?: CommentOrderByRelationAggregateInput
@@ -24706,7 +24013,6 @@ export namespace Prisma {
     NOT?: UserWhereInput | UserWhereInput[]
     name?: StringFilter<"User"> | string
     surname?: StringFilter<"User"> | string
-<<<<<<< HEAD
     birth_date?: DateTimeNullableFilter<"User"> | Date | string | null
     phone?: StringFilter<"User"> | string
     avatar?: StringNullableFilter<"User"> | string | null
@@ -24721,22 +24027,6 @@ export namespace Prisma {
     emails?: EmailListRelationFilter
     additional_phones?: PhoneListRelationFilter
     favourite_items?: FavouriteItemListRelationFilter
-=======
-    birth_date?: DateTimeFilter<"User"> | Date | string
-    phone?: StringFilter<"User"> | string
-    avatar?: StringFilter<"User"> | string
-    refresh_token?: StringFilter<"User"> | string
-    balance?: FloatFilter<"User"> | number
-    otp_id?: BigIntFilter<"User"> | bigint | number
-    lang_id?: BigIntFilter<"User"> | bigint | number
-    preferredCurrencyId?: BigIntFilter<"User"> | bigint | number
-    otp?: XOR<OTPScalarRelationFilter, OTPWhereInput>
-    language?: XOR<LanguageScalarRelationFilter, LanguageWhereInput>
-    preferredCurrency?: XOR<CurrencyScalarRelationFilter, CurrencyWhereInput>
-    emails?: EmailListRelationFilter
-    additionalPhones?: PhoneListRelationFilter
-    favouriteItems?: FavouriteItemListRelationFilter
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses?: AddressListRelationFilter
     products?: ProductListRelationFilter
     comments?: CommentListRelationFilter
@@ -24748,7 +24038,6 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     surname?: SortOrder
-<<<<<<< HEAD
     birth_date?: SortOrderInput | SortOrder
     phone?: SortOrder
     avatar?: SortOrderInput | SortOrder
@@ -24757,16 +24046,6 @@ export namespace Prisma {
     otp_id?: SortOrderInput | SortOrder
     lang_id?: SortOrder
     currency_id?: SortOrder
-=======
-    birth_date?: SortOrder
-    phone?: SortOrder
-    avatar?: SortOrder
-    refresh_token?: SortOrder
-    balance?: SortOrder
-    otp_id?: SortOrder
-    lang_id?: SortOrder
-    preferredCurrencyId?: SortOrder
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     _count?: UserCountOrderByAggregateInput
     _avg?: UserAvgOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
@@ -24781,7 +24060,6 @@ export namespace Prisma {
     id?: BigIntWithAggregatesFilter<"User"> | bigint | number
     name?: StringWithAggregatesFilter<"User"> | string
     surname?: StringWithAggregatesFilter<"User"> | string
-<<<<<<< HEAD
     birth_date?: DateTimeNullableWithAggregatesFilter<"User"> | Date | string | null
     phone?: StringWithAggregatesFilter<"User"> | string
     avatar?: StringNullableWithAggregatesFilter<"User"> | string | null
@@ -24790,16 +24068,6 @@ export namespace Prisma {
     otp_id?: BigIntNullableWithAggregatesFilter<"User"> | bigint | number | null
     lang_id?: BigIntWithAggregatesFilter<"User"> | bigint | number
     currency_id?: BigIntWithAggregatesFilter<"User"> | bigint | number
-=======
-    birth_date?: DateTimeWithAggregatesFilter<"User"> | Date | string
-    phone?: StringWithAggregatesFilter<"User"> | string
-    avatar?: StringWithAggregatesFilter<"User"> | string
-    refresh_token?: StringWithAggregatesFilter<"User"> | string
-    balance?: FloatWithAggregatesFilter<"User"> | number
-    otp_id?: BigIntWithAggregatesFilter<"User"> | bigint | number
-    lang_id?: BigIntWithAggregatesFilter<"User"> | bigint | number
-    preferredCurrencyId?: BigIntWithAggregatesFilter<"User"> | bigint | number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type OTPWhereInput = {
@@ -24957,11 +24225,7 @@ export namespace Prisma {
     NOT?: AddressWhereInput | AddressWhereInput[]
     id?: BigIntFilter<"Address"> | bigint | number
     name?: StringFilter<"Address"> | string
-<<<<<<< HEAD
     address_value?: BigIntFilter<"Address"> | bigint | number
-=======
-    addressValue?: BigIntFilter<"Address"> | bigint | number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     lat?: StringFilter<"Address"> | string
     long?: StringFilter<"Address"> | string
     user_id?: BigIntFilter<"Address"> | bigint | number
@@ -24973,11 +24237,7 @@ export namespace Prisma {
   export type AddressOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
-<<<<<<< HEAD
     address_value?: SortOrder
-=======
-    addressValue?: SortOrder
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     lat?: SortOrder
     long?: SortOrder
     user_id?: SortOrder
@@ -24992,11 +24252,7 @@ export namespace Prisma {
     OR?: AddressWhereInput[]
     NOT?: AddressWhereInput | AddressWhereInput[]
     name?: StringFilter<"Address"> | string
-<<<<<<< HEAD
     address_value?: BigIntFilter<"Address"> | bigint | number
-=======
-    addressValue?: BigIntFilter<"Address"> | bigint | number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     lat?: StringFilter<"Address"> | string
     long?: StringFilter<"Address"> | string
     user_id?: BigIntFilter<"Address"> | bigint | number
@@ -25008,11 +24264,7 @@ export namespace Prisma {
   export type AddressOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
-<<<<<<< HEAD
     address_value?: SortOrder
-=======
-    addressValue?: SortOrder
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     lat?: SortOrder
     long?: SortOrder
     user_id?: SortOrder
@@ -25030,11 +24282,7 @@ export namespace Prisma {
     NOT?: AddressScalarWhereWithAggregatesInput | AddressScalarWhereWithAggregatesInput[]
     id?: BigIntWithAggregatesFilter<"Address"> | bigint | number
     name?: StringWithAggregatesFilter<"Address"> | string
-<<<<<<< HEAD
     address_value?: BigIntWithAggregatesFilter<"Address"> | bigint | number
-=======
-    addressValue?: BigIntWithAggregatesFilter<"Address"> | bigint | number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     lat?: StringWithAggregatesFilter<"Address"> | string
     long?: StringWithAggregatesFilter<"Address"> | string
     user_id?: BigIntWithAggregatesFilter<"Address"> | bigint | number
@@ -25047,10 +24295,7 @@ export namespace Prisma {
     NOT?: LanguageWhereInput | LanguageWhereInput[]
     id?: BigIntFilter<"Language"> | bigint | number
     name?: StringFilter<"Language"> | string
-<<<<<<< HEAD
     flag_url?: StringFilter<"Language"> | string
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     users?: UserListRelationFilter
     admins?: AdminListRelationFilter
   }
@@ -25058,10 +24303,7 @@ export namespace Prisma {
   export type LanguageOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
-<<<<<<< HEAD
     flag_url?: SortOrder
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     users?: UserOrderByRelationAggregateInput
     admins?: AdminOrderByRelationAggregateInput
   }
@@ -25072,10 +24314,7 @@ export namespace Prisma {
     AND?: LanguageWhereInput | LanguageWhereInput[]
     OR?: LanguageWhereInput[]
     NOT?: LanguageWhereInput | LanguageWhereInput[]
-<<<<<<< HEAD
     flag_url?: StringFilter<"Language"> | string
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     users?: UserListRelationFilter
     admins?: AdminListRelationFilter
   }, "id" | "name">
@@ -25083,10 +24322,7 @@ export namespace Prisma {
   export type LanguageOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
-<<<<<<< HEAD
     flag_url?: SortOrder
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     _count?: LanguageCountOrderByAggregateInput
     _avg?: LanguageAvgOrderByAggregateInput
     _max?: LanguageMaxOrderByAggregateInput
@@ -25100,10 +24336,7 @@ export namespace Prisma {
     NOT?: LanguageScalarWhereWithAggregatesInput | LanguageScalarWhereWithAggregatesInput[]
     id?: BigIntWithAggregatesFilter<"Language"> | bigint | number
     name?: StringWithAggregatesFilter<"Language"> | string
-<<<<<<< HEAD
     flag_url?: StringWithAggregatesFilter<"Language"> | string
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type FavouriteItemWhereInput = {
@@ -25166,15 +24399,9 @@ export namespace Prisma {
     title?: StringFilter<"Product"> | string
     description?: StringFilter<"Product"> | string
     year?: IntFilter<"Product"> | number
-<<<<<<< HEAD
     brand_id?: BigIntNullableFilter<"Product"> | bigint | number | null
     model_id?: BigIntNullableFilter<"Product"> | bigint | number | null
     custom_model?: StringNullableFilter<"Product"> | string | null
-=======
-    brand_id?: BigIntFilter<"Product"> | bigint | number
-    model_id?: BigIntFilter<"Product"> | bigint | number
-    custom_model?: StringFilter<"Product"> | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     color_id?: BigIntFilter<"Product"> | bigint | number
     price?: FloatFilter<"Product"> | number
     floor_price?: BoolFilter<"Product"> | boolean
@@ -25189,7 +24416,6 @@ export namespace Prisma {
     is_archived?: BoolFilter<"Product"> | boolean
     is_sold?: BoolFilter<"Product"> | boolean
     is_checked?: BoolFilter<"Product"> | boolean
-<<<<<<< HEAD
     admin_id?: BigIntNullableFilter<"Product"> | bigint | number | null
     is_top?: BoolFilter<"Product"> | boolean
     top_expire_date?: DateTimeNullableFilter<"Product"> | Date | string | null
@@ -25203,21 +24429,6 @@ export namespace Prisma {
     admin?: XOR<AdminNullableScalarRelationFilter, AdminWhereInput> | null
     images?: ProductImageListRelationFilter
     favourited_by?: FavouriteItemListRelationFilter
-=======
-    admin_id?: BigIntFilter<"Product"> | bigint | number
-    is_top?: BoolFilter<"Product"> | boolean
-    top_expire_date?: DateTimeFilter<"Product"> | Date | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
-    brand?: XOR<BrandScalarRelationFilter, BrandWhereInput>
-    model?: XOR<ModelScalarRelationFilter, ModelWhereInput>
-    color?: XOR<ColorScalarRelationFilter, ColorWhereInput>
-    currency?: XOR<CurrencyScalarRelationFilter, CurrencyWhereInput>
-    address?: XOR<AddressScalarRelationFilter, AddressWhereInput>
-    contactPhone?: XOR<PhoneScalarRelationFilter, PhoneWhereInput>
-    admin?: XOR<AdminScalarRelationFilter, AdminWhereInput>
-    images?: ProductImageListRelationFilter
-    favouritedBy?: FavouriteItemListRelationFilter
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     comments?: CommentListRelationFilter
   }
 
@@ -25227,15 +24438,9 @@ export namespace Prisma {
     title?: SortOrder
     description?: SortOrder
     year?: SortOrder
-<<<<<<< HEAD
     brand_id?: SortOrderInput | SortOrder
     model_id?: SortOrderInput | SortOrder
     custom_model?: SortOrderInput | SortOrder
-=======
-    brand_id?: SortOrder
-    model_id?: SortOrder
-    custom_model?: SortOrder
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     color_id?: SortOrder
     price?: SortOrder
     floor_price?: SortOrder
@@ -25250,32 +24455,19 @@ export namespace Prisma {
     is_archived?: SortOrder
     is_sold?: SortOrder
     is_checked?: SortOrder
-<<<<<<< HEAD
     admin_id?: SortOrderInput | SortOrder
     is_top?: SortOrder
     top_expire_date?: SortOrderInput | SortOrder
-=======
-    admin_id?: SortOrder
-    is_top?: SortOrder
-    top_expire_date?: SortOrder
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     user?: UserOrderByWithRelationInput
     brand?: BrandOrderByWithRelationInput
     model?: ModelOrderByWithRelationInput
     color?: ColorOrderByWithRelationInput
     currency?: CurrencyOrderByWithRelationInput
     address?: AddressOrderByWithRelationInput
-<<<<<<< HEAD
     contact_phone?: PhoneOrderByWithRelationInput
     admin?: AdminOrderByWithRelationInput
     images?: ProductImageOrderByRelationAggregateInput
     favourited_by?: FavouriteItemOrderByRelationAggregateInput
-=======
-    contactPhone?: PhoneOrderByWithRelationInput
-    admin?: AdminOrderByWithRelationInput
-    images?: ProductImageOrderByRelationAggregateInput
-    favouritedBy?: FavouriteItemOrderByRelationAggregateInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     comments?: CommentOrderByRelationAggregateInput
   }
 
@@ -25288,15 +24480,9 @@ export namespace Prisma {
     title?: StringFilter<"Product"> | string
     description?: StringFilter<"Product"> | string
     year?: IntFilter<"Product"> | number
-<<<<<<< HEAD
     brand_id?: BigIntNullableFilter<"Product"> | bigint | number | null
     model_id?: BigIntNullableFilter<"Product"> | bigint | number | null
     custom_model?: StringNullableFilter<"Product"> | string | null
-=======
-    brand_id?: BigIntFilter<"Product"> | bigint | number
-    model_id?: BigIntFilter<"Product"> | bigint | number
-    custom_model?: StringFilter<"Product"> | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     color_id?: BigIntFilter<"Product"> | bigint | number
     price?: FloatFilter<"Product"> | number
     floor_price?: BoolFilter<"Product"> | boolean
@@ -25311,7 +24497,6 @@ export namespace Prisma {
     is_archived?: BoolFilter<"Product"> | boolean
     is_sold?: BoolFilter<"Product"> | boolean
     is_checked?: BoolFilter<"Product"> | boolean
-<<<<<<< HEAD
     admin_id?: BigIntNullableFilter<"Product"> | bigint | number | null
     is_top?: BoolFilter<"Product"> | boolean
     top_expire_date?: DateTimeNullableFilter<"Product"> | Date | string | null
@@ -25325,21 +24510,6 @@ export namespace Prisma {
     admin?: XOR<AdminNullableScalarRelationFilter, AdminWhereInput> | null
     images?: ProductImageListRelationFilter
     favourited_by?: FavouriteItemListRelationFilter
-=======
-    admin_id?: BigIntFilter<"Product"> | bigint | number
-    is_top?: BoolFilter<"Product"> | boolean
-    top_expire_date?: DateTimeFilter<"Product"> | Date | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
-    brand?: XOR<BrandScalarRelationFilter, BrandWhereInput>
-    model?: XOR<ModelScalarRelationFilter, ModelWhereInput>
-    color?: XOR<ColorScalarRelationFilter, ColorWhereInput>
-    currency?: XOR<CurrencyScalarRelationFilter, CurrencyWhereInput>
-    address?: XOR<AddressScalarRelationFilter, AddressWhereInput>
-    contactPhone?: XOR<PhoneScalarRelationFilter, PhoneWhereInput>
-    admin?: XOR<AdminScalarRelationFilter, AdminWhereInput>
-    images?: ProductImageListRelationFilter
-    favouritedBy?: FavouriteItemListRelationFilter
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     comments?: CommentListRelationFilter
   }, "id">
 
@@ -25349,15 +24519,9 @@ export namespace Prisma {
     title?: SortOrder
     description?: SortOrder
     year?: SortOrder
-<<<<<<< HEAD
     brand_id?: SortOrderInput | SortOrder
     model_id?: SortOrderInput | SortOrder
     custom_model?: SortOrderInput | SortOrder
-=======
-    brand_id?: SortOrder
-    model_id?: SortOrder
-    custom_model?: SortOrder
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     color_id?: SortOrder
     price?: SortOrder
     floor_price?: SortOrder
@@ -25372,15 +24536,9 @@ export namespace Prisma {
     is_archived?: SortOrder
     is_sold?: SortOrder
     is_checked?: SortOrder
-<<<<<<< HEAD
     admin_id?: SortOrderInput | SortOrder
     is_top?: SortOrder
     top_expire_date?: SortOrderInput | SortOrder
-=======
-    admin_id?: SortOrder
-    is_top?: SortOrder
-    top_expire_date?: SortOrder
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     _count?: ProductCountOrderByAggregateInput
     _avg?: ProductAvgOrderByAggregateInput
     _max?: ProductMaxOrderByAggregateInput
@@ -25397,15 +24555,9 @@ export namespace Prisma {
     title?: StringWithAggregatesFilter<"Product"> | string
     description?: StringWithAggregatesFilter<"Product"> | string
     year?: IntWithAggregatesFilter<"Product"> | number
-<<<<<<< HEAD
     brand_id?: BigIntNullableWithAggregatesFilter<"Product"> | bigint | number | null
     model_id?: BigIntNullableWithAggregatesFilter<"Product"> | bigint | number | null
     custom_model?: StringNullableWithAggregatesFilter<"Product"> | string | null
-=======
-    brand_id?: BigIntWithAggregatesFilter<"Product"> | bigint | number
-    model_id?: BigIntWithAggregatesFilter<"Product"> | bigint | number
-    custom_model?: StringWithAggregatesFilter<"Product"> | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     color_id?: BigIntWithAggregatesFilter<"Product"> | bigint | number
     price?: FloatWithAggregatesFilter<"Product"> | number
     floor_price?: BoolWithAggregatesFilter<"Product"> | boolean
@@ -25420,15 +24572,9 @@ export namespace Prisma {
     is_archived?: BoolWithAggregatesFilter<"Product"> | boolean
     is_sold?: BoolWithAggregatesFilter<"Product"> | boolean
     is_checked?: BoolWithAggregatesFilter<"Product"> | boolean
-<<<<<<< HEAD
     admin_id?: BigIntNullableWithAggregatesFilter<"Product"> | bigint | number | null
     is_top?: BoolWithAggregatesFilter<"Product"> | boolean
     top_expire_date?: DateTimeNullableWithAggregatesFilter<"Product"> | Date | string | null
-=======
-    admin_id?: BigIntWithAggregatesFilter<"Product"> | bigint | number
-    is_top?: BoolWithAggregatesFilter<"Product"> | boolean
-    top_expire_date?: DateTimeWithAggregatesFilter<"Product"> | Date | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type ProductImageWhereInput = {
@@ -25590,20 +24736,14 @@ export namespace Prisma {
     NOT?: ColorWhereInput | ColorWhereInput[]
     id?: BigIntFilter<"Color"> | bigint | number
     name?: StringFilter<"Color"> | string
-<<<<<<< HEAD
     hex?: StringFilter<"Color"> | string
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     products?: ProductListRelationFilter
   }
 
   export type ColorOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
-<<<<<<< HEAD
     hex?: SortOrder
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     products?: ProductOrderByRelationAggregateInput
   }
 
@@ -25613,20 +24753,14 @@ export namespace Prisma {
     AND?: ColorWhereInput | ColorWhereInput[]
     OR?: ColorWhereInput[]
     NOT?: ColorWhereInput | ColorWhereInput[]
-<<<<<<< HEAD
     hex?: StringFilter<"Color"> | string
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     products?: ProductListRelationFilter
   }, "id" | "name">
 
   export type ColorOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
-<<<<<<< HEAD
     hex?: SortOrder
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     _count?: ColorCountOrderByAggregateInput
     _avg?: ColorAvgOrderByAggregateInput
     _max?: ColorMaxOrderByAggregateInput
@@ -25640,10 +24774,7 @@ export namespace Prisma {
     NOT?: ColorScalarWhereWithAggregatesInput | ColorScalarWhereWithAggregatesInput[]
     id?: BigIntWithAggregatesFilter<"Color"> | bigint | number
     name?: StringWithAggregatesFilter<"Color"> | string
-<<<<<<< HEAD
     hex?: StringWithAggregatesFilter<"Color"> | string
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type CurrencyWhereInput = {
@@ -25653,11 +24784,7 @@ export namespace Prisma {
     id?: BigIntFilter<"Currency"> | bigint | number
     name?: StringFilter<"Currency"> | string
     symbol?: StringFilter<"Currency"> | string
-<<<<<<< HEAD
     user_preferences?: UserListRelationFilter
-=======
-    userPreferences?: UserListRelationFilter
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     products?: ProductListRelationFilter
   }
 
@@ -25665,11 +24792,7 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     symbol?: SortOrder
-<<<<<<< HEAD
     user_preferences?: UserOrderByRelationAggregateInput
-=======
-    userPreferences?: UserOrderByRelationAggregateInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     products?: ProductOrderByRelationAggregateInput
   }
 
@@ -25680,11 +24803,7 @@ export namespace Prisma {
     OR?: CurrencyWhereInput[]
     NOT?: CurrencyWhereInput | CurrencyWhereInput[]
     symbol?: StringFilter<"Currency"> | string
-<<<<<<< HEAD
     user_preferences?: UserListRelationFilter
-=======
-    userPreferences?: UserListRelationFilter
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     products?: ProductListRelationFilter
   }, "id" | "name">
 
@@ -25718,7 +24837,6 @@ export namespace Prisma {
     birth_date?: DateTimeFilter<"Admin"> | Date | string
     phone?: StringFilter<"Admin"> | string
     password?: StringFilter<"Admin"> | string
-<<<<<<< HEAD
     avatar?: StringNullableFilter<"Admin"> | string | null
     refresh_token?: StringNullableFilter<"Admin"> | string | null
     lang_id?: BigIntFilter<"Admin"> | bigint | number
@@ -25726,15 +24844,6 @@ export namespace Prisma {
     language?: XOR<LanguageScalarRelationFilter, LanguageWhereInput>
     blocks_issued?: BlockListRelationFilter
     products_managed?: ProductListRelationFilter
-=======
-    avatar?: StringFilter<"Admin"> | string
-    refresh_token?: StringFilter<"Admin"> | string
-    lang_id?: BigIntFilter<"Admin"> | bigint | number
-    is_creator?: BoolFilter<"Admin"> | boolean
-    language?: XOR<LanguageScalarRelationFilter, LanguageWhereInput>
-    blocksIssued?: BlockListRelationFilter
-    productsManaged?: ProductListRelationFilter
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type AdminOrderByWithRelationInput = {
@@ -25744,7 +24853,6 @@ export namespace Prisma {
     birth_date?: SortOrder
     phone?: SortOrder
     password?: SortOrder
-<<<<<<< HEAD
     avatar?: SortOrderInput | SortOrder
     refresh_token?: SortOrderInput | SortOrder
     lang_id?: SortOrder
@@ -25752,15 +24860,6 @@ export namespace Prisma {
     language?: LanguageOrderByWithRelationInput
     blocks_issued?: BlockOrderByRelationAggregateInput
     products_managed?: ProductOrderByRelationAggregateInput
-=======
-    avatar?: SortOrder
-    refresh_token?: SortOrder
-    lang_id?: SortOrder
-    is_creator?: SortOrder
-    language?: LanguageOrderByWithRelationInput
-    blocksIssued?: BlockOrderByRelationAggregateInput
-    productsManaged?: ProductOrderByRelationAggregateInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type AdminWhereUniqueInput = Prisma.AtLeast<{
@@ -25773,7 +24872,6 @@ export namespace Prisma {
     surname?: StringFilter<"Admin"> | string
     birth_date?: DateTimeFilter<"Admin"> | Date | string
     password?: StringFilter<"Admin"> | string
-<<<<<<< HEAD
     avatar?: StringNullableFilter<"Admin"> | string | null
     refresh_token?: StringNullableFilter<"Admin"> | string | null
     lang_id?: BigIntFilter<"Admin"> | bigint | number
@@ -25781,15 +24879,6 @@ export namespace Prisma {
     language?: XOR<LanguageScalarRelationFilter, LanguageWhereInput>
     blocks_issued?: BlockListRelationFilter
     products_managed?: ProductListRelationFilter
-=======
-    avatar?: StringFilter<"Admin"> | string
-    refresh_token?: StringFilter<"Admin"> | string
-    lang_id?: BigIntFilter<"Admin"> | bigint | number
-    is_creator?: BoolFilter<"Admin"> | boolean
-    language?: XOR<LanguageScalarRelationFilter, LanguageWhereInput>
-    blocksIssued?: BlockListRelationFilter
-    productsManaged?: ProductListRelationFilter
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }, "id" | "phone">
 
   export type AdminOrderByWithAggregationInput = {
@@ -25799,13 +24888,8 @@ export namespace Prisma {
     birth_date?: SortOrder
     phone?: SortOrder
     password?: SortOrder
-<<<<<<< HEAD
     avatar?: SortOrderInput | SortOrder
     refresh_token?: SortOrderInput | SortOrder
-=======
-    avatar?: SortOrder
-    refresh_token?: SortOrder
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     lang_id?: SortOrder
     is_creator?: SortOrder
     _count?: AdminCountOrderByAggregateInput
@@ -25825,13 +24909,8 @@ export namespace Prisma {
     birth_date?: DateTimeWithAggregatesFilter<"Admin"> | Date | string
     phone?: StringWithAggregatesFilter<"Admin"> | string
     password?: StringWithAggregatesFilter<"Admin"> | string
-<<<<<<< HEAD
     avatar?: StringNullableWithAggregatesFilter<"Admin"> | string | null
     refresh_token?: StringNullableWithAggregatesFilter<"Admin"> | string | null
-=======
-    avatar?: StringWithAggregatesFilter<"Admin"> | string
-    refresh_token?: StringWithAggregatesFilter<"Admin"> | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     lang_id?: BigIntWithAggregatesFilter<"Admin"> | bigint | number
     is_creator?: BoolWithAggregatesFilter<"Admin"> | boolean
   }
@@ -25844,11 +24923,7 @@ export namespace Prisma {
     user_id?: BigIntFilter<"Block"> | bigint | number
     admin_id?: BigIntFilter<"Block"> | bigint | number
     reason?: StringFilter<"Block"> | string
-<<<<<<< HEAD
     expire_date?: DateTimeFilter<"Block"> | Date | string
-=======
-    expireDate?: DateTimeFilter<"Block"> | Date | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
     admin?: XOR<AdminScalarRelationFilter, AdminWhereInput>
   }
@@ -25858,11 +24933,7 @@ export namespace Prisma {
     user_id?: SortOrder
     admin_id?: SortOrder
     reason?: SortOrder
-<<<<<<< HEAD
     expire_date?: SortOrder
-=======
-    expireDate?: SortOrder
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     user?: UserOrderByWithRelationInput
     admin?: AdminOrderByWithRelationInput
   }
@@ -25875,11 +24946,7 @@ export namespace Prisma {
     user_id?: BigIntFilter<"Block"> | bigint | number
     admin_id?: BigIntFilter<"Block"> | bigint | number
     reason?: StringFilter<"Block"> | string
-<<<<<<< HEAD
     expire_date?: DateTimeFilter<"Block"> | Date | string
-=======
-    expireDate?: DateTimeFilter<"Block"> | Date | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
     admin?: XOR<AdminScalarRelationFilter, AdminWhereInput>
   }, "id">
@@ -25889,11 +24956,7 @@ export namespace Prisma {
     user_id?: SortOrder
     admin_id?: SortOrder
     reason?: SortOrder
-<<<<<<< HEAD
     expire_date?: SortOrder
-=======
-    expireDate?: SortOrder
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     _count?: BlockCountOrderByAggregateInput
     _avg?: BlockAvgOrderByAggregateInput
     _max?: BlockMaxOrderByAggregateInput
@@ -25909,11 +24972,7 @@ export namespace Prisma {
     user_id?: BigIntWithAggregatesFilter<"Block"> | bigint | number
     admin_id?: BigIntWithAggregatesFilter<"Block"> | bigint | number
     reason?: StringWithAggregatesFilter<"Block"> | string
-<<<<<<< HEAD
     expire_date?: DateTimeWithAggregatesFilter<"Block"> | Date | string
-=======
-    expireDate?: DateTimeWithAggregatesFilter<"Block"> | Date | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type PaymentWhereInput = {
@@ -25925,11 +24984,7 @@ export namespace Prisma {
     amount?: FloatFilter<"Payment"> | number
     payment_method_id?: BigIntFilter<"Payment"> | bigint | number
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
-<<<<<<< HEAD
     payment_method?: XOR<PaymentMethodScalarRelationFilter, PaymentMethodWhereInput>
-=======
-    paymentMethod?: XOR<PaymentMethodScalarRelationFilter, PaymentMethodWhereInput>
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type PaymentOrderByWithRelationInput = {
@@ -25938,11 +24993,7 @@ export namespace Prisma {
     amount?: SortOrder
     payment_method_id?: SortOrder
     user?: UserOrderByWithRelationInput
-<<<<<<< HEAD
     payment_method?: PaymentMethodOrderByWithRelationInput
-=======
-    paymentMethod?: PaymentMethodOrderByWithRelationInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type PaymentWhereUniqueInput = Prisma.AtLeast<{
@@ -25954,11 +25005,7 @@ export namespace Prisma {
     amount?: FloatFilter<"Payment"> | number
     payment_method_id?: BigIntFilter<"Payment"> | bigint | number
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
-<<<<<<< HEAD
     payment_method?: XOR<PaymentMethodScalarRelationFilter, PaymentMethodWhereInput>
-=======
-    paymentMethod?: XOR<PaymentMethodScalarRelationFilter, PaymentMethodWhereInput>
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }, "id">
 
   export type PaymentOrderByWithAggregationInput = {
@@ -26084,7 +25131,6 @@ export namespace Prisma {
     id?: bigint | number
     name: string
     surname: string
-<<<<<<< HEAD
     birth_date?: Date | string | null
     phone: string
     avatar?: string | null
@@ -26096,19 +25142,6 @@ export namespace Prisma {
     emails?: EmailCreateNestedManyWithoutUserInput
     additional_phones?: PhoneCreateNestedManyWithoutUserInput
     favourite_items?: FavouriteItemCreateNestedManyWithoutUserInput
-=======
-    birth_date: Date | string
-    phone: string
-    avatar: string
-    refresh_token: string
-    balance: number
-    otp: OTPCreateNestedOneWithoutUsersInput
-    language: LanguageCreateNestedOneWithoutUsersInput
-    preferredCurrency: CurrencyCreateNestedOneWithoutUserPreferencesInput
-    emails?: EmailCreateNestedManyWithoutUserInput
-    additionalPhones?: PhoneCreateNestedManyWithoutUserInput
-    favouriteItems?: FavouriteItemCreateNestedManyWithoutUserInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses?: AddressCreateNestedManyWithoutUserInput
     products?: ProductCreateNestedManyWithoutUserInput
     comments?: CommentCreateNestedManyWithoutUserInput
@@ -26120,7 +25153,6 @@ export namespace Prisma {
     id?: bigint | number
     name: string
     surname: string
-<<<<<<< HEAD
     birth_date?: Date | string | null
     phone: string
     avatar?: string | null
@@ -26132,19 +25164,6 @@ export namespace Prisma {
     emails?: EmailUncheckedCreateNestedManyWithoutUserInput
     additional_phones?: PhoneUncheckedCreateNestedManyWithoutUserInput
     favourite_items?: FavouriteItemUncheckedCreateNestedManyWithoutUserInput
-=======
-    birth_date: Date | string
-    phone: string
-    avatar: string
-    refresh_token: string
-    balance: number
-    otp_id: bigint | number
-    lang_id: bigint | number
-    preferredCurrencyId: bigint | number
-    emails?: EmailUncheckedCreateNestedManyWithoutUserInput
-    additionalPhones?: PhoneUncheckedCreateNestedManyWithoutUserInput
-    favouriteItems?: FavouriteItemUncheckedCreateNestedManyWithoutUserInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses?: AddressUncheckedCreateNestedManyWithoutUserInput
     products?: ProductUncheckedCreateNestedManyWithoutUserInput
     comments?: CommentUncheckedCreateNestedManyWithoutUserInput
@@ -26156,7 +25175,6 @@ export namespace Prisma {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
     surname?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     birth_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     phone?: StringFieldUpdateOperationsInput | string
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
@@ -26168,19 +25186,6 @@ export namespace Prisma {
     emails?: EmailUpdateManyWithoutUserNestedInput
     additional_phones?: PhoneUpdateManyWithoutUserNestedInput
     favourite_items?: FavouriteItemUpdateManyWithoutUserNestedInput
-=======
-    birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    phone?: StringFieldUpdateOperationsInput | string
-    avatar?: StringFieldUpdateOperationsInput | string
-    refresh_token?: StringFieldUpdateOperationsInput | string
-    balance?: FloatFieldUpdateOperationsInput | number
-    otp?: OTPUpdateOneRequiredWithoutUsersNestedInput
-    language?: LanguageUpdateOneRequiredWithoutUsersNestedInput
-    preferredCurrency?: CurrencyUpdateOneRequiredWithoutUserPreferencesNestedInput
-    emails?: EmailUpdateManyWithoutUserNestedInput
-    additionalPhones?: PhoneUpdateManyWithoutUserNestedInput
-    favouriteItems?: FavouriteItemUpdateManyWithoutUserNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses?: AddressUpdateManyWithoutUserNestedInput
     products?: ProductUpdateManyWithoutUserNestedInput
     comments?: CommentUpdateManyWithoutUserNestedInput
@@ -26192,7 +25197,6 @@ export namespace Prisma {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
     surname?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     birth_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     phone?: StringFieldUpdateOperationsInput | string
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
@@ -26204,19 +25208,6 @@ export namespace Prisma {
     emails?: EmailUncheckedUpdateManyWithoutUserNestedInput
     additional_phones?: PhoneUncheckedUpdateManyWithoutUserNestedInput
     favourite_items?: FavouriteItemUncheckedUpdateManyWithoutUserNestedInput
-=======
-    birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    phone?: StringFieldUpdateOperationsInput | string
-    avatar?: StringFieldUpdateOperationsInput | string
-    refresh_token?: StringFieldUpdateOperationsInput | string
-    balance?: FloatFieldUpdateOperationsInput | number
-    otp_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    lang_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    preferredCurrencyId?: BigIntFieldUpdateOperationsInput | bigint | number
-    emails?: EmailUncheckedUpdateManyWithoutUserNestedInput
-    additionalPhones?: PhoneUncheckedUpdateManyWithoutUserNestedInput
-    favouriteItems?: FavouriteItemUncheckedUpdateManyWithoutUserNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses?: AddressUncheckedUpdateManyWithoutUserNestedInput
     products?: ProductUncheckedUpdateManyWithoutUserNestedInput
     comments?: CommentUncheckedUpdateManyWithoutUserNestedInput
@@ -26228,7 +25219,6 @@ export namespace Prisma {
     id?: bigint | number
     name: string
     surname: string
-<<<<<<< HEAD
     birth_date?: Date | string | null
     phone: string
     avatar?: string | null
@@ -26237,33 +25227,16 @@ export namespace Prisma {
     otp_id?: bigint | number | null
     lang_id?: bigint | number
     currency_id: bigint | number
-=======
-    birth_date: Date | string
-    phone: string
-    avatar: string
-    refresh_token: string
-    balance: number
-    otp_id: bigint | number
-    lang_id: bigint | number
-    preferredCurrencyId: bigint | number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type UserUpdateManyMutationInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
     surname?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     birth_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     phone?: StringFieldUpdateOperationsInput | string
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
-=======
-    birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    phone?: StringFieldUpdateOperationsInput | string
-    avatar?: StringFieldUpdateOperationsInput | string
-    refresh_token?: StringFieldUpdateOperationsInput | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     balance?: FloatFieldUpdateOperationsInput | number
   }
 
@@ -26271,7 +25244,6 @@ export namespace Prisma {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
     surname?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     birth_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     phone?: StringFieldUpdateOperationsInput | string
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
@@ -26280,16 +25252,6 @@ export namespace Prisma {
     otp_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     lang_id?: BigIntFieldUpdateOperationsInput | bigint | number
     currency_id?: BigIntFieldUpdateOperationsInput | bigint | number
-=======
-    birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    phone?: StringFieldUpdateOperationsInput | string
-    avatar?: StringFieldUpdateOperationsInput | string
-    refresh_token?: StringFieldUpdateOperationsInput | string
-    balance?: FloatFieldUpdateOperationsInput | number
-    otp_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    lang_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    preferredCurrencyId?: BigIntFieldUpdateOperationsInput | bigint | number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type OTPCreateInput = {
@@ -26348,47 +25310,29 @@ export namespace Prisma {
   export type PhoneCreateInput = {
     id?: bigint | number
     phone: string
-<<<<<<< HEAD
     user: UserCreateNestedOneWithoutAdditional_phonesInput
     products?: ProductCreateNestedManyWithoutContact_phoneInput
-=======
-    user: UserCreateNestedOneWithoutAdditionalPhonesInput
-    products?: ProductCreateNestedManyWithoutContactPhoneInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type PhoneUncheckedCreateInput = {
     id?: bigint | number
     phone: string
     user_id: bigint | number
-<<<<<<< HEAD
     products?: ProductUncheckedCreateNestedManyWithoutContact_phoneInput
-=======
-    products?: ProductUncheckedCreateNestedManyWithoutContactPhoneInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type PhoneUpdateInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     phone?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     user?: UserUpdateOneRequiredWithoutAdditional_phonesNestedInput
     products?: ProductUpdateManyWithoutContact_phoneNestedInput
-=======
-    user?: UserUpdateOneRequiredWithoutAdditionalPhonesNestedInput
-    products?: ProductUpdateManyWithoutContactPhoneNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type PhoneUncheckedUpdateInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     phone?: StringFieldUpdateOperationsInput | string
     user_id?: BigIntFieldUpdateOperationsInput | bigint | number
-<<<<<<< HEAD
     products?: ProductUncheckedUpdateManyWithoutContact_phoneNestedInput
-=======
-    products?: ProductUncheckedUpdateManyWithoutContactPhoneNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type PhoneCreateManyInput = {
@@ -26452,11 +25396,7 @@ export namespace Prisma {
   export type AddressCreateInput = {
     id?: bigint | number
     name: string
-<<<<<<< HEAD
     address_value: bigint | number
-=======
-    addressValue: bigint | number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     lat: string
     long: string
     is_active: boolean
@@ -26467,11 +25407,7 @@ export namespace Prisma {
   export type AddressUncheckedCreateInput = {
     id?: bigint | number
     name: string
-<<<<<<< HEAD
     address_value: bigint | number
-=======
-    addressValue: bigint | number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     lat: string
     long: string
     user_id: bigint | number
@@ -26482,11 +25418,7 @@ export namespace Prisma {
   export type AddressUpdateInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     address_value?: BigIntFieldUpdateOperationsInput | bigint | number
-=======
-    addressValue?: BigIntFieldUpdateOperationsInput | bigint | number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     lat?: StringFieldUpdateOperationsInput | string
     long?: StringFieldUpdateOperationsInput | string
     is_active?: BoolFieldUpdateOperationsInput | boolean
@@ -26497,11 +25429,7 @@ export namespace Prisma {
   export type AddressUncheckedUpdateInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     address_value?: BigIntFieldUpdateOperationsInput | bigint | number
-=======
-    addressValue?: BigIntFieldUpdateOperationsInput | bigint | number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     lat?: StringFieldUpdateOperationsInput | string
     long?: StringFieldUpdateOperationsInput | string
     user_id?: BigIntFieldUpdateOperationsInput | bigint | number
@@ -26512,11 +25440,7 @@ export namespace Prisma {
   export type AddressCreateManyInput = {
     id?: bigint | number
     name: string
-<<<<<<< HEAD
     address_value: bigint | number
-=======
-    addressValue: bigint | number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     lat: string
     long: string
     user_id: bigint | number
@@ -26526,11 +25450,7 @@ export namespace Prisma {
   export type AddressUpdateManyMutationInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     address_value?: BigIntFieldUpdateOperationsInput | bigint | number
-=======
-    addressValue?: BigIntFieldUpdateOperationsInput | bigint | number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     lat?: StringFieldUpdateOperationsInput | string
     long?: StringFieldUpdateOperationsInput | string
     is_active?: BoolFieldUpdateOperationsInput | boolean
@@ -26539,11 +25459,7 @@ export namespace Prisma {
   export type AddressUncheckedUpdateManyInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     address_value?: BigIntFieldUpdateOperationsInput | bigint | number
-=======
-    addressValue?: BigIntFieldUpdateOperationsInput | bigint | number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     lat?: StringFieldUpdateOperationsInput | string
     long?: StringFieldUpdateOperationsInput | string
     user_id?: BigIntFieldUpdateOperationsInput | bigint | number
@@ -26553,10 +25469,7 @@ export namespace Prisma {
   export type LanguageCreateInput = {
     id?: bigint | number
     name: string
-<<<<<<< HEAD
     flag_url: string
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     users?: UserCreateNestedManyWithoutLanguageInput
     admins?: AdminCreateNestedManyWithoutLanguageInput
   }
@@ -26564,10 +25477,7 @@ export namespace Prisma {
   export type LanguageUncheckedCreateInput = {
     id?: bigint | number
     name: string
-<<<<<<< HEAD
     flag_url: string
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     users?: UserUncheckedCreateNestedManyWithoutLanguageInput
     admins?: AdminUncheckedCreateNestedManyWithoutLanguageInput
   }
@@ -26575,10 +25485,7 @@ export namespace Prisma {
   export type LanguageUpdateInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     flag_url?: StringFieldUpdateOperationsInput | string
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     users?: UserUpdateManyWithoutLanguageNestedInput
     admins?: AdminUpdateManyWithoutLanguageNestedInput
   }
@@ -26586,10 +25493,7 @@ export namespace Prisma {
   export type LanguageUncheckedUpdateInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     flag_url?: StringFieldUpdateOperationsInput | string
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     users?: UserUncheckedUpdateManyWithoutLanguageNestedInput
     admins?: AdminUncheckedUpdateManyWithoutLanguageNestedInput
   }
@@ -26597,39 +25501,25 @@ export namespace Prisma {
   export type LanguageCreateManyInput = {
     id?: bigint | number
     name: string
-<<<<<<< HEAD
     flag_url: string
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type LanguageUpdateManyMutationInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     flag_url?: StringFieldUpdateOperationsInput | string
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type LanguageUncheckedUpdateManyInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     flag_url?: StringFieldUpdateOperationsInput | string
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type FavouriteItemCreateInput = {
     id?: bigint | number
-<<<<<<< HEAD
     product: ProductCreateNestedOneWithoutFavourited_byInput
     user: UserCreateNestedOneWithoutFavourite_itemsInput
-=======
-    product: ProductCreateNestedOneWithoutFavouritedByInput
-    user: UserCreateNestedOneWithoutFavouriteItemsInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type FavouriteItemUncheckedCreateInput = {
@@ -26640,13 +25530,8 @@ export namespace Prisma {
 
   export type FavouriteItemUpdateInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
-<<<<<<< HEAD
     product?: ProductUpdateOneRequiredWithoutFavourited_byNestedInput
     user?: UserUpdateOneRequiredWithoutFavourite_itemsNestedInput
-=======
-    product?: ProductUpdateOneRequiredWithoutFavouritedByNestedInput
-    user?: UserUpdateOneRequiredWithoutFavouriteItemsNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type FavouriteItemUncheckedUpdateInput = {
@@ -26676,15 +25561,9 @@ export namespace Prisma {
     title: string
     description: string
     year: number
-<<<<<<< HEAD
     custom_model?: string | null
     price: number
     floor_price?: boolean
-=======
-    custom_model: string
-    price: number
-    floor_price: boolean
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     is_new: boolean
     has_document: boolean
     storage: bigint | number
@@ -26694,7 +25573,6 @@ export namespace Prisma {
     is_sold?: boolean
     is_checked?: boolean
     is_top?: boolean
-<<<<<<< HEAD
     top_expire_date?: Date | string | null
     user: UserCreateNestedOneWithoutProductsInput
     brand?: BrandCreateNestedOneWithoutProductsInput
@@ -26706,19 +25584,6 @@ export namespace Prisma {
     admin?: AdminCreateNestedOneWithoutProducts_managedInput
     images?: ProductImageCreateNestedManyWithoutProductInput
     favourited_by?: FavouriteItemCreateNestedManyWithoutProductInput
-=======
-    top_expire_date: Date | string
-    user: UserCreateNestedOneWithoutProductsInput
-    brand: BrandCreateNestedOneWithoutProductsInput
-    model: ModelCreateNestedOneWithoutProductsInput
-    color: ColorCreateNestedOneWithoutProductsInput
-    currency: CurrencyCreateNestedOneWithoutProductsInput
-    address: AddressCreateNestedOneWithoutProductsInput
-    contactPhone: PhoneCreateNestedOneWithoutProductsInput
-    admin: AdminCreateNestedOneWithoutProductsManagedInput
-    images?: ProductImageCreateNestedManyWithoutProductInput
-    favouritedBy?: FavouriteItemCreateNestedManyWithoutProductInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     comments?: CommentCreateNestedManyWithoutProductInput
   }
 
@@ -26728,7 +25593,6 @@ export namespace Prisma {
     title: string
     description: string
     year: number
-<<<<<<< HEAD
     brand_id?: bigint | number | null
     model_id?: bigint | number | null
     custom_model?: string | null
@@ -26736,15 +25600,6 @@ export namespace Prisma {
     price: number
     floor_price?: boolean
     currency_id?: bigint | number
-=======
-    brand_id: bigint | number
-    model_id: bigint | number
-    custom_model: string
-    color_id: bigint | number
-    price: number
-    floor_price: boolean
-    currency_id: bigint | number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     is_new: boolean
     has_document: boolean
     address_id: bigint | number
@@ -26755,19 +25610,11 @@ export namespace Prisma {
     is_archived?: boolean
     is_sold?: boolean
     is_checked?: boolean
-<<<<<<< HEAD
     admin_id?: bigint | number | null
     is_top?: boolean
     top_expire_date?: Date | string | null
     images?: ProductImageUncheckedCreateNestedManyWithoutProductInput
     favourited_by?: FavouriteItemUncheckedCreateNestedManyWithoutProductInput
-=======
-    admin_id: bigint | number
-    is_top?: boolean
-    top_expire_date: Date | string
-    images?: ProductImageUncheckedCreateNestedManyWithoutProductInput
-    favouritedBy?: FavouriteItemUncheckedCreateNestedManyWithoutProductInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     comments?: CommentUncheckedCreateNestedManyWithoutProductInput
   }
 
@@ -26776,11 +25623,7 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
-<<<<<<< HEAD
     custom_model?: NullableStringFieldUpdateOperationsInput | string | null
-=======
-    custom_model?: StringFieldUpdateOperationsInput | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     price?: FloatFieldUpdateOperationsInput | number
     floor_price?: BoolFieldUpdateOperationsInput | boolean
     is_new?: BoolFieldUpdateOperationsInput | boolean
@@ -26792,7 +25635,6 @@ export namespace Prisma {
     is_sold?: BoolFieldUpdateOperationsInput | boolean
     is_checked?: BoolFieldUpdateOperationsInput | boolean
     is_top?: BoolFieldUpdateOperationsInput | boolean
-<<<<<<< HEAD
     top_expire_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     user?: UserUpdateOneRequiredWithoutProductsNestedInput
     brand?: BrandUpdateOneWithoutProductsNestedInput
@@ -26804,19 +25646,6 @@ export namespace Prisma {
     admin?: AdminUpdateOneWithoutProducts_managedNestedInput
     images?: ProductImageUpdateManyWithoutProductNestedInput
     favourited_by?: FavouriteItemUpdateManyWithoutProductNestedInput
-=======
-    top_expire_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutProductsNestedInput
-    brand?: BrandUpdateOneRequiredWithoutProductsNestedInput
-    model?: ModelUpdateOneRequiredWithoutProductsNestedInput
-    color?: ColorUpdateOneRequiredWithoutProductsNestedInput
-    currency?: CurrencyUpdateOneRequiredWithoutProductsNestedInput
-    address?: AddressUpdateOneRequiredWithoutProductsNestedInput
-    contactPhone?: PhoneUpdateOneRequiredWithoutProductsNestedInput
-    admin?: AdminUpdateOneRequiredWithoutProductsManagedNestedInput
-    images?: ProductImageUpdateManyWithoutProductNestedInput
-    favouritedBy?: FavouriteItemUpdateManyWithoutProductNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     comments?: CommentUpdateManyWithoutProductNestedInput
   }
 
@@ -26826,15 +25655,9 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
-<<<<<<< HEAD
     brand_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     model_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     custom_model?: NullableStringFieldUpdateOperationsInput | string | null
-=======
-    brand_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    model_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    custom_model?: StringFieldUpdateOperationsInput | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     color_id?: BigIntFieldUpdateOperationsInput | bigint | number
     price?: FloatFieldUpdateOperationsInput | number
     floor_price?: BoolFieldUpdateOperationsInput | boolean
@@ -26849,19 +25672,11 @@ export namespace Prisma {
     is_archived?: BoolFieldUpdateOperationsInput | boolean
     is_sold?: BoolFieldUpdateOperationsInput | boolean
     is_checked?: BoolFieldUpdateOperationsInput | boolean
-<<<<<<< HEAD
     admin_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     is_top?: BoolFieldUpdateOperationsInput | boolean
     top_expire_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     images?: ProductImageUncheckedUpdateManyWithoutProductNestedInput
     favourited_by?: FavouriteItemUncheckedUpdateManyWithoutProductNestedInput
-=======
-    admin_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    is_top?: BoolFieldUpdateOperationsInput | boolean
-    top_expire_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    images?: ProductImageUncheckedUpdateManyWithoutProductNestedInput
-    favouritedBy?: FavouriteItemUncheckedUpdateManyWithoutProductNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     comments?: CommentUncheckedUpdateManyWithoutProductNestedInput
   }
 
@@ -26871,7 +25686,6 @@ export namespace Prisma {
     title: string
     description: string
     year: number
-<<<<<<< HEAD
     brand_id?: bigint | number | null
     model_id?: bigint | number | null
     custom_model?: string | null
@@ -26879,15 +25693,6 @@ export namespace Prisma {
     price: number
     floor_price?: boolean
     currency_id?: bigint | number
-=======
-    brand_id: bigint | number
-    model_id: bigint | number
-    custom_model: string
-    color_id: bigint | number
-    price: number
-    floor_price: boolean
-    currency_id: bigint | number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     is_new: boolean
     has_document: boolean
     address_id: bigint | number
@@ -26898,15 +25703,9 @@ export namespace Prisma {
     is_archived?: boolean
     is_sold?: boolean
     is_checked?: boolean
-<<<<<<< HEAD
     admin_id?: bigint | number | null
     is_top?: boolean
     top_expire_date?: Date | string | null
-=======
-    admin_id: bigint | number
-    is_top?: boolean
-    top_expire_date: Date | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type ProductUpdateManyMutationInput = {
@@ -26914,11 +25713,7 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
-<<<<<<< HEAD
     custom_model?: NullableStringFieldUpdateOperationsInput | string | null
-=======
-    custom_model?: StringFieldUpdateOperationsInput | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     price?: FloatFieldUpdateOperationsInput | number
     floor_price?: BoolFieldUpdateOperationsInput | boolean
     is_new?: BoolFieldUpdateOperationsInput | boolean
@@ -26930,11 +25725,7 @@ export namespace Prisma {
     is_sold?: BoolFieldUpdateOperationsInput | boolean
     is_checked?: BoolFieldUpdateOperationsInput | boolean
     is_top?: BoolFieldUpdateOperationsInput | boolean
-<<<<<<< HEAD
     top_expire_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-=======
-    top_expire_date?: DateTimeFieldUpdateOperationsInput | Date | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type ProductUncheckedUpdateManyInput = {
@@ -26943,15 +25734,9 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
-<<<<<<< HEAD
     brand_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     model_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     custom_model?: NullableStringFieldUpdateOperationsInput | string | null
-=======
-    brand_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    model_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    custom_model?: StringFieldUpdateOperationsInput | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     color_id?: BigIntFieldUpdateOperationsInput | bigint | number
     price?: FloatFieldUpdateOperationsInput | number
     floor_price?: BoolFieldUpdateOperationsInput | boolean
@@ -26966,15 +25751,9 @@ export namespace Prisma {
     is_archived?: BoolFieldUpdateOperationsInput | boolean
     is_sold?: BoolFieldUpdateOperationsInput | boolean
     is_checked?: BoolFieldUpdateOperationsInput | boolean
-<<<<<<< HEAD
     admin_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     is_top?: BoolFieldUpdateOperationsInput | boolean
     top_expire_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-=======
-    admin_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    is_top?: BoolFieldUpdateOperationsInput | boolean
-    top_expire_date?: DateTimeFieldUpdateOperationsInput | Date | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type ProductImageCreateInput = {
@@ -27123,79 +25902,54 @@ export namespace Prisma {
   export type ColorCreateInput = {
     id?: bigint | number
     name: string
-<<<<<<< HEAD
     hex: string
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     products?: ProductCreateNestedManyWithoutColorInput
   }
 
   export type ColorUncheckedCreateInput = {
     id?: bigint | number
     name: string
-<<<<<<< HEAD
     hex: string
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     products?: ProductUncheckedCreateNestedManyWithoutColorInput
   }
 
   export type ColorUpdateInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     hex?: StringFieldUpdateOperationsInput | string
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     products?: ProductUpdateManyWithoutColorNestedInput
   }
 
   export type ColorUncheckedUpdateInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     hex?: StringFieldUpdateOperationsInput | string
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     products?: ProductUncheckedUpdateManyWithoutColorNestedInput
   }
 
   export type ColorCreateManyInput = {
     id?: bigint | number
     name: string
-<<<<<<< HEAD
     hex: string
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type ColorUpdateManyMutationInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     hex?: StringFieldUpdateOperationsInput | string
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type ColorUncheckedUpdateManyInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     hex?: StringFieldUpdateOperationsInput | string
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type CurrencyCreateInput = {
     id?: bigint | number
     name: string
     symbol: string
-<<<<<<< HEAD
     user_preferences?: UserCreateNestedManyWithoutCurrencyInput
-=======
-    userPreferences?: UserCreateNestedManyWithoutPreferredCurrencyInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     products?: ProductCreateNestedManyWithoutCurrencyInput
   }
 
@@ -27203,11 +25957,7 @@ export namespace Prisma {
     id?: bigint | number
     name: string
     symbol: string
-<<<<<<< HEAD
     user_preferences?: UserUncheckedCreateNestedManyWithoutCurrencyInput
-=======
-    userPreferences?: UserUncheckedCreateNestedManyWithoutPreferredCurrencyInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     products?: ProductUncheckedCreateNestedManyWithoutCurrencyInput
   }
 
@@ -27215,11 +25965,7 @@ export namespace Prisma {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
     symbol?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     user_preferences?: UserUpdateManyWithoutCurrencyNestedInput
-=======
-    userPreferences?: UserUpdateManyWithoutPreferredCurrencyNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     products?: ProductUpdateManyWithoutCurrencyNestedInput
   }
 
@@ -27227,11 +25973,7 @@ export namespace Prisma {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
     symbol?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     user_preferences?: UserUncheckedUpdateManyWithoutCurrencyNestedInput
-=======
-    userPreferences?: UserUncheckedUpdateManyWithoutPreferredCurrencyNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     products?: ProductUncheckedUpdateManyWithoutCurrencyNestedInput
   }
 
@@ -27260,21 +26002,12 @@ export namespace Prisma {
     birth_date: Date | string
     phone: string
     password: string
-<<<<<<< HEAD
     avatar?: string | null
     refresh_token?: string | null
     is_creator?: boolean
     language?: LanguageCreateNestedOneWithoutAdminsInput
     blocks_issued?: BlockCreateNestedManyWithoutAdminInput
     products_managed?: ProductCreateNestedManyWithoutAdminInput
-=======
-    avatar: string
-    refresh_token: string
-    is_creator?: boolean
-    language: LanguageCreateNestedOneWithoutAdminsInput
-    blocksIssued?: BlockCreateNestedManyWithoutAdminInput
-    productsManaged?: ProductCreateNestedManyWithoutAdminInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type AdminUncheckedCreateInput = {
@@ -27284,21 +26017,12 @@ export namespace Prisma {
     birth_date: Date | string
     phone: string
     password: string
-<<<<<<< HEAD
     avatar?: string | null
     refresh_token?: string | null
     lang_id?: bigint | number
     is_creator?: boolean
     blocks_issued?: BlockUncheckedCreateNestedManyWithoutAdminInput
     products_managed?: ProductUncheckedCreateNestedManyWithoutAdminInput
-=======
-    avatar: string
-    refresh_token: string
-    lang_id: bigint | number
-    is_creator?: boolean
-    blocksIssued?: BlockUncheckedCreateNestedManyWithoutAdminInput
-    productsManaged?: ProductUncheckedCreateNestedManyWithoutAdminInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type AdminUpdateInput = {
@@ -27308,21 +26032,12 @@ export namespace Prisma {
     birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
     phone?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
     is_creator?: BoolFieldUpdateOperationsInput | boolean
     language?: LanguageUpdateOneRequiredWithoutAdminsNestedInput
     blocks_issued?: BlockUpdateManyWithoutAdminNestedInput
     products_managed?: ProductUpdateManyWithoutAdminNestedInput
-=======
-    avatar?: StringFieldUpdateOperationsInput | string
-    refresh_token?: StringFieldUpdateOperationsInput | string
-    is_creator?: BoolFieldUpdateOperationsInput | boolean
-    language?: LanguageUpdateOneRequiredWithoutAdminsNestedInput
-    blocksIssued?: BlockUpdateManyWithoutAdminNestedInput
-    productsManaged?: ProductUpdateManyWithoutAdminNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type AdminUncheckedUpdateInput = {
@@ -27332,21 +26047,12 @@ export namespace Prisma {
     birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
     phone?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
     lang_id?: BigIntFieldUpdateOperationsInput | bigint | number
     is_creator?: BoolFieldUpdateOperationsInput | boolean
     blocks_issued?: BlockUncheckedUpdateManyWithoutAdminNestedInput
     products_managed?: ProductUncheckedUpdateManyWithoutAdminNestedInput
-=======
-    avatar?: StringFieldUpdateOperationsInput | string
-    refresh_token?: StringFieldUpdateOperationsInput | string
-    lang_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    is_creator?: BoolFieldUpdateOperationsInput | boolean
-    blocksIssued?: BlockUncheckedUpdateManyWithoutAdminNestedInput
-    productsManaged?: ProductUncheckedUpdateManyWithoutAdminNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type AdminCreateManyInput = {
@@ -27356,15 +26062,9 @@ export namespace Prisma {
     birth_date: Date | string
     phone: string
     password: string
-<<<<<<< HEAD
     avatar?: string | null
     refresh_token?: string | null
     lang_id?: bigint | number
-=======
-    avatar: string
-    refresh_token: string
-    lang_id: bigint | number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     is_creator?: boolean
   }
 
@@ -27375,13 +26075,8 @@ export namespace Prisma {
     birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
     phone?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
-=======
-    avatar?: StringFieldUpdateOperationsInput | string
-    refresh_token?: StringFieldUpdateOperationsInput | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     is_creator?: BoolFieldUpdateOperationsInput | boolean
   }
 
@@ -27392,13 +26087,8 @@ export namespace Prisma {
     birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
     phone?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
-=======
-    avatar?: StringFieldUpdateOperationsInput | string
-    refresh_token?: StringFieldUpdateOperationsInput | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     lang_id?: BigIntFieldUpdateOperationsInput | bigint | number
     is_creator?: BoolFieldUpdateOperationsInput | boolean
   }
@@ -27406,15 +26096,9 @@ export namespace Prisma {
   export type BlockCreateInput = {
     id?: bigint | number
     reason: string
-<<<<<<< HEAD
     expire_date: Date | string
     user: UserCreateNestedOneWithoutBlocksInput
     admin: AdminCreateNestedOneWithoutBlocks_issuedInput
-=======
-    expireDate: Date | string
-    user: UserCreateNestedOneWithoutBlocksInput
-    admin: AdminCreateNestedOneWithoutBlocksIssuedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type BlockUncheckedCreateInput = {
@@ -27422,25 +26106,15 @@ export namespace Prisma {
     user_id: bigint | number
     admin_id: bigint | number
     reason: string
-<<<<<<< HEAD
     expire_date: Date | string
-=======
-    expireDate: Date | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type BlockUpdateInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     reason?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     expire_date?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutBlocksNestedInput
     admin?: AdminUpdateOneRequiredWithoutBlocks_issuedNestedInput
-=======
-    expireDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutBlocksNestedInput
-    admin?: AdminUpdateOneRequiredWithoutBlocksIssuedNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type BlockUncheckedUpdateInput = {
@@ -27448,11 +26122,7 @@ export namespace Prisma {
     user_id?: BigIntFieldUpdateOperationsInput | bigint | number
     admin_id?: BigIntFieldUpdateOperationsInput | bigint | number
     reason?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     expire_date?: DateTimeFieldUpdateOperationsInput | Date | string
-=======
-    expireDate?: DateTimeFieldUpdateOperationsInput | Date | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type BlockCreateManyInput = {
@@ -27460,21 +26130,13 @@ export namespace Prisma {
     user_id: bigint | number
     admin_id: bigint | number
     reason: string
-<<<<<<< HEAD
     expire_date: Date | string
-=======
-    expireDate: Date | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type BlockUpdateManyMutationInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     reason?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     expire_date?: DateTimeFieldUpdateOperationsInput | Date | string
-=======
-    expireDate?: DateTimeFieldUpdateOperationsInput | Date | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type BlockUncheckedUpdateManyInput = {
@@ -27482,22 +26144,14 @@ export namespace Prisma {
     user_id?: BigIntFieldUpdateOperationsInput | bigint | number
     admin_id?: BigIntFieldUpdateOperationsInput | bigint | number
     reason?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     expire_date?: DateTimeFieldUpdateOperationsInput | Date | string
-=======
-    expireDate?: DateTimeFieldUpdateOperationsInput | Date | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type PaymentCreateInput = {
     id?: bigint | number
     amount: number
     user: UserCreateNestedOneWithoutPaymentsInput
-<<<<<<< HEAD
     payment_method: PaymentMethodCreateNestedOneWithoutPaymentsInput
-=======
-    paymentMethod: PaymentMethodCreateNestedOneWithoutPaymentsInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type PaymentUncheckedCreateInput = {
@@ -27511,11 +26165,7 @@ export namespace Prisma {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     amount?: FloatFieldUpdateOperationsInput | number
     user?: UserUpdateOneRequiredWithoutPaymentsNestedInput
-<<<<<<< HEAD
     payment_method?: PaymentMethodUpdateOneRequiredWithoutPaymentsNestedInput
-=======
-    paymentMethod?: PaymentMethodUpdateOneRequiredWithoutPaymentsNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type PaymentUncheckedUpdateInput = {
@@ -27594,41 +26244,25 @@ export namespace Prisma {
   export type PaymentMethodCreateInput = {
     id?: bigint | number
     name: string
-<<<<<<< HEAD
     payments?: PaymentCreateNestedManyWithoutPayment_methodInput
-=======
-    payments?: PaymentCreateNestedManyWithoutPaymentMethodInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type PaymentMethodUncheckedCreateInput = {
     id?: bigint | number
     name: string
-<<<<<<< HEAD
     payments?: PaymentUncheckedCreateNestedManyWithoutPayment_methodInput
-=======
-    payments?: PaymentUncheckedCreateNestedManyWithoutPaymentMethodInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type PaymentMethodUpdateInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     payments?: PaymentUpdateManyWithoutPayment_methodNestedInput
-=======
-    payments?: PaymentUpdateManyWithoutPaymentMethodNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type PaymentMethodUncheckedUpdateInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     payments?: PaymentUncheckedUpdateManyWithoutPayment_methodNestedInput
-=======
-    payments?: PaymentUncheckedUpdateManyWithoutPaymentMethodNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type PaymentMethodCreateManyInput = {
@@ -27672,22 +26306,14 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
-<<<<<<< HEAD
   export type DateTimeNullableFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
     notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-=======
-  export type DateTimeFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-<<<<<<< HEAD
     not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
@@ -27704,9 +26330,6 @@ export namespace Prisma {
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     mode?: QueryMode
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
-=======
-    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type FloatFilter<$PrismaModel = never> = {
@@ -27720,7 +26343,6 @@ export namespace Prisma {
     not?: NestedFloatFilter<$PrismaModel> | number
   }
 
-<<<<<<< HEAD
   export type BigIntNullableFilter<$PrismaModel = never> = {
     equals?: bigint | number | BigIntFieldRefInput<$PrismaModel> | null
     in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
@@ -27735,11 +26357,6 @@ export namespace Prisma {
   export type OTPNullableScalarRelationFilter = {
     is?: OTPWhereInput | null
     isNot?: OTPWhereInput | null
-=======
-  export type OTPScalarRelationFilter = {
-    is?: OTPWhereInput
-    isNot?: OTPWhereInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type LanguageScalarRelationFilter = {
@@ -27800,14 +26417,11 @@ export namespace Prisma {
     none?: BlockWhereInput
   }
 
-<<<<<<< HEAD
   export type SortOrderInput = {
     sort: SortOrder
     nulls?: NullsOrder
   }
 
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   export type EmailOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
@@ -27851,11 +26465,7 @@ export namespace Prisma {
     balance?: SortOrder
     otp_id?: SortOrder
     lang_id?: SortOrder
-<<<<<<< HEAD
     currency_id?: SortOrder
-=======
-    preferredCurrencyId?: SortOrder
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type UserAvgOrderByAggregateInput = {
@@ -27863,11 +26473,7 @@ export namespace Prisma {
     balance?: SortOrder
     otp_id?: SortOrder
     lang_id?: SortOrder
-<<<<<<< HEAD
     currency_id?: SortOrder
-=======
-    preferredCurrencyId?: SortOrder
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type UserMaxOrderByAggregateInput = {
@@ -27881,11 +26487,7 @@ export namespace Prisma {
     balance?: SortOrder
     otp_id?: SortOrder
     lang_id?: SortOrder
-<<<<<<< HEAD
     currency_id?: SortOrder
-=======
-    preferredCurrencyId?: SortOrder
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type UserMinOrderByAggregateInput = {
@@ -27899,11 +26501,7 @@ export namespace Prisma {
     balance?: SortOrder
     otp_id?: SortOrder
     lang_id?: SortOrder
-<<<<<<< HEAD
     currency_id?: SortOrder
-=======
-    preferredCurrencyId?: SortOrder
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type UserSumOrderByAggregateInput = {
@@ -27911,11 +26509,7 @@ export namespace Prisma {
     balance?: SortOrder
     otp_id?: SortOrder
     lang_id?: SortOrder
-<<<<<<< HEAD
     currency_id?: SortOrder
-=======
-    preferredCurrencyId?: SortOrder
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type BigIntWithAggregatesFilter<$PrismaModel = never> = {
@@ -27952,22 +26546,14 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
-<<<<<<< HEAD
   export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
     notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-=======
-  export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-<<<<<<< HEAD
     not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedDateTimeNullableFilter<$PrismaModel>
@@ -27990,12 +26576,6 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedStringNullableFilter<$PrismaModel>
     _max?: NestedStringNullableFilter<$PrismaModel>
-=======
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type FloatWithAggregatesFilter<$PrismaModel = never> = {
@@ -28014,7 +26594,6 @@ export namespace Prisma {
     _max?: NestedFloatFilter<$PrismaModel>
   }
 
-<<<<<<< HEAD
   export type BigIntNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: bigint | number | BigIntFieldRefInput<$PrismaModel> | null
     in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
@@ -28031,8 +26610,6 @@ export namespace Prisma {
     _max?: NestedBigIntNullableFilter<$PrismaModel>
   }
 
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   export type IntFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -28044,7 +26621,6 @@ export namespace Prisma {
     not?: NestedIntFilter<$PrismaModel> | number
   }
 
-<<<<<<< HEAD
   export type DateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -28056,8 +26632,6 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   export type UserListRelationFilter = {
     every?: UserWhereInput
     some?: UserWhereInput
@@ -28115,7 +26689,6 @@ export namespace Prisma {
     _max?: NestedIntFilter<$PrismaModel>
   }
 
-<<<<<<< HEAD
   export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -28130,8 +26703,6 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   export type UserScalarRelationFilter = {
     is?: UserWhereInput
     isNot?: UserWhereInput
@@ -28201,11 +26772,7 @@ export namespace Prisma {
   export type AddressCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
-<<<<<<< HEAD
     address_value?: SortOrder
-=======
-    addressValue?: SortOrder
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     lat?: SortOrder
     long?: SortOrder
     user_id?: SortOrder
@@ -28214,22 +26781,14 @@ export namespace Prisma {
 
   export type AddressAvgOrderByAggregateInput = {
     id?: SortOrder
-<<<<<<< HEAD
     address_value?: SortOrder
-=======
-    addressValue?: SortOrder
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     user_id?: SortOrder
   }
 
   export type AddressMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
-<<<<<<< HEAD
     address_value?: SortOrder
-=======
-    addressValue?: SortOrder
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     lat?: SortOrder
     long?: SortOrder
     user_id?: SortOrder
@@ -28239,11 +26798,7 @@ export namespace Prisma {
   export type AddressMinOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
-<<<<<<< HEAD
     address_value?: SortOrder
-=======
-    addressValue?: SortOrder
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     lat?: SortOrder
     long?: SortOrder
     user_id?: SortOrder
@@ -28252,11 +26807,7 @@ export namespace Prisma {
 
   export type AddressSumOrderByAggregateInput = {
     id?: SortOrder
-<<<<<<< HEAD
     address_value?: SortOrder
-=======
-    addressValue?: SortOrder
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     user_id?: SortOrder
   }
 
@@ -28281,10 +26832,7 @@ export namespace Prisma {
   export type LanguageCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
-<<<<<<< HEAD
     flag_url?: SortOrder
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type LanguageAvgOrderByAggregateInput = {
@@ -28294,19 +26842,13 @@ export namespace Prisma {
   export type LanguageMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
-<<<<<<< HEAD
     flag_url?: SortOrder
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type LanguageMinOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
-<<<<<<< HEAD
     flag_url?: SortOrder
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type LanguageSumOrderByAggregateInput = {
@@ -28353,7 +26895,6 @@ export namespace Prisma {
     user_id?: SortOrder
   }
 
-<<<<<<< HEAD
   export type BrandNullableScalarRelationFilter = {
     is?: BrandWhereInput | null
     isNot?: BrandWhereInput | null
@@ -28362,16 +26903,6 @@ export namespace Prisma {
   export type ModelNullableScalarRelationFilter = {
     is?: ModelWhereInput | null
     isNot?: ModelWhereInput | null
-=======
-  export type BrandScalarRelationFilter = {
-    is?: BrandWhereInput
-    isNot?: BrandWhereInput
-  }
-
-  export type ModelScalarRelationFilter = {
-    is?: ModelWhereInput
-    isNot?: ModelWhereInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type ColorScalarRelationFilter = {
@@ -28389,15 +26920,9 @@ export namespace Prisma {
     isNot?: PhoneWhereInput
   }
 
-<<<<<<< HEAD
   export type AdminNullableScalarRelationFilter = {
     is?: AdminWhereInput | null
     isNot?: AdminWhereInput | null
-=======
-  export type AdminScalarRelationFilter = {
-    is?: AdminWhereInput
-    isNot?: AdminWhereInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type ProductImageListRelationFilter = {
@@ -28595,14 +27120,11 @@ export namespace Prisma {
     id?: SortOrder
   }
 
-<<<<<<< HEAD
   export type BrandScalarRelationFilter = {
     is?: BrandWhereInput
     isNot?: BrandWhereInput
   }
 
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   export type ModelBrand_idNameCompoundUniqueInput = {
     brand_id: bigint | number
     name: string
@@ -28639,10 +27161,7 @@ export namespace Prisma {
   export type ColorCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
-<<<<<<< HEAD
     hex?: SortOrder
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type ColorAvgOrderByAggregateInput = {
@@ -28652,19 +27171,13 @@ export namespace Prisma {
   export type ColorMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
-<<<<<<< HEAD
     hex?: SortOrder
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type ColorMinOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
-<<<<<<< HEAD
     hex?: SortOrder
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type ColorSumOrderByAggregateInput = {
@@ -28746,24 +27259,17 @@ export namespace Prisma {
     lang_id?: SortOrder
   }
 
-<<<<<<< HEAD
   export type AdminScalarRelationFilter = {
     is?: AdminWhereInput
     isNot?: AdminWhereInput
   }
 
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   export type BlockCountOrderByAggregateInput = {
     id?: SortOrder
     user_id?: SortOrder
     admin_id?: SortOrder
     reason?: SortOrder
-<<<<<<< HEAD
     expire_date?: SortOrder
-=======
-    expireDate?: SortOrder
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type BlockAvgOrderByAggregateInput = {
@@ -28777,11 +27283,7 @@ export namespace Prisma {
     user_id?: SortOrder
     admin_id?: SortOrder
     reason?: SortOrder
-<<<<<<< HEAD
     expire_date?: SortOrder
-=======
-    expireDate?: SortOrder
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type BlockMinOrderByAggregateInput = {
@@ -28789,11 +27291,7 @@ export namespace Prisma {
     user_id?: SortOrder
     admin_id?: SortOrder
     reason?: SortOrder
-<<<<<<< HEAD
     expire_date?: SortOrder
-=======
-    expireDate?: SortOrder
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type BlockSumOrderByAggregateInput = {
@@ -28910,15 +27408,9 @@ export namespace Prisma {
     connect?: LanguageWhereUniqueInput
   }
 
-<<<<<<< HEAD
   export type CurrencyCreateNestedOneWithoutUser_preferencesInput = {
     create?: XOR<CurrencyCreateWithoutUser_preferencesInput, CurrencyUncheckedCreateWithoutUser_preferencesInput>
     connectOrCreate?: CurrencyCreateOrConnectWithoutUser_preferencesInput
-=======
-  export type CurrencyCreateNestedOneWithoutUserPreferencesInput = {
-    create?: XOR<CurrencyCreateWithoutUserPreferencesInput, CurrencyUncheckedCreateWithoutUserPreferencesInput>
-    connectOrCreate?: CurrencyCreateOrConnectWithoutUserPreferencesInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     connect?: CurrencyWhereUniqueInput
   }
 
@@ -29046,17 +27538,12 @@ export namespace Prisma {
     set?: string
   }
 
-<<<<<<< HEAD
   export type NullableDateTimeFieldUpdateOperationsInput = {
     set?: Date | string | null
   }
 
   export type NullableStringFieldUpdateOperationsInput = {
     set?: string | null
-=======
-  export type DateTimeFieldUpdateOperationsInput = {
-    set?: Date | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type FloatFieldUpdateOperationsInput = {
@@ -29067,19 +27554,12 @@ export namespace Prisma {
     divide?: number
   }
 
-<<<<<<< HEAD
   export type OTPUpdateOneWithoutUsersNestedInput = {
     create?: XOR<OTPCreateWithoutUsersInput, OTPUncheckedCreateWithoutUsersInput>
     connectOrCreate?: OTPCreateOrConnectWithoutUsersInput
     upsert?: OTPUpsertWithoutUsersInput
     disconnect?: OTPWhereInput | boolean
     delete?: OTPWhereInput | boolean
-=======
-  export type OTPUpdateOneRequiredWithoutUsersNestedInput = {
-    create?: XOR<OTPCreateWithoutUsersInput, OTPUncheckedCreateWithoutUsersInput>
-    connectOrCreate?: OTPCreateOrConnectWithoutUsersInput
-    upsert?: OTPUpsertWithoutUsersInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     connect?: OTPWhereUniqueInput
     update?: XOR<XOR<OTPUpdateToOneWithWhereWithoutUsersInput, OTPUpdateWithoutUsersInput>, OTPUncheckedUpdateWithoutUsersInput>
   }
@@ -29092,21 +27572,12 @@ export namespace Prisma {
     update?: XOR<XOR<LanguageUpdateToOneWithWhereWithoutUsersInput, LanguageUpdateWithoutUsersInput>, LanguageUncheckedUpdateWithoutUsersInput>
   }
 
-<<<<<<< HEAD
   export type CurrencyUpdateOneRequiredWithoutUser_preferencesNestedInput = {
     create?: XOR<CurrencyCreateWithoutUser_preferencesInput, CurrencyUncheckedCreateWithoutUser_preferencesInput>
     connectOrCreate?: CurrencyCreateOrConnectWithoutUser_preferencesInput
     upsert?: CurrencyUpsertWithoutUser_preferencesInput
     connect?: CurrencyWhereUniqueInput
     update?: XOR<XOR<CurrencyUpdateToOneWithWhereWithoutUser_preferencesInput, CurrencyUpdateWithoutUser_preferencesInput>, CurrencyUncheckedUpdateWithoutUser_preferencesInput>
-=======
-  export type CurrencyUpdateOneRequiredWithoutUserPreferencesNestedInput = {
-    create?: XOR<CurrencyCreateWithoutUserPreferencesInput, CurrencyUncheckedCreateWithoutUserPreferencesInput>
-    connectOrCreate?: CurrencyCreateOrConnectWithoutUserPreferencesInput
-    upsert?: CurrencyUpsertWithoutUserPreferencesInput
-    connect?: CurrencyWhereUniqueInput
-    update?: XOR<XOR<CurrencyUpdateToOneWithWhereWithoutUserPreferencesInput, CurrencyUpdateWithoutUserPreferencesInput>, CurrencyUncheckedUpdateWithoutUserPreferencesInput>
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type EmailUpdateManyWithoutUserNestedInput = {
@@ -29221,7 +27692,6 @@ export namespace Prisma {
     deleteMany?: BlockScalarWhereInput | BlockScalarWhereInput[]
   }
 
-<<<<<<< HEAD
   export type NullableBigIntFieldUpdateOperationsInput = {
     set?: bigint | number | null
     increment?: bigint | number
@@ -29230,8 +27700,6 @@ export namespace Prisma {
     divide?: bigint | number
   }
 
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   export type EmailUncheckedUpdateManyWithoutUserNestedInput = {
     create?: XOR<EmailCreateWithoutUserInput, EmailUncheckedCreateWithoutUserInput> | EmailCreateWithoutUserInput[] | EmailUncheckedCreateWithoutUserInput[]
     connectOrCreate?: EmailCreateOrConnectWithoutUserInput | EmailCreateOrConnectWithoutUserInput[]
@@ -29366,13 +27834,10 @@ export namespace Prisma {
     divide?: number
   }
 
-<<<<<<< HEAD
   export type DateTimeFieldUpdateOperationsInput = {
     set?: Date | string
   }
 
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   export type UserUpdateManyWithoutOtpNestedInput = {
     create?: XOR<UserCreateWithoutOtpInput, UserUncheckedCreateWithoutOtpInput> | UserCreateWithoutOtpInput[] | UserUncheckedCreateWithoutOtpInput[]
     connectOrCreate?: UserCreateOrConnectWithoutOtpInput | UserCreateOrConnectWithoutOtpInput[]
@@ -29401,7 +27866,6 @@ export namespace Prisma {
     deleteMany?: UserScalarWhereInput | UserScalarWhereInput[]
   }
 
-<<<<<<< HEAD
   export type UserCreateNestedOneWithoutAdditional_phonesInput = {
     create?: XOR<UserCreateWithoutAdditional_phonesInput, UserUncheckedCreateWithoutAdditional_phonesInput>
     connectOrCreate?: UserCreateOrConnectWithoutAdditional_phonesInput
@@ -29435,46 +27899,10 @@ export namespace Prisma {
     connectOrCreate?: ProductCreateOrConnectWithoutContact_phoneInput | ProductCreateOrConnectWithoutContact_phoneInput[]
     upsert?: ProductUpsertWithWhereUniqueWithoutContact_phoneInput | ProductUpsertWithWhereUniqueWithoutContact_phoneInput[]
     createMany?: ProductCreateManyContact_phoneInputEnvelope
-=======
-  export type UserCreateNestedOneWithoutAdditionalPhonesInput = {
-    create?: XOR<UserCreateWithoutAdditionalPhonesInput, UserUncheckedCreateWithoutAdditionalPhonesInput>
-    connectOrCreate?: UserCreateOrConnectWithoutAdditionalPhonesInput
-    connect?: UserWhereUniqueInput
-  }
-
-  export type ProductCreateNestedManyWithoutContactPhoneInput = {
-    create?: XOR<ProductCreateWithoutContactPhoneInput, ProductUncheckedCreateWithoutContactPhoneInput> | ProductCreateWithoutContactPhoneInput[] | ProductUncheckedCreateWithoutContactPhoneInput[]
-    connectOrCreate?: ProductCreateOrConnectWithoutContactPhoneInput | ProductCreateOrConnectWithoutContactPhoneInput[]
-    createMany?: ProductCreateManyContactPhoneInputEnvelope
-    connect?: ProductWhereUniqueInput | ProductWhereUniqueInput[]
-  }
-
-  export type ProductUncheckedCreateNestedManyWithoutContactPhoneInput = {
-    create?: XOR<ProductCreateWithoutContactPhoneInput, ProductUncheckedCreateWithoutContactPhoneInput> | ProductCreateWithoutContactPhoneInput[] | ProductUncheckedCreateWithoutContactPhoneInput[]
-    connectOrCreate?: ProductCreateOrConnectWithoutContactPhoneInput | ProductCreateOrConnectWithoutContactPhoneInput[]
-    createMany?: ProductCreateManyContactPhoneInputEnvelope
-    connect?: ProductWhereUniqueInput | ProductWhereUniqueInput[]
-  }
-
-  export type UserUpdateOneRequiredWithoutAdditionalPhonesNestedInput = {
-    create?: XOR<UserCreateWithoutAdditionalPhonesInput, UserUncheckedCreateWithoutAdditionalPhonesInput>
-    connectOrCreate?: UserCreateOrConnectWithoutAdditionalPhonesInput
-    upsert?: UserUpsertWithoutAdditionalPhonesInput
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutAdditionalPhonesInput, UserUpdateWithoutAdditionalPhonesInput>, UserUncheckedUpdateWithoutAdditionalPhonesInput>
-  }
-
-  export type ProductUpdateManyWithoutContactPhoneNestedInput = {
-    create?: XOR<ProductCreateWithoutContactPhoneInput, ProductUncheckedCreateWithoutContactPhoneInput> | ProductCreateWithoutContactPhoneInput[] | ProductUncheckedCreateWithoutContactPhoneInput[]
-    connectOrCreate?: ProductCreateOrConnectWithoutContactPhoneInput | ProductCreateOrConnectWithoutContactPhoneInput[]
-    upsert?: ProductUpsertWithWhereUniqueWithoutContactPhoneInput | ProductUpsertWithWhereUniqueWithoutContactPhoneInput[]
-    createMany?: ProductCreateManyContactPhoneInputEnvelope
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     set?: ProductWhereUniqueInput | ProductWhereUniqueInput[]
     disconnect?: ProductWhereUniqueInput | ProductWhereUniqueInput[]
     delete?: ProductWhereUniqueInput | ProductWhereUniqueInput[]
     connect?: ProductWhereUniqueInput | ProductWhereUniqueInput[]
-<<<<<<< HEAD
     update?: ProductUpdateWithWhereUniqueWithoutContact_phoneInput | ProductUpdateWithWhereUniqueWithoutContact_phoneInput[]
     updateMany?: ProductUpdateManyWithWhereWithoutContact_phoneInput | ProductUpdateManyWithWhereWithoutContact_phoneInput[]
     deleteMany?: ProductScalarWhereInput | ProductScalarWhereInput[]
@@ -29485,29 +27913,12 @@ export namespace Prisma {
     connectOrCreate?: ProductCreateOrConnectWithoutContact_phoneInput | ProductCreateOrConnectWithoutContact_phoneInput[]
     upsert?: ProductUpsertWithWhereUniqueWithoutContact_phoneInput | ProductUpsertWithWhereUniqueWithoutContact_phoneInput[]
     createMany?: ProductCreateManyContact_phoneInputEnvelope
-=======
-    update?: ProductUpdateWithWhereUniqueWithoutContactPhoneInput | ProductUpdateWithWhereUniqueWithoutContactPhoneInput[]
-    updateMany?: ProductUpdateManyWithWhereWithoutContactPhoneInput | ProductUpdateManyWithWhereWithoutContactPhoneInput[]
-    deleteMany?: ProductScalarWhereInput | ProductScalarWhereInput[]
-  }
-
-  export type ProductUncheckedUpdateManyWithoutContactPhoneNestedInput = {
-    create?: XOR<ProductCreateWithoutContactPhoneInput, ProductUncheckedCreateWithoutContactPhoneInput> | ProductCreateWithoutContactPhoneInput[] | ProductUncheckedCreateWithoutContactPhoneInput[]
-    connectOrCreate?: ProductCreateOrConnectWithoutContactPhoneInput | ProductCreateOrConnectWithoutContactPhoneInput[]
-    upsert?: ProductUpsertWithWhereUniqueWithoutContactPhoneInput | ProductUpsertWithWhereUniqueWithoutContactPhoneInput[]
-    createMany?: ProductCreateManyContactPhoneInputEnvelope
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     set?: ProductWhereUniqueInput | ProductWhereUniqueInput[]
     disconnect?: ProductWhereUniqueInput | ProductWhereUniqueInput[]
     delete?: ProductWhereUniqueInput | ProductWhereUniqueInput[]
     connect?: ProductWhereUniqueInput | ProductWhereUniqueInput[]
-<<<<<<< HEAD
     update?: ProductUpdateWithWhereUniqueWithoutContact_phoneInput | ProductUpdateWithWhereUniqueWithoutContact_phoneInput[]
     updateMany?: ProductUpdateManyWithWhereWithoutContact_phoneInput | ProductUpdateManyWithWhereWithoutContact_phoneInput[]
-=======
-    update?: ProductUpdateWithWhereUniqueWithoutContactPhoneInput | ProductUpdateWithWhereUniqueWithoutContactPhoneInput[]
-    updateMany?: ProductUpdateManyWithWhereWithoutContactPhoneInput | ProductUpdateManyWithWhereWithoutContactPhoneInput[]
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     deleteMany?: ProductScalarWhereInput | ProductScalarWhereInput[]
   }
 
@@ -29669,7 +28080,6 @@ export namespace Prisma {
     deleteMany?: AdminScalarWhereInput | AdminScalarWhereInput[]
   }
 
-<<<<<<< HEAD
   export type ProductCreateNestedOneWithoutFavourited_byInput = {
     create?: XOR<ProductCreateWithoutFavourited_byInput, ProductUncheckedCreateWithoutFavourited_byInput>
     connectOrCreate?: ProductCreateOrConnectWithoutFavourited_byInput
@@ -29696,34 +28106,6 @@ export namespace Prisma {
     upsert?: UserUpsertWithoutFavourite_itemsInput
     connect?: UserWhereUniqueInput
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutFavourite_itemsInput, UserUpdateWithoutFavourite_itemsInput>, UserUncheckedUpdateWithoutFavourite_itemsInput>
-=======
-  export type ProductCreateNestedOneWithoutFavouritedByInput = {
-    create?: XOR<ProductCreateWithoutFavouritedByInput, ProductUncheckedCreateWithoutFavouritedByInput>
-    connectOrCreate?: ProductCreateOrConnectWithoutFavouritedByInput
-    connect?: ProductWhereUniqueInput
-  }
-
-  export type UserCreateNestedOneWithoutFavouriteItemsInput = {
-    create?: XOR<UserCreateWithoutFavouriteItemsInput, UserUncheckedCreateWithoutFavouriteItemsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutFavouriteItemsInput
-    connect?: UserWhereUniqueInput
-  }
-
-  export type ProductUpdateOneRequiredWithoutFavouritedByNestedInput = {
-    create?: XOR<ProductCreateWithoutFavouritedByInput, ProductUncheckedCreateWithoutFavouritedByInput>
-    connectOrCreate?: ProductCreateOrConnectWithoutFavouritedByInput
-    upsert?: ProductUpsertWithoutFavouritedByInput
-    connect?: ProductWhereUniqueInput
-    update?: XOR<XOR<ProductUpdateToOneWithWhereWithoutFavouritedByInput, ProductUpdateWithoutFavouritedByInput>, ProductUncheckedUpdateWithoutFavouritedByInput>
-  }
-
-  export type UserUpdateOneRequiredWithoutFavouriteItemsNestedInput = {
-    create?: XOR<UserCreateWithoutFavouriteItemsInput, UserUncheckedCreateWithoutFavouriteItemsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutFavouriteItemsInput
-    upsert?: UserUpsertWithoutFavouriteItemsInput
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutFavouriteItemsInput, UserUpdateWithoutFavouriteItemsInput>, UserUncheckedUpdateWithoutFavouriteItemsInput>
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type UserCreateNestedOneWithoutProductsInput = {
@@ -29768,15 +28150,9 @@ export namespace Prisma {
     connect?: PhoneWhereUniqueInput
   }
 
-<<<<<<< HEAD
   export type AdminCreateNestedOneWithoutProducts_managedInput = {
     create?: XOR<AdminCreateWithoutProducts_managedInput, AdminUncheckedCreateWithoutProducts_managedInput>
     connectOrCreate?: AdminCreateOrConnectWithoutProducts_managedInput
-=======
-  export type AdminCreateNestedOneWithoutProductsManagedInput = {
-    create?: XOR<AdminCreateWithoutProductsManagedInput, AdminUncheckedCreateWithoutProductsManagedInput>
-    connectOrCreate?: AdminCreateOrConnectWithoutProductsManagedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     connect?: AdminWhereUniqueInput
   }
 
@@ -29830,36 +28206,22 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutProductsInput, UserUpdateWithoutProductsInput>, UserUncheckedUpdateWithoutProductsInput>
   }
 
-<<<<<<< HEAD
   export type BrandUpdateOneWithoutProductsNestedInput = {
     create?: XOR<BrandCreateWithoutProductsInput, BrandUncheckedCreateWithoutProductsInput>
     connectOrCreate?: BrandCreateOrConnectWithoutProductsInput
     upsert?: BrandUpsertWithoutProductsInput
     disconnect?: BrandWhereInput | boolean
     delete?: BrandWhereInput | boolean
-=======
-  export type BrandUpdateOneRequiredWithoutProductsNestedInput = {
-    create?: XOR<BrandCreateWithoutProductsInput, BrandUncheckedCreateWithoutProductsInput>
-    connectOrCreate?: BrandCreateOrConnectWithoutProductsInput
-    upsert?: BrandUpsertWithoutProductsInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     connect?: BrandWhereUniqueInput
     update?: XOR<XOR<BrandUpdateToOneWithWhereWithoutProductsInput, BrandUpdateWithoutProductsInput>, BrandUncheckedUpdateWithoutProductsInput>
   }
 
-<<<<<<< HEAD
   export type ModelUpdateOneWithoutProductsNestedInput = {
     create?: XOR<ModelCreateWithoutProductsInput, ModelUncheckedCreateWithoutProductsInput>
     connectOrCreate?: ModelCreateOrConnectWithoutProductsInput
     upsert?: ModelUpsertWithoutProductsInput
     disconnect?: ModelWhereInput | boolean
     delete?: ModelWhereInput | boolean
-=======
-  export type ModelUpdateOneRequiredWithoutProductsNestedInput = {
-    create?: XOR<ModelCreateWithoutProductsInput, ModelUncheckedCreateWithoutProductsInput>
-    connectOrCreate?: ModelCreateOrConnectWithoutProductsInput
-    upsert?: ModelUpsertWithoutProductsInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     connect?: ModelWhereUniqueInput
     update?: XOR<XOR<ModelUpdateToOneWithWhereWithoutProductsInput, ModelUpdateWithoutProductsInput>, ModelUncheckedUpdateWithoutProductsInput>
   }
@@ -29896,7 +28258,6 @@ export namespace Prisma {
     update?: XOR<XOR<PhoneUpdateToOneWithWhereWithoutProductsInput, PhoneUpdateWithoutProductsInput>, PhoneUncheckedUpdateWithoutProductsInput>
   }
 
-<<<<<<< HEAD
   export type AdminUpdateOneWithoutProducts_managedNestedInput = {
     create?: XOR<AdminCreateWithoutProducts_managedInput, AdminUncheckedCreateWithoutProducts_managedInput>
     connectOrCreate?: AdminCreateOrConnectWithoutProducts_managedInput
@@ -29905,14 +28266,6 @@ export namespace Prisma {
     delete?: AdminWhereInput | boolean
     connect?: AdminWhereUniqueInput
     update?: XOR<XOR<AdminUpdateToOneWithWhereWithoutProducts_managedInput, AdminUpdateWithoutProducts_managedInput>, AdminUncheckedUpdateWithoutProducts_managedInput>
-=======
-  export type AdminUpdateOneRequiredWithoutProductsManagedNestedInput = {
-    create?: XOR<AdminCreateWithoutProductsManagedInput, AdminUncheckedCreateWithoutProductsManagedInput>
-    connectOrCreate?: AdminCreateOrConnectWithoutProductsManagedInput
-    upsert?: AdminUpsertWithoutProductsManagedInput
-    connect?: AdminWhereUniqueInput
-    update?: XOR<XOR<AdminUpdateToOneWithWhereWithoutProductsManagedInput, AdminUpdateWithoutProductsManagedInput>, AdminUncheckedUpdateWithoutProductsManagedInput>
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type ProductImageUpdateManyWithoutProductNestedInput = {
@@ -30195,17 +28548,10 @@ export namespace Prisma {
     deleteMany?: ProductScalarWhereInput | ProductScalarWhereInput[]
   }
 
-<<<<<<< HEAD
   export type UserCreateNestedManyWithoutCurrencyInput = {
     create?: XOR<UserCreateWithoutCurrencyInput, UserUncheckedCreateWithoutCurrencyInput> | UserCreateWithoutCurrencyInput[] | UserUncheckedCreateWithoutCurrencyInput[]
     connectOrCreate?: UserCreateOrConnectWithoutCurrencyInput | UserCreateOrConnectWithoutCurrencyInput[]
     createMany?: UserCreateManyCurrencyInputEnvelope
-=======
-  export type UserCreateNestedManyWithoutPreferredCurrencyInput = {
-    create?: XOR<UserCreateWithoutPreferredCurrencyInput, UserUncheckedCreateWithoutPreferredCurrencyInput> | UserCreateWithoutPreferredCurrencyInput[] | UserUncheckedCreateWithoutPreferredCurrencyInput[]
-    connectOrCreate?: UserCreateOrConnectWithoutPreferredCurrencyInput | UserCreateOrConnectWithoutPreferredCurrencyInput[]
-    createMany?: UserCreateManyPreferredCurrencyInputEnvelope
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
   }
 
@@ -30216,17 +28562,10 @@ export namespace Prisma {
     connect?: ProductWhereUniqueInput | ProductWhereUniqueInput[]
   }
 
-<<<<<<< HEAD
   export type UserUncheckedCreateNestedManyWithoutCurrencyInput = {
     create?: XOR<UserCreateWithoutCurrencyInput, UserUncheckedCreateWithoutCurrencyInput> | UserCreateWithoutCurrencyInput[] | UserUncheckedCreateWithoutCurrencyInput[]
     connectOrCreate?: UserCreateOrConnectWithoutCurrencyInput | UserCreateOrConnectWithoutCurrencyInput[]
     createMany?: UserCreateManyCurrencyInputEnvelope
-=======
-  export type UserUncheckedCreateNestedManyWithoutPreferredCurrencyInput = {
-    create?: XOR<UserCreateWithoutPreferredCurrencyInput, UserUncheckedCreateWithoutPreferredCurrencyInput> | UserCreateWithoutPreferredCurrencyInput[] | UserUncheckedCreateWithoutPreferredCurrencyInput[]
-    connectOrCreate?: UserCreateOrConnectWithoutPreferredCurrencyInput | UserCreateOrConnectWithoutPreferredCurrencyInput[]
-    createMany?: UserCreateManyPreferredCurrencyInputEnvelope
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
   }
 
@@ -30237,30 +28576,17 @@ export namespace Prisma {
     connect?: ProductWhereUniqueInput | ProductWhereUniqueInput[]
   }
 
-<<<<<<< HEAD
   export type UserUpdateManyWithoutCurrencyNestedInput = {
     create?: XOR<UserCreateWithoutCurrencyInput, UserUncheckedCreateWithoutCurrencyInput> | UserCreateWithoutCurrencyInput[] | UserUncheckedCreateWithoutCurrencyInput[]
     connectOrCreate?: UserCreateOrConnectWithoutCurrencyInput | UserCreateOrConnectWithoutCurrencyInput[]
     upsert?: UserUpsertWithWhereUniqueWithoutCurrencyInput | UserUpsertWithWhereUniqueWithoutCurrencyInput[]
     createMany?: UserCreateManyCurrencyInputEnvelope
-=======
-  export type UserUpdateManyWithoutPreferredCurrencyNestedInput = {
-    create?: XOR<UserCreateWithoutPreferredCurrencyInput, UserUncheckedCreateWithoutPreferredCurrencyInput> | UserCreateWithoutPreferredCurrencyInput[] | UserUncheckedCreateWithoutPreferredCurrencyInput[]
-    connectOrCreate?: UserCreateOrConnectWithoutPreferredCurrencyInput | UserCreateOrConnectWithoutPreferredCurrencyInput[]
-    upsert?: UserUpsertWithWhereUniqueWithoutPreferredCurrencyInput | UserUpsertWithWhereUniqueWithoutPreferredCurrencyInput[]
-    createMany?: UserCreateManyPreferredCurrencyInputEnvelope
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     set?: UserWhereUniqueInput | UserWhereUniqueInput[]
     disconnect?: UserWhereUniqueInput | UserWhereUniqueInput[]
     delete?: UserWhereUniqueInput | UserWhereUniqueInput[]
     connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
-<<<<<<< HEAD
     update?: UserUpdateWithWhereUniqueWithoutCurrencyInput | UserUpdateWithWhereUniqueWithoutCurrencyInput[]
     updateMany?: UserUpdateManyWithWhereWithoutCurrencyInput | UserUpdateManyWithWhereWithoutCurrencyInput[]
-=======
-    update?: UserUpdateWithWhereUniqueWithoutPreferredCurrencyInput | UserUpdateWithWhereUniqueWithoutPreferredCurrencyInput[]
-    updateMany?: UserUpdateManyWithWhereWithoutPreferredCurrencyInput | UserUpdateManyWithWhereWithoutPreferredCurrencyInput[]
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     deleteMany?: UserScalarWhereInput | UserScalarWhereInput[]
   }
 
@@ -30278,30 +28604,17 @@ export namespace Prisma {
     deleteMany?: ProductScalarWhereInput | ProductScalarWhereInput[]
   }
 
-<<<<<<< HEAD
   export type UserUncheckedUpdateManyWithoutCurrencyNestedInput = {
     create?: XOR<UserCreateWithoutCurrencyInput, UserUncheckedCreateWithoutCurrencyInput> | UserCreateWithoutCurrencyInput[] | UserUncheckedCreateWithoutCurrencyInput[]
     connectOrCreate?: UserCreateOrConnectWithoutCurrencyInput | UserCreateOrConnectWithoutCurrencyInput[]
     upsert?: UserUpsertWithWhereUniqueWithoutCurrencyInput | UserUpsertWithWhereUniqueWithoutCurrencyInput[]
     createMany?: UserCreateManyCurrencyInputEnvelope
-=======
-  export type UserUncheckedUpdateManyWithoutPreferredCurrencyNestedInput = {
-    create?: XOR<UserCreateWithoutPreferredCurrencyInput, UserUncheckedCreateWithoutPreferredCurrencyInput> | UserCreateWithoutPreferredCurrencyInput[] | UserUncheckedCreateWithoutPreferredCurrencyInput[]
-    connectOrCreate?: UserCreateOrConnectWithoutPreferredCurrencyInput | UserCreateOrConnectWithoutPreferredCurrencyInput[]
-    upsert?: UserUpsertWithWhereUniqueWithoutPreferredCurrencyInput | UserUpsertWithWhereUniqueWithoutPreferredCurrencyInput[]
-    createMany?: UserCreateManyPreferredCurrencyInputEnvelope
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     set?: UserWhereUniqueInput | UserWhereUniqueInput[]
     disconnect?: UserWhereUniqueInput | UserWhereUniqueInput[]
     delete?: UserWhereUniqueInput | UserWhereUniqueInput[]
     connect?: UserWhereUniqueInput | UserWhereUniqueInput[]
-<<<<<<< HEAD
     update?: UserUpdateWithWhereUniqueWithoutCurrencyInput | UserUpdateWithWhereUniqueWithoutCurrencyInput[]
     updateMany?: UserUpdateManyWithWhereWithoutCurrencyInput | UserUpdateManyWithWhereWithoutCurrencyInput[]
-=======
-    update?: UserUpdateWithWhereUniqueWithoutPreferredCurrencyInput | UserUpdateWithWhereUniqueWithoutPreferredCurrencyInput[]
-    updateMany?: UserUpdateManyWithWhereWithoutPreferredCurrencyInput | UserUpdateManyWithWhereWithoutPreferredCurrencyInput[]
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     deleteMany?: UserScalarWhereInput | UserScalarWhereInput[]
   }
 
@@ -30423,15 +28736,9 @@ export namespace Prisma {
     connect?: UserWhereUniqueInput
   }
 
-<<<<<<< HEAD
   export type AdminCreateNestedOneWithoutBlocks_issuedInput = {
     create?: XOR<AdminCreateWithoutBlocks_issuedInput, AdminUncheckedCreateWithoutBlocks_issuedInput>
     connectOrCreate?: AdminCreateOrConnectWithoutBlocks_issuedInput
-=======
-  export type AdminCreateNestedOneWithoutBlocksIssuedInput = {
-    create?: XOR<AdminCreateWithoutBlocksIssuedInput, AdminUncheckedCreateWithoutBlocksIssuedInput>
-    connectOrCreate?: AdminCreateOrConnectWithoutBlocksIssuedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     connect?: AdminWhereUniqueInput
   }
 
@@ -30443,21 +28750,12 @@ export namespace Prisma {
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutBlocksInput, UserUpdateWithoutBlocksInput>, UserUncheckedUpdateWithoutBlocksInput>
   }
 
-<<<<<<< HEAD
   export type AdminUpdateOneRequiredWithoutBlocks_issuedNestedInput = {
     create?: XOR<AdminCreateWithoutBlocks_issuedInput, AdminUncheckedCreateWithoutBlocks_issuedInput>
     connectOrCreate?: AdminCreateOrConnectWithoutBlocks_issuedInput
     upsert?: AdminUpsertWithoutBlocks_issuedInput
     connect?: AdminWhereUniqueInput
     update?: XOR<XOR<AdminUpdateToOneWithWhereWithoutBlocks_issuedInput, AdminUpdateWithoutBlocks_issuedInput>, AdminUncheckedUpdateWithoutBlocks_issuedInput>
-=======
-  export type AdminUpdateOneRequiredWithoutBlocksIssuedNestedInput = {
-    create?: XOR<AdminCreateWithoutBlocksIssuedInput, AdminUncheckedCreateWithoutBlocksIssuedInput>
-    connectOrCreate?: AdminCreateOrConnectWithoutBlocksIssuedInput
-    upsert?: AdminUpsertWithoutBlocksIssuedInput
-    connect?: AdminWhereUniqueInput
-    update?: XOR<XOR<AdminUpdateToOneWithWhereWithoutBlocksIssuedInput, AdminUpdateWithoutBlocksIssuedInput>, AdminUncheckedUpdateWithoutBlocksIssuedInput>
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type UserCreateNestedOneWithoutPaymentsInput = {
@@ -30516,7 +28814,6 @@ export namespace Prisma {
     update?: XOR<XOR<ProductUpdateToOneWithWhereWithoutCommentsInput, ProductUpdateWithoutCommentsInput>, ProductUncheckedUpdateWithoutCommentsInput>
   }
 
-<<<<<<< HEAD
   export type PaymentCreateNestedManyWithoutPayment_methodInput = {
     create?: XOR<PaymentCreateWithoutPayment_methodInput, PaymentUncheckedCreateWithoutPayment_methodInput> | PaymentCreateWithoutPayment_methodInput[] | PaymentUncheckedCreateWithoutPayment_methodInput[]
     connectOrCreate?: PaymentCreateOrConnectWithoutPayment_methodInput | PaymentCreateOrConnectWithoutPayment_methodInput[]
@@ -30536,32 +28833,10 @@ export namespace Prisma {
     connectOrCreate?: PaymentCreateOrConnectWithoutPayment_methodInput | PaymentCreateOrConnectWithoutPayment_methodInput[]
     upsert?: PaymentUpsertWithWhereUniqueWithoutPayment_methodInput | PaymentUpsertWithWhereUniqueWithoutPayment_methodInput[]
     createMany?: PaymentCreateManyPayment_methodInputEnvelope
-=======
-  export type PaymentCreateNestedManyWithoutPaymentMethodInput = {
-    create?: XOR<PaymentCreateWithoutPaymentMethodInput, PaymentUncheckedCreateWithoutPaymentMethodInput> | PaymentCreateWithoutPaymentMethodInput[] | PaymentUncheckedCreateWithoutPaymentMethodInput[]
-    connectOrCreate?: PaymentCreateOrConnectWithoutPaymentMethodInput | PaymentCreateOrConnectWithoutPaymentMethodInput[]
-    createMany?: PaymentCreateManyPaymentMethodInputEnvelope
-    connect?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
-  }
-
-  export type PaymentUncheckedCreateNestedManyWithoutPaymentMethodInput = {
-    create?: XOR<PaymentCreateWithoutPaymentMethodInput, PaymentUncheckedCreateWithoutPaymentMethodInput> | PaymentCreateWithoutPaymentMethodInput[] | PaymentUncheckedCreateWithoutPaymentMethodInput[]
-    connectOrCreate?: PaymentCreateOrConnectWithoutPaymentMethodInput | PaymentCreateOrConnectWithoutPaymentMethodInput[]
-    createMany?: PaymentCreateManyPaymentMethodInputEnvelope
-    connect?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
-  }
-
-  export type PaymentUpdateManyWithoutPaymentMethodNestedInput = {
-    create?: XOR<PaymentCreateWithoutPaymentMethodInput, PaymentUncheckedCreateWithoutPaymentMethodInput> | PaymentCreateWithoutPaymentMethodInput[] | PaymentUncheckedCreateWithoutPaymentMethodInput[]
-    connectOrCreate?: PaymentCreateOrConnectWithoutPaymentMethodInput | PaymentCreateOrConnectWithoutPaymentMethodInput[]
-    upsert?: PaymentUpsertWithWhereUniqueWithoutPaymentMethodInput | PaymentUpsertWithWhereUniqueWithoutPaymentMethodInput[]
-    createMany?: PaymentCreateManyPaymentMethodInputEnvelope
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     set?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
     disconnect?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
     delete?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
     connect?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
-<<<<<<< HEAD
     update?: PaymentUpdateWithWhereUniqueWithoutPayment_methodInput | PaymentUpdateWithWhereUniqueWithoutPayment_methodInput[]
     updateMany?: PaymentUpdateManyWithWhereWithoutPayment_methodInput | PaymentUpdateManyWithWhereWithoutPayment_methodInput[]
     deleteMany?: PaymentScalarWhereInput | PaymentScalarWhereInput[]
@@ -30572,29 +28847,12 @@ export namespace Prisma {
     connectOrCreate?: PaymentCreateOrConnectWithoutPayment_methodInput | PaymentCreateOrConnectWithoutPayment_methodInput[]
     upsert?: PaymentUpsertWithWhereUniqueWithoutPayment_methodInput | PaymentUpsertWithWhereUniqueWithoutPayment_methodInput[]
     createMany?: PaymentCreateManyPayment_methodInputEnvelope
-=======
-    update?: PaymentUpdateWithWhereUniqueWithoutPaymentMethodInput | PaymentUpdateWithWhereUniqueWithoutPaymentMethodInput[]
-    updateMany?: PaymentUpdateManyWithWhereWithoutPaymentMethodInput | PaymentUpdateManyWithWhereWithoutPaymentMethodInput[]
-    deleteMany?: PaymentScalarWhereInput | PaymentScalarWhereInput[]
-  }
-
-  export type PaymentUncheckedUpdateManyWithoutPaymentMethodNestedInput = {
-    create?: XOR<PaymentCreateWithoutPaymentMethodInput, PaymentUncheckedCreateWithoutPaymentMethodInput> | PaymentCreateWithoutPaymentMethodInput[] | PaymentUncheckedCreateWithoutPaymentMethodInput[]
-    connectOrCreate?: PaymentCreateOrConnectWithoutPaymentMethodInput | PaymentCreateOrConnectWithoutPaymentMethodInput[]
-    upsert?: PaymentUpsertWithWhereUniqueWithoutPaymentMethodInput | PaymentUpsertWithWhereUniqueWithoutPaymentMethodInput[]
-    createMany?: PaymentCreateManyPaymentMethodInputEnvelope
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     set?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
     disconnect?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
     delete?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
     connect?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
-<<<<<<< HEAD
     update?: PaymentUpdateWithWhereUniqueWithoutPayment_methodInput | PaymentUpdateWithWhereUniqueWithoutPayment_methodInput[]
     updateMany?: PaymentUpdateManyWithWhereWithoutPayment_methodInput | PaymentUpdateManyWithWhereWithoutPayment_methodInput[]
-=======
-    update?: PaymentUpdateWithWhereUniqueWithoutPaymentMethodInput | PaymentUpdateWithWhereUniqueWithoutPaymentMethodInput[]
-    updateMany?: PaymentUpdateManyWithWhereWithoutPaymentMethodInput | PaymentUpdateManyWithWhereWithoutPaymentMethodInput[]
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     deleteMany?: PaymentScalarWhereInput | PaymentScalarWhereInput[]
   }
 
@@ -30623,22 +28881,14 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
-<<<<<<< HEAD
   export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
     notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-=======
-  export type NestedDateTimeFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-<<<<<<< HEAD
     not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
@@ -30654,9 +28904,6 @@ export namespace Prisma {
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
-=======
-    not?: NestedDateTimeFilter<$PrismaModel> | Date | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type NestedFloatFilter<$PrismaModel = never> = {
@@ -30670,7 +28917,6 @@ export namespace Prisma {
     not?: NestedFloatFilter<$PrismaModel> | number
   }
 
-<<<<<<< HEAD
   export type NestedBigIntNullableFilter<$PrismaModel = never> = {
     equals?: bigint | number | BigIntFieldRefInput<$PrismaModel> | null
     in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
@@ -30682,8 +28928,6 @@ export namespace Prisma {
     not?: NestedBigIntNullableFilter<$PrismaModel> | bigint | number | null
   }
 
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   export type NestedBigIntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: bigint | number | BigIntFieldRefInput<$PrismaModel>
     in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel>
@@ -30728,22 +28972,14 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
-<<<<<<< HEAD
   export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
     notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-=======
-  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-<<<<<<< HEAD
     not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedDateTimeNullableFilter<$PrismaModel>
@@ -30776,12 +29012,6 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedStringNullableFilter<$PrismaModel>
     _max?: NestedStringNullableFilter<$PrismaModel>
-=======
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
@@ -30800,7 +29030,6 @@ export namespace Prisma {
     _max?: NestedFloatFilter<$PrismaModel>
   }
 
-<<<<<<< HEAD
   export type NestedBigIntNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: bigint | number | BigIntFieldRefInput<$PrismaModel> | null
     in?: bigint[] | number[] | ListBigIntFieldRefInput<$PrismaModel> | null
@@ -30839,8 +29068,6 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | IntFieldRefInput<$PrismaModel>
     in?: number[] | ListIntFieldRefInput<$PrismaModel>
@@ -30857,7 +29084,6 @@ export namespace Prisma {
     _max?: NestedIntFilter<$PrismaModel>
   }
 
-<<<<<<< HEAD
   export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -30872,8 +29098,6 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   export type NestedBoolFilter<$PrismaModel = never> = {
     equals?: boolean | BooleanFieldRefInput<$PrismaModel>
     not?: NestedBoolFilter<$PrismaModel> | boolean
@@ -30909,20 +29133,14 @@ export namespace Prisma {
   export type LanguageCreateWithoutUsersInput = {
     id?: bigint | number
     name: string
-<<<<<<< HEAD
     flag_url: string
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     admins?: AdminCreateNestedManyWithoutLanguageInput
   }
 
   export type LanguageUncheckedCreateWithoutUsersInput = {
     id?: bigint | number
     name: string
-<<<<<<< HEAD
     flag_url: string
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     admins?: AdminUncheckedCreateNestedManyWithoutLanguageInput
   }
 
@@ -30931,37 +29149,23 @@ export namespace Prisma {
     create: XOR<LanguageCreateWithoutUsersInput, LanguageUncheckedCreateWithoutUsersInput>
   }
 
-<<<<<<< HEAD
   export type CurrencyCreateWithoutUser_preferencesInput = {
-=======
-  export type CurrencyCreateWithoutUserPreferencesInput = {
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     id?: bigint | number
     name: string
     symbol: string
     products?: ProductCreateNestedManyWithoutCurrencyInput
   }
 
-<<<<<<< HEAD
   export type CurrencyUncheckedCreateWithoutUser_preferencesInput = {
-=======
-  export type CurrencyUncheckedCreateWithoutUserPreferencesInput = {
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     id?: bigint | number
     name: string
     symbol: string
     products?: ProductUncheckedCreateNestedManyWithoutCurrencyInput
   }
 
-<<<<<<< HEAD
   export type CurrencyCreateOrConnectWithoutUser_preferencesInput = {
     where: CurrencyWhereUniqueInput
     create: XOR<CurrencyCreateWithoutUser_preferencesInput, CurrencyUncheckedCreateWithoutUser_preferencesInput>
-=======
-  export type CurrencyCreateOrConnectWithoutUserPreferencesInput = {
-    where: CurrencyWhereUniqueInput
-    create: XOR<CurrencyCreateWithoutUserPreferencesInput, CurrencyUncheckedCreateWithoutUserPreferencesInput>
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type EmailCreateWithoutUserInput = {
@@ -30987,21 +29191,13 @@ export namespace Prisma {
   export type PhoneCreateWithoutUserInput = {
     id?: bigint | number
     phone: string
-<<<<<<< HEAD
     products?: ProductCreateNestedManyWithoutContact_phoneInput
-=======
-    products?: ProductCreateNestedManyWithoutContactPhoneInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type PhoneUncheckedCreateWithoutUserInput = {
     id?: bigint | number
     phone: string
-<<<<<<< HEAD
     products?: ProductUncheckedCreateNestedManyWithoutContact_phoneInput
-=======
-    products?: ProductUncheckedCreateNestedManyWithoutContactPhoneInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type PhoneCreateOrConnectWithoutUserInput = {
@@ -31016,11 +29212,7 @@ export namespace Prisma {
 
   export type FavouriteItemCreateWithoutUserInput = {
     id?: bigint | number
-<<<<<<< HEAD
     product: ProductCreateNestedOneWithoutFavourited_byInput
-=======
-    product: ProductCreateNestedOneWithoutFavouritedByInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type FavouriteItemUncheckedCreateWithoutUserInput = {
@@ -31041,11 +29233,7 @@ export namespace Prisma {
   export type AddressCreateWithoutUserInput = {
     id?: bigint | number
     name: string
-<<<<<<< HEAD
     address_value: bigint | number
-=======
-    addressValue: bigint | number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     lat: string
     long: string
     is_active: boolean
@@ -31055,11 +29243,7 @@ export namespace Prisma {
   export type AddressUncheckedCreateWithoutUserInput = {
     id?: bigint | number
     name: string
-<<<<<<< HEAD
     address_value: bigint | number
-=======
-    addressValue: bigint | number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     lat: string
     long: string
     is_active: boolean
@@ -31081,15 +29265,9 @@ export namespace Prisma {
     title: string
     description: string
     year: number
-<<<<<<< HEAD
     custom_model?: string | null
     price: number
     floor_price?: boolean
-=======
-    custom_model: string
-    price: number
-    floor_price: boolean
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     is_new: boolean
     has_document: boolean
     storage: bigint | number
@@ -31099,7 +29277,6 @@ export namespace Prisma {
     is_sold?: boolean
     is_checked?: boolean
     is_top?: boolean
-<<<<<<< HEAD
     top_expire_date?: Date | string | null
     brand?: BrandCreateNestedOneWithoutProductsInput
     model?: ModelCreateNestedOneWithoutProductsInput
@@ -31110,18 +29287,6 @@ export namespace Prisma {
     admin?: AdminCreateNestedOneWithoutProducts_managedInput
     images?: ProductImageCreateNestedManyWithoutProductInput
     favourited_by?: FavouriteItemCreateNestedManyWithoutProductInput
-=======
-    top_expire_date: Date | string
-    brand: BrandCreateNestedOneWithoutProductsInput
-    model: ModelCreateNestedOneWithoutProductsInput
-    color: ColorCreateNestedOneWithoutProductsInput
-    currency: CurrencyCreateNestedOneWithoutProductsInput
-    address: AddressCreateNestedOneWithoutProductsInput
-    contactPhone: PhoneCreateNestedOneWithoutProductsInput
-    admin: AdminCreateNestedOneWithoutProductsManagedInput
-    images?: ProductImageCreateNestedManyWithoutProductInput
-    favouritedBy?: FavouriteItemCreateNestedManyWithoutProductInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     comments?: CommentCreateNestedManyWithoutProductInput
   }
 
@@ -31130,7 +29295,6 @@ export namespace Prisma {
     title: string
     description: string
     year: number
-<<<<<<< HEAD
     brand_id?: bigint | number | null
     model_id?: bigint | number | null
     custom_model?: string | null
@@ -31138,15 +29302,6 @@ export namespace Prisma {
     price: number
     floor_price?: boolean
     currency_id?: bigint | number
-=======
-    brand_id: bigint | number
-    model_id: bigint | number
-    custom_model: string
-    color_id: bigint | number
-    price: number
-    floor_price: boolean
-    currency_id: bigint | number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     is_new: boolean
     has_document: boolean
     address_id: bigint | number
@@ -31157,19 +29312,11 @@ export namespace Prisma {
     is_archived?: boolean
     is_sold?: boolean
     is_checked?: boolean
-<<<<<<< HEAD
     admin_id?: bigint | number | null
     is_top?: boolean
     top_expire_date?: Date | string | null
     images?: ProductImageUncheckedCreateNestedManyWithoutProductInput
     favourited_by?: FavouriteItemUncheckedCreateNestedManyWithoutProductInput
-=======
-    admin_id: bigint | number
-    is_top?: boolean
-    top_expire_date: Date | string
-    images?: ProductImageUncheckedCreateNestedManyWithoutProductInput
-    favouritedBy?: FavouriteItemUncheckedCreateNestedManyWithoutProductInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     comments?: CommentUncheckedCreateNestedManyWithoutProductInput
   }
 
@@ -31208,11 +29355,7 @@ export namespace Prisma {
   export type PaymentCreateWithoutUserInput = {
     id?: bigint | number
     amount: number
-<<<<<<< HEAD
     payment_method: PaymentMethodCreateNestedOneWithoutPaymentsInput
-=======
-    paymentMethod: PaymentMethodCreateNestedOneWithoutPaymentsInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type PaymentUncheckedCreateWithoutUserInput = {
@@ -31234,24 +29377,15 @@ export namespace Prisma {
   export type BlockCreateWithoutUserInput = {
     id?: bigint | number
     reason: string
-<<<<<<< HEAD
     expire_date: Date | string
     admin: AdminCreateNestedOneWithoutBlocks_issuedInput
-=======
-    expireDate: Date | string
-    admin: AdminCreateNestedOneWithoutBlocksIssuedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type BlockUncheckedCreateWithoutUserInput = {
     id?: bigint | number
     admin_id: bigint | number
     reason: string
-<<<<<<< HEAD
     expire_date: Date | string
-=======
-    expireDate: Date | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type BlockCreateOrConnectWithoutUserInput = {
@@ -31303,17 +29437,13 @@ export namespace Prisma {
   export type LanguageUpdateWithoutUsersInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     flag_url?: StringFieldUpdateOperationsInput | string
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     admins?: AdminUpdateManyWithoutLanguageNestedInput
   }
 
   export type LanguageUncheckedUpdateWithoutUsersInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     flag_url?: StringFieldUpdateOperationsInput | string
     admins?: AdminUncheckedUpdateManyWithoutLanguageNestedInput
   }
@@ -31330,34 +29460,13 @@ export namespace Prisma {
   }
 
   export type CurrencyUpdateWithoutUser_preferencesInput = {
-=======
-    admins?: AdminUncheckedUpdateManyWithoutLanguageNestedInput
-  }
-
-  export type CurrencyUpsertWithoutUserPreferencesInput = {
-    update: XOR<CurrencyUpdateWithoutUserPreferencesInput, CurrencyUncheckedUpdateWithoutUserPreferencesInput>
-    create: XOR<CurrencyCreateWithoutUserPreferencesInput, CurrencyUncheckedCreateWithoutUserPreferencesInput>
-    where?: CurrencyWhereInput
-  }
-
-  export type CurrencyUpdateToOneWithWhereWithoutUserPreferencesInput = {
-    where?: CurrencyWhereInput
-    data: XOR<CurrencyUpdateWithoutUserPreferencesInput, CurrencyUncheckedUpdateWithoutUserPreferencesInput>
-  }
-
-  export type CurrencyUpdateWithoutUserPreferencesInput = {
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
     symbol?: StringFieldUpdateOperationsInput | string
     products?: ProductUpdateManyWithoutCurrencyNestedInput
   }
 
-<<<<<<< HEAD
   export type CurrencyUncheckedUpdateWithoutUser_preferencesInput = {
-=======
-  export type CurrencyUncheckedUpdateWithoutUserPreferencesInput = {
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
     symbol?: StringFieldUpdateOperationsInput | string
@@ -31461,11 +29570,7 @@ export namespace Prisma {
     NOT?: AddressScalarWhereInput | AddressScalarWhereInput[]
     id?: BigIntFilter<"Address"> | bigint | number
     name?: StringFilter<"Address"> | string
-<<<<<<< HEAD
     address_value?: BigIntFilter<"Address"> | bigint | number
-=======
-    addressValue?: BigIntFilter<"Address"> | bigint | number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     lat?: StringFilter<"Address"> | string
     long?: StringFilter<"Address"> | string
     user_id?: BigIntFilter<"Address"> | bigint | number
@@ -31497,15 +29602,9 @@ export namespace Prisma {
     title?: StringFilter<"Product"> | string
     description?: StringFilter<"Product"> | string
     year?: IntFilter<"Product"> | number
-<<<<<<< HEAD
     brand_id?: BigIntNullableFilter<"Product"> | bigint | number | null
     model_id?: BigIntNullableFilter<"Product"> | bigint | number | null
     custom_model?: StringNullableFilter<"Product"> | string | null
-=======
-    brand_id?: BigIntFilter<"Product"> | bigint | number
-    model_id?: BigIntFilter<"Product"> | bigint | number
-    custom_model?: StringFilter<"Product"> | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     color_id?: BigIntFilter<"Product"> | bigint | number
     price?: FloatFilter<"Product"> | number
     floor_price?: BoolFilter<"Product"> | boolean
@@ -31520,15 +29619,9 @@ export namespace Prisma {
     is_archived?: BoolFilter<"Product"> | boolean
     is_sold?: BoolFilter<"Product"> | boolean
     is_checked?: BoolFilter<"Product"> | boolean
-<<<<<<< HEAD
     admin_id?: BigIntNullableFilter<"Product"> | bigint | number | null
     is_top?: BoolFilter<"Product"> | boolean
     top_expire_date?: DateTimeNullableFilter<"Product"> | Date | string | null
-=======
-    admin_id?: BigIntFilter<"Product"> | bigint | number
-    is_top?: BoolFilter<"Product"> | boolean
-    top_expire_date?: DateTimeFilter<"Product"> | Date | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type CommentUpsertWithWhereUniqueWithoutUserInput = {
@@ -31607,18 +29700,13 @@ export namespace Prisma {
     user_id?: BigIntFilter<"Block"> | bigint | number
     admin_id?: BigIntFilter<"Block"> | bigint | number
     reason?: StringFilter<"Block"> | string
-<<<<<<< HEAD
     expire_date?: DateTimeFilter<"Block"> | Date | string
-=======
-    expireDate?: DateTimeFilter<"Block"> | Date | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type UserCreateWithoutOtpInput = {
     id?: bigint | number
     name: string
     surname: string
-<<<<<<< HEAD
     birth_date?: Date | string | null
     phone: string
     avatar?: string | null
@@ -31629,18 +29717,6 @@ export namespace Prisma {
     emails?: EmailCreateNestedManyWithoutUserInput
     additional_phones?: PhoneCreateNestedManyWithoutUserInput
     favourite_items?: FavouriteItemCreateNestedManyWithoutUserInput
-=======
-    birth_date: Date | string
-    phone: string
-    avatar: string
-    refresh_token: string
-    balance: number
-    language: LanguageCreateNestedOneWithoutUsersInput
-    preferredCurrency: CurrencyCreateNestedOneWithoutUserPreferencesInput
-    emails?: EmailCreateNestedManyWithoutUserInput
-    additionalPhones?: PhoneCreateNestedManyWithoutUserInput
-    favouriteItems?: FavouriteItemCreateNestedManyWithoutUserInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses?: AddressCreateNestedManyWithoutUserInput
     products?: ProductCreateNestedManyWithoutUserInput
     comments?: CommentCreateNestedManyWithoutUserInput
@@ -31652,7 +29728,6 @@ export namespace Prisma {
     id?: bigint | number
     name: string
     surname: string
-<<<<<<< HEAD
     birth_date?: Date | string | null
     phone: string
     avatar?: string | null
@@ -31663,18 +29738,6 @@ export namespace Prisma {
     emails?: EmailUncheckedCreateNestedManyWithoutUserInput
     additional_phones?: PhoneUncheckedCreateNestedManyWithoutUserInput
     favourite_items?: FavouriteItemUncheckedCreateNestedManyWithoutUserInput
-=======
-    birth_date: Date | string
-    phone: string
-    avatar: string
-    refresh_token: string
-    balance: number
-    lang_id: bigint | number
-    preferredCurrencyId: bigint | number
-    emails?: EmailUncheckedCreateNestedManyWithoutUserInput
-    additionalPhones?: PhoneUncheckedCreateNestedManyWithoutUserInput
-    favouriteItems?: FavouriteItemUncheckedCreateNestedManyWithoutUserInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses?: AddressUncheckedCreateNestedManyWithoutUserInput
     products?: ProductUncheckedCreateNestedManyWithoutUserInput
     comments?: CommentUncheckedCreateNestedManyWithoutUserInput
@@ -31715,7 +29778,6 @@ export namespace Prisma {
     id?: BigIntFilter<"User"> | bigint | number
     name?: StringFilter<"User"> | string
     surname?: StringFilter<"User"> | string
-<<<<<<< HEAD
     birth_date?: DateTimeNullableFilter<"User"> | Date | string | null
     phone?: StringFilter<"User"> | string
     avatar?: StringNullableFilter<"User"> | string | null
@@ -31740,32 +29802,6 @@ export namespace Prisma {
     currency: CurrencyCreateNestedOneWithoutUser_preferencesInput
     emails?: EmailCreateNestedManyWithoutUserInput
     favourite_items?: FavouriteItemCreateNestedManyWithoutUserInput
-=======
-    birth_date?: DateTimeFilter<"User"> | Date | string
-    phone?: StringFilter<"User"> | string
-    avatar?: StringFilter<"User"> | string
-    refresh_token?: StringFilter<"User"> | string
-    balance?: FloatFilter<"User"> | number
-    otp_id?: BigIntFilter<"User"> | bigint | number
-    lang_id?: BigIntFilter<"User"> | bigint | number
-    preferredCurrencyId?: BigIntFilter<"User"> | bigint | number
-  }
-
-  export type UserCreateWithoutAdditionalPhonesInput = {
-    id?: bigint | number
-    name: string
-    surname: string
-    birth_date: Date | string
-    phone: string
-    avatar: string
-    refresh_token: string
-    balance: number
-    otp: OTPCreateNestedOneWithoutUsersInput
-    language: LanguageCreateNestedOneWithoutUsersInput
-    preferredCurrency: CurrencyCreateNestedOneWithoutUserPreferencesInput
-    emails?: EmailCreateNestedManyWithoutUserInput
-    favouriteItems?: FavouriteItemCreateNestedManyWithoutUserInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses?: AddressCreateNestedManyWithoutUserInput
     products?: ProductCreateNestedManyWithoutUserInput
     comments?: CommentCreateNestedManyWithoutUserInput
@@ -31773,7 +29809,6 @@ export namespace Prisma {
     blocks?: BlockCreateNestedManyWithoutUserInput
   }
 
-<<<<<<< HEAD
   export type UserUncheckedCreateWithoutAdditional_phonesInput = {
     id?: bigint | number
     name: string
@@ -31788,22 +29823,6 @@ export namespace Prisma {
     currency_id: bigint | number
     emails?: EmailUncheckedCreateNestedManyWithoutUserInput
     favourite_items?: FavouriteItemUncheckedCreateNestedManyWithoutUserInput
-=======
-  export type UserUncheckedCreateWithoutAdditionalPhonesInput = {
-    id?: bigint | number
-    name: string
-    surname: string
-    birth_date: Date | string
-    phone: string
-    avatar: string
-    refresh_token: string
-    balance: number
-    otp_id: bigint | number
-    lang_id: bigint | number
-    preferredCurrencyId: bigint | number
-    emails?: EmailUncheckedCreateNestedManyWithoutUserInput
-    favouriteItems?: FavouriteItemUncheckedCreateNestedManyWithoutUserInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses?: AddressUncheckedCreateNestedManyWithoutUserInput
     products?: ProductUncheckedCreateNestedManyWithoutUserInput
     comments?: CommentUncheckedCreateNestedManyWithoutUserInput
@@ -31811,34 +29830,19 @@ export namespace Prisma {
     blocks?: BlockUncheckedCreateNestedManyWithoutUserInput
   }
 
-<<<<<<< HEAD
   export type UserCreateOrConnectWithoutAdditional_phonesInput = {
     where: UserWhereUniqueInput
     create: XOR<UserCreateWithoutAdditional_phonesInput, UserUncheckedCreateWithoutAdditional_phonesInput>
   }
 
   export type ProductCreateWithoutContact_phoneInput = {
-=======
-  export type UserCreateOrConnectWithoutAdditionalPhonesInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutAdditionalPhonesInput, UserUncheckedCreateWithoutAdditionalPhonesInput>
-  }
-
-  export type ProductCreateWithoutContactPhoneInput = {
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     id?: bigint | number
     title: string
     description: string
     year: number
-<<<<<<< HEAD
     custom_model?: string | null
     price: number
     floor_price?: boolean
-=======
-    custom_model: string
-    price: number
-    floor_price: boolean
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     is_new: boolean
     has_document: boolean
     storage: bigint | number
@@ -31848,7 +29852,6 @@ export namespace Prisma {
     is_sold?: boolean
     is_checked?: boolean
     is_top?: boolean
-<<<<<<< HEAD
     top_expire_date?: Date | string | null
     user: UserCreateNestedOneWithoutProductsInput
     brand?: BrandCreateNestedOneWithoutProductsInput
@@ -31863,28 +29866,11 @@ export namespace Prisma {
   }
 
   export type ProductUncheckedCreateWithoutContact_phoneInput = {
-=======
-    top_expire_date: Date | string
-    user: UserCreateNestedOneWithoutProductsInput
-    brand: BrandCreateNestedOneWithoutProductsInput
-    model: ModelCreateNestedOneWithoutProductsInput
-    color: ColorCreateNestedOneWithoutProductsInput
-    currency: CurrencyCreateNestedOneWithoutProductsInput
-    address: AddressCreateNestedOneWithoutProductsInput
-    admin: AdminCreateNestedOneWithoutProductsManagedInput
-    images?: ProductImageCreateNestedManyWithoutProductInput
-    favouritedBy?: FavouriteItemCreateNestedManyWithoutProductInput
-    comments?: CommentCreateNestedManyWithoutProductInput
-  }
-
-  export type ProductUncheckedCreateWithoutContactPhoneInput = {
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     id?: bigint | number
     user_id: bigint | number
     title: string
     description: string
     year: number
-<<<<<<< HEAD
     brand_id?: bigint | number | null
     model_id?: bigint | number | null
     custom_model?: string | null
@@ -31892,15 +29878,6 @@ export namespace Prisma {
     price: number
     floor_price?: boolean
     currency_id?: bigint | number
-=======
-    brand_id: bigint | number
-    model_id: bigint | number
-    custom_model: string
-    color_id: bigint | number
-    price: number
-    floor_price: boolean
-    currency_id: bigint | number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     is_new: boolean
     has_document: boolean
     address_id: bigint | number
@@ -31910,7 +29887,6 @@ export namespace Prisma {
     is_archived?: boolean
     is_sold?: boolean
     is_checked?: boolean
-<<<<<<< HEAD
     admin_id?: bigint | number | null
     is_top?: boolean
     top_expire_date?: Date | string | null
@@ -31954,51 +29930,6 @@ export namespace Prisma {
     currency?: CurrencyUpdateOneRequiredWithoutUser_preferencesNestedInput
     emails?: EmailUpdateManyWithoutUserNestedInput
     favourite_items?: FavouriteItemUpdateManyWithoutUserNestedInput
-=======
-    admin_id: bigint | number
-    is_top?: boolean
-    top_expire_date: Date | string
-    images?: ProductImageUncheckedCreateNestedManyWithoutProductInput
-    favouritedBy?: FavouriteItemUncheckedCreateNestedManyWithoutProductInput
-    comments?: CommentUncheckedCreateNestedManyWithoutProductInput
-  }
-
-  export type ProductCreateOrConnectWithoutContactPhoneInput = {
-    where: ProductWhereUniqueInput
-    create: XOR<ProductCreateWithoutContactPhoneInput, ProductUncheckedCreateWithoutContactPhoneInput>
-  }
-
-  export type ProductCreateManyContactPhoneInputEnvelope = {
-    data: ProductCreateManyContactPhoneInput | ProductCreateManyContactPhoneInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type UserUpsertWithoutAdditionalPhonesInput = {
-    update: XOR<UserUpdateWithoutAdditionalPhonesInput, UserUncheckedUpdateWithoutAdditionalPhonesInput>
-    create: XOR<UserCreateWithoutAdditionalPhonesInput, UserUncheckedCreateWithoutAdditionalPhonesInput>
-    where?: UserWhereInput
-  }
-
-  export type UserUpdateToOneWithWhereWithoutAdditionalPhonesInput = {
-    where?: UserWhereInput
-    data: XOR<UserUpdateWithoutAdditionalPhonesInput, UserUncheckedUpdateWithoutAdditionalPhonesInput>
-  }
-
-  export type UserUpdateWithoutAdditionalPhonesInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
-    name?: StringFieldUpdateOperationsInput | string
-    surname?: StringFieldUpdateOperationsInput | string
-    birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    phone?: StringFieldUpdateOperationsInput | string
-    avatar?: StringFieldUpdateOperationsInput | string
-    refresh_token?: StringFieldUpdateOperationsInput | string
-    balance?: FloatFieldUpdateOperationsInput | number
-    otp?: OTPUpdateOneRequiredWithoutUsersNestedInput
-    language?: LanguageUpdateOneRequiredWithoutUsersNestedInput
-    preferredCurrency?: CurrencyUpdateOneRequiredWithoutUserPreferencesNestedInput
-    emails?: EmailUpdateManyWithoutUserNestedInput
-    favouriteItems?: FavouriteItemUpdateManyWithoutUserNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses?: AddressUpdateManyWithoutUserNestedInput
     products?: ProductUpdateManyWithoutUserNestedInput
     comments?: CommentUpdateManyWithoutUserNestedInput
@@ -32006,7 +29937,6 @@ export namespace Prisma {
     blocks?: BlockUpdateManyWithoutUserNestedInput
   }
 
-<<<<<<< HEAD
   export type UserUncheckedUpdateWithoutAdditional_phonesInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
@@ -32021,22 +29951,6 @@ export namespace Prisma {
     currency_id?: BigIntFieldUpdateOperationsInput | bigint | number
     emails?: EmailUncheckedUpdateManyWithoutUserNestedInput
     favourite_items?: FavouriteItemUncheckedUpdateManyWithoutUserNestedInput
-=======
-  export type UserUncheckedUpdateWithoutAdditionalPhonesInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
-    name?: StringFieldUpdateOperationsInput | string
-    surname?: StringFieldUpdateOperationsInput | string
-    birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    phone?: StringFieldUpdateOperationsInput | string
-    avatar?: StringFieldUpdateOperationsInput | string
-    refresh_token?: StringFieldUpdateOperationsInput | string
-    balance?: FloatFieldUpdateOperationsInput | number
-    otp_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    lang_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    preferredCurrencyId?: BigIntFieldUpdateOperationsInput | bigint | number
-    emails?: EmailUncheckedUpdateManyWithoutUserNestedInput
-    favouriteItems?: FavouriteItemUncheckedUpdateManyWithoutUserNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses?: AddressUncheckedUpdateManyWithoutUserNestedInput
     products?: ProductUncheckedUpdateManyWithoutUserNestedInput
     comments?: CommentUncheckedUpdateManyWithoutUserNestedInput
@@ -32044,7 +29958,6 @@ export namespace Prisma {
     blocks?: BlockUncheckedUpdateManyWithoutUserNestedInput
   }
 
-<<<<<<< HEAD
   export type ProductUpsertWithWhereUniqueWithoutContact_phoneInput = {
     where: ProductWhereUniqueInput
     update: XOR<ProductUpdateWithoutContact_phoneInput, ProductUncheckedUpdateWithoutContact_phoneInput>
@@ -32059,29 +29972,12 @@ export namespace Prisma {
   export type ProductUpdateManyWithWhereWithoutContact_phoneInput = {
     where: ProductScalarWhereInput
     data: XOR<ProductUpdateManyMutationInput, ProductUncheckedUpdateManyWithoutContact_phoneInput>
-=======
-  export type ProductUpsertWithWhereUniqueWithoutContactPhoneInput = {
-    where: ProductWhereUniqueInput
-    update: XOR<ProductUpdateWithoutContactPhoneInput, ProductUncheckedUpdateWithoutContactPhoneInput>
-    create: XOR<ProductCreateWithoutContactPhoneInput, ProductUncheckedCreateWithoutContactPhoneInput>
-  }
-
-  export type ProductUpdateWithWhereUniqueWithoutContactPhoneInput = {
-    where: ProductWhereUniqueInput
-    data: XOR<ProductUpdateWithoutContactPhoneInput, ProductUncheckedUpdateWithoutContactPhoneInput>
-  }
-
-  export type ProductUpdateManyWithWhereWithoutContactPhoneInput = {
-    where: ProductScalarWhereInput
-    data: XOR<ProductUpdateManyMutationInput, ProductUncheckedUpdateManyWithoutContactPhoneInput>
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type UserCreateWithoutEmailsInput = {
     id?: bigint | number
     name: string
     surname: string
-<<<<<<< HEAD
     birth_date?: Date | string | null
     phone: string
     avatar?: string | null
@@ -32092,18 +29988,6 @@ export namespace Prisma {
     currency: CurrencyCreateNestedOneWithoutUser_preferencesInput
     additional_phones?: PhoneCreateNestedManyWithoutUserInput
     favourite_items?: FavouriteItemCreateNestedManyWithoutUserInput
-=======
-    birth_date: Date | string
-    phone: string
-    avatar: string
-    refresh_token: string
-    balance: number
-    otp: OTPCreateNestedOneWithoutUsersInput
-    language: LanguageCreateNestedOneWithoutUsersInput
-    preferredCurrency: CurrencyCreateNestedOneWithoutUserPreferencesInput
-    additionalPhones?: PhoneCreateNestedManyWithoutUserInput
-    favouriteItems?: FavouriteItemCreateNestedManyWithoutUserInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses?: AddressCreateNestedManyWithoutUserInput
     products?: ProductCreateNestedManyWithoutUserInput
     comments?: CommentCreateNestedManyWithoutUserInput
@@ -32115,7 +29999,6 @@ export namespace Prisma {
     id?: bigint | number
     name: string
     surname: string
-<<<<<<< HEAD
     birth_date?: Date | string | null
     phone: string
     avatar?: string | null
@@ -32126,18 +30009,6 @@ export namespace Prisma {
     currency_id: bigint | number
     additional_phones?: PhoneUncheckedCreateNestedManyWithoutUserInput
     favourite_items?: FavouriteItemUncheckedCreateNestedManyWithoutUserInput
-=======
-    birth_date: Date | string
-    phone: string
-    avatar: string
-    refresh_token: string
-    balance: number
-    otp_id: bigint | number
-    lang_id: bigint | number
-    preferredCurrencyId: bigint | number
-    additionalPhones?: PhoneUncheckedCreateNestedManyWithoutUserInput
-    favouriteItems?: FavouriteItemUncheckedCreateNestedManyWithoutUserInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses?: AddressUncheckedCreateNestedManyWithoutUserInput
     products?: ProductUncheckedCreateNestedManyWithoutUserInput
     comments?: CommentUncheckedCreateNestedManyWithoutUserInput
@@ -32165,7 +30036,6 @@ export namespace Prisma {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
     surname?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     birth_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     phone?: StringFieldUpdateOperationsInput | string
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
@@ -32176,18 +30046,6 @@ export namespace Prisma {
     currency?: CurrencyUpdateOneRequiredWithoutUser_preferencesNestedInput
     additional_phones?: PhoneUpdateManyWithoutUserNestedInput
     favourite_items?: FavouriteItemUpdateManyWithoutUserNestedInput
-=======
-    birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    phone?: StringFieldUpdateOperationsInput | string
-    avatar?: StringFieldUpdateOperationsInput | string
-    refresh_token?: StringFieldUpdateOperationsInput | string
-    balance?: FloatFieldUpdateOperationsInput | number
-    otp?: OTPUpdateOneRequiredWithoutUsersNestedInput
-    language?: LanguageUpdateOneRequiredWithoutUsersNestedInput
-    preferredCurrency?: CurrencyUpdateOneRequiredWithoutUserPreferencesNestedInput
-    additionalPhones?: PhoneUpdateManyWithoutUserNestedInput
-    favouriteItems?: FavouriteItemUpdateManyWithoutUserNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses?: AddressUpdateManyWithoutUserNestedInput
     products?: ProductUpdateManyWithoutUserNestedInput
     comments?: CommentUpdateManyWithoutUserNestedInput
@@ -32199,7 +30057,6 @@ export namespace Prisma {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
     surname?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     birth_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     phone?: StringFieldUpdateOperationsInput | string
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
@@ -32210,18 +30067,6 @@ export namespace Prisma {
     currency_id?: BigIntFieldUpdateOperationsInput | bigint | number
     additional_phones?: PhoneUncheckedUpdateManyWithoutUserNestedInput
     favourite_items?: FavouriteItemUncheckedUpdateManyWithoutUserNestedInput
-=======
-    birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    phone?: StringFieldUpdateOperationsInput | string
-    avatar?: StringFieldUpdateOperationsInput | string
-    refresh_token?: StringFieldUpdateOperationsInput | string
-    balance?: FloatFieldUpdateOperationsInput | number
-    otp_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    lang_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    preferredCurrencyId?: BigIntFieldUpdateOperationsInput | bigint | number
-    additionalPhones?: PhoneUncheckedUpdateManyWithoutUserNestedInput
-    favouriteItems?: FavouriteItemUncheckedUpdateManyWithoutUserNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses?: AddressUncheckedUpdateManyWithoutUserNestedInput
     products?: ProductUncheckedUpdateManyWithoutUserNestedInput
     comments?: CommentUncheckedUpdateManyWithoutUserNestedInput
@@ -32233,7 +30078,6 @@ export namespace Prisma {
     id?: bigint | number
     name: string
     surname: string
-<<<<<<< HEAD
     birth_date?: Date | string | null
     phone: string
     avatar?: string | null
@@ -32245,19 +30089,6 @@ export namespace Prisma {
     emails?: EmailCreateNestedManyWithoutUserInput
     additional_phones?: PhoneCreateNestedManyWithoutUserInput
     favourite_items?: FavouriteItemCreateNestedManyWithoutUserInput
-=======
-    birth_date: Date | string
-    phone: string
-    avatar: string
-    refresh_token: string
-    balance: number
-    otp: OTPCreateNestedOneWithoutUsersInput
-    language: LanguageCreateNestedOneWithoutUsersInput
-    preferredCurrency: CurrencyCreateNestedOneWithoutUserPreferencesInput
-    emails?: EmailCreateNestedManyWithoutUserInput
-    additionalPhones?: PhoneCreateNestedManyWithoutUserInput
-    favouriteItems?: FavouriteItemCreateNestedManyWithoutUserInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     products?: ProductCreateNestedManyWithoutUserInput
     comments?: CommentCreateNestedManyWithoutUserInput
     payments?: PaymentCreateNestedManyWithoutUserInput
@@ -32268,7 +30099,6 @@ export namespace Prisma {
     id?: bigint | number
     name: string
     surname: string
-<<<<<<< HEAD
     birth_date?: Date | string | null
     phone: string
     avatar?: string | null
@@ -32280,19 +30110,6 @@ export namespace Prisma {
     emails?: EmailUncheckedCreateNestedManyWithoutUserInput
     additional_phones?: PhoneUncheckedCreateNestedManyWithoutUserInput
     favourite_items?: FavouriteItemUncheckedCreateNestedManyWithoutUserInput
-=======
-    birth_date: Date | string
-    phone: string
-    avatar: string
-    refresh_token: string
-    balance: number
-    otp_id: bigint | number
-    lang_id: bigint | number
-    preferredCurrencyId: bigint | number
-    emails?: EmailUncheckedCreateNestedManyWithoutUserInput
-    additionalPhones?: PhoneUncheckedCreateNestedManyWithoutUserInput
-    favouriteItems?: FavouriteItemUncheckedCreateNestedManyWithoutUserInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     products?: ProductUncheckedCreateNestedManyWithoutUserInput
     comments?: CommentUncheckedCreateNestedManyWithoutUserInput
     payments?: PaymentUncheckedCreateNestedManyWithoutUserInput
@@ -32309,15 +30126,9 @@ export namespace Prisma {
     title: string
     description: string
     year: number
-<<<<<<< HEAD
     custom_model?: string | null
     price: number
     floor_price?: boolean
-=======
-    custom_model: string
-    price: number
-    floor_price: boolean
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     is_new: boolean
     has_document: boolean
     storage: bigint | number
@@ -32327,7 +30138,6 @@ export namespace Prisma {
     is_sold?: boolean
     is_checked?: boolean
     is_top?: boolean
-<<<<<<< HEAD
     top_expire_date?: Date | string | null
     user: UserCreateNestedOneWithoutProductsInput
     brand?: BrandCreateNestedOneWithoutProductsInput
@@ -32338,18 +30148,6 @@ export namespace Prisma {
     admin?: AdminCreateNestedOneWithoutProducts_managedInput
     images?: ProductImageCreateNestedManyWithoutProductInput
     favourited_by?: FavouriteItemCreateNestedManyWithoutProductInput
-=======
-    top_expire_date: Date | string
-    user: UserCreateNestedOneWithoutProductsInput
-    brand: BrandCreateNestedOneWithoutProductsInput
-    model: ModelCreateNestedOneWithoutProductsInput
-    color: ColorCreateNestedOneWithoutProductsInput
-    currency: CurrencyCreateNestedOneWithoutProductsInput
-    contactPhone: PhoneCreateNestedOneWithoutProductsInput
-    admin: AdminCreateNestedOneWithoutProductsManagedInput
-    images?: ProductImageCreateNestedManyWithoutProductInput
-    favouritedBy?: FavouriteItemCreateNestedManyWithoutProductInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     comments?: CommentCreateNestedManyWithoutProductInput
   }
 
@@ -32359,7 +30157,6 @@ export namespace Prisma {
     title: string
     description: string
     year: number
-<<<<<<< HEAD
     brand_id?: bigint | number | null
     model_id?: bigint | number | null
     custom_model?: string | null
@@ -32367,15 +30164,6 @@ export namespace Prisma {
     price: number
     floor_price?: boolean
     currency_id?: bigint | number
-=======
-    brand_id: bigint | number
-    model_id: bigint | number
-    custom_model: string
-    color_id: bigint | number
-    price: number
-    floor_price: boolean
-    currency_id: bigint | number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     is_new: boolean
     has_document: boolean
     phone_id: bigint | number
@@ -32385,19 +30173,11 @@ export namespace Prisma {
     is_archived?: boolean
     is_sold?: boolean
     is_checked?: boolean
-<<<<<<< HEAD
     admin_id?: bigint | number | null
     is_top?: boolean
     top_expire_date?: Date | string | null
     images?: ProductImageUncheckedCreateNestedManyWithoutProductInput
     favourited_by?: FavouriteItemUncheckedCreateNestedManyWithoutProductInput
-=======
-    admin_id: bigint | number
-    is_top?: boolean
-    top_expire_date: Date | string
-    images?: ProductImageUncheckedCreateNestedManyWithoutProductInput
-    favouritedBy?: FavouriteItemUncheckedCreateNestedManyWithoutProductInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     comments?: CommentUncheckedCreateNestedManyWithoutProductInput
   }
 
@@ -32426,7 +30206,6 @@ export namespace Prisma {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
     surname?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     birth_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     phone?: StringFieldUpdateOperationsInput | string
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
@@ -32438,19 +30217,6 @@ export namespace Prisma {
     emails?: EmailUpdateManyWithoutUserNestedInput
     additional_phones?: PhoneUpdateManyWithoutUserNestedInput
     favourite_items?: FavouriteItemUpdateManyWithoutUserNestedInput
-=======
-    birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    phone?: StringFieldUpdateOperationsInput | string
-    avatar?: StringFieldUpdateOperationsInput | string
-    refresh_token?: StringFieldUpdateOperationsInput | string
-    balance?: FloatFieldUpdateOperationsInput | number
-    otp?: OTPUpdateOneRequiredWithoutUsersNestedInput
-    language?: LanguageUpdateOneRequiredWithoutUsersNestedInput
-    preferredCurrency?: CurrencyUpdateOneRequiredWithoutUserPreferencesNestedInput
-    emails?: EmailUpdateManyWithoutUserNestedInput
-    additionalPhones?: PhoneUpdateManyWithoutUserNestedInput
-    favouriteItems?: FavouriteItemUpdateManyWithoutUserNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     products?: ProductUpdateManyWithoutUserNestedInput
     comments?: CommentUpdateManyWithoutUserNestedInput
     payments?: PaymentUpdateManyWithoutUserNestedInput
@@ -32461,7 +30227,6 @@ export namespace Prisma {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
     surname?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     birth_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     phone?: StringFieldUpdateOperationsInput | string
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
@@ -32473,19 +30238,6 @@ export namespace Prisma {
     emails?: EmailUncheckedUpdateManyWithoutUserNestedInput
     additional_phones?: PhoneUncheckedUpdateManyWithoutUserNestedInput
     favourite_items?: FavouriteItemUncheckedUpdateManyWithoutUserNestedInput
-=======
-    birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    phone?: StringFieldUpdateOperationsInput | string
-    avatar?: StringFieldUpdateOperationsInput | string
-    refresh_token?: StringFieldUpdateOperationsInput | string
-    balance?: FloatFieldUpdateOperationsInput | number
-    otp_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    lang_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    preferredCurrencyId?: BigIntFieldUpdateOperationsInput | bigint | number
-    emails?: EmailUncheckedUpdateManyWithoutUserNestedInput
-    additionalPhones?: PhoneUncheckedUpdateManyWithoutUserNestedInput
-    favouriteItems?: FavouriteItemUncheckedUpdateManyWithoutUserNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     products?: ProductUncheckedUpdateManyWithoutUserNestedInput
     comments?: CommentUncheckedUpdateManyWithoutUserNestedInput
     payments?: PaymentUncheckedUpdateManyWithoutUserNestedInput
@@ -32512,7 +30264,6 @@ export namespace Prisma {
     id?: bigint | number
     name: string
     surname: string
-<<<<<<< HEAD
     birth_date?: Date | string | null
     phone: string
     avatar?: string | null
@@ -32523,18 +30274,6 @@ export namespace Prisma {
     emails?: EmailCreateNestedManyWithoutUserInput
     additional_phones?: PhoneCreateNestedManyWithoutUserInput
     favourite_items?: FavouriteItemCreateNestedManyWithoutUserInput
-=======
-    birth_date: Date | string
-    phone: string
-    avatar: string
-    refresh_token: string
-    balance: number
-    otp: OTPCreateNestedOneWithoutUsersInput
-    preferredCurrency: CurrencyCreateNestedOneWithoutUserPreferencesInput
-    emails?: EmailCreateNestedManyWithoutUserInput
-    additionalPhones?: PhoneCreateNestedManyWithoutUserInput
-    favouriteItems?: FavouriteItemCreateNestedManyWithoutUserInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses?: AddressCreateNestedManyWithoutUserInput
     products?: ProductCreateNestedManyWithoutUserInput
     comments?: CommentCreateNestedManyWithoutUserInput
@@ -32546,7 +30285,6 @@ export namespace Prisma {
     id?: bigint | number
     name: string
     surname: string
-<<<<<<< HEAD
     birth_date?: Date | string | null
     phone: string
     avatar?: string | null
@@ -32557,18 +30295,6 @@ export namespace Prisma {
     emails?: EmailUncheckedCreateNestedManyWithoutUserInput
     additional_phones?: PhoneUncheckedCreateNestedManyWithoutUserInput
     favourite_items?: FavouriteItemUncheckedCreateNestedManyWithoutUserInput
-=======
-    birth_date: Date | string
-    phone: string
-    avatar: string
-    refresh_token: string
-    balance: number
-    otp_id: bigint | number
-    preferredCurrencyId: bigint | number
-    emails?: EmailUncheckedCreateNestedManyWithoutUserInput
-    additionalPhones?: PhoneUncheckedCreateNestedManyWithoutUserInput
-    favouriteItems?: FavouriteItemUncheckedCreateNestedManyWithoutUserInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses?: AddressUncheckedCreateNestedManyWithoutUserInput
     products?: ProductUncheckedCreateNestedManyWithoutUserInput
     comments?: CommentUncheckedCreateNestedManyWithoutUserInput
@@ -32593,19 +30319,11 @@ export namespace Prisma {
     birth_date: Date | string
     phone: string
     password: string
-<<<<<<< HEAD
     avatar?: string | null
     refresh_token?: string | null
     is_creator?: boolean
     blocks_issued?: BlockCreateNestedManyWithoutAdminInput
     products_managed?: ProductCreateNestedManyWithoutAdminInput
-=======
-    avatar: string
-    refresh_token: string
-    is_creator?: boolean
-    blocksIssued?: BlockCreateNestedManyWithoutAdminInput
-    productsManaged?: ProductCreateNestedManyWithoutAdminInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type AdminUncheckedCreateWithoutLanguageInput = {
@@ -32615,19 +30333,11 @@ export namespace Prisma {
     birth_date: Date | string
     phone: string
     password: string
-<<<<<<< HEAD
     avatar?: string | null
     refresh_token?: string | null
     is_creator?: boolean
     blocks_issued?: BlockUncheckedCreateNestedManyWithoutAdminInput
     products_managed?: ProductUncheckedCreateNestedManyWithoutAdminInput
-=======
-    avatar: string
-    refresh_token: string
-    is_creator?: boolean
-    blocksIssued?: BlockUncheckedCreateNestedManyWithoutAdminInput
-    productsManaged?: ProductUncheckedCreateNestedManyWithoutAdminInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type AdminCreateOrConnectWithoutLanguageInput = {
@@ -32682,35 +30392,20 @@ export namespace Prisma {
     birth_date?: DateTimeFilter<"Admin"> | Date | string
     phone?: StringFilter<"Admin"> | string
     password?: StringFilter<"Admin"> | string
-<<<<<<< HEAD
     avatar?: StringNullableFilter<"Admin"> | string | null
     refresh_token?: StringNullableFilter<"Admin"> | string | null
-=======
-    avatar?: StringFilter<"Admin"> | string
-    refresh_token?: StringFilter<"Admin"> | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     lang_id?: BigIntFilter<"Admin"> | bigint | number
     is_creator?: BoolFilter<"Admin"> | boolean
   }
 
-<<<<<<< HEAD
   export type ProductCreateWithoutFavourited_byInput = {
-=======
-  export type ProductCreateWithoutFavouritedByInput = {
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     id?: bigint | number
     title: string
     description: string
     year: number
-<<<<<<< HEAD
     custom_model?: string | null
     price: number
     floor_price?: boolean
-=======
-    custom_model: string
-    price: number
-    floor_price: boolean
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     is_new: boolean
     has_document: boolean
     storage: bigint | number
@@ -32720,7 +30415,6 @@ export namespace Prisma {
     is_sold?: boolean
     is_checked?: boolean
     is_top?: boolean
-<<<<<<< HEAD
     top_expire_date?: Date | string | null
     user: UserCreateNestedOneWithoutProductsInput
     brand?: BrandCreateNestedOneWithoutProductsInput
@@ -32730,32 +30424,16 @@ export namespace Prisma {
     address: AddressCreateNestedOneWithoutProductsInput
     contact_phone: PhoneCreateNestedOneWithoutProductsInput
     admin?: AdminCreateNestedOneWithoutProducts_managedInput
-=======
-    top_expire_date: Date | string
-    user: UserCreateNestedOneWithoutProductsInput
-    brand: BrandCreateNestedOneWithoutProductsInput
-    model: ModelCreateNestedOneWithoutProductsInput
-    color: ColorCreateNestedOneWithoutProductsInput
-    currency: CurrencyCreateNestedOneWithoutProductsInput
-    address: AddressCreateNestedOneWithoutProductsInput
-    contactPhone: PhoneCreateNestedOneWithoutProductsInput
-    admin: AdminCreateNestedOneWithoutProductsManagedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     images?: ProductImageCreateNestedManyWithoutProductInput
     comments?: CommentCreateNestedManyWithoutProductInput
   }
 
-<<<<<<< HEAD
   export type ProductUncheckedCreateWithoutFavourited_byInput = {
-=======
-  export type ProductUncheckedCreateWithoutFavouritedByInput = {
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     id?: bigint | number
     user_id: bigint | number
     title: string
     description: string
     year: number
-<<<<<<< HEAD
     brand_id?: bigint | number | null
     model_id?: bigint | number | null
     custom_model?: string | null
@@ -32763,15 +30441,6 @@ export namespace Prisma {
     price: number
     floor_price?: boolean
     currency_id?: bigint | number
-=======
-    brand_id: bigint | number
-    model_id: bigint | number
-    custom_model: string
-    color_id: bigint | number
-    price: number
-    floor_price: boolean
-    currency_id: bigint | number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     is_new: boolean
     has_document: boolean
     address_id: bigint | number
@@ -32782,20 +30451,13 @@ export namespace Prisma {
     is_archived?: boolean
     is_sold?: boolean
     is_checked?: boolean
-<<<<<<< HEAD
     admin_id?: bigint | number | null
     is_top?: boolean
     top_expire_date?: Date | string | null
-=======
-    admin_id: bigint | number
-    is_top?: boolean
-    top_expire_date: Date | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     images?: ProductImageUncheckedCreateNestedManyWithoutProductInput
     comments?: CommentUncheckedCreateNestedManyWithoutProductInput
   }
 
-<<<<<<< HEAD
   export type ProductCreateOrConnectWithoutFavourited_byInput = {
     where: ProductWhereUniqueInput
     create: XOR<ProductCreateWithoutFavourited_byInput, ProductUncheckedCreateWithoutFavourited_byInput>
@@ -32815,27 +30477,6 @@ export namespace Prisma {
     currency: CurrencyCreateNestedOneWithoutUser_preferencesInput
     emails?: EmailCreateNestedManyWithoutUserInput
     additional_phones?: PhoneCreateNestedManyWithoutUserInput
-=======
-  export type ProductCreateOrConnectWithoutFavouritedByInput = {
-    where: ProductWhereUniqueInput
-    create: XOR<ProductCreateWithoutFavouritedByInput, ProductUncheckedCreateWithoutFavouritedByInput>
-  }
-
-  export type UserCreateWithoutFavouriteItemsInput = {
-    id?: bigint | number
-    name: string
-    surname: string
-    birth_date: Date | string
-    phone: string
-    avatar: string
-    refresh_token: string
-    balance: number
-    otp: OTPCreateNestedOneWithoutUsersInput
-    language: LanguageCreateNestedOneWithoutUsersInput
-    preferredCurrency: CurrencyCreateNestedOneWithoutUserPreferencesInput
-    emails?: EmailCreateNestedManyWithoutUserInput
-    additionalPhones?: PhoneCreateNestedManyWithoutUserInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses?: AddressCreateNestedManyWithoutUserInput
     products?: ProductCreateNestedManyWithoutUserInput
     comments?: CommentCreateNestedManyWithoutUserInput
@@ -32843,7 +30484,6 @@ export namespace Prisma {
     blocks?: BlockCreateNestedManyWithoutUserInput
   }
 
-<<<<<<< HEAD
   export type UserUncheckedCreateWithoutFavourite_itemsInput = {
     id?: bigint | number
     name: string
@@ -32858,22 +30498,6 @@ export namespace Prisma {
     currency_id: bigint | number
     emails?: EmailUncheckedCreateNestedManyWithoutUserInput
     additional_phones?: PhoneUncheckedCreateNestedManyWithoutUserInput
-=======
-  export type UserUncheckedCreateWithoutFavouriteItemsInput = {
-    id?: bigint | number
-    name: string
-    surname: string
-    birth_date: Date | string
-    phone: string
-    avatar: string
-    refresh_token: string
-    balance: number
-    otp_id: bigint | number
-    lang_id: bigint | number
-    preferredCurrencyId: bigint | number
-    emails?: EmailUncheckedCreateNestedManyWithoutUserInput
-    additionalPhones?: PhoneUncheckedCreateNestedManyWithoutUserInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses?: AddressUncheckedCreateNestedManyWithoutUserInput
     products?: ProductUncheckedCreateNestedManyWithoutUserInput
     comments?: CommentUncheckedCreateNestedManyWithoutUserInput
@@ -32881,7 +30505,6 @@ export namespace Prisma {
     blocks?: BlockUncheckedCreateNestedManyWithoutUserInput
   }
 
-<<<<<<< HEAD
   export type UserCreateOrConnectWithoutFavourite_itemsInput = {
     where: UserWhereUniqueInput
     create: XOR<UserCreateWithoutFavourite_itemsInput, UserUncheckedCreateWithoutFavourite_itemsInput>
@@ -32899,34 +30522,11 @@ export namespace Prisma {
   }
 
   export type ProductUpdateWithoutFavourited_byInput = {
-=======
-  export type UserCreateOrConnectWithoutFavouriteItemsInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutFavouriteItemsInput, UserUncheckedCreateWithoutFavouriteItemsInput>
-  }
-
-  export type ProductUpsertWithoutFavouritedByInput = {
-    update: XOR<ProductUpdateWithoutFavouritedByInput, ProductUncheckedUpdateWithoutFavouritedByInput>
-    create: XOR<ProductCreateWithoutFavouritedByInput, ProductUncheckedCreateWithoutFavouritedByInput>
-    where?: ProductWhereInput
-  }
-
-  export type ProductUpdateToOneWithWhereWithoutFavouritedByInput = {
-    where?: ProductWhereInput
-    data: XOR<ProductUpdateWithoutFavouritedByInput, ProductUncheckedUpdateWithoutFavouritedByInput>
-  }
-
-  export type ProductUpdateWithoutFavouritedByInput = {
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
-<<<<<<< HEAD
     custom_model?: NullableStringFieldUpdateOperationsInput | string | null
-=======
-    custom_model?: StringFieldUpdateOperationsInput | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     price?: FloatFieldUpdateOperationsInput | number
     floor_price?: BoolFieldUpdateOperationsInput | boolean
     is_new?: BoolFieldUpdateOperationsInput | boolean
@@ -32938,7 +30538,6 @@ export namespace Prisma {
     is_sold?: BoolFieldUpdateOperationsInput | boolean
     is_checked?: BoolFieldUpdateOperationsInput | boolean
     is_top?: BoolFieldUpdateOperationsInput | boolean
-<<<<<<< HEAD
     top_expire_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     user?: UserUpdateOneRequiredWithoutProductsNestedInput
     brand?: BrandUpdateOneWithoutProductsNestedInput
@@ -32948,40 +30547,19 @@ export namespace Prisma {
     address?: AddressUpdateOneRequiredWithoutProductsNestedInput
     contact_phone?: PhoneUpdateOneRequiredWithoutProductsNestedInput
     admin?: AdminUpdateOneWithoutProducts_managedNestedInput
-=======
-    top_expire_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutProductsNestedInput
-    brand?: BrandUpdateOneRequiredWithoutProductsNestedInput
-    model?: ModelUpdateOneRequiredWithoutProductsNestedInput
-    color?: ColorUpdateOneRequiredWithoutProductsNestedInput
-    currency?: CurrencyUpdateOneRequiredWithoutProductsNestedInput
-    address?: AddressUpdateOneRequiredWithoutProductsNestedInput
-    contactPhone?: PhoneUpdateOneRequiredWithoutProductsNestedInput
-    admin?: AdminUpdateOneRequiredWithoutProductsManagedNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     images?: ProductImageUpdateManyWithoutProductNestedInput
     comments?: CommentUpdateManyWithoutProductNestedInput
   }
 
-<<<<<<< HEAD
   export type ProductUncheckedUpdateWithoutFavourited_byInput = {
-=======
-  export type ProductUncheckedUpdateWithoutFavouritedByInput = {
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     user_id?: BigIntFieldUpdateOperationsInput | bigint | number
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
-<<<<<<< HEAD
     brand_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     model_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     custom_model?: NullableStringFieldUpdateOperationsInput | string | null
-=======
-    brand_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    model_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    custom_model?: StringFieldUpdateOperationsInput | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     color_id?: BigIntFieldUpdateOperationsInput | bigint | number
     price?: FloatFieldUpdateOperationsInput | number
     floor_price?: BoolFieldUpdateOperationsInput | boolean
@@ -32996,20 +30574,13 @@ export namespace Prisma {
     is_archived?: BoolFieldUpdateOperationsInput | boolean
     is_sold?: BoolFieldUpdateOperationsInput | boolean
     is_checked?: BoolFieldUpdateOperationsInput | boolean
-<<<<<<< HEAD
     admin_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     is_top?: BoolFieldUpdateOperationsInput | boolean
     top_expire_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-=======
-    admin_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    is_top?: BoolFieldUpdateOperationsInput | boolean
-    top_expire_date?: DateTimeFieldUpdateOperationsInput | Date | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     images?: ProductImageUncheckedUpdateManyWithoutProductNestedInput
     comments?: CommentUncheckedUpdateManyWithoutProductNestedInput
   }
 
-<<<<<<< HEAD
   export type UserUpsertWithoutFavourite_itemsInput = {
     update: XOR<UserUpdateWithoutFavourite_itemsInput, UserUncheckedUpdateWithoutFavourite_itemsInput>
     create: XOR<UserCreateWithoutFavourite_itemsInput, UserUncheckedCreateWithoutFavourite_itemsInput>
@@ -33035,33 +30606,6 @@ export namespace Prisma {
     currency?: CurrencyUpdateOneRequiredWithoutUser_preferencesNestedInput
     emails?: EmailUpdateManyWithoutUserNestedInput
     additional_phones?: PhoneUpdateManyWithoutUserNestedInput
-=======
-  export type UserUpsertWithoutFavouriteItemsInput = {
-    update: XOR<UserUpdateWithoutFavouriteItemsInput, UserUncheckedUpdateWithoutFavouriteItemsInput>
-    create: XOR<UserCreateWithoutFavouriteItemsInput, UserUncheckedCreateWithoutFavouriteItemsInput>
-    where?: UserWhereInput
-  }
-
-  export type UserUpdateToOneWithWhereWithoutFavouriteItemsInput = {
-    where?: UserWhereInput
-    data: XOR<UserUpdateWithoutFavouriteItemsInput, UserUncheckedUpdateWithoutFavouriteItemsInput>
-  }
-
-  export type UserUpdateWithoutFavouriteItemsInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
-    name?: StringFieldUpdateOperationsInput | string
-    surname?: StringFieldUpdateOperationsInput | string
-    birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    phone?: StringFieldUpdateOperationsInput | string
-    avatar?: StringFieldUpdateOperationsInput | string
-    refresh_token?: StringFieldUpdateOperationsInput | string
-    balance?: FloatFieldUpdateOperationsInput | number
-    otp?: OTPUpdateOneRequiredWithoutUsersNestedInput
-    language?: LanguageUpdateOneRequiredWithoutUsersNestedInput
-    preferredCurrency?: CurrencyUpdateOneRequiredWithoutUserPreferencesNestedInput
-    emails?: EmailUpdateManyWithoutUserNestedInput
-    additionalPhones?: PhoneUpdateManyWithoutUserNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses?: AddressUpdateManyWithoutUserNestedInput
     products?: ProductUpdateManyWithoutUserNestedInput
     comments?: CommentUpdateManyWithoutUserNestedInput
@@ -33069,7 +30613,6 @@ export namespace Prisma {
     blocks?: BlockUpdateManyWithoutUserNestedInput
   }
 
-<<<<<<< HEAD
   export type UserUncheckedUpdateWithoutFavourite_itemsInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
@@ -33084,22 +30627,6 @@ export namespace Prisma {
     currency_id?: BigIntFieldUpdateOperationsInput | bigint | number
     emails?: EmailUncheckedUpdateManyWithoutUserNestedInput
     additional_phones?: PhoneUncheckedUpdateManyWithoutUserNestedInput
-=======
-  export type UserUncheckedUpdateWithoutFavouriteItemsInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
-    name?: StringFieldUpdateOperationsInput | string
-    surname?: StringFieldUpdateOperationsInput | string
-    birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    phone?: StringFieldUpdateOperationsInput | string
-    avatar?: StringFieldUpdateOperationsInput | string
-    refresh_token?: StringFieldUpdateOperationsInput | string
-    balance?: FloatFieldUpdateOperationsInput | number
-    otp_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    lang_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    preferredCurrencyId?: BigIntFieldUpdateOperationsInput | bigint | number
-    emails?: EmailUncheckedUpdateManyWithoutUserNestedInput
-    additionalPhones?: PhoneUncheckedUpdateManyWithoutUserNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses?: AddressUncheckedUpdateManyWithoutUserNestedInput
     products?: ProductUncheckedUpdateManyWithoutUserNestedInput
     comments?: CommentUncheckedUpdateManyWithoutUserNestedInput
@@ -33111,7 +30638,6 @@ export namespace Prisma {
     id?: bigint | number
     name: string
     surname: string
-<<<<<<< HEAD
     birth_date?: Date | string | null
     phone: string
     avatar?: string | null
@@ -33123,19 +30649,6 @@ export namespace Prisma {
     emails?: EmailCreateNestedManyWithoutUserInput
     additional_phones?: PhoneCreateNestedManyWithoutUserInput
     favourite_items?: FavouriteItemCreateNestedManyWithoutUserInput
-=======
-    birth_date: Date | string
-    phone: string
-    avatar: string
-    refresh_token: string
-    balance: number
-    otp: OTPCreateNestedOneWithoutUsersInput
-    language: LanguageCreateNestedOneWithoutUsersInput
-    preferredCurrency: CurrencyCreateNestedOneWithoutUserPreferencesInput
-    emails?: EmailCreateNestedManyWithoutUserInput
-    additionalPhones?: PhoneCreateNestedManyWithoutUserInput
-    favouriteItems?: FavouriteItemCreateNestedManyWithoutUserInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses?: AddressCreateNestedManyWithoutUserInput
     comments?: CommentCreateNestedManyWithoutUserInput
     payments?: PaymentCreateNestedManyWithoutUserInput
@@ -33146,7 +30659,6 @@ export namespace Prisma {
     id?: bigint | number
     name: string
     surname: string
-<<<<<<< HEAD
     birth_date?: Date | string | null
     phone: string
     avatar?: string | null
@@ -33158,19 +30670,6 @@ export namespace Prisma {
     emails?: EmailUncheckedCreateNestedManyWithoutUserInput
     additional_phones?: PhoneUncheckedCreateNestedManyWithoutUserInput
     favourite_items?: FavouriteItemUncheckedCreateNestedManyWithoutUserInput
-=======
-    birth_date: Date | string
-    phone: string
-    avatar: string
-    refresh_token: string
-    balance: number
-    otp_id: bigint | number
-    lang_id: bigint | number
-    preferredCurrencyId: bigint | number
-    emails?: EmailUncheckedCreateNestedManyWithoutUserInput
-    additionalPhones?: PhoneUncheckedCreateNestedManyWithoutUserInput
-    favouriteItems?: FavouriteItemUncheckedCreateNestedManyWithoutUserInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses?: AddressUncheckedCreateNestedManyWithoutUserInput
     comments?: CommentUncheckedCreateNestedManyWithoutUserInput
     payments?: PaymentUncheckedCreateNestedManyWithoutUserInput
@@ -33221,19 +30720,13 @@ export namespace Prisma {
   export type ColorCreateWithoutProductsInput = {
     id?: bigint | number
     name: string
-<<<<<<< HEAD
     hex: string
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type ColorUncheckedCreateWithoutProductsInput = {
     id?: bigint | number
     name: string
-<<<<<<< HEAD
     hex: string
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type ColorCreateOrConnectWithoutProductsInput = {
@@ -33245,22 +30738,14 @@ export namespace Prisma {
     id?: bigint | number
     name: string
     symbol: string
-<<<<<<< HEAD
     user_preferences?: UserCreateNestedManyWithoutCurrencyInput
-=======
-    userPreferences?: UserCreateNestedManyWithoutPreferredCurrencyInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type CurrencyUncheckedCreateWithoutProductsInput = {
     id?: bigint | number
     name: string
     symbol: string
-<<<<<<< HEAD
     user_preferences?: UserUncheckedCreateNestedManyWithoutCurrencyInput
-=======
-    userPreferences?: UserUncheckedCreateNestedManyWithoutPreferredCurrencyInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type CurrencyCreateOrConnectWithoutProductsInput = {
@@ -33271,11 +30756,7 @@ export namespace Prisma {
   export type AddressCreateWithoutProductsInput = {
     id?: bigint | number
     name: string
-<<<<<<< HEAD
     address_value: bigint | number
-=======
-    addressValue: bigint | number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     lat: string
     long: string
     is_active: boolean
@@ -33285,11 +30766,7 @@ export namespace Prisma {
   export type AddressUncheckedCreateWithoutProductsInput = {
     id?: bigint | number
     name: string
-<<<<<<< HEAD
     address_value: bigint | number
-=======
-    addressValue: bigint | number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     lat: string
     long: string
     user_id: bigint | number
@@ -33304,11 +30781,7 @@ export namespace Prisma {
   export type PhoneCreateWithoutProductsInput = {
     id?: bigint | number
     phone: string
-<<<<<<< HEAD
     user: UserCreateNestedOneWithoutAdditional_phonesInput
-=======
-    user: UserCreateNestedOneWithoutAdditionalPhonesInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type PhoneUncheckedCreateWithoutProductsInput = {
@@ -33322,18 +30795,13 @@ export namespace Prisma {
     create: XOR<PhoneCreateWithoutProductsInput, PhoneUncheckedCreateWithoutProductsInput>
   }
 
-<<<<<<< HEAD
   export type AdminCreateWithoutProducts_managedInput = {
-=======
-  export type AdminCreateWithoutProductsManagedInput = {
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     id?: bigint | number
     name: string
     surname: string
     birth_date: Date | string
     phone: string
     password: string
-<<<<<<< HEAD
     avatar?: string | null
     refresh_token?: string | null
     is_creator?: boolean
@@ -33342,23 +30810,12 @@ export namespace Prisma {
   }
 
   export type AdminUncheckedCreateWithoutProducts_managedInput = {
-=======
-    avatar: string
-    refresh_token: string
-    is_creator?: boolean
-    language: LanguageCreateNestedOneWithoutAdminsInput
-    blocksIssued?: BlockCreateNestedManyWithoutAdminInput
-  }
-
-  export type AdminUncheckedCreateWithoutProductsManagedInput = {
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     id?: bigint | number
     name: string
     surname: string
     birth_date: Date | string
     phone: string
     password: string
-<<<<<<< HEAD
     avatar?: string | null
     refresh_token?: string | null
     lang_id?: bigint | number
@@ -33369,18 +30826,6 @@ export namespace Prisma {
   export type AdminCreateOrConnectWithoutProducts_managedInput = {
     where: AdminWhereUniqueInput
     create: XOR<AdminCreateWithoutProducts_managedInput, AdminUncheckedCreateWithoutProducts_managedInput>
-=======
-    avatar: string
-    refresh_token: string
-    lang_id: bigint | number
-    is_creator?: boolean
-    blocksIssued?: BlockUncheckedCreateNestedManyWithoutAdminInput
-  }
-
-  export type AdminCreateOrConnectWithoutProductsManagedInput = {
-    where: AdminWhereUniqueInput
-    create: XOR<AdminCreateWithoutProductsManagedInput, AdminUncheckedCreateWithoutProductsManagedInput>
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type ProductImageCreateWithoutProductInput = {
@@ -33407,11 +30852,7 @@ export namespace Prisma {
 
   export type FavouriteItemCreateWithoutProductInput = {
     id?: bigint | number
-<<<<<<< HEAD
     user: UserCreateNestedOneWithoutFavourite_itemsInput
-=======
-    user: UserCreateNestedOneWithoutFavouriteItemsInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type FavouriteItemUncheckedCreateWithoutProductInput = {
@@ -33466,7 +30907,6 @@ export namespace Prisma {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
     surname?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     birth_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     phone?: StringFieldUpdateOperationsInput | string
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
@@ -33478,19 +30918,6 @@ export namespace Prisma {
     emails?: EmailUpdateManyWithoutUserNestedInput
     additional_phones?: PhoneUpdateManyWithoutUserNestedInput
     favourite_items?: FavouriteItemUpdateManyWithoutUserNestedInput
-=======
-    birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    phone?: StringFieldUpdateOperationsInput | string
-    avatar?: StringFieldUpdateOperationsInput | string
-    refresh_token?: StringFieldUpdateOperationsInput | string
-    balance?: FloatFieldUpdateOperationsInput | number
-    otp?: OTPUpdateOneRequiredWithoutUsersNestedInput
-    language?: LanguageUpdateOneRequiredWithoutUsersNestedInput
-    preferredCurrency?: CurrencyUpdateOneRequiredWithoutUserPreferencesNestedInput
-    emails?: EmailUpdateManyWithoutUserNestedInput
-    additionalPhones?: PhoneUpdateManyWithoutUserNestedInput
-    favouriteItems?: FavouriteItemUpdateManyWithoutUserNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses?: AddressUpdateManyWithoutUserNestedInput
     comments?: CommentUpdateManyWithoutUserNestedInput
     payments?: PaymentUpdateManyWithoutUserNestedInput
@@ -33501,7 +30928,6 @@ export namespace Prisma {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
     surname?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     birth_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     phone?: StringFieldUpdateOperationsInput | string
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
@@ -33513,19 +30939,6 @@ export namespace Prisma {
     emails?: EmailUncheckedUpdateManyWithoutUserNestedInput
     additional_phones?: PhoneUncheckedUpdateManyWithoutUserNestedInput
     favourite_items?: FavouriteItemUncheckedUpdateManyWithoutUserNestedInput
-=======
-    birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    phone?: StringFieldUpdateOperationsInput | string
-    avatar?: StringFieldUpdateOperationsInput | string
-    refresh_token?: StringFieldUpdateOperationsInput | string
-    balance?: FloatFieldUpdateOperationsInput | number
-    otp_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    lang_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    preferredCurrencyId?: BigIntFieldUpdateOperationsInput | bigint | number
-    emails?: EmailUncheckedUpdateManyWithoutUserNestedInput
-    additionalPhones?: PhoneUncheckedUpdateManyWithoutUserNestedInput
-    favouriteItems?: FavouriteItemUncheckedUpdateManyWithoutUserNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses?: AddressUncheckedUpdateManyWithoutUserNestedInput
     comments?: CommentUncheckedUpdateManyWithoutUserNestedInput
     payments?: PaymentUncheckedUpdateManyWithoutUserNestedInput
@@ -33594,19 +31007,13 @@ export namespace Prisma {
   export type ColorUpdateWithoutProductsInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     hex?: StringFieldUpdateOperationsInput | string
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type ColorUncheckedUpdateWithoutProductsInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     hex?: StringFieldUpdateOperationsInput | string
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type CurrencyUpsertWithoutProductsInput = {
@@ -33624,22 +31031,14 @@ export namespace Prisma {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
     symbol?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     user_preferences?: UserUpdateManyWithoutCurrencyNestedInput
-=======
-    userPreferences?: UserUpdateManyWithoutPreferredCurrencyNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type CurrencyUncheckedUpdateWithoutProductsInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
     symbol?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     user_preferences?: UserUncheckedUpdateManyWithoutCurrencyNestedInput
-=======
-    userPreferences?: UserUncheckedUpdateManyWithoutPreferredCurrencyNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type AddressUpsertWithoutProductsInput = {
@@ -33656,11 +31055,7 @@ export namespace Prisma {
   export type AddressUpdateWithoutProductsInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     address_value?: BigIntFieldUpdateOperationsInput | bigint | number
-=======
-    addressValue?: BigIntFieldUpdateOperationsInput | bigint | number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     lat?: StringFieldUpdateOperationsInput | string
     long?: StringFieldUpdateOperationsInput | string
     is_active?: BoolFieldUpdateOperationsInput | boolean
@@ -33670,11 +31065,7 @@ export namespace Prisma {
   export type AddressUncheckedUpdateWithoutProductsInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     address_value?: BigIntFieldUpdateOperationsInput | bigint | number
-=======
-    addressValue?: BigIntFieldUpdateOperationsInput | bigint | number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     lat?: StringFieldUpdateOperationsInput | string
     long?: StringFieldUpdateOperationsInput | string
     user_id?: BigIntFieldUpdateOperationsInput | bigint | number
@@ -33695,11 +31086,7 @@ export namespace Prisma {
   export type PhoneUpdateWithoutProductsInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     phone?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     user?: UserUpdateOneRequiredWithoutAdditional_phonesNestedInput
-=======
-    user?: UserUpdateOneRequiredWithoutAdditionalPhonesNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type PhoneUncheckedUpdateWithoutProductsInput = {
@@ -33708,7 +31095,6 @@ export namespace Prisma {
     user_id?: BigIntFieldUpdateOperationsInput | bigint | number
   }
 
-<<<<<<< HEAD
   export type AdminUpsertWithoutProducts_managedInput = {
     update: XOR<AdminUpdateWithoutProducts_managedInput, AdminUncheckedUpdateWithoutProducts_managedInput>
     create: XOR<AdminCreateWithoutProducts_managedInput, AdminUncheckedCreateWithoutProducts_managedInput>
@@ -33721,27 +31107,12 @@ export namespace Prisma {
   }
 
   export type AdminUpdateWithoutProducts_managedInput = {
-=======
-  export type AdminUpsertWithoutProductsManagedInput = {
-    update: XOR<AdminUpdateWithoutProductsManagedInput, AdminUncheckedUpdateWithoutProductsManagedInput>
-    create: XOR<AdminCreateWithoutProductsManagedInput, AdminUncheckedCreateWithoutProductsManagedInput>
-    where?: AdminWhereInput
-  }
-
-  export type AdminUpdateToOneWithWhereWithoutProductsManagedInput = {
-    where?: AdminWhereInput
-    data: XOR<AdminUpdateWithoutProductsManagedInput, AdminUncheckedUpdateWithoutProductsManagedInput>
-  }
-
-  export type AdminUpdateWithoutProductsManagedInput = {
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
     surname?: StringFieldUpdateOperationsInput | string
     birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
     phone?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
     is_creator?: BoolFieldUpdateOperationsInput | boolean
@@ -33750,35 +31121,17 @@ export namespace Prisma {
   }
 
   export type AdminUncheckedUpdateWithoutProducts_managedInput = {
-=======
-    avatar?: StringFieldUpdateOperationsInput | string
-    refresh_token?: StringFieldUpdateOperationsInput | string
-    is_creator?: BoolFieldUpdateOperationsInput | boolean
-    language?: LanguageUpdateOneRequiredWithoutAdminsNestedInput
-    blocksIssued?: BlockUpdateManyWithoutAdminNestedInput
-  }
-
-  export type AdminUncheckedUpdateWithoutProductsManagedInput = {
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
     surname?: StringFieldUpdateOperationsInput | string
     birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
     phone?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
     lang_id?: BigIntFieldUpdateOperationsInput | bigint | number
     is_creator?: BoolFieldUpdateOperationsInput | boolean
     blocks_issued?: BlockUncheckedUpdateManyWithoutAdminNestedInput
-=======
-    avatar?: StringFieldUpdateOperationsInput | string
-    refresh_token?: StringFieldUpdateOperationsInput | string
-    lang_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    is_creator?: BoolFieldUpdateOperationsInput | boolean
-    blocksIssued?: BlockUncheckedUpdateManyWithoutAdminNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type ProductImageUpsertWithWhereUniqueWithoutProductInput = {
@@ -33844,15 +31197,9 @@ export namespace Prisma {
     title: string
     description: string
     year: number
-<<<<<<< HEAD
     custom_model?: string | null
     price: number
     floor_price?: boolean
-=======
-    custom_model: string
-    price: number
-    floor_price: boolean
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     is_new: boolean
     has_document: boolean
     storage: bigint | number
@@ -33862,7 +31209,6 @@ export namespace Prisma {
     is_sold?: boolean
     is_checked?: boolean
     is_top?: boolean
-<<<<<<< HEAD
     top_expire_date?: Date | string | null
     user: UserCreateNestedOneWithoutProductsInput
     brand?: BrandCreateNestedOneWithoutProductsInput
@@ -33873,18 +31219,6 @@ export namespace Prisma {
     contact_phone: PhoneCreateNestedOneWithoutProductsInput
     admin?: AdminCreateNestedOneWithoutProducts_managedInput
     favourited_by?: FavouriteItemCreateNestedManyWithoutProductInput
-=======
-    top_expire_date: Date | string
-    user: UserCreateNestedOneWithoutProductsInput
-    brand: BrandCreateNestedOneWithoutProductsInput
-    model: ModelCreateNestedOneWithoutProductsInput
-    color: ColorCreateNestedOneWithoutProductsInput
-    currency: CurrencyCreateNestedOneWithoutProductsInput
-    address: AddressCreateNestedOneWithoutProductsInput
-    contactPhone: PhoneCreateNestedOneWithoutProductsInput
-    admin: AdminCreateNestedOneWithoutProductsManagedInput
-    favouritedBy?: FavouriteItemCreateNestedManyWithoutProductInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     comments?: CommentCreateNestedManyWithoutProductInput
   }
 
@@ -33894,7 +31228,6 @@ export namespace Prisma {
     title: string
     description: string
     year: number
-<<<<<<< HEAD
     brand_id?: bigint | number | null
     model_id?: bigint | number | null
     custom_model?: string | null
@@ -33902,15 +31235,6 @@ export namespace Prisma {
     price: number
     floor_price?: boolean
     currency_id?: bigint | number
-=======
-    brand_id: bigint | number
-    model_id: bigint | number
-    custom_model: string
-    color_id: bigint | number
-    price: number
-    floor_price: boolean
-    currency_id: bigint | number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     is_new: boolean
     has_document: boolean
     address_id: bigint | number
@@ -33921,17 +31245,10 @@ export namespace Prisma {
     is_archived?: boolean
     is_sold?: boolean
     is_checked?: boolean
-<<<<<<< HEAD
     admin_id?: bigint | number | null
     is_top?: boolean
     top_expire_date?: Date | string | null
     favourited_by?: FavouriteItemUncheckedCreateNestedManyWithoutProductInput
-=======
-    admin_id: bigint | number
-    is_top?: boolean
-    top_expire_date: Date | string
-    favouritedBy?: FavouriteItemUncheckedCreateNestedManyWithoutProductInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     comments?: CommentUncheckedCreateNestedManyWithoutProductInput
   }
 
@@ -33956,11 +31273,7 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
-<<<<<<< HEAD
     custom_model?: NullableStringFieldUpdateOperationsInput | string | null
-=======
-    custom_model?: StringFieldUpdateOperationsInput | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     price?: FloatFieldUpdateOperationsInput | number
     floor_price?: BoolFieldUpdateOperationsInput | boolean
     is_new?: BoolFieldUpdateOperationsInput | boolean
@@ -33972,7 +31285,6 @@ export namespace Prisma {
     is_sold?: BoolFieldUpdateOperationsInput | boolean
     is_checked?: BoolFieldUpdateOperationsInput | boolean
     is_top?: BoolFieldUpdateOperationsInput | boolean
-<<<<<<< HEAD
     top_expire_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     user?: UserUpdateOneRequiredWithoutProductsNestedInput
     brand?: BrandUpdateOneWithoutProductsNestedInput
@@ -33983,18 +31295,6 @@ export namespace Prisma {
     contact_phone?: PhoneUpdateOneRequiredWithoutProductsNestedInput
     admin?: AdminUpdateOneWithoutProducts_managedNestedInput
     favourited_by?: FavouriteItemUpdateManyWithoutProductNestedInput
-=======
-    top_expire_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutProductsNestedInput
-    brand?: BrandUpdateOneRequiredWithoutProductsNestedInput
-    model?: ModelUpdateOneRequiredWithoutProductsNestedInput
-    color?: ColorUpdateOneRequiredWithoutProductsNestedInput
-    currency?: CurrencyUpdateOneRequiredWithoutProductsNestedInput
-    address?: AddressUpdateOneRequiredWithoutProductsNestedInput
-    contactPhone?: PhoneUpdateOneRequiredWithoutProductsNestedInput
-    admin?: AdminUpdateOneRequiredWithoutProductsManagedNestedInput
-    favouritedBy?: FavouriteItemUpdateManyWithoutProductNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     comments?: CommentUpdateManyWithoutProductNestedInput
   }
 
@@ -34004,15 +31304,9 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
-<<<<<<< HEAD
     brand_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     model_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     custom_model?: NullableStringFieldUpdateOperationsInput | string | null
-=======
-    brand_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    model_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    custom_model?: StringFieldUpdateOperationsInput | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     color_id?: BigIntFieldUpdateOperationsInput | bigint | number
     price?: FloatFieldUpdateOperationsInput | number
     floor_price?: BoolFieldUpdateOperationsInput | boolean
@@ -34027,17 +31321,10 @@ export namespace Prisma {
     is_archived?: BoolFieldUpdateOperationsInput | boolean
     is_sold?: BoolFieldUpdateOperationsInput | boolean
     is_checked?: BoolFieldUpdateOperationsInput | boolean
-<<<<<<< HEAD
     admin_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     is_top?: BoolFieldUpdateOperationsInput | boolean
     top_expire_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     favourited_by?: FavouriteItemUncheckedUpdateManyWithoutProductNestedInput
-=======
-    admin_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    is_top?: BoolFieldUpdateOperationsInput | boolean
-    top_expire_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    favouritedBy?: FavouriteItemUncheckedUpdateManyWithoutProductNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     comments?: CommentUncheckedUpdateManyWithoutProductNestedInput
   }
 
@@ -34068,15 +31355,9 @@ export namespace Prisma {
     title: string
     description: string
     year: number
-<<<<<<< HEAD
     custom_model?: string | null
     price: number
     floor_price?: boolean
-=======
-    custom_model: string
-    price: number
-    floor_price: boolean
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     is_new: boolean
     has_document: boolean
     storage: bigint | number
@@ -34086,7 +31367,6 @@ export namespace Prisma {
     is_sold?: boolean
     is_checked?: boolean
     is_top?: boolean
-<<<<<<< HEAD
     top_expire_date?: Date | string | null
     user: UserCreateNestedOneWithoutProductsInput
     model?: ModelCreateNestedOneWithoutProductsInput
@@ -34097,18 +31377,6 @@ export namespace Prisma {
     admin?: AdminCreateNestedOneWithoutProducts_managedInput
     images?: ProductImageCreateNestedManyWithoutProductInput
     favourited_by?: FavouriteItemCreateNestedManyWithoutProductInput
-=======
-    top_expire_date: Date | string
-    user: UserCreateNestedOneWithoutProductsInput
-    model: ModelCreateNestedOneWithoutProductsInput
-    color: ColorCreateNestedOneWithoutProductsInput
-    currency: CurrencyCreateNestedOneWithoutProductsInput
-    address: AddressCreateNestedOneWithoutProductsInput
-    contactPhone: PhoneCreateNestedOneWithoutProductsInput
-    admin: AdminCreateNestedOneWithoutProductsManagedInput
-    images?: ProductImageCreateNestedManyWithoutProductInput
-    favouritedBy?: FavouriteItemCreateNestedManyWithoutProductInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     comments?: CommentCreateNestedManyWithoutProductInput
   }
 
@@ -34118,21 +31386,12 @@ export namespace Prisma {
     title: string
     description: string
     year: number
-<<<<<<< HEAD
     model_id?: bigint | number | null
     custom_model?: string | null
     color_id: bigint | number
     price: number
     floor_price?: boolean
     currency_id?: bigint | number
-=======
-    model_id: bigint | number
-    custom_model: string
-    color_id: bigint | number
-    price: number
-    floor_price: boolean
-    currency_id: bigint | number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     is_new: boolean
     has_document: boolean
     address_id: bigint | number
@@ -34143,19 +31402,11 @@ export namespace Prisma {
     is_archived?: boolean
     is_sold?: boolean
     is_checked?: boolean
-<<<<<<< HEAD
     admin_id?: bigint | number | null
     is_top?: boolean
     top_expire_date?: Date | string | null
     images?: ProductImageUncheckedCreateNestedManyWithoutProductInput
     favourited_by?: FavouriteItemUncheckedCreateNestedManyWithoutProductInput
-=======
-    admin_id: bigint | number
-    is_top?: boolean
-    top_expire_date: Date | string
-    images?: ProductImageUncheckedCreateNestedManyWithoutProductInput
-    favouritedBy?: FavouriteItemUncheckedCreateNestedManyWithoutProductInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     comments?: CommentUncheckedCreateNestedManyWithoutProductInput
   }
 
@@ -34234,15 +31485,9 @@ export namespace Prisma {
     title: string
     description: string
     year: number
-<<<<<<< HEAD
     custom_model?: string | null
     price: number
     floor_price?: boolean
-=======
-    custom_model: string
-    price: number
-    floor_price: boolean
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     is_new: boolean
     has_document: boolean
     storage: bigint | number
@@ -34252,7 +31497,6 @@ export namespace Prisma {
     is_sold?: boolean
     is_checked?: boolean
     is_top?: boolean
-<<<<<<< HEAD
     top_expire_date?: Date | string | null
     user: UserCreateNestedOneWithoutProductsInput
     brand?: BrandCreateNestedOneWithoutProductsInput
@@ -34263,18 +31507,6 @@ export namespace Prisma {
     admin?: AdminCreateNestedOneWithoutProducts_managedInput
     images?: ProductImageCreateNestedManyWithoutProductInput
     favourited_by?: FavouriteItemCreateNestedManyWithoutProductInput
-=======
-    top_expire_date: Date | string
-    user: UserCreateNestedOneWithoutProductsInput
-    brand: BrandCreateNestedOneWithoutProductsInput
-    color: ColorCreateNestedOneWithoutProductsInput
-    currency: CurrencyCreateNestedOneWithoutProductsInput
-    address: AddressCreateNestedOneWithoutProductsInput
-    contactPhone: PhoneCreateNestedOneWithoutProductsInput
-    admin: AdminCreateNestedOneWithoutProductsManagedInput
-    images?: ProductImageCreateNestedManyWithoutProductInput
-    favouritedBy?: FavouriteItemCreateNestedManyWithoutProductInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     comments?: CommentCreateNestedManyWithoutProductInput
   }
 
@@ -34284,21 +31516,12 @@ export namespace Prisma {
     title: string
     description: string
     year: number
-<<<<<<< HEAD
     brand_id?: bigint | number | null
     custom_model?: string | null
     color_id: bigint | number
     price: number
     floor_price?: boolean
     currency_id?: bigint | number
-=======
-    brand_id: bigint | number
-    custom_model: string
-    color_id: bigint | number
-    price: number
-    floor_price: boolean
-    currency_id: bigint | number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     is_new: boolean
     has_document: boolean
     address_id: bigint | number
@@ -34309,19 +31532,11 @@ export namespace Prisma {
     is_archived?: boolean
     is_sold?: boolean
     is_checked?: boolean
-<<<<<<< HEAD
     admin_id?: bigint | number | null
     is_top?: boolean
     top_expire_date?: Date | string | null
     images?: ProductImageUncheckedCreateNestedManyWithoutProductInput
     favourited_by?: FavouriteItemUncheckedCreateNestedManyWithoutProductInput
-=======
-    admin_id: bigint | number
-    is_top?: boolean
-    top_expire_date: Date | string
-    images?: ProductImageUncheckedCreateNestedManyWithoutProductInput
-    favouritedBy?: FavouriteItemUncheckedCreateNestedManyWithoutProductInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     comments?: CommentUncheckedCreateNestedManyWithoutProductInput
   }
 
@@ -34381,15 +31596,9 @@ export namespace Prisma {
     title: string
     description: string
     year: number
-<<<<<<< HEAD
     custom_model?: string | null
     price: number
     floor_price?: boolean
-=======
-    custom_model: string
-    price: number
-    floor_price: boolean
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     is_new: boolean
     has_document: boolean
     storage: bigint | number
@@ -34399,7 +31608,6 @@ export namespace Prisma {
     is_sold?: boolean
     is_checked?: boolean
     is_top?: boolean
-<<<<<<< HEAD
     top_expire_date?: Date | string | null
     user: UserCreateNestedOneWithoutProductsInput
     brand?: BrandCreateNestedOneWithoutProductsInput
@@ -34410,18 +31618,6 @@ export namespace Prisma {
     admin?: AdminCreateNestedOneWithoutProducts_managedInput
     images?: ProductImageCreateNestedManyWithoutProductInput
     favourited_by?: FavouriteItemCreateNestedManyWithoutProductInput
-=======
-    top_expire_date: Date | string
-    user: UserCreateNestedOneWithoutProductsInput
-    brand: BrandCreateNestedOneWithoutProductsInput
-    model: ModelCreateNestedOneWithoutProductsInput
-    currency: CurrencyCreateNestedOneWithoutProductsInput
-    address: AddressCreateNestedOneWithoutProductsInput
-    contactPhone: PhoneCreateNestedOneWithoutProductsInput
-    admin: AdminCreateNestedOneWithoutProductsManagedInput
-    images?: ProductImageCreateNestedManyWithoutProductInput
-    favouritedBy?: FavouriteItemCreateNestedManyWithoutProductInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     comments?: CommentCreateNestedManyWithoutProductInput
   }
 
@@ -34431,21 +31627,12 @@ export namespace Prisma {
     title: string
     description: string
     year: number
-<<<<<<< HEAD
     brand_id?: bigint | number | null
     model_id?: bigint | number | null
     custom_model?: string | null
     price: number
     floor_price?: boolean
     currency_id?: bigint | number
-=======
-    brand_id: bigint | number
-    model_id: bigint | number
-    custom_model: string
-    price: number
-    floor_price: boolean
-    currency_id: bigint | number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     is_new: boolean
     has_document: boolean
     address_id: bigint | number
@@ -34456,19 +31643,11 @@ export namespace Prisma {
     is_archived?: boolean
     is_sold?: boolean
     is_checked?: boolean
-<<<<<<< HEAD
     admin_id?: bigint | number | null
     is_top?: boolean
     top_expire_date?: Date | string | null
     images?: ProductImageUncheckedCreateNestedManyWithoutProductInput
     favourited_by?: FavouriteItemUncheckedCreateNestedManyWithoutProductInput
-=======
-    admin_id: bigint | number
-    is_top?: boolean
-    top_expire_date: Date | string
-    images?: ProductImageUncheckedCreateNestedManyWithoutProductInput
-    favouritedBy?: FavouriteItemUncheckedCreateNestedManyWithoutProductInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     comments?: CommentUncheckedCreateNestedManyWithoutProductInput
   }
 
@@ -34498,7 +31677,6 @@ export namespace Prisma {
     data: XOR<ProductUpdateManyMutationInput, ProductUncheckedUpdateManyWithoutColorInput>
   }
 
-<<<<<<< HEAD
   export type UserCreateWithoutCurrencyInput = {
     id?: bigint | number
     name: string
@@ -34513,22 +31691,6 @@ export namespace Prisma {
     emails?: EmailCreateNestedManyWithoutUserInput
     additional_phones?: PhoneCreateNestedManyWithoutUserInput
     favourite_items?: FavouriteItemCreateNestedManyWithoutUserInput
-=======
-  export type UserCreateWithoutPreferredCurrencyInput = {
-    id?: bigint | number
-    name: string
-    surname: string
-    birth_date: Date | string
-    phone: string
-    avatar: string
-    refresh_token: string
-    balance: number
-    otp: OTPCreateNestedOneWithoutUsersInput
-    language: LanguageCreateNestedOneWithoutUsersInput
-    emails?: EmailCreateNestedManyWithoutUserInput
-    additionalPhones?: PhoneCreateNestedManyWithoutUserInput
-    favouriteItems?: FavouriteItemCreateNestedManyWithoutUserInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses?: AddressCreateNestedManyWithoutUserInput
     products?: ProductCreateNestedManyWithoutUserInput
     comments?: CommentCreateNestedManyWithoutUserInput
@@ -34536,7 +31698,6 @@ export namespace Prisma {
     blocks?: BlockCreateNestedManyWithoutUserInput
   }
 
-<<<<<<< HEAD
   export type UserUncheckedCreateWithoutCurrencyInput = {
     id?: bigint | number
     name: string
@@ -34551,22 +31712,6 @@ export namespace Prisma {
     emails?: EmailUncheckedCreateNestedManyWithoutUserInput
     additional_phones?: PhoneUncheckedCreateNestedManyWithoutUserInput
     favourite_items?: FavouriteItemUncheckedCreateNestedManyWithoutUserInput
-=======
-  export type UserUncheckedCreateWithoutPreferredCurrencyInput = {
-    id?: bigint | number
-    name: string
-    surname: string
-    birth_date: Date | string
-    phone: string
-    avatar: string
-    refresh_token: string
-    balance: number
-    otp_id: bigint | number
-    lang_id: bigint | number
-    emails?: EmailUncheckedCreateNestedManyWithoutUserInput
-    additionalPhones?: PhoneUncheckedCreateNestedManyWithoutUserInput
-    favouriteItems?: FavouriteItemUncheckedCreateNestedManyWithoutUserInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses?: AddressUncheckedCreateNestedManyWithoutUserInput
     products?: ProductUncheckedCreateNestedManyWithoutUserInput
     comments?: CommentUncheckedCreateNestedManyWithoutUserInput
@@ -34574,7 +31719,6 @@ export namespace Prisma {
     blocks?: BlockUncheckedCreateNestedManyWithoutUserInput
   }
 
-<<<<<<< HEAD
   export type UserCreateOrConnectWithoutCurrencyInput = {
     where: UserWhereUniqueInput
     create: XOR<UserCreateWithoutCurrencyInput, UserUncheckedCreateWithoutCurrencyInput>
@@ -34582,15 +31726,6 @@ export namespace Prisma {
 
   export type UserCreateManyCurrencyInputEnvelope = {
     data: UserCreateManyCurrencyInput | UserCreateManyCurrencyInput[]
-=======
-  export type UserCreateOrConnectWithoutPreferredCurrencyInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutPreferredCurrencyInput, UserUncheckedCreateWithoutPreferredCurrencyInput>
-  }
-
-  export type UserCreateManyPreferredCurrencyInputEnvelope = {
-    data: UserCreateManyPreferredCurrencyInput | UserCreateManyPreferredCurrencyInput[]
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     skipDuplicates?: boolean
   }
 
@@ -34599,15 +31734,9 @@ export namespace Prisma {
     title: string
     description: string
     year: number
-<<<<<<< HEAD
     custom_model?: string | null
     price: number
     floor_price?: boolean
-=======
-    custom_model: string
-    price: number
-    floor_price: boolean
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     is_new: boolean
     has_document: boolean
     storage: bigint | number
@@ -34617,7 +31746,6 @@ export namespace Prisma {
     is_sold?: boolean
     is_checked?: boolean
     is_top?: boolean
-<<<<<<< HEAD
     top_expire_date?: Date | string | null
     user: UserCreateNestedOneWithoutProductsInput
     brand?: BrandCreateNestedOneWithoutProductsInput
@@ -34628,18 +31756,6 @@ export namespace Prisma {
     admin?: AdminCreateNestedOneWithoutProducts_managedInput
     images?: ProductImageCreateNestedManyWithoutProductInput
     favourited_by?: FavouriteItemCreateNestedManyWithoutProductInput
-=======
-    top_expire_date: Date | string
-    user: UserCreateNestedOneWithoutProductsInput
-    brand: BrandCreateNestedOneWithoutProductsInput
-    model: ModelCreateNestedOneWithoutProductsInput
-    color: ColorCreateNestedOneWithoutProductsInput
-    address: AddressCreateNestedOneWithoutProductsInput
-    contactPhone: PhoneCreateNestedOneWithoutProductsInput
-    admin: AdminCreateNestedOneWithoutProductsManagedInput
-    images?: ProductImageCreateNestedManyWithoutProductInput
-    favouritedBy?: FavouriteItemCreateNestedManyWithoutProductInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     comments?: CommentCreateNestedManyWithoutProductInput
   }
 
@@ -34649,21 +31765,12 @@ export namespace Prisma {
     title: string
     description: string
     year: number
-<<<<<<< HEAD
     brand_id?: bigint | number | null
     model_id?: bigint | number | null
     custom_model?: string | null
     color_id: bigint | number
     price: number
     floor_price?: boolean
-=======
-    brand_id: bigint | number
-    model_id: bigint | number
-    custom_model: string
-    color_id: bigint | number
-    price: number
-    floor_price: boolean
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     is_new: boolean
     has_document: boolean
     address_id: bigint | number
@@ -34674,19 +31781,11 @@ export namespace Prisma {
     is_archived?: boolean
     is_sold?: boolean
     is_checked?: boolean
-<<<<<<< HEAD
     admin_id?: bigint | number | null
     is_top?: boolean
     top_expire_date?: Date | string | null
     images?: ProductImageUncheckedCreateNestedManyWithoutProductInput
     favourited_by?: FavouriteItemUncheckedCreateNestedManyWithoutProductInput
-=======
-    admin_id: bigint | number
-    is_top?: boolean
-    top_expire_date: Date | string
-    images?: ProductImageUncheckedCreateNestedManyWithoutProductInput
-    favouritedBy?: FavouriteItemUncheckedCreateNestedManyWithoutProductInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     comments?: CommentUncheckedCreateNestedManyWithoutProductInput
   }
 
@@ -34700,7 +31799,6 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-<<<<<<< HEAD
   export type UserUpsertWithWhereUniqueWithoutCurrencyInput = {
     where: UserWhereUniqueInput
     update: XOR<UserUpdateWithoutCurrencyInput, UserUncheckedUpdateWithoutCurrencyInput>
@@ -34715,22 +31813,6 @@ export namespace Prisma {
   export type UserUpdateManyWithWhereWithoutCurrencyInput = {
     where: UserScalarWhereInput
     data: XOR<UserUpdateManyMutationInput, UserUncheckedUpdateManyWithoutCurrencyInput>
-=======
-  export type UserUpsertWithWhereUniqueWithoutPreferredCurrencyInput = {
-    where: UserWhereUniqueInput
-    update: XOR<UserUpdateWithoutPreferredCurrencyInput, UserUncheckedUpdateWithoutPreferredCurrencyInput>
-    create: XOR<UserCreateWithoutPreferredCurrencyInput, UserUncheckedCreateWithoutPreferredCurrencyInput>
-  }
-
-  export type UserUpdateWithWhereUniqueWithoutPreferredCurrencyInput = {
-    where: UserWhereUniqueInput
-    data: XOR<UserUpdateWithoutPreferredCurrencyInput, UserUncheckedUpdateWithoutPreferredCurrencyInput>
-  }
-
-  export type UserUpdateManyWithWhereWithoutPreferredCurrencyInput = {
-    where: UserScalarWhereInput
-    data: XOR<UserUpdateManyMutationInput, UserUncheckedUpdateManyWithoutPreferredCurrencyInput>
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type ProductUpsertWithWhereUniqueWithoutCurrencyInput = {
@@ -34752,20 +31834,14 @@ export namespace Prisma {
   export type LanguageCreateWithoutAdminsInput = {
     id?: bigint | number
     name: string
-<<<<<<< HEAD
     flag_url: string
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     users?: UserCreateNestedManyWithoutLanguageInput
   }
 
   export type LanguageUncheckedCreateWithoutAdminsInput = {
     id?: bigint | number
     name: string
-<<<<<<< HEAD
     flag_url: string
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     users?: UserUncheckedCreateNestedManyWithoutLanguageInput
   }
 
@@ -34777,11 +31853,7 @@ export namespace Prisma {
   export type BlockCreateWithoutAdminInput = {
     id?: bigint | number
     reason: string
-<<<<<<< HEAD
     expire_date: Date | string
-=======
-    expireDate: Date | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     user: UserCreateNestedOneWithoutBlocksInput
   }
 
@@ -34789,11 +31861,7 @@ export namespace Prisma {
     id?: bigint | number
     user_id: bigint | number
     reason: string
-<<<<<<< HEAD
     expire_date: Date | string
-=======
-    expireDate: Date | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type BlockCreateOrConnectWithoutAdminInput = {
@@ -34811,15 +31879,9 @@ export namespace Prisma {
     title: string
     description: string
     year: number
-<<<<<<< HEAD
     custom_model?: string | null
     price: number
     floor_price?: boolean
-=======
-    custom_model: string
-    price: number
-    floor_price: boolean
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     is_new: boolean
     has_document: boolean
     storage: bigint | number
@@ -34829,7 +31891,6 @@ export namespace Prisma {
     is_sold?: boolean
     is_checked?: boolean
     is_top?: boolean
-<<<<<<< HEAD
     top_expire_date?: Date | string | null
     user: UserCreateNestedOneWithoutProductsInput
     brand?: BrandCreateNestedOneWithoutProductsInput
@@ -34840,18 +31901,6 @@ export namespace Prisma {
     contact_phone: PhoneCreateNestedOneWithoutProductsInput
     images?: ProductImageCreateNestedManyWithoutProductInput
     favourited_by?: FavouriteItemCreateNestedManyWithoutProductInput
-=======
-    top_expire_date: Date | string
-    user: UserCreateNestedOneWithoutProductsInput
-    brand: BrandCreateNestedOneWithoutProductsInput
-    model: ModelCreateNestedOneWithoutProductsInput
-    color: ColorCreateNestedOneWithoutProductsInput
-    currency: CurrencyCreateNestedOneWithoutProductsInput
-    address: AddressCreateNestedOneWithoutProductsInput
-    contactPhone: PhoneCreateNestedOneWithoutProductsInput
-    images?: ProductImageCreateNestedManyWithoutProductInput
-    favouritedBy?: FavouriteItemCreateNestedManyWithoutProductInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     comments?: CommentCreateNestedManyWithoutProductInput
   }
 
@@ -34861,7 +31910,6 @@ export namespace Prisma {
     title: string
     description: string
     year: number
-<<<<<<< HEAD
     brand_id?: bigint | number | null
     model_id?: bigint | number | null
     custom_model?: string | null
@@ -34869,15 +31917,6 @@ export namespace Prisma {
     price: number
     floor_price?: boolean
     currency_id?: bigint | number
-=======
-    brand_id: bigint | number
-    model_id: bigint | number
-    custom_model: string
-    color_id: bigint | number
-    price: number
-    floor_price: boolean
-    currency_id: bigint | number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     is_new: boolean
     has_document: boolean
     address_id: bigint | number
@@ -34889,15 +31928,9 @@ export namespace Prisma {
     is_sold?: boolean
     is_checked?: boolean
     is_top?: boolean
-<<<<<<< HEAD
     top_expire_date?: Date | string | null
     images?: ProductImageUncheckedCreateNestedManyWithoutProductInput
     favourited_by?: FavouriteItemUncheckedCreateNestedManyWithoutProductInput
-=======
-    top_expire_date: Date | string
-    images?: ProductImageUncheckedCreateNestedManyWithoutProductInput
-    favouritedBy?: FavouriteItemUncheckedCreateNestedManyWithoutProductInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     comments?: CommentUncheckedCreateNestedManyWithoutProductInput
   }
 
@@ -34925,20 +31958,14 @@ export namespace Prisma {
   export type LanguageUpdateWithoutAdminsInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     flag_url?: StringFieldUpdateOperationsInput | string
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     users?: UserUpdateManyWithoutLanguageNestedInput
   }
 
   export type LanguageUncheckedUpdateWithoutAdminsInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     flag_url?: StringFieldUpdateOperationsInput | string
-=======
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     users?: UserUncheckedUpdateManyWithoutLanguageNestedInput
   }
 
@@ -34978,7 +32005,6 @@ export namespace Prisma {
     id?: bigint | number
     name: string
     surname: string
-<<<<<<< HEAD
     birth_date?: Date | string | null
     phone: string
     avatar?: string | null
@@ -34990,19 +32016,6 @@ export namespace Prisma {
     emails?: EmailCreateNestedManyWithoutUserInput
     additional_phones?: PhoneCreateNestedManyWithoutUserInput
     favourite_items?: FavouriteItemCreateNestedManyWithoutUserInput
-=======
-    birth_date: Date | string
-    phone: string
-    avatar: string
-    refresh_token: string
-    balance: number
-    otp: OTPCreateNestedOneWithoutUsersInput
-    language: LanguageCreateNestedOneWithoutUsersInput
-    preferredCurrency: CurrencyCreateNestedOneWithoutUserPreferencesInput
-    emails?: EmailCreateNestedManyWithoutUserInput
-    additionalPhones?: PhoneCreateNestedManyWithoutUserInput
-    favouriteItems?: FavouriteItemCreateNestedManyWithoutUserInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses?: AddressCreateNestedManyWithoutUserInput
     products?: ProductCreateNestedManyWithoutUserInput
     comments?: CommentCreateNestedManyWithoutUserInput
@@ -35013,7 +32026,6 @@ export namespace Prisma {
     id?: bigint | number
     name: string
     surname: string
-<<<<<<< HEAD
     birth_date?: Date | string | null
     phone: string
     avatar?: string | null
@@ -35025,19 +32037,6 @@ export namespace Prisma {
     emails?: EmailUncheckedCreateNestedManyWithoutUserInput
     additional_phones?: PhoneUncheckedCreateNestedManyWithoutUserInput
     favourite_items?: FavouriteItemUncheckedCreateNestedManyWithoutUserInput
-=======
-    birth_date: Date | string
-    phone: string
-    avatar: string
-    refresh_token: string
-    balance: number
-    otp_id: bigint | number
-    lang_id: bigint | number
-    preferredCurrencyId: bigint | number
-    emails?: EmailUncheckedCreateNestedManyWithoutUserInput
-    additionalPhones?: PhoneUncheckedCreateNestedManyWithoutUserInput
-    favouriteItems?: FavouriteItemUncheckedCreateNestedManyWithoutUserInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses?: AddressUncheckedCreateNestedManyWithoutUserInput
     products?: ProductUncheckedCreateNestedManyWithoutUserInput
     comments?: CommentUncheckedCreateNestedManyWithoutUserInput
@@ -35049,18 +32048,13 @@ export namespace Prisma {
     create: XOR<UserCreateWithoutBlocksInput, UserUncheckedCreateWithoutBlocksInput>
   }
 
-<<<<<<< HEAD
   export type AdminCreateWithoutBlocks_issuedInput = {
-=======
-  export type AdminCreateWithoutBlocksIssuedInput = {
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     id?: bigint | number
     name: string
     surname: string
     birth_date: Date | string
     phone: string
     password: string
-<<<<<<< HEAD
     avatar?: string | null
     refresh_token?: string | null
     is_creator?: boolean
@@ -35069,23 +32063,12 @@ export namespace Prisma {
   }
 
   export type AdminUncheckedCreateWithoutBlocks_issuedInput = {
-=======
-    avatar: string
-    refresh_token: string
-    is_creator?: boolean
-    language: LanguageCreateNestedOneWithoutAdminsInput
-    productsManaged?: ProductCreateNestedManyWithoutAdminInput
-  }
-
-  export type AdminUncheckedCreateWithoutBlocksIssuedInput = {
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     id?: bigint | number
     name: string
     surname: string
     birth_date: Date | string
     phone: string
     password: string
-<<<<<<< HEAD
     avatar?: string | null
     refresh_token?: string | null
     lang_id?: bigint | number
@@ -35096,18 +32079,6 @@ export namespace Prisma {
   export type AdminCreateOrConnectWithoutBlocks_issuedInput = {
     where: AdminWhereUniqueInput
     create: XOR<AdminCreateWithoutBlocks_issuedInput, AdminUncheckedCreateWithoutBlocks_issuedInput>
-=======
-    avatar: string
-    refresh_token: string
-    lang_id: bigint | number
-    is_creator?: boolean
-    productsManaged?: ProductUncheckedCreateNestedManyWithoutAdminInput
-  }
-
-  export type AdminCreateOrConnectWithoutBlocksIssuedInput = {
-    where: AdminWhereUniqueInput
-    create: XOR<AdminCreateWithoutBlocksIssuedInput, AdminUncheckedCreateWithoutBlocksIssuedInput>
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type UserUpsertWithoutBlocksInput = {
@@ -35125,7 +32096,6 @@ export namespace Prisma {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
     surname?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     birth_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     phone?: StringFieldUpdateOperationsInput | string
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
@@ -35137,19 +32107,6 @@ export namespace Prisma {
     emails?: EmailUpdateManyWithoutUserNestedInput
     additional_phones?: PhoneUpdateManyWithoutUserNestedInput
     favourite_items?: FavouriteItemUpdateManyWithoutUserNestedInput
-=======
-    birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    phone?: StringFieldUpdateOperationsInput | string
-    avatar?: StringFieldUpdateOperationsInput | string
-    refresh_token?: StringFieldUpdateOperationsInput | string
-    balance?: FloatFieldUpdateOperationsInput | number
-    otp?: OTPUpdateOneRequiredWithoutUsersNestedInput
-    language?: LanguageUpdateOneRequiredWithoutUsersNestedInput
-    preferredCurrency?: CurrencyUpdateOneRequiredWithoutUserPreferencesNestedInput
-    emails?: EmailUpdateManyWithoutUserNestedInput
-    additionalPhones?: PhoneUpdateManyWithoutUserNestedInput
-    favouriteItems?: FavouriteItemUpdateManyWithoutUserNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses?: AddressUpdateManyWithoutUserNestedInput
     products?: ProductUpdateManyWithoutUserNestedInput
     comments?: CommentUpdateManyWithoutUserNestedInput
@@ -35160,7 +32117,6 @@ export namespace Prisma {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
     surname?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     birth_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     phone?: StringFieldUpdateOperationsInput | string
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
@@ -35172,26 +32128,12 @@ export namespace Prisma {
     emails?: EmailUncheckedUpdateManyWithoutUserNestedInput
     additional_phones?: PhoneUncheckedUpdateManyWithoutUserNestedInput
     favourite_items?: FavouriteItemUncheckedUpdateManyWithoutUserNestedInput
-=======
-    birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    phone?: StringFieldUpdateOperationsInput | string
-    avatar?: StringFieldUpdateOperationsInput | string
-    refresh_token?: StringFieldUpdateOperationsInput | string
-    balance?: FloatFieldUpdateOperationsInput | number
-    otp_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    lang_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    preferredCurrencyId?: BigIntFieldUpdateOperationsInput | bigint | number
-    emails?: EmailUncheckedUpdateManyWithoutUserNestedInput
-    additionalPhones?: PhoneUncheckedUpdateManyWithoutUserNestedInput
-    favouriteItems?: FavouriteItemUncheckedUpdateManyWithoutUserNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses?: AddressUncheckedUpdateManyWithoutUserNestedInput
     products?: ProductUncheckedUpdateManyWithoutUserNestedInput
     comments?: CommentUncheckedUpdateManyWithoutUserNestedInput
     payments?: PaymentUncheckedUpdateManyWithoutUserNestedInput
   }
 
-<<<<<<< HEAD
   export type AdminUpsertWithoutBlocks_issuedInput = {
     update: XOR<AdminUpdateWithoutBlocks_issuedInput, AdminUncheckedUpdateWithoutBlocks_issuedInput>
     create: XOR<AdminCreateWithoutBlocks_issuedInput, AdminUncheckedCreateWithoutBlocks_issuedInput>
@@ -35204,27 +32146,12 @@ export namespace Prisma {
   }
 
   export type AdminUpdateWithoutBlocks_issuedInput = {
-=======
-  export type AdminUpsertWithoutBlocksIssuedInput = {
-    update: XOR<AdminUpdateWithoutBlocksIssuedInput, AdminUncheckedUpdateWithoutBlocksIssuedInput>
-    create: XOR<AdminCreateWithoutBlocksIssuedInput, AdminUncheckedCreateWithoutBlocksIssuedInput>
-    where?: AdminWhereInput
-  }
-
-  export type AdminUpdateToOneWithWhereWithoutBlocksIssuedInput = {
-    where?: AdminWhereInput
-    data: XOR<AdminUpdateWithoutBlocksIssuedInput, AdminUncheckedUpdateWithoutBlocksIssuedInput>
-  }
-
-  export type AdminUpdateWithoutBlocksIssuedInput = {
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
     surname?: StringFieldUpdateOperationsInput | string
     birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
     phone?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
     is_creator?: BoolFieldUpdateOperationsInput | boolean
@@ -35233,42 +32160,23 @@ export namespace Prisma {
   }
 
   export type AdminUncheckedUpdateWithoutBlocks_issuedInput = {
-=======
-    avatar?: StringFieldUpdateOperationsInput | string
-    refresh_token?: StringFieldUpdateOperationsInput | string
-    is_creator?: BoolFieldUpdateOperationsInput | boolean
-    language?: LanguageUpdateOneRequiredWithoutAdminsNestedInput
-    productsManaged?: ProductUpdateManyWithoutAdminNestedInput
-  }
-
-  export type AdminUncheckedUpdateWithoutBlocksIssuedInput = {
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
     surname?: StringFieldUpdateOperationsInput | string
     birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
     phone?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
     lang_id?: BigIntFieldUpdateOperationsInput | bigint | number
     is_creator?: BoolFieldUpdateOperationsInput | boolean
     products_managed?: ProductUncheckedUpdateManyWithoutAdminNestedInput
-=======
-    avatar?: StringFieldUpdateOperationsInput | string
-    refresh_token?: StringFieldUpdateOperationsInput | string
-    lang_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    is_creator?: BoolFieldUpdateOperationsInput | boolean
-    productsManaged?: ProductUncheckedUpdateManyWithoutAdminNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type UserCreateWithoutPaymentsInput = {
     id?: bigint | number
     name: string
     surname: string
-<<<<<<< HEAD
     birth_date?: Date | string | null
     phone: string
     avatar?: string | null
@@ -35280,19 +32188,6 @@ export namespace Prisma {
     emails?: EmailCreateNestedManyWithoutUserInput
     additional_phones?: PhoneCreateNestedManyWithoutUserInput
     favourite_items?: FavouriteItemCreateNestedManyWithoutUserInput
-=======
-    birth_date: Date | string
-    phone: string
-    avatar: string
-    refresh_token: string
-    balance: number
-    otp: OTPCreateNestedOneWithoutUsersInput
-    language: LanguageCreateNestedOneWithoutUsersInput
-    preferredCurrency: CurrencyCreateNestedOneWithoutUserPreferencesInput
-    emails?: EmailCreateNestedManyWithoutUserInput
-    additionalPhones?: PhoneCreateNestedManyWithoutUserInput
-    favouriteItems?: FavouriteItemCreateNestedManyWithoutUserInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses?: AddressCreateNestedManyWithoutUserInput
     products?: ProductCreateNestedManyWithoutUserInput
     comments?: CommentCreateNestedManyWithoutUserInput
@@ -35303,7 +32198,6 @@ export namespace Prisma {
     id?: bigint | number
     name: string
     surname: string
-<<<<<<< HEAD
     birth_date?: Date | string | null
     phone: string
     avatar?: string | null
@@ -35315,19 +32209,6 @@ export namespace Prisma {
     emails?: EmailUncheckedCreateNestedManyWithoutUserInput
     additional_phones?: PhoneUncheckedCreateNestedManyWithoutUserInput
     favourite_items?: FavouriteItemUncheckedCreateNestedManyWithoutUserInput
-=======
-    birth_date: Date | string
-    phone: string
-    avatar: string
-    refresh_token: string
-    balance: number
-    otp_id: bigint | number
-    lang_id: bigint | number
-    preferredCurrencyId: bigint | number
-    emails?: EmailUncheckedCreateNestedManyWithoutUserInput
-    additionalPhones?: PhoneUncheckedCreateNestedManyWithoutUserInput
-    favouriteItems?: FavouriteItemUncheckedCreateNestedManyWithoutUserInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses?: AddressUncheckedCreateNestedManyWithoutUserInput
     products?: ProductUncheckedCreateNestedManyWithoutUserInput
     comments?: CommentUncheckedCreateNestedManyWithoutUserInput
@@ -35369,7 +32250,6 @@ export namespace Prisma {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
     surname?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     birth_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     phone?: StringFieldUpdateOperationsInput | string
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
@@ -35381,19 +32261,6 @@ export namespace Prisma {
     emails?: EmailUpdateManyWithoutUserNestedInput
     additional_phones?: PhoneUpdateManyWithoutUserNestedInput
     favourite_items?: FavouriteItemUpdateManyWithoutUserNestedInput
-=======
-    birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    phone?: StringFieldUpdateOperationsInput | string
-    avatar?: StringFieldUpdateOperationsInput | string
-    refresh_token?: StringFieldUpdateOperationsInput | string
-    balance?: FloatFieldUpdateOperationsInput | number
-    otp?: OTPUpdateOneRequiredWithoutUsersNestedInput
-    language?: LanguageUpdateOneRequiredWithoutUsersNestedInput
-    preferredCurrency?: CurrencyUpdateOneRequiredWithoutUserPreferencesNestedInput
-    emails?: EmailUpdateManyWithoutUserNestedInput
-    additionalPhones?: PhoneUpdateManyWithoutUserNestedInput
-    favouriteItems?: FavouriteItemUpdateManyWithoutUserNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses?: AddressUpdateManyWithoutUserNestedInput
     products?: ProductUpdateManyWithoutUserNestedInput
     comments?: CommentUpdateManyWithoutUserNestedInput
@@ -35404,7 +32271,6 @@ export namespace Prisma {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
     surname?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     birth_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     phone?: StringFieldUpdateOperationsInput | string
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
@@ -35416,19 +32282,6 @@ export namespace Prisma {
     emails?: EmailUncheckedUpdateManyWithoutUserNestedInput
     additional_phones?: PhoneUncheckedUpdateManyWithoutUserNestedInput
     favourite_items?: FavouriteItemUncheckedUpdateManyWithoutUserNestedInput
-=======
-    birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    phone?: StringFieldUpdateOperationsInput | string
-    avatar?: StringFieldUpdateOperationsInput | string
-    refresh_token?: StringFieldUpdateOperationsInput | string
-    balance?: FloatFieldUpdateOperationsInput | number
-    otp_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    lang_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    preferredCurrencyId?: BigIntFieldUpdateOperationsInput | bigint | number
-    emails?: EmailUncheckedUpdateManyWithoutUserNestedInput
-    additionalPhones?: PhoneUncheckedUpdateManyWithoutUserNestedInput
-    favouriteItems?: FavouriteItemUncheckedUpdateManyWithoutUserNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses?: AddressUncheckedUpdateManyWithoutUserNestedInput
     products?: ProductUncheckedUpdateManyWithoutUserNestedInput
     comments?: CommentUncheckedUpdateManyWithoutUserNestedInput
@@ -35460,7 +32313,6 @@ export namespace Prisma {
     id?: bigint | number
     name: string
     surname: string
-<<<<<<< HEAD
     birth_date?: Date | string | null
     phone: string
     avatar?: string | null
@@ -35472,19 +32324,6 @@ export namespace Prisma {
     emails?: EmailCreateNestedManyWithoutUserInput
     additional_phones?: PhoneCreateNestedManyWithoutUserInput
     favourite_items?: FavouriteItemCreateNestedManyWithoutUserInput
-=======
-    birth_date: Date | string
-    phone: string
-    avatar: string
-    refresh_token: string
-    balance: number
-    otp: OTPCreateNestedOneWithoutUsersInput
-    language: LanguageCreateNestedOneWithoutUsersInput
-    preferredCurrency: CurrencyCreateNestedOneWithoutUserPreferencesInput
-    emails?: EmailCreateNestedManyWithoutUserInput
-    additionalPhones?: PhoneCreateNestedManyWithoutUserInput
-    favouriteItems?: FavouriteItemCreateNestedManyWithoutUserInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses?: AddressCreateNestedManyWithoutUserInput
     products?: ProductCreateNestedManyWithoutUserInput
     payments?: PaymentCreateNestedManyWithoutUserInput
@@ -35495,7 +32334,6 @@ export namespace Prisma {
     id?: bigint | number
     name: string
     surname: string
-<<<<<<< HEAD
     birth_date?: Date | string | null
     phone: string
     avatar?: string | null
@@ -35507,19 +32345,6 @@ export namespace Prisma {
     emails?: EmailUncheckedCreateNestedManyWithoutUserInput
     additional_phones?: PhoneUncheckedCreateNestedManyWithoutUserInput
     favourite_items?: FavouriteItemUncheckedCreateNestedManyWithoutUserInput
-=======
-    birth_date: Date | string
-    phone: string
-    avatar: string
-    refresh_token: string
-    balance: number
-    otp_id: bigint | number
-    lang_id: bigint | number
-    preferredCurrencyId: bigint | number
-    emails?: EmailUncheckedCreateNestedManyWithoutUserInput
-    additionalPhones?: PhoneUncheckedCreateNestedManyWithoutUserInput
-    favouriteItems?: FavouriteItemUncheckedCreateNestedManyWithoutUserInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses?: AddressUncheckedCreateNestedManyWithoutUserInput
     products?: ProductUncheckedCreateNestedManyWithoutUserInput
     payments?: PaymentUncheckedCreateNestedManyWithoutUserInput
@@ -35536,15 +32361,9 @@ export namespace Prisma {
     title: string
     description: string
     year: number
-<<<<<<< HEAD
     custom_model?: string | null
     price: number
     floor_price?: boolean
-=======
-    custom_model: string
-    price: number
-    floor_price: boolean
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     is_new: boolean
     has_document: boolean
     storage: bigint | number
@@ -35554,7 +32373,6 @@ export namespace Prisma {
     is_sold?: boolean
     is_checked?: boolean
     is_top?: boolean
-<<<<<<< HEAD
     top_expire_date?: Date | string | null
     user: UserCreateNestedOneWithoutProductsInput
     brand?: BrandCreateNestedOneWithoutProductsInput
@@ -35566,19 +32384,6 @@ export namespace Prisma {
     admin?: AdminCreateNestedOneWithoutProducts_managedInput
     images?: ProductImageCreateNestedManyWithoutProductInput
     favourited_by?: FavouriteItemCreateNestedManyWithoutProductInput
-=======
-    top_expire_date: Date | string
-    user: UserCreateNestedOneWithoutProductsInput
-    brand: BrandCreateNestedOneWithoutProductsInput
-    model: ModelCreateNestedOneWithoutProductsInput
-    color: ColorCreateNestedOneWithoutProductsInput
-    currency: CurrencyCreateNestedOneWithoutProductsInput
-    address: AddressCreateNestedOneWithoutProductsInput
-    contactPhone: PhoneCreateNestedOneWithoutProductsInput
-    admin: AdminCreateNestedOneWithoutProductsManagedInput
-    images?: ProductImageCreateNestedManyWithoutProductInput
-    favouritedBy?: FavouriteItemCreateNestedManyWithoutProductInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type ProductUncheckedCreateWithoutCommentsInput = {
@@ -35587,7 +32392,6 @@ export namespace Prisma {
     title: string
     description: string
     year: number
-<<<<<<< HEAD
     brand_id?: bigint | number | null
     model_id?: bigint | number | null
     custom_model?: string | null
@@ -35595,15 +32399,6 @@ export namespace Prisma {
     price: number
     floor_price?: boolean
     currency_id?: bigint | number
-=======
-    brand_id: bigint | number
-    model_id: bigint | number
-    custom_model: string
-    color_id: bigint | number
-    price: number
-    floor_price: boolean
-    currency_id: bigint | number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     is_new: boolean
     has_document: boolean
     address_id: bigint | number
@@ -35614,19 +32409,11 @@ export namespace Prisma {
     is_archived?: boolean
     is_sold?: boolean
     is_checked?: boolean
-<<<<<<< HEAD
     admin_id?: bigint | number | null
     is_top?: boolean
     top_expire_date?: Date | string | null
     images?: ProductImageUncheckedCreateNestedManyWithoutProductInput
     favourited_by?: FavouriteItemUncheckedCreateNestedManyWithoutProductInput
-=======
-    admin_id: bigint | number
-    is_top?: boolean
-    top_expire_date: Date | string
-    images?: ProductImageUncheckedCreateNestedManyWithoutProductInput
-    favouritedBy?: FavouriteItemUncheckedCreateNestedManyWithoutProductInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type ProductCreateOrConnectWithoutCommentsInput = {
@@ -35649,7 +32436,6 @@ export namespace Prisma {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
     surname?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     birth_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     phone?: StringFieldUpdateOperationsInput | string
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
@@ -35661,19 +32447,6 @@ export namespace Prisma {
     emails?: EmailUpdateManyWithoutUserNestedInput
     additional_phones?: PhoneUpdateManyWithoutUserNestedInput
     favourite_items?: FavouriteItemUpdateManyWithoutUserNestedInput
-=======
-    birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    phone?: StringFieldUpdateOperationsInput | string
-    avatar?: StringFieldUpdateOperationsInput | string
-    refresh_token?: StringFieldUpdateOperationsInput | string
-    balance?: FloatFieldUpdateOperationsInput | number
-    otp?: OTPUpdateOneRequiredWithoutUsersNestedInput
-    language?: LanguageUpdateOneRequiredWithoutUsersNestedInput
-    preferredCurrency?: CurrencyUpdateOneRequiredWithoutUserPreferencesNestedInput
-    emails?: EmailUpdateManyWithoutUserNestedInput
-    additionalPhones?: PhoneUpdateManyWithoutUserNestedInput
-    favouriteItems?: FavouriteItemUpdateManyWithoutUserNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses?: AddressUpdateManyWithoutUserNestedInput
     products?: ProductUpdateManyWithoutUserNestedInput
     payments?: PaymentUpdateManyWithoutUserNestedInput
@@ -35684,7 +32457,6 @@ export namespace Prisma {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
     surname?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     birth_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     phone?: StringFieldUpdateOperationsInput | string
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
@@ -35696,19 +32468,6 @@ export namespace Prisma {
     emails?: EmailUncheckedUpdateManyWithoutUserNestedInput
     additional_phones?: PhoneUncheckedUpdateManyWithoutUserNestedInput
     favourite_items?: FavouriteItemUncheckedUpdateManyWithoutUserNestedInput
-=======
-    birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    phone?: StringFieldUpdateOperationsInput | string
-    avatar?: StringFieldUpdateOperationsInput | string
-    refresh_token?: StringFieldUpdateOperationsInput | string
-    balance?: FloatFieldUpdateOperationsInput | number
-    otp_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    lang_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    preferredCurrencyId?: BigIntFieldUpdateOperationsInput | bigint | number
-    emails?: EmailUncheckedUpdateManyWithoutUserNestedInput
-    additionalPhones?: PhoneUncheckedUpdateManyWithoutUserNestedInput
-    favouriteItems?: FavouriteItemUncheckedUpdateManyWithoutUserNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses?: AddressUncheckedUpdateManyWithoutUserNestedInput
     products?: ProductUncheckedUpdateManyWithoutUserNestedInput
     payments?: PaymentUncheckedUpdateManyWithoutUserNestedInput
@@ -35731,11 +32490,7 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
-<<<<<<< HEAD
     custom_model?: NullableStringFieldUpdateOperationsInput | string | null
-=======
-    custom_model?: StringFieldUpdateOperationsInput | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     price?: FloatFieldUpdateOperationsInput | number
     floor_price?: BoolFieldUpdateOperationsInput | boolean
     is_new?: BoolFieldUpdateOperationsInput | boolean
@@ -35747,7 +32502,6 @@ export namespace Prisma {
     is_sold?: BoolFieldUpdateOperationsInput | boolean
     is_checked?: BoolFieldUpdateOperationsInput | boolean
     is_top?: BoolFieldUpdateOperationsInput | boolean
-<<<<<<< HEAD
     top_expire_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     user?: UserUpdateOneRequiredWithoutProductsNestedInput
     brand?: BrandUpdateOneWithoutProductsNestedInput
@@ -35759,19 +32513,6 @@ export namespace Prisma {
     admin?: AdminUpdateOneWithoutProducts_managedNestedInput
     images?: ProductImageUpdateManyWithoutProductNestedInput
     favourited_by?: FavouriteItemUpdateManyWithoutProductNestedInput
-=======
-    top_expire_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutProductsNestedInput
-    brand?: BrandUpdateOneRequiredWithoutProductsNestedInput
-    model?: ModelUpdateOneRequiredWithoutProductsNestedInput
-    color?: ColorUpdateOneRequiredWithoutProductsNestedInput
-    currency?: CurrencyUpdateOneRequiredWithoutProductsNestedInput
-    address?: AddressUpdateOneRequiredWithoutProductsNestedInput
-    contactPhone?: PhoneUpdateOneRequiredWithoutProductsNestedInput
-    admin?: AdminUpdateOneRequiredWithoutProductsManagedNestedInput
-    images?: ProductImageUpdateManyWithoutProductNestedInput
-    favouritedBy?: FavouriteItemUpdateManyWithoutProductNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type ProductUncheckedUpdateWithoutCommentsInput = {
@@ -35780,15 +32521,9 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
-<<<<<<< HEAD
     brand_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     model_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     custom_model?: NullableStringFieldUpdateOperationsInput | string | null
-=======
-    brand_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    model_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    custom_model?: StringFieldUpdateOperationsInput | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     color_id?: BigIntFieldUpdateOperationsInput | bigint | number
     price?: FloatFieldUpdateOperationsInput | number
     floor_price?: BoolFieldUpdateOperationsInput | boolean
@@ -35803,7 +32538,6 @@ export namespace Prisma {
     is_archived?: BoolFieldUpdateOperationsInput | boolean
     is_sold?: BoolFieldUpdateOperationsInput | boolean
     is_checked?: BoolFieldUpdateOperationsInput | boolean
-<<<<<<< HEAD
     admin_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     is_top?: BoolFieldUpdateOperationsInput | boolean
     top_expire_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -35812,32 +32546,17 @@ export namespace Prisma {
   }
 
   export type PaymentCreateWithoutPayment_methodInput = {
-=======
-    admin_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    is_top?: BoolFieldUpdateOperationsInput | boolean
-    top_expire_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    images?: ProductImageUncheckedUpdateManyWithoutProductNestedInput
-    favouritedBy?: FavouriteItemUncheckedUpdateManyWithoutProductNestedInput
-  }
-
-  export type PaymentCreateWithoutPaymentMethodInput = {
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     id?: bigint | number
     amount: number
     user: UserCreateNestedOneWithoutPaymentsInput
   }
 
-<<<<<<< HEAD
   export type PaymentUncheckedCreateWithoutPayment_methodInput = {
-=======
-  export type PaymentUncheckedCreateWithoutPaymentMethodInput = {
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     id?: bigint | number
     user_id: bigint | number
     amount: number
   }
 
-<<<<<<< HEAD
   export type PaymentCreateOrConnectWithoutPayment_methodInput = {
     where: PaymentWhereUniqueInput
     create: XOR<PaymentCreateWithoutPayment_methodInput, PaymentUncheckedCreateWithoutPayment_methodInput>
@@ -35862,32 +32581,6 @@ export namespace Prisma {
   export type PaymentUpdateManyWithWhereWithoutPayment_methodInput = {
     where: PaymentScalarWhereInput
     data: XOR<PaymentUpdateManyMutationInput, PaymentUncheckedUpdateManyWithoutPayment_methodInput>
-=======
-  export type PaymentCreateOrConnectWithoutPaymentMethodInput = {
-    where: PaymentWhereUniqueInput
-    create: XOR<PaymentCreateWithoutPaymentMethodInput, PaymentUncheckedCreateWithoutPaymentMethodInput>
-  }
-
-  export type PaymentCreateManyPaymentMethodInputEnvelope = {
-    data: PaymentCreateManyPaymentMethodInput | PaymentCreateManyPaymentMethodInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type PaymentUpsertWithWhereUniqueWithoutPaymentMethodInput = {
-    where: PaymentWhereUniqueInput
-    update: XOR<PaymentUpdateWithoutPaymentMethodInput, PaymentUncheckedUpdateWithoutPaymentMethodInput>
-    create: XOR<PaymentCreateWithoutPaymentMethodInput, PaymentUncheckedCreateWithoutPaymentMethodInput>
-  }
-
-  export type PaymentUpdateWithWhereUniqueWithoutPaymentMethodInput = {
-    where: PaymentWhereUniqueInput
-    data: XOR<PaymentUpdateWithoutPaymentMethodInput, PaymentUncheckedUpdateWithoutPaymentMethodInput>
-  }
-
-  export type PaymentUpdateManyWithWhereWithoutPaymentMethodInput = {
-    where: PaymentScalarWhereInput
-    data: XOR<PaymentUpdateManyMutationInput, PaymentUncheckedUpdateManyWithoutPaymentMethodInput>
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type EmailCreateManyUserInput = {
@@ -35908,11 +32601,7 @@ export namespace Prisma {
   export type AddressCreateManyUserInput = {
     id?: bigint | number
     name: string
-<<<<<<< HEAD
     address_value: bigint | number
-=======
-    addressValue: bigint | number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     lat: string
     long: string
     is_active: boolean
@@ -35923,7 +32612,6 @@ export namespace Prisma {
     title: string
     description: string
     year: number
-<<<<<<< HEAD
     brand_id?: bigint | number | null
     model_id?: bigint | number | null
     custom_model?: string | null
@@ -35931,15 +32619,6 @@ export namespace Prisma {
     price: number
     floor_price?: boolean
     currency_id?: bigint | number
-=======
-    brand_id: bigint | number
-    model_id: bigint | number
-    custom_model: string
-    color_id: bigint | number
-    price: number
-    floor_price: boolean
-    currency_id: bigint | number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     is_new: boolean
     has_document: boolean
     address_id: bigint | number
@@ -35950,15 +32629,9 @@ export namespace Prisma {
     is_archived?: boolean
     is_sold?: boolean
     is_checked?: boolean
-<<<<<<< HEAD
     admin_id?: bigint | number | null
     is_top?: boolean
     top_expire_date?: Date | string | null
-=======
-    admin_id: bigint | number
-    is_top?: boolean
-    top_expire_date: Date | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type CommentCreateManyUserInput = {
@@ -35977,11 +32650,7 @@ export namespace Prisma {
     id?: bigint | number
     admin_id: bigint | number
     reason: string
-<<<<<<< HEAD
     expire_date: Date | string
-=======
-    expireDate: Date | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type EmailUpdateWithoutUserInput = {
@@ -36002,21 +32671,13 @@ export namespace Prisma {
   export type PhoneUpdateWithoutUserInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     phone?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     products?: ProductUpdateManyWithoutContact_phoneNestedInput
-=======
-    products?: ProductUpdateManyWithoutContactPhoneNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type PhoneUncheckedUpdateWithoutUserInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     phone?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     products?: ProductUncheckedUpdateManyWithoutContact_phoneNestedInput
-=======
-    products?: ProductUncheckedUpdateManyWithoutContactPhoneNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type PhoneUncheckedUpdateManyWithoutUserInput = {
@@ -36026,11 +32687,7 @@ export namespace Prisma {
 
   export type FavouriteItemUpdateWithoutUserInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
-<<<<<<< HEAD
     product?: ProductUpdateOneRequiredWithoutFavourited_byNestedInput
-=======
-    product?: ProductUpdateOneRequiredWithoutFavouritedByNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type FavouriteItemUncheckedUpdateWithoutUserInput = {
@@ -36046,11 +32703,7 @@ export namespace Prisma {
   export type AddressUpdateWithoutUserInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     address_value?: BigIntFieldUpdateOperationsInput | bigint | number
-=======
-    addressValue?: BigIntFieldUpdateOperationsInput | bigint | number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     lat?: StringFieldUpdateOperationsInput | string
     long?: StringFieldUpdateOperationsInput | string
     is_active?: BoolFieldUpdateOperationsInput | boolean
@@ -36060,11 +32713,7 @@ export namespace Prisma {
   export type AddressUncheckedUpdateWithoutUserInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     address_value?: BigIntFieldUpdateOperationsInput | bigint | number
-=======
-    addressValue?: BigIntFieldUpdateOperationsInput | bigint | number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     lat?: StringFieldUpdateOperationsInput | string
     long?: StringFieldUpdateOperationsInput | string
     is_active?: BoolFieldUpdateOperationsInput | boolean
@@ -36074,11 +32723,7 @@ export namespace Prisma {
   export type AddressUncheckedUpdateManyWithoutUserInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     address_value?: BigIntFieldUpdateOperationsInput | bigint | number
-=======
-    addressValue?: BigIntFieldUpdateOperationsInput | bigint | number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     lat?: StringFieldUpdateOperationsInput | string
     long?: StringFieldUpdateOperationsInput | string
     is_active?: BoolFieldUpdateOperationsInput | boolean
@@ -36089,11 +32734,7 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
-<<<<<<< HEAD
     custom_model?: NullableStringFieldUpdateOperationsInput | string | null
-=======
-    custom_model?: StringFieldUpdateOperationsInput | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     price?: FloatFieldUpdateOperationsInput | number
     floor_price?: BoolFieldUpdateOperationsInput | boolean
     is_new?: BoolFieldUpdateOperationsInput | boolean
@@ -36105,7 +32746,6 @@ export namespace Prisma {
     is_sold?: BoolFieldUpdateOperationsInput | boolean
     is_checked?: BoolFieldUpdateOperationsInput | boolean
     is_top?: BoolFieldUpdateOperationsInput | boolean
-<<<<<<< HEAD
     top_expire_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     brand?: BrandUpdateOneWithoutProductsNestedInput
     model?: ModelUpdateOneWithoutProductsNestedInput
@@ -36116,18 +32756,6 @@ export namespace Prisma {
     admin?: AdminUpdateOneWithoutProducts_managedNestedInput
     images?: ProductImageUpdateManyWithoutProductNestedInput
     favourited_by?: FavouriteItemUpdateManyWithoutProductNestedInput
-=======
-    top_expire_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    brand?: BrandUpdateOneRequiredWithoutProductsNestedInput
-    model?: ModelUpdateOneRequiredWithoutProductsNestedInput
-    color?: ColorUpdateOneRequiredWithoutProductsNestedInput
-    currency?: CurrencyUpdateOneRequiredWithoutProductsNestedInput
-    address?: AddressUpdateOneRequiredWithoutProductsNestedInput
-    contactPhone?: PhoneUpdateOneRequiredWithoutProductsNestedInput
-    admin?: AdminUpdateOneRequiredWithoutProductsManagedNestedInput
-    images?: ProductImageUpdateManyWithoutProductNestedInput
-    favouritedBy?: FavouriteItemUpdateManyWithoutProductNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     comments?: CommentUpdateManyWithoutProductNestedInput
   }
 
@@ -36136,15 +32764,9 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
-<<<<<<< HEAD
     brand_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     model_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     custom_model?: NullableStringFieldUpdateOperationsInput | string | null
-=======
-    brand_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    model_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    custom_model?: StringFieldUpdateOperationsInput | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     color_id?: BigIntFieldUpdateOperationsInput | bigint | number
     price?: FloatFieldUpdateOperationsInput | number
     floor_price?: BoolFieldUpdateOperationsInput | boolean
@@ -36159,19 +32781,11 @@ export namespace Prisma {
     is_archived?: BoolFieldUpdateOperationsInput | boolean
     is_sold?: BoolFieldUpdateOperationsInput | boolean
     is_checked?: BoolFieldUpdateOperationsInput | boolean
-<<<<<<< HEAD
     admin_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     is_top?: BoolFieldUpdateOperationsInput | boolean
     top_expire_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     images?: ProductImageUncheckedUpdateManyWithoutProductNestedInput
     favourited_by?: FavouriteItemUncheckedUpdateManyWithoutProductNestedInput
-=======
-    admin_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    is_top?: BoolFieldUpdateOperationsInput | boolean
-    top_expire_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    images?: ProductImageUncheckedUpdateManyWithoutProductNestedInput
-    favouritedBy?: FavouriteItemUncheckedUpdateManyWithoutProductNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     comments?: CommentUncheckedUpdateManyWithoutProductNestedInput
   }
 
@@ -36180,15 +32794,9 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
-<<<<<<< HEAD
     brand_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     model_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     custom_model?: NullableStringFieldUpdateOperationsInput | string | null
-=======
-    brand_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    model_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    custom_model?: StringFieldUpdateOperationsInput | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     color_id?: BigIntFieldUpdateOperationsInput | bigint | number
     price?: FloatFieldUpdateOperationsInput | number
     floor_price?: BoolFieldUpdateOperationsInput | boolean
@@ -36203,15 +32811,9 @@ export namespace Prisma {
     is_archived?: BoolFieldUpdateOperationsInput | boolean
     is_sold?: BoolFieldUpdateOperationsInput | boolean
     is_checked?: BoolFieldUpdateOperationsInput | boolean
-<<<<<<< HEAD
     admin_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     is_top?: BoolFieldUpdateOperationsInput | boolean
     top_expire_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-=======
-    admin_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    is_top?: BoolFieldUpdateOperationsInput | boolean
-    top_expire_date?: DateTimeFieldUpdateOperationsInput | Date | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type CommentUpdateWithoutUserInput = {
@@ -36235,11 +32837,7 @@ export namespace Prisma {
   export type PaymentUpdateWithoutUserInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     amount?: FloatFieldUpdateOperationsInput | number
-<<<<<<< HEAD
     payment_method?: PaymentMethodUpdateOneRequiredWithoutPaymentsNestedInput
-=======
-    paymentMethod?: PaymentMethodUpdateOneRequiredWithoutPaymentsNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type PaymentUncheckedUpdateWithoutUserInput = {
@@ -36257,42 +32855,28 @@ export namespace Prisma {
   export type BlockUpdateWithoutUserInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     reason?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     expire_date?: DateTimeFieldUpdateOperationsInput | Date | string
     admin?: AdminUpdateOneRequiredWithoutBlocks_issuedNestedInput
-=======
-    expireDate?: DateTimeFieldUpdateOperationsInput | Date | string
-    admin?: AdminUpdateOneRequiredWithoutBlocksIssuedNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type BlockUncheckedUpdateWithoutUserInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     admin_id?: BigIntFieldUpdateOperationsInput | bigint | number
     reason?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     expire_date?: DateTimeFieldUpdateOperationsInput | Date | string
-=======
-    expireDate?: DateTimeFieldUpdateOperationsInput | Date | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type BlockUncheckedUpdateManyWithoutUserInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     admin_id?: BigIntFieldUpdateOperationsInput | bigint | number
     reason?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     expire_date?: DateTimeFieldUpdateOperationsInput | Date | string
-=======
-    expireDate?: DateTimeFieldUpdateOperationsInput | Date | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type UserCreateManyOtpInput = {
     id?: bigint | number
     name: string
     surname: string
-<<<<<<< HEAD
     birth_date?: Date | string | null
     phone: string
     avatar?: string | null
@@ -36300,22 +32884,12 @@ export namespace Prisma {
     balance?: number
     lang_id?: bigint | number
     currency_id: bigint | number
-=======
-    birth_date: Date | string
-    phone: string
-    avatar: string
-    refresh_token: string
-    balance: number
-    lang_id: bigint | number
-    preferredCurrencyId: bigint | number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type UserUpdateWithoutOtpInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
     surname?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     birth_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     phone?: StringFieldUpdateOperationsInput | string
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
@@ -36326,18 +32900,6 @@ export namespace Prisma {
     emails?: EmailUpdateManyWithoutUserNestedInput
     additional_phones?: PhoneUpdateManyWithoutUserNestedInput
     favourite_items?: FavouriteItemUpdateManyWithoutUserNestedInput
-=======
-    birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    phone?: StringFieldUpdateOperationsInput | string
-    avatar?: StringFieldUpdateOperationsInput | string
-    refresh_token?: StringFieldUpdateOperationsInput | string
-    balance?: FloatFieldUpdateOperationsInput | number
-    language?: LanguageUpdateOneRequiredWithoutUsersNestedInput
-    preferredCurrency?: CurrencyUpdateOneRequiredWithoutUserPreferencesNestedInput
-    emails?: EmailUpdateManyWithoutUserNestedInput
-    additionalPhones?: PhoneUpdateManyWithoutUserNestedInput
-    favouriteItems?: FavouriteItemUpdateManyWithoutUserNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses?: AddressUpdateManyWithoutUserNestedInput
     products?: ProductUpdateManyWithoutUserNestedInput
     comments?: CommentUpdateManyWithoutUserNestedInput
@@ -36349,7 +32911,6 @@ export namespace Prisma {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
     surname?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     birth_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     phone?: StringFieldUpdateOperationsInput | string
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
@@ -36360,18 +32921,6 @@ export namespace Prisma {
     emails?: EmailUncheckedUpdateManyWithoutUserNestedInput
     additional_phones?: PhoneUncheckedUpdateManyWithoutUserNestedInput
     favourite_items?: FavouriteItemUncheckedUpdateManyWithoutUserNestedInput
-=======
-    birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    phone?: StringFieldUpdateOperationsInput | string
-    avatar?: StringFieldUpdateOperationsInput | string
-    refresh_token?: StringFieldUpdateOperationsInput | string
-    balance?: FloatFieldUpdateOperationsInput | number
-    lang_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    preferredCurrencyId?: BigIntFieldUpdateOperationsInput | bigint | number
-    emails?: EmailUncheckedUpdateManyWithoutUserNestedInput
-    additionalPhones?: PhoneUncheckedUpdateManyWithoutUserNestedInput
-    favouriteItems?: FavouriteItemUncheckedUpdateManyWithoutUserNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses?: AddressUncheckedUpdateManyWithoutUserNestedInput
     products?: ProductUncheckedUpdateManyWithoutUserNestedInput
     comments?: CommentUncheckedUpdateManyWithoutUserNestedInput
@@ -36383,7 +32932,6 @@ export namespace Prisma {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
     surname?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     birth_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     phone?: StringFieldUpdateOperationsInput | string
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
@@ -36394,24 +32942,11 @@ export namespace Prisma {
   }
 
   export type ProductCreateManyContact_phoneInput = {
-=======
-    birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    phone?: StringFieldUpdateOperationsInput | string
-    avatar?: StringFieldUpdateOperationsInput | string
-    refresh_token?: StringFieldUpdateOperationsInput | string
-    balance?: FloatFieldUpdateOperationsInput | number
-    lang_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    preferredCurrencyId?: BigIntFieldUpdateOperationsInput | bigint | number
-  }
-
-  export type ProductCreateManyContactPhoneInput = {
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     id?: bigint | number
     user_id: bigint | number
     title: string
     description: string
     year: number
-<<<<<<< HEAD
     brand_id?: bigint | number | null
     model_id?: bigint | number | null
     custom_model?: string | null
@@ -36419,15 +32954,6 @@ export namespace Prisma {
     price: number
     floor_price?: boolean
     currency_id?: bigint | number
-=======
-    brand_id: bigint | number
-    model_id: bigint | number
-    custom_model: string
-    color_id: bigint | number
-    price: number
-    floor_price: boolean
-    currency_id: bigint | number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     is_new: boolean
     has_document: boolean
     address_id: bigint | number
@@ -36437,30 +32963,17 @@ export namespace Prisma {
     is_archived?: boolean
     is_sold?: boolean
     is_checked?: boolean
-<<<<<<< HEAD
     admin_id?: bigint | number | null
     is_top?: boolean
     top_expire_date?: Date | string | null
   }
 
   export type ProductUpdateWithoutContact_phoneInput = {
-=======
-    admin_id: bigint | number
-    is_top?: boolean
-    top_expire_date: Date | string
-  }
-
-  export type ProductUpdateWithoutContactPhoneInput = {
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
-<<<<<<< HEAD
     custom_model?: NullableStringFieldUpdateOperationsInput | string | null
-=======
-    custom_model?: StringFieldUpdateOperationsInput | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     price?: FloatFieldUpdateOperationsInput | number
     floor_price?: BoolFieldUpdateOperationsInput | boolean
     is_new?: BoolFieldUpdateOperationsInput | boolean
@@ -36472,7 +32985,6 @@ export namespace Prisma {
     is_sold?: BoolFieldUpdateOperationsInput | boolean
     is_checked?: BoolFieldUpdateOperationsInput | boolean
     is_top?: BoolFieldUpdateOperationsInput | boolean
-<<<<<<< HEAD
     top_expire_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     user?: UserUpdateOneRequiredWithoutProductsNestedInput
     brand?: BrandUpdateOneWithoutProductsNestedInput
@@ -36487,36 +32999,14 @@ export namespace Prisma {
   }
 
   export type ProductUncheckedUpdateWithoutContact_phoneInput = {
-=======
-    top_expire_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutProductsNestedInput
-    brand?: BrandUpdateOneRequiredWithoutProductsNestedInput
-    model?: ModelUpdateOneRequiredWithoutProductsNestedInput
-    color?: ColorUpdateOneRequiredWithoutProductsNestedInput
-    currency?: CurrencyUpdateOneRequiredWithoutProductsNestedInput
-    address?: AddressUpdateOneRequiredWithoutProductsNestedInput
-    admin?: AdminUpdateOneRequiredWithoutProductsManagedNestedInput
-    images?: ProductImageUpdateManyWithoutProductNestedInput
-    favouritedBy?: FavouriteItemUpdateManyWithoutProductNestedInput
-    comments?: CommentUpdateManyWithoutProductNestedInput
-  }
-
-  export type ProductUncheckedUpdateWithoutContactPhoneInput = {
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     user_id?: BigIntFieldUpdateOperationsInput | bigint | number
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
-<<<<<<< HEAD
     brand_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     model_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     custom_model?: NullableStringFieldUpdateOperationsInput | string | null
-=======
-    brand_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    model_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    custom_model?: StringFieldUpdateOperationsInput | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     color_id?: BigIntFieldUpdateOperationsInput | bigint | number
     price?: FloatFieldUpdateOperationsInput | number
     floor_price?: BoolFieldUpdateOperationsInput | boolean
@@ -36530,7 +33020,6 @@ export namespace Prisma {
     is_archived?: BoolFieldUpdateOperationsInput | boolean
     is_sold?: BoolFieldUpdateOperationsInput | boolean
     is_checked?: BoolFieldUpdateOperationsInput | boolean
-<<<<<<< HEAD
     admin_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     is_top?: BoolFieldUpdateOperationsInput | boolean
     top_expire_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -36540,31 +33029,14 @@ export namespace Prisma {
   }
 
   export type ProductUncheckedUpdateManyWithoutContact_phoneInput = {
-=======
-    admin_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    is_top?: BoolFieldUpdateOperationsInput | boolean
-    top_expire_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    images?: ProductImageUncheckedUpdateManyWithoutProductNestedInput
-    favouritedBy?: FavouriteItemUncheckedUpdateManyWithoutProductNestedInput
-    comments?: CommentUncheckedUpdateManyWithoutProductNestedInput
-  }
-
-  export type ProductUncheckedUpdateManyWithoutContactPhoneInput = {
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     user_id?: BigIntFieldUpdateOperationsInput | bigint | number
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
-<<<<<<< HEAD
     brand_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     model_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     custom_model?: NullableStringFieldUpdateOperationsInput | string | null
-=======
-    brand_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    model_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    custom_model?: StringFieldUpdateOperationsInput | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     color_id?: BigIntFieldUpdateOperationsInput | bigint | number
     price?: FloatFieldUpdateOperationsInput | number
     floor_price?: BoolFieldUpdateOperationsInput | boolean
@@ -36578,15 +33050,9 @@ export namespace Prisma {
     is_archived?: BoolFieldUpdateOperationsInput | boolean
     is_sold?: BoolFieldUpdateOperationsInput | boolean
     is_checked?: BoolFieldUpdateOperationsInput | boolean
-<<<<<<< HEAD
     admin_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     is_top?: BoolFieldUpdateOperationsInput | boolean
     top_expire_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-=======
-    admin_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    is_top?: BoolFieldUpdateOperationsInput | boolean
-    top_expire_date?: DateTimeFieldUpdateOperationsInput | Date | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type ProductCreateManyAddressInput = {
@@ -36595,7 +33061,6 @@ export namespace Prisma {
     title: string
     description: string
     year: number
-<<<<<<< HEAD
     brand_id?: bigint | number | null
     model_id?: bigint | number | null
     custom_model?: string | null
@@ -36603,15 +33068,6 @@ export namespace Prisma {
     price: number
     floor_price?: boolean
     currency_id?: bigint | number
-=======
-    brand_id: bigint | number
-    model_id: bigint | number
-    custom_model: string
-    color_id: bigint | number
-    price: number
-    floor_price: boolean
-    currency_id: bigint | number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     is_new: boolean
     has_document: boolean
     phone_id: bigint | number
@@ -36621,15 +33077,9 @@ export namespace Prisma {
     is_archived?: boolean
     is_sold?: boolean
     is_checked?: boolean
-<<<<<<< HEAD
     admin_id?: bigint | number | null
     is_top?: boolean
     top_expire_date?: Date | string | null
-=======
-    admin_id: bigint | number
-    is_top?: boolean
-    top_expire_date: Date | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type ProductUpdateWithoutAddressInput = {
@@ -36637,11 +33087,7 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
-<<<<<<< HEAD
     custom_model?: NullableStringFieldUpdateOperationsInput | string | null
-=======
-    custom_model?: StringFieldUpdateOperationsInput | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     price?: FloatFieldUpdateOperationsInput | number
     floor_price?: BoolFieldUpdateOperationsInput | boolean
     is_new?: BoolFieldUpdateOperationsInput | boolean
@@ -36653,7 +33099,6 @@ export namespace Prisma {
     is_sold?: BoolFieldUpdateOperationsInput | boolean
     is_checked?: BoolFieldUpdateOperationsInput | boolean
     is_top?: BoolFieldUpdateOperationsInput | boolean
-<<<<<<< HEAD
     top_expire_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     user?: UserUpdateOneRequiredWithoutProductsNestedInput
     brand?: BrandUpdateOneWithoutProductsNestedInput
@@ -36664,18 +33109,6 @@ export namespace Prisma {
     admin?: AdminUpdateOneWithoutProducts_managedNestedInput
     images?: ProductImageUpdateManyWithoutProductNestedInput
     favourited_by?: FavouriteItemUpdateManyWithoutProductNestedInput
-=======
-    top_expire_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutProductsNestedInput
-    brand?: BrandUpdateOneRequiredWithoutProductsNestedInput
-    model?: ModelUpdateOneRequiredWithoutProductsNestedInput
-    color?: ColorUpdateOneRequiredWithoutProductsNestedInput
-    currency?: CurrencyUpdateOneRequiredWithoutProductsNestedInput
-    contactPhone?: PhoneUpdateOneRequiredWithoutProductsNestedInput
-    admin?: AdminUpdateOneRequiredWithoutProductsManagedNestedInput
-    images?: ProductImageUpdateManyWithoutProductNestedInput
-    favouritedBy?: FavouriteItemUpdateManyWithoutProductNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     comments?: CommentUpdateManyWithoutProductNestedInput
   }
 
@@ -36685,15 +33118,9 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
-<<<<<<< HEAD
     brand_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     model_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     custom_model?: NullableStringFieldUpdateOperationsInput | string | null
-=======
-    brand_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    model_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    custom_model?: StringFieldUpdateOperationsInput | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     color_id?: BigIntFieldUpdateOperationsInput | bigint | number
     price?: FloatFieldUpdateOperationsInput | number
     floor_price?: BoolFieldUpdateOperationsInput | boolean
@@ -36707,19 +33134,11 @@ export namespace Prisma {
     is_archived?: BoolFieldUpdateOperationsInput | boolean
     is_sold?: BoolFieldUpdateOperationsInput | boolean
     is_checked?: BoolFieldUpdateOperationsInput | boolean
-<<<<<<< HEAD
     admin_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     is_top?: BoolFieldUpdateOperationsInput | boolean
     top_expire_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     images?: ProductImageUncheckedUpdateManyWithoutProductNestedInput
     favourited_by?: FavouriteItemUncheckedUpdateManyWithoutProductNestedInput
-=======
-    admin_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    is_top?: BoolFieldUpdateOperationsInput | boolean
-    top_expire_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    images?: ProductImageUncheckedUpdateManyWithoutProductNestedInput
-    favouritedBy?: FavouriteItemUncheckedUpdateManyWithoutProductNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     comments?: CommentUncheckedUpdateManyWithoutProductNestedInput
   }
 
@@ -36729,15 +33148,9 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
-<<<<<<< HEAD
     brand_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     model_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     custom_model?: NullableStringFieldUpdateOperationsInput | string | null
-=======
-    brand_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    model_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    custom_model?: StringFieldUpdateOperationsInput | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     color_id?: BigIntFieldUpdateOperationsInput | bigint | number
     price?: FloatFieldUpdateOperationsInput | number
     floor_price?: BoolFieldUpdateOperationsInput | boolean
@@ -36751,22 +33164,15 @@ export namespace Prisma {
     is_archived?: BoolFieldUpdateOperationsInput | boolean
     is_sold?: BoolFieldUpdateOperationsInput | boolean
     is_checked?: BoolFieldUpdateOperationsInput | boolean
-<<<<<<< HEAD
     admin_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     is_top?: BoolFieldUpdateOperationsInput | boolean
     top_expire_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-=======
-    admin_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    is_top?: BoolFieldUpdateOperationsInput | boolean
-    top_expire_date?: DateTimeFieldUpdateOperationsInput | Date | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type UserCreateManyLanguageInput = {
     id?: bigint | number
     name: string
     surname: string
-<<<<<<< HEAD
     birth_date?: Date | string | null
     phone: string
     avatar?: string | null
@@ -36774,15 +33180,6 @@ export namespace Prisma {
     balance?: number
     otp_id?: bigint | number | null
     currency_id: bigint | number
-=======
-    birth_date: Date | string
-    phone: string
-    avatar: string
-    refresh_token: string
-    balance: number
-    otp_id: bigint | number
-    preferredCurrencyId: bigint | number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type AdminCreateManyLanguageInput = {
@@ -36792,13 +33189,8 @@ export namespace Prisma {
     birth_date: Date | string
     phone: string
     password: string
-<<<<<<< HEAD
     avatar?: string | null
     refresh_token?: string | null
-=======
-    avatar: string
-    refresh_token: string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     is_creator?: boolean
   }
 
@@ -36806,7 +33198,6 @@ export namespace Prisma {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
     surname?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     birth_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     phone?: StringFieldUpdateOperationsInput | string
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
@@ -36817,18 +33208,6 @@ export namespace Prisma {
     emails?: EmailUpdateManyWithoutUserNestedInput
     additional_phones?: PhoneUpdateManyWithoutUserNestedInput
     favourite_items?: FavouriteItemUpdateManyWithoutUserNestedInput
-=======
-    birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    phone?: StringFieldUpdateOperationsInput | string
-    avatar?: StringFieldUpdateOperationsInput | string
-    refresh_token?: StringFieldUpdateOperationsInput | string
-    balance?: FloatFieldUpdateOperationsInput | number
-    otp?: OTPUpdateOneRequiredWithoutUsersNestedInput
-    preferredCurrency?: CurrencyUpdateOneRequiredWithoutUserPreferencesNestedInput
-    emails?: EmailUpdateManyWithoutUserNestedInput
-    additionalPhones?: PhoneUpdateManyWithoutUserNestedInput
-    favouriteItems?: FavouriteItemUpdateManyWithoutUserNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses?: AddressUpdateManyWithoutUserNestedInput
     products?: ProductUpdateManyWithoutUserNestedInput
     comments?: CommentUpdateManyWithoutUserNestedInput
@@ -36840,7 +33219,6 @@ export namespace Prisma {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
     surname?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     birth_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     phone?: StringFieldUpdateOperationsInput | string
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
@@ -36851,18 +33229,6 @@ export namespace Prisma {
     emails?: EmailUncheckedUpdateManyWithoutUserNestedInput
     additional_phones?: PhoneUncheckedUpdateManyWithoutUserNestedInput
     favourite_items?: FavouriteItemUncheckedUpdateManyWithoutUserNestedInput
-=======
-    birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    phone?: StringFieldUpdateOperationsInput | string
-    avatar?: StringFieldUpdateOperationsInput | string
-    refresh_token?: StringFieldUpdateOperationsInput | string
-    balance?: FloatFieldUpdateOperationsInput | number
-    otp_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    preferredCurrencyId?: BigIntFieldUpdateOperationsInput | bigint | number
-    emails?: EmailUncheckedUpdateManyWithoutUserNestedInput
-    additionalPhones?: PhoneUncheckedUpdateManyWithoutUserNestedInput
-    favouriteItems?: FavouriteItemUncheckedUpdateManyWithoutUserNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses?: AddressUncheckedUpdateManyWithoutUserNestedInput
     products?: ProductUncheckedUpdateManyWithoutUserNestedInput
     comments?: CommentUncheckedUpdateManyWithoutUserNestedInput
@@ -36874,7 +33240,6 @@ export namespace Prisma {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
     surname?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     birth_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     phone?: StringFieldUpdateOperationsInput | string
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
@@ -36882,15 +33247,6 @@ export namespace Prisma {
     balance?: FloatFieldUpdateOperationsInput | number
     otp_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     currency_id?: BigIntFieldUpdateOperationsInput | bigint | number
-=======
-    birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    phone?: StringFieldUpdateOperationsInput | string
-    avatar?: StringFieldUpdateOperationsInput | string
-    refresh_token?: StringFieldUpdateOperationsInput | string
-    balance?: FloatFieldUpdateOperationsInput | number
-    otp_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    preferredCurrencyId?: BigIntFieldUpdateOperationsInput | bigint | number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type AdminUpdateWithoutLanguageInput = {
@@ -36900,19 +33256,11 @@ export namespace Prisma {
     birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
     phone?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
     is_creator?: BoolFieldUpdateOperationsInput | boolean
     blocks_issued?: BlockUpdateManyWithoutAdminNestedInput
     products_managed?: ProductUpdateManyWithoutAdminNestedInput
-=======
-    avatar?: StringFieldUpdateOperationsInput | string
-    refresh_token?: StringFieldUpdateOperationsInput | string
-    is_creator?: BoolFieldUpdateOperationsInput | boolean
-    blocksIssued?: BlockUpdateManyWithoutAdminNestedInput
-    productsManaged?: ProductUpdateManyWithoutAdminNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type AdminUncheckedUpdateWithoutLanguageInput = {
@@ -36922,19 +33270,11 @@ export namespace Prisma {
     birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
     phone?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
     is_creator?: BoolFieldUpdateOperationsInput | boolean
     blocks_issued?: BlockUncheckedUpdateManyWithoutAdminNestedInput
     products_managed?: ProductUncheckedUpdateManyWithoutAdminNestedInput
-=======
-    avatar?: StringFieldUpdateOperationsInput | string
-    refresh_token?: StringFieldUpdateOperationsInput | string
-    is_creator?: BoolFieldUpdateOperationsInput | boolean
-    blocksIssued?: BlockUncheckedUpdateManyWithoutAdminNestedInput
-    productsManaged?: ProductUncheckedUpdateManyWithoutAdminNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type AdminUncheckedUpdateManyWithoutLanguageInput = {
@@ -36944,13 +33284,8 @@ export namespace Prisma {
     birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
     phone?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     avatar?: NullableStringFieldUpdateOperationsInput | string | null
     refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
-=======
-    avatar?: StringFieldUpdateOperationsInput | string
-    refresh_token?: StringFieldUpdateOperationsInput | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     is_creator?: BoolFieldUpdateOperationsInput | boolean
   }
 
@@ -36991,11 +33326,7 @@ export namespace Prisma {
 
   export type FavouriteItemUpdateWithoutProductInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
-<<<<<<< HEAD
     user?: UserUpdateOneRequiredWithoutFavourite_itemsNestedInput
-=======
-    user?: UserUpdateOneRequiredWithoutFavouriteItemsNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type FavouriteItemUncheckedUpdateWithoutProductInput = {
@@ -37037,21 +33368,12 @@ export namespace Prisma {
     title: string
     description: string
     year: number
-<<<<<<< HEAD
     model_id?: bigint | number | null
     custom_model?: string | null
     color_id: bigint | number
     price: number
     floor_price?: boolean
     currency_id?: bigint | number
-=======
-    model_id: bigint | number
-    custom_model: string
-    color_id: bigint | number
-    price: number
-    floor_price: boolean
-    currency_id: bigint | number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     is_new: boolean
     has_document: boolean
     address_id: bigint | number
@@ -37062,15 +33384,9 @@ export namespace Prisma {
     is_archived?: boolean
     is_sold?: boolean
     is_checked?: boolean
-<<<<<<< HEAD
     admin_id?: bigint | number | null
     is_top?: boolean
     top_expire_date?: Date | string | null
-=======
-    admin_id: bigint | number
-    is_top?: boolean
-    top_expire_date: Date | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type ModelUpdateWithoutBrandInput = {
@@ -37095,11 +33411,7 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
-<<<<<<< HEAD
     custom_model?: NullableStringFieldUpdateOperationsInput | string | null
-=======
-    custom_model?: StringFieldUpdateOperationsInput | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     price?: FloatFieldUpdateOperationsInput | number
     floor_price?: BoolFieldUpdateOperationsInput | boolean
     is_new?: BoolFieldUpdateOperationsInput | boolean
@@ -37111,7 +33423,6 @@ export namespace Prisma {
     is_sold?: BoolFieldUpdateOperationsInput | boolean
     is_checked?: BoolFieldUpdateOperationsInput | boolean
     is_top?: BoolFieldUpdateOperationsInput | boolean
-<<<<<<< HEAD
     top_expire_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     user?: UserUpdateOneRequiredWithoutProductsNestedInput
     model?: ModelUpdateOneWithoutProductsNestedInput
@@ -37122,18 +33433,6 @@ export namespace Prisma {
     admin?: AdminUpdateOneWithoutProducts_managedNestedInput
     images?: ProductImageUpdateManyWithoutProductNestedInput
     favourited_by?: FavouriteItemUpdateManyWithoutProductNestedInput
-=======
-    top_expire_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutProductsNestedInput
-    model?: ModelUpdateOneRequiredWithoutProductsNestedInput
-    color?: ColorUpdateOneRequiredWithoutProductsNestedInput
-    currency?: CurrencyUpdateOneRequiredWithoutProductsNestedInput
-    address?: AddressUpdateOneRequiredWithoutProductsNestedInput
-    contactPhone?: PhoneUpdateOneRequiredWithoutProductsNestedInput
-    admin?: AdminUpdateOneRequiredWithoutProductsManagedNestedInput
-    images?: ProductImageUpdateManyWithoutProductNestedInput
-    favouritedBy?: FavouriteItemUpdateManyWithoutProductNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     comments?: CommentUpdateManyWithoutProductNestedInput
   }
 
@@ -37143,13 +33442,8 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
-<<<<<<< HEAD
     model_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     custom_model?: NullableStringFieldUpdateOperationsInput | string | null
-=======
-    model_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    custom_model?: StringFieldUpdateOperationsInput | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     color_id?: BigIntFieldUpdateOperationsInput | bigint | number
     price?: FloatFieldUpdateOperationsInput | number
     floor_price?: BoolFieldUpdateOperationsInput | boolean
@@ -37164,19 +33458,11 @@ export namespace Prisma {
     is_archived?: BoolFieldUpdateOperationsInput | boolean
     is_sold?: BoolFieldUpdateOperationsInput | boolean
     is_checked?: BoolFieldUpdateOperationsInput | boolean
-<<<<<<< HEAD
     admin_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     is_top?: BoolFieldUpdateOperationsInput | boolean
     top_expire_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     images?: ProductImageUncheckedUpdateManyWithoutProductNestedInput
     favourited_by?: FavouriteItemUncheckedUpdateManyWithoutProductNestedInput
-=======
-    admin_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    is_top?: BoolFieldUpdateOperationsInput | boolean
-    top_expire_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    images?: ProductImageUncheckedUpdateManyWithoutProductNestedInput
-    favouritedBy?: FavouriteItemUncheckedUpdateManyWithoutProductNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     comments?: CommentUncheckedUpdateManyWithoutProductNestedInput
   }
 
@@ -37186,13 +33472,8 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
-<<<<<<< HEAD
     model_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     custom_model?: NullableStringFieldUpdateOperationsInput | string | null
-=======
-    model_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    custom_model?: StringFieldUpdateOperationsInput | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     color_id?: BigIntFieldUpdateOperationsInput | bigint | number
     price?: FloatFieldUpdateOperationsInput | number
     floor_price?: BoolFieldUpdateOperationsInput | boolean
@@ -37207,15 +33488,9 @@ export namespace Prisma {
     is_archived?: BoolFieldUpdateOperationsInput | boolean
     is_sold?: BoolFieldUpdateOperationsInput | boolean
     is_checked?: BoolFieldUpdateOperationsInput | boolean
-<<<<<<< HEAD
     admin_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     is_top?: BoolFieldUpdateOperationsInput | boolean
     top_expire_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-=======
-    admin_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    is_top?: BoolFieldUpdateOperationsInput | boolean
-    top_expire_date?: DateTimeFieldUpdateOperationsInput | Date | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type ProductCreateManyModelInput = {
@@ -37224,21 +33499,12 @@ export namespace Prisma {
     title: string
     description: string
     year: number
-<<<<<<< HEAD
     brand_id?: bigint | number | null
     custom_model?: string | null
     color_id: bigint | number
     price: number
     floor_price?: boolean
     currency_id?: bigint | number
-=======
-    brand_id: bigint | number
-    custom_model: string
-    color_id: bigint | number
-    price: number
-    floor_price: boolean
-    currency_id: bigint | number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     is_new: boolean
     has_document: boolean
     address_id: bigint | number
@@ -37249,15 +33515,9 @@ export namespace Prisma {
     is_archived?: boolean
     is_sold?: boolean
     is_checked?: boolean
-<<<<<<< HEAD
     admin_id?: bigint | number | null
     is_top?: boolean
     top_expire_date?: Date | string | null
-=======
-    admin_id: bigint | number
-    is_top?: boolean
-    top_expire_date: Date | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type ProductUpdateWithoutModelInput = {
@@ -37265,11 +33525,7 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
-<<<<<<< HEAD
     custom_model?: NullableStringFieldUpdateOperationsInput | string | null
-=======
-    custom_model?: StringFieldUpdateOperationsInput | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     price?: FloatFieldUpdateOperationsInput | number
     floor_price?: BoolFieldUpdateOperationsInput | boolean
     is_new?: BoolFieldUpdateOperationsInput | boolean
@@ -37281,7 +33537,6 @@ export namespace Prisma {
     is_sold?: BoolFieldUpdateOperationsInput | boolean
     is_checked?: BoolFieldUpdateOperationsInput | boolean
     is_top?: BoolFieldUpdateOperationsInput | boolean
-<<<<<<< HEAD
     top_expire_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     user?: UserUpdateOneRequiredWithoutProductsNestedInput
     brand?: BrandUpdateOneWithoutProductsNestedInput
@@ -37292,18 +33547,6 @@ export namespace Prisma {
     admin?: AdminUpdateOneWithoutProducts_managedNestedInput
     images?: ProductImageUpdateManyWithoutProductNestedInput
     favourited_by?: FavouriteItemUpdateManyWithoutProductNestedInput
-=======
-    top_expire_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutProductsNestedInput
-    brand?: BrandUpdateOneRequiredWithoutProductsNestedInput
-    color?: ColorUpdateOneRequiredWithoutProductsNestedInput
-    currency?: CurrencyUpdateOneRequiredWithoutProductsNestedInput
-    address?: AddressUpdateOneRequiredWithoutProductsNestedInput
-    contactPhone?: PhoneUpdateOneRequiredWithoutProductsNestedInput
-    admin?: AdminUpdateOneRequiredWithoutProductsManagedNestedInput
-    images?: ProductImageUpdateManyWithoutProductNestedInput
-    favouritedBy?: FavouriteItemUpdateManyWithoutProductNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     comments?: CommentUpdateManyWithoutProductNestedInput
   }
 
@@ -37313,13 +33556,8 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
-<<<<<<< HEAD
     brand_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     custom_model?: NullableStringFieldUpdateOperationsInput | string | null
-=======
-    brand_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    custom_model?: StringFieldUpdateOperationsInput | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     color_id?: BigIntFieldUpdateOperationsInput | bigint | number
     price?: FloatFieldUpdateOperationsInput | number
     floor_price?: BoolFieldUpdateOperationsInput | boolean
@@ -37334,19 +33572,11 @@ export namespace Prisma {
     is_archived?: BoolFieldUpdateOperationsInput | boolean
     is_sold?: BoolFieldUpdateOperationsInput | boolean
     is_checked?: BoolFieldUpdateOperationsInput | boolean
-<<<<<<< HEAD
     admin_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     is_top?: BoolFieldUpdateOperationsInput | boolean
     top_expire_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     images?: ProductImageUncheckedUpdateManyWithoutProductNestedInput
     favourited_by?: FavouriteItemUncheckedUpdateManyWithoutProductNestedInput
-=======
-    admin_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    is_top?: BoolFieldUpdateOperationsInput | boolean
-    top_expire_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    images?: ProductImageUncheckedUpdateManyWithoutProductNestedInput
-    favouritedBy?: FavouriteItemUncheckedUpdateManyWithoutProductNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     comments?: CommentUncheckedUpdateManyWithoutProductNestedInput
   }
 
@@ -37356,13 +33586,8 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
-<<<<<<< HEAD
     brand_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     custom_model?: NullableStringFieldUpdateOperationsInput | string | null
-=======
-    brand_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    custom_model?: StringFieldUpdateOperationsInput | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     color_id?: BigIntFieldUpdateOperationsInput | bigint | number
     price?: FloatFieldUpdateOperationsInput | number
     floor_price?: BoolFieldUpdateOperationsInput | boolean
@@ -37377,15 +33602,9 @@ export namespace Prisma {
     is_archived?: BoolFieldUpdateOperationsInput | boolean
     is_sold?: BoolFieldUpdateOperationsInput | boolean
     is_checked?: BoolFieldUpdateOperationsInput | boolean
-<<<<<<< HEAD
     admin_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     is_top?: BoolFieldUpdateOperationsInput | boolean
     top_expire_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-=======
-    admin_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    is_top?: BoolFieldUpdateOperationsInput | boolean
-    top_expire_date?: DateTimeFieldUpdateOperationsInput | Date | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type ProductCreateManyColorInput = {
@@ -37394,21 +33613,12 @@ export namespace Prisma {
     title: string
     description: string
     year: number
-<<<<<<< HEAD
     brand_id?: bigint | number | null
     model_id?: bigint | number | null
     custom_model?: string | null
     price: number
     floor_price?: boolean
     currency_id?: bigint | number
-=======
-    brand_id: bigint | number
-    model_id: bigint | number
-    custom_model: string
-    price: number
-    floor_price: boolean
-    currency_id: bigint | number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     is_new: boolean
     has_document: boolean
     address_id: bigint | number
@@ -37419,15 +33629,9 @@ export namespace Prisma {
     is_archived?: boolean
     is_sold?: boolean
     is_checked?: boolean
-<<<<<<< HEAD
     admin_id?: bigint | number | null
     is_top?: boolean
     top_expire_date?: Date | string | null
-=======
-    admin_id: bigint | number
-    is_top?: boolean
-    top_expire_date: Date | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type ProductUpdateWithoutColorInput = {
@@ -37435,11 +33639,7 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
-<<<<<<< HEAD
     custom_model?: NullableStringFieldUpdateOperationsInput | string | null
-=======
-    custom_model?: StringFieldUpdateOperationsInput | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     price?: FloatFieldUpdateOperationsInput | number
     floor_price?: BoolFieldUpdateOperationsInput | boolean
     is_new?: BoolFieldUpdateOperationsInput | boolean
@@ -37451,7 +33651,6 @@ export namespace Prisma {
     is_sold?: BoolFieldUpdateOperationsInput | boolean
     is_checked?: BoolFieldUpdateOperationsInput | boolean
     is_top?: BoolFieldUpdateOperationsInput | boolean
-<<<<<<< HEAD
     top_expire_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     user?: UserUpdateOneRequiredWithoutProductsNestedInput
     brand?: BrandUpdateOneWithoutProductsNestedInput
@@ -37462,18 +33661,6 @@ export namespace Prisma {
     admin?: AdminUpdateOneWithoutProducts_managedNestedInput
     images?: ProductImageUpdateManyWithoutProductNestedInput
     favourited_by?: FavouriteItemUpdateManyWithoutProductNestedInput
-=======
-    top_expire_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutProductsNestedInput
-    brand?: BrandUpdateOneRequiredWithoutProductsNestedInput
-    model?: ModelUpdateOneRequiredWithoutProductsNestedInput
-    currency?: CurrencyUpdateOneRequiredWithoutProductsNestedInput
-    address?: AddressUpdateOneRequiredWithoutProductsNestedInput
-    contactPhone?: PhoneUpdateOneRequiredWithoutProductsNestedInput
-    admin?: AdminUpdateOneRequiredWithoutProductsManagedNestedInput
-    images?: ProductImageUpdateManyWithoutProductNestedInput
-    favouritedBy?: FavouriteItemUpdateManyWithoutProductNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     comments?: CommentUpdateManyWithoutProductNestedInput
   }
 
@@ -37483,15 +33670,9 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
-<<<<<<< HEAD
     brand_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     model_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     custom_model?: NullableStringFieldUpdateOperationsInput | string | null
-=======
-    brand_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    model_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    custom_model?: StringFieldUpdateOperationsInput | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     price?: FloatFieldUpdateOperationsInput | number
     floor_price?: BoolFieldUpdateOperationsInput | boolean
     currency_id?: BigIntFieldUpdateOperationsInput | bigint | number
@@ -37505,19 +33686,11 @@ export namespace Prisma {
     is_archived?: BoolFieldUpdateOperationsInput | boolean
     is_sold?: BoolFieldUpdateOperationsInput | boolean
     is_checked?: BoolFieldUpdateOperationsInput | boolean
-<<<<<<< HEAD
     admin_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     is_top?: BoolFieldUpdateOperationsInput | boolean
     top_expire_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     images?: ProductImageUncheckedUpdateManyWithoutProductNestedInput
     favourited_by?: FavouriteItemUncheckedUpdateManyWithoutProductNestedInput
-=======
-    admin_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    is_top?: BoolFieldUpdateOperationsInput | boolean
-    top_expire_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    images?: ProductImageUncheckedUpdateManyWithoutProductNestedInput
-    favouritedBy?: FavouriteItemUncheckedUpdateManyWithoutProductNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     comments?: CommentUncheckedUpdateManyWithoutProductNestedInput
   }
 
@@ -37527,15 +33700,9 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
-<<<<<<< HEAD
     brand_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     model_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     custom_model?: NullableStringFieldUpdateOperationsInput | string | null
-=======
-    brand_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    model_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    custom_model?: StringFieldUpdateOperationsInput | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     price?: FloatFieldUpdateOperationsInput | number
     floor_price?: BoolFieldUpdateOperationsInput | boolean
     currency_id?: BigIntFieldUpdateOperationsInput | bigint | number
@@ -37549,7 +33716,6 @@ export namespace Prisma {
     is_archived?: BoolFieldUpdateOperationsInput | boolean
     is_sold?: BoolFieldUpdateOperationsInput | boolean
     is_checked?: BoolFieldUpdateOperationsInput | boolean
-<<<<<<< HEAD
     admin_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     is_top?: BoolFieldUpdateOperationsInput | boolean
     top_expire_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -37566,24 +33732,6 @@ export namespace Prisma {
     balance?: number
     otp_id?: bigint | number | null
     lang_id?: bigint | number
-=======
-    admin_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    is_top?: BoolFieldUpdateOperationsInput | boolean
-    top_expire_date?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type UserCreateManyPreferredCurrencyInput = {
-    id?: bigint | number
-    name: string
-    surname: string
-    birth_date: Date | string
-    phone: string
-    avatar: string
-    refresh_token: string
-    balance: number
-    otp_id: bigint | number
-    lang_id: bigint | number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type ProductCreateManyCurrencyInput = {
@@ -37592,21 +33740,12 @@ export namespace Prisma {
     title: string
     description: string
     year: number
-<<<<<<< HEAD
     brand_id?: bigint | number | null
     model_id?: bigint | number | null
     custom_model?: string | null
     color_id: bigint | number
     price: number
     floor_price?: boolean
-=======
-    brand_id: bigint | number
-    model_id: bigint | number
-    custom_model: string
-    color_id: bigint | number
-    price: number
-    floor_price: boolean
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     is_new: boolean
     has_document: boolean
     address_id: bigint | number
@@ -37617,7 +33756,6 @@ export namespace Prisma {
     is_archived?: boolean
     is_sold?: boolean
     is_checked?: boolean
-<<<<<<< HEAD
     admin_id?: bigint | number | null
     is_top?: boolean
     top_expire_date?: Date | string | null
@@ -37637,27 +33775,6 @@ export namespace Prisma {
     emails?: EmailUpdateManyWithoutUserNestedInput
     additional_phones?: PhoneUpdateManyWithoutUserNestedInput
     favourite_items?: FavouriteItemUpdateManyWithoutUserNestedInput
-=======
-    admin_id: bigint | number
-    is_top?: boolean
-    top_expire_date: Date | string
-  }
-
-  export type UserUpdateWithoutPreferredCurrencyInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
-    name?: StringFieldUpdateOperationsInput | string
-    surname?: StringFieldUpdateOperationsInput | string
-    birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    phone?: StringFieldUpdateOperationsInput | string
-    avatar?: StringFieldUpdateOperationsInput | string
-    refresh_token?: StringFieldUpdateOperationsInput | string
-    balance?: FloatFieldUpdateOperationsInput | number
-    otp?: OTPUpdateOneRequiredWithoutUsersNestedInput
-    language?: LanguageUpdateOneRequiredWithoutUsersNestedInput
-    emails?: EmailUpdateManyWithoutUserNestedInput
-    additionalPhones?: PhoneUpdateManyWithoutUserNestedInput
-    favouriteItems?: FavouriteItemUpdateManyWithoutUserNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses?: AddressUpdateManyWithoutUserNestedInput
     products?: ProductUpdateManyWithoutUserNestedInput
     comments?: CommentUpdateManyWithoutUserNestedInput
@@ -37665,7 +33782,6 @@ export namespace Prisma {
     blocks?: BlockUpdateManyWithoutUserNestedInput
   }
 
-<<<<<<< HEAD
   export type UserUncheckedUpdateWithoutCurrencyInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
@@ -37680,22 +33796,6 @@ export namespace Prisma {
     emails?: EmailUncheckedUpdateManyWithoutUserNestedInput
     additional_phones?: PhoneUncheckedUpdateManyWithoutUserNestedInput
     favourite_items?: FavouriteItemUncheckedUpdateManyWithoutUserNestedInput
-=======
-  export type UserUncheckedUpdateWithoutPreferredCurrencyInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
-    name?: StringFieldUpdateOperationsInput | string
-    surname?: StringFieldUpdateOperationsInput | string
-    birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    phone?: StringFieldUpdateOperationsInput | string
-    avatar?: StringFieldUpdateOperationsInput | string
-    refresh_token?: StringFieldUpdateOperationsInput | string
-    balance?: FloatFieldUpdateOperationsInput | number
-    otp_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    lang_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    emails?: EmailUncheckedUpdateManyWithoutUserNestedInput
-    additionalPhones?: PhoneUncheckedUpdateManyWithoutUserNestedInput
-    favouriteItems?: FavouriteItemUncheckedUpdateManyWithoutUserNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     addresses?: AddressUncheckedUpdateManyWithoutUserNestedInput
     products?: ProductUncheckedUpdateManyWithoutUserNestedInput
     comments?: CommentUncheckedUpdateManyWithoutUserNestedInput
@@ -37703,7 +33803,6 @@ export namespace Prisma {
     blocks?: BlockUncheckedUpdateManyWithoutUserNestedInput
   }
 
-<<<<<<< HEAD
   export type UserUncheckedUpdateManyWithoutCurrencyInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     name?: StringFieldUpdateOperationsInput | string
@@ -37714,18 +33813,6 @@ export namespace Prisma {
     refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
     balance?: FloatFieldUpdateOperationsInput | number
     otp_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
-=======
-  export type UserUncheckedUpdateManyWithoutPreferredCurrencyInput = {
-    id?: BigIntFieldUpdateOperationsInput | bigint | number
-    name?: StringFieldUpdateOperationsInput | string
-    surname?: StringFieldUpdateOperationsInput | string
-    birth_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    phone?: StringFieldUpdateOperationsInput | string
-    avatar?: StringFieldUpdateOperationsInput | string
-    refresh_token?: StringFieldUpdateOperationsInput | string
-    balance?: FloatFieldUpdateOperationsInput | number
-    otp_id?: BigIntFieldUpdateOperationsInput | bigint | number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     lang_id?: BigIntFieldUpdateOperationsInput | bigint | number
   }
 
@@ -37734,11 +33821,7 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
-<<<<<<< HEAD
     custom_model?: NullableStringFieldUpdateOperationsInput | string | null
-=======
-    custom_model?: StringFieldUpdateOperationsInput | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     price?: FloatFieldUpdateOperationsInput | number
     floor_price?: BoolFieldUpdateOperationsInput | boolean
     is_new?: BoolFieldUpdateOperationsInput | boolean
@@ -37750,7 +33833,6 @@ export namespace Prisma {
     is_sold?: BoolFieldUpdateOperationsInput | boolean
     is_checked?: BoolFieldUpdateOperationsInput | boolean
     is_top?: BoolFieldUpdateOperationsInput | boolean
-<<<<<<< HEAD
     top_expire_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     user?: UserUpdateOneRequiredWithoutProductsNestedInput
     brand?: BrandUpdateOneWithoutProductsNestedInput
@@ -37761,18 +33843,6 @@ export namespace Prisma {
     admin?: AdminUpdateOneWithoutProducts_managedNestedInput
     images?: ProductImageUpdateManyWithoutProductNestedInput
     favourited_by?: FavouriteItemUpdateManyWithoutProductNestedInput
-=======
-    top_expire_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutProductsNestedInput
-    brand?: BrandUpdateOneRequiredWithoutProductsNestedInput
-    model?: ModelUpdateOneRequiredWithoutProductsNestedInput
-    color?: ColorUpdateOneRequiredWithoutProductsNestedInput
-    address?: AddressUpdateOneRequiredWithoutProductsNestedInput
-    contactPhone?: PhoneUpdateOneRequiredWithoutProductsNestedInput
-    admin?: AdminUpdateOneRequiredWithoutProductsManagedNestedInput
-    images?: ProductImageUpdateManyWithoutProductNestedInput
-    favouritedBy?: FavouriteItemUpdateManyWithoutProductNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     comments?: CommentUpdateManyWithoutProductNestedInput
   }
 
@@ -37782,15 +33852,9 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
-<<<<<<< HEAD
     brand_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     model_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     custom_model?: NullableStringFieldUpdateOperationsInput | string | null
-=======
-    brand_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    model_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    custom_model?: StringFieldUpdateOperationsInput | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     color_id?: BigIntFieldUpdateOperationsInput | bigint | number
     price?: FloatFieldUpdateOperationsInput | number
     floor_price?: BoolFieldUpdateOperationsInput | boolean
@@ -37804,19 +33868,11 @@ export namespace Prisma {
     is_archived?: BoolFieldUpdateOperationsInput | boolean
     is_sold?: BoolFieldUpdateOperationsInput | boolean
     is_checked?: BoolFieldUpdateOperationsInput | boolean
-<<<<<<< HEAD
     admin_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     is_top?: BoolFieldUpdateOperationsInput | boolean
     top_expire_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     images?: ProductImageUncheckedUpdateManyWithoutProductNestedInput
     favourited_by?: FavouriteItemUncheckedUpdateManyWithoutProductNestedInput
-=======
-    admin_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    is_top?: BoolFieldUpdateOperationsInput | boolean
-    top_expire_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    images?: ProductImageUncheckedUpdateManyWithoutProductNestedInput
-    favouritedBy?: FavouriteItemUncheckedUpdateManyWithoutProductNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     comments?: CommentUncheckedUpdateManyWithoutProductNestedInput
   }
 
@@ -37826,15 +33882,9 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
-<<<<<<< HEAD
     brand_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     model_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     custom_model?: NullableStringFieldUpdateOperationsInput | string | null
-=======
-    brand_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    model_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    custom_model?: StringFieldUpdateOperationsInput | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     color_id?: BigIntFieldUpdateOperationsInput | bigint | number
     price?: FloatFieldUpdateOperationsInput | number
     floor_price?: BoolFieldUpdateOperationsInput | boolean
@@ -37848,26 +33898,16 @@ export namespace Prisma {
     is_archived?: BoolFieldUpdateOperationsInput | boolean
     is_sold?: BoolFieldUpdateOperationsInput | boolean
     is_checked?: BoolFieldUpdateOperationsInput | boolean
-<<<<<<< HEAD
     admin_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     is_top?: BoolFieldUpdateOperationsInput | boolean
     top_expire_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-=======
-    admin_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    is_top?: BoolFieldUpdateOperationsInput | boolean
-    top_expire_date?: DateTimeFieldUpdateOperationsInput | Date | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type BlockCreateManyAdminInput = {
     id?: bigint | number
     user_id: bigint | number
     reason: string
-<<<<<<< HEAD
     expire_date: Date | string
-=======
-    expireDate: Date | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type ProductCreateManyAdminInput = {
@@ -37876,7 +33916,6 @@ export namespace Prisma {
     title: string
     description: string
     year: number
-<<<<<<< HEAD
     brand_id?: bigint | number | null
     model_id?: bigint | number | null
     custom_model?: string | null
@@ -37884,15 +33923,6 @@ export namespace Prisma {
     price: number
     floor_price?: boolean
     currency_id?: bigint | number
-=======
-    brand_id: bigint | number
-    model_id: bigint | number
-    custom_model: string
-    color_id: bigint | number
-    price: number
-    floor_price: boolean
-    currency_id: bigint | number
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     is_new: boolean
     has_document: boolean
     address_id: bigint | number
@@ -37904,21 +33934,13 @@ export namespace Prisma {
     is_sold?: boolean
     is_checked?: boolean
     is_top?: boolean
-<<<<<<< HEAD
     top_expire_date?: Date | string | null
-=======
-    top_expire_date: Date | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type BlockUpdateWithoutAdminInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     reason?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     expire_date?: DateTimeFieldUpdateOperationsInput | Date | string
-=======
-    expireDate?: DateTimeFieldUpdateOperationsInput | Date | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     user?: UserUpdateOneRequiredWithoutBlocksNestedInput
   }
 
@@ -37926,22 +33948,14 @@ export namespace Prisma {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     user_id?: BigIntFieldUpdateOperationsInput | bigint | number
     reason?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     expire_date?: DateTimeFieldUpdateOperationsInput | Date | string
-=======
-    expireDate?: DateTimeFieldUpdateOperationsInput | Date | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type BlockUncheckedUpdateManyWithoutAdminInput = {
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     user_id?: BigIntFieldUpdateOperationsInput | bigint | number
     reason?: StringFieldUpdateOperationsInput | string
-<<<<<<< HEAD
     expire_date?: DateTimeFieldUpdateOperationsInput | Date | string
-=======
-    expireDate?: DateTimeFieldUpdateOperationsInput | Date | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   }
 
   export type ProductUpdateWithoutAdminInput = {
@@ -37949,11 +33963,7 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
-<<<<<<< HEAD
     custom_model?: NullableStringFieldUpdateOperationsInput | string | null
-=======
-    custom_model?: StringFieldUpdateOperationsInput | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     price?: FloatFieldUpdateOperationsInput | number
     floor_price?: BoolFieldUpdateOperationsInput | boolean
     is_new?: BoolFieldUpdateOperationsInput | boolean
@@ -37965,7 +33975,6 @@ export namespace Prisma {
     is_sold?: BoolFieldUpdateOperationsInput | boolean
     is_checked?: BoolFieldUpdateOperationsInput | boolean
     is_top?: BoolFieldUpdateOperationsInput | boolean
-<<<<<<< HEAD
     top_expire_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     user?: UserUpdateOneRequiredWithoutProductsNestedInput
     brand?: BrandUpdateOneWithoutProductsNestedInput
@@ -37976,18 +33985,6 @@ export namespace Prisma {
     contact_phone?: PhoneUpdateOneRequiredWithoutProductsNestedInput
     images?: ProductImageUpdateManyWithoutProductNestedInput
     favourited_by?: FavouriteItemUpdateManyWithoutProductNestedInput
-=======
-    top_expire_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutProductsNestedInput
-    brand?: BrandUpdateOneRequiredWithoutProductsNestedInput
-    model?: ModelUpdateOneRequiredWithoutProductsNestedInput
-    color?: ColorUpdateOneRequiredWithoutProductsNestedInput
-    currency?: CurrencyUpdateOneRequiredWithoutProductsNestedInput
-    address?: AddressUpdateOneRequiredWithoutProductsNestedInput
-    contactPhone?: PhoneUpdateOneRequiredWithoutProductsNestedInput
-    images?: ProductImageUpdateManyWithoutProductNestedInput
-    favouritedBy?: FavouriteItemUpdateManyWithoutProductNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     comments?: CommentUpdateManyWithoutProductNestedInput
   }
 
@@ -37997,15 +33994,9 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
-<<<<<<< HEAD
     brand_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     model_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     custom_model?: NullableStringFieldUpdateOperationsInput | string | null
-=======
-    brand_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    model_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    custom_model?: StringFieldUpdateOperationsInput | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     color_id?: BigIntFieldUpdateOperationsInput | bigint | number
     price?: FloatFieldUpdateOperationsInput | number
     floor_price?: BoolFieldUpdateOperationsInput | boolean
@@ -38021,15 +34012,9 @@ export namespace Prisma {
     is_sold?: BoolFieldUpdateOperationsInput | boolean
     is_checked?: BoolFieldUpdateOperationsInput | boolean
     is_top?: BoolFieldUpdateOperationsInput | boolean
-<<<<<<< HEAD
     top_expire_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     images?: ProductImageUncheckedUpdateManyWithoutProductNestedInput
     favourited_by?: FavouriteItemUncheckedUpdateManyWithoutProductNestedInput
-=======
-    top_expire_date?: DateTimeFieldUpdateOperationsInput | Date | string
-    images?: ProductImageUncheckedUpdateManyWithoutProductNestedInput
-    favouritedBy?: FavouriteItemUncheckedUpdateManyWithoutProductNestedInput
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     comments?: CommentUncheckedUpdateManyWithoutProductNestedInput
   }
 
@@ -38039,15 +34024,9 @@ export namespace Prisma {
     title?: StringFieldUpdateOperationsInput | string
     description?: StringFieldUpdateOperationsInput | string
     year?: IntFieldUpdateOperationsInput | number
-<<<<<<< HEAD
     brand_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     model_id?: NullableBigIntFieldUpdateOperationsInput | bigint | number | null
     custom_model?: NullableStringFieldUpdateOperationsInput | string | null
-=======
-    brand_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    model_id?: BigIntFieldUpdateOperationsInput | bigint | number
-    custom_model?: StringFieldUpdateOperationsInput | string
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     color_id?: BigIntFieldUpdateOperationsInput | bigint | number
     price?: FloatFieldUpdateOperationsInput | number
     floor_price?: BoolFieldUpdateOperationsInput | boolean
@@ -38063,47 +34042,28 @@ export namespace Prisma {
     is_sold?: BoolFieldUpdateOperationsInput | boolean
     is_checked?: BoolFieldUpdateOperationsInput | boolean
     is_top?: BoolFieldUpdateOperationsInput | boolean
-<<<<<<< HEAD
     top_expire_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   }
 
   export type PaymentCreateManyPayment_methodInput = {
-=======
-    top_expire_date?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type PaymentCreateManyPaymentMethodInput = {
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     id?: bigint | number
     user_id: bigint | number
     amount: number
   }
 
-<<<<<<< HEAD
   export type PaymentUpdateWithoutPayment_methodInput = {
-=======
-  export type PaymentUpdateWithoutPaymentMethodInput = {
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     amount?: FloatFieldUpdateOperationsInput | number
     user?: UserUpdateOneRequiredWithoutPaymentsNestedInput
   }
 
-<<<<<<< HEAD
   export type PaymentUncheckedUpdateWithoutPayment_methodInput = {
-=======
-  export type PaymentUncheckedUpdateWithoutPaymentMethodInput = {
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     user_id?: BigIntFieldUpdateOperationsInput | bigint | number
     amount?: FloatFieldUpdateOperationsInput | number
   }
 
-<<<<<<< HEAD
   export type PaymentUncheckedUpdateManyWithoutPayment_methodInput = {
-=======
-  export type PaymentUncheckedUpdateManyWithoutPaymentMethodInput = {
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
     id?: BigIntFieldUpdateOperationsInput | bigint | number
     user_id?: BigIntFieldUpdateOperationsInput | bigint | number
     amount?: FloatFieldUpdateOperationsInput | number
