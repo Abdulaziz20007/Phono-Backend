@@ -15,7 +15,6 @@ datasource db {
 }
 
 model User {
-<<<<<<< HEAD
   id            BigInt    @id @default(autoincrement())
   name          String
   surname       String
@@ -34,26 +33,6 @@ model User {
 
   emails            Email[]
   additional_phones Phone[]         @relation("UserAdditionalPhones")
-=======
-  id                   BigInt    @id @default(autoincrement())
-  name                 String    
-  surname              String    
-  birth_date           DateTime?
-  phone                String    
-  avatar               String?   
-  refresh_token        String?
-  balance              Float     @default(0)
-  otp_id               BigInt?
-  lang_id              BigInt    @default(1)
-  currency_id BigInt    @map("currency")
-
-  otp               OTP?      @relation(fields: [otp_id], references: [id])
-  language          Language  @relation(fields: [lang_id], references: [id])
-  currency Currency  @relation("UserPreferredCurrency", fields: [currency_id], references: [id])
-
-  emails            Email[]
-  additional_phones Phone[]          @relation("UserAdditionalPhones")
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   favourite_items   FavouriteItem[]
   addresses         Address[]
   products          Product[]
@@ -64,26 +43,16 @@ model User {
 
 model OTP {
   id     BigInt   @id @default(autoincrement())
-<<<<<<< HEAD
   uuid   String
   otp    Int
   expire DateTime
-=======
-  uuid   String   
-  otp    Int      
-  expire DateTime 
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
 
   users User[]
 }
 
 model Phone {
   id      BigInt @id @default(autoincrement())
-<<<<<<< HEAD
   phone   String
-=======
-  phone   String 
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   user_id BigInt
 
   user     User      @relation("UserAdditionalPhones", fields: [user_id], references: [id])
@@ -99,7 +68,6 @@ model Email {
 }
 
 model Address {
-<<<<<<< HEAD
   id            BigInt  @id @default(autoincrement())
   name          String
   address_value BigInt  @map("address")
@@ -107,28 +75,14 @@ model Address {
   long          String
   user_id       BigInt
   is_active     Boolean
-=======
-  id             BigInt  @id @default(autoincrement())
-  name           String  
-  address_value  BigInt  @map("address")
-  lat            String  
-  long           String  
-  user_id        BigInt
-  is_active      Boolean
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
 
   user     User      @relation(fields: [user_id], references: [id])
   products Product[]
 }
 
 model Language {
-<<<<<<< HEAD
   id       BigInt @id @default(autoincrement())
   name     String @unique
-=======
-  id   BigInt @id @default(autoincrement())
-  name String @unique
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   flag_url String
 
   users  User[]
@@ -147,7 +101,6 @@ model FavouriteItem {
 }
 
 model Product {
-<<<<<<< HEAD
   id              BigInt    @id @default(autoincrement())
   user_id         BigInt
   title           String
@@ -173,33 +126,6 @@ model Product {
   admin_id        BigInt?
   is_top          Boolean   @default(false)
   top_expire_date DateTime?
-=======
-  id               BigInt   @id @default(autoincrement())
-  user_id          BigInt
-  title            String   
-  description      String   
-  year             Int      
-  brand_id         BigInt?
-  model_id         BigInt?
-  custom_model     String?  
-  color_id         BigInt
-  price            Float
-  floor_price      Boolean @default(true)
-  currency_id      BigInt @default(1)
-  is_new           Boolean
-  has_document     Boolean
-  address_id       BigInt
-  phone_id         BigInt
-  storage          BigInt
-  ram              BigInt
-  views            BigInt   @default(0)
-  is_archived      Boolean  @default(false)
-  is_sold          Boolean  @default(false)
-  is_checked       Boolean  @default(false)
-  admin_id         BigInt?
-  is_top           Boolean  @default(false)
-  top_expire_date  DateTime?
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
 
   user          User     @relation(fields: [user_id], references: [id])
   brand         Brand?   @relation(fields: [brand_id], references: [id])
@@ -217,11 +143,7 @@ model Product {
 
 model ProductImage {
   id         BigInt  @id @default(autoincrement())
-<<<<<<< HEAD
   url        String
-=======
-  url        String  
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   product_id BigInt
   is_main    Boolean @default(false)
 
@@ -231,11 +153,7 @@ model ProductImage {
 model Brand {
   id   BigInt @id @default(autoincrement())
   name String @unique
-<<<<<<< HEAD
   logo String
-=======
-  logo String 
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
 
   models   Model[]
   products Product[]
@@ -243,11 +161,7 @@ model Brand {
 
 model Model {
   id       BigInt @id @default(autoincrement())
-<<<<<<< HEAD
   name     String
-=======
-  name     String 
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   brand_id BigInt
 
   brand    Brand     @relation(fields: [brand_id], references: [id])
@@ -267,18 +181,13 @@ model Color {
 model Currency {
   id     BigInt @id @default(autoincrement())
   name   String @unique
-<<<<<<< HEAD
   symbol String
-=======
-  symbol String 
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
 
   user_preferences User[]    @relation("UserPreferredCurrency")
   products         Product[]
 }
 
 model Admin {
-<<<<<<< HEAD
   id            BigInt   @id @default(autoincrement())
   name          String
   surname       String
@@ -289,18 +198,6 @@ model Admin {
   refresh_token String?
   lang_id       BigInt   @default(1)
   is_creator    Boolean  @default(false)
-=======
-  id             BigInt   @id @default(autoincrement())
-  name           String   
-  surname        String   
-  birth_date     DateTime 
-  phone          String   @unique
-  password       String   
-  avatar         String?   
-  refresh_token  String?   
-  lang_id        BigInt @default(1)
-  is_creator     Boolean  @default(false)
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
 
   language         Language  @relation(fields: [lang_id], references: [id])
   blocks_issued    Block[]
@@ -311,11 +208,7 @@ model Block {
   id          BigInt   @id @default(autoincrement())
   user_id     BigInt
   admin_id    BigInt
-<<<<<<< HEAD
   reason      String
-=======
-  reason      String   
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
   expire_date DateTime
 
   user  User  @relation(fields: [user_id], references: [id])
@@ -323,17 +216,10 @@ model Block {
 }
 
 model Payment {
-<<<<<<< HEAD
   id                BigInt @id @default(autoincrement())
   user_id           BigInt
   amount            Float
   payment_method_id BigInt
-=======
-  id                 BigInt @id @default(autoincrement())
-  user_id            BigInt
-  amount             Float
-  payment_method_id  BigInt
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
 
   user           User          @relation(fields: [user_id], references: [id])
   payment_method PaymentMethod @relation(fields: [payment_method_id], references: [id])
@@ -343,11 +229,7 @@ model Comment {
   id         BigInt @id @default(autoincrement())
   user_id    BigInt
   product_id BigInt
-<<<<<<< HEAD
   text       String
-=======
-  text       String 
->>>>>>> b20a6394698a42480cfe66dd0444c030c89c2dbd
 
   user    User    @relation(fields: [user_id], references: [id])
   product Product @relation(fields: [product_id], references: [id])
