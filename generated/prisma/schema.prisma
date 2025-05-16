@@ -15,84 +15,75 @@ datasource db {
 }
 
 model User {
-  id                  BigInt   @id @default(autoincrement())
-  name                String   @db.VarChar(255)
-  surname             String   @db.VarChar(255)
-  birth_date          DateTime @db.Date
-  phone               String   @db.VarChar(255)
-  avatar              String   @db.VarChar(255)
-  refresh_token       String   @db.VarChar(255)
-  balance             Float
-  otp_id              BigInt
-  lang_id             BigInt
-  preferredCurrencyId BigInt   @map("currency")
+  id            BigInt    @id @default(autoincrement())
+  name          String
+  surname       String
+  birth_date    DateTime?
+  phone         String
+  avatar        String?
+  refresh_token String?
+  balance       Float     @default(0)
+  otp_id        BigInt?
+  lang_id       BigInt    @default(1)
+  currency_id   BigInt    @map("currency")
 
-  otp               OTP      @relation(fields: [otp_id], references: [id])
-  language          Language @relation(fields: [lang_id], references: [id])
-  preferredCurrency Currency @relation("UserPreferredCurrency", fields: [preferredCurrencyId], references: [id])
+  otp      OTP?     @relation(fields: [otp_id], references: [id])
+  language Language @relation(fields: [lang_id], references: [id])
+  currency Currency @relation("UserPreferredCurrency", fields: [currency_id], references: [id])
 
-  emails           Email[]
-  additionalPhones Phone[]         @relation("UserAdditionalPhones")
-  favouriteItems   FavouriteItem[]
-  addresses        Address[]
-  products         Product[]
-  comments         Comment[]
-  payments         Payment[]
-  blocks           Block[]
-
-  @@index([otp_id])
-  @@index([lang_id])
-  @@index([preferredCurrencyId])
+  emails            Email[]
+  additional_phones Phone[]         @relation("UserAdditionalPhones")
+  favourite_items   FavouriteItem[]
+  addresses         Address[]
+  products          Product[]
+  comments          Comment[]
+  payments          Payment[]
+  blocks            Block[]
 }
 
 model OTP {
   id     BigInt   @id @default(autoincrement())
-  uuid   String   @db.VarChar(255)
-  otp    Int      @db.SmallInt
-  expire DateTime @db.Date
+  uuid   String
+  otp    Int
+  expire DateTime
 
   users User[]
 }
 
 model Phone {
   id      BigInt @id @default(autoincrement())
-  phone   String @db.VarChar(255)
+  phone   String
   user_id BigInt
 
   user     User      @relation("UserAdditionalPhones", fields: [user_id], references: [id])
   products Product[]
-
-  @@index([user_id])
 }
 
 model Email {
   id      BigInt @id @default(autoincrement())
-  email   String @unique @db.VarChar(255)
+  email   String @unique
   user_id BigInt
 
   user User @relation(fields: [user_id], references: [id])
-
-  @@index([user_id])
 }
 
 model Address {
-  id           BigInt  @id @default(autoincrement())
-  name         String  @db.VarChar(255)
-  addressValue BigInt  @map("address")
-  lat          String  @db.VarChar(255)
-  long         String  @db.VarChar(255)
-  user_id      BigInt
-  is_active    Boolean
+  id            BigInt  @id @default(autoincrement())
+  name          String
+  address_value BigInt  @map("address")
+  lat           String
+  long          String
+  user_id       BigInt
+  is_active     Boolean
 
   user     User      @relation(fields: [user_id], references: [id])
   products Product[]
-
-  @@index([user_id])
 }
 
 model Language {
-  id   BigInt @id @default(autoincrement())
-  name String @unique @db.VarChar(255)
+  id       BigInt @id @default(autoincrement())
+  name     String @unique
+  flag_url String
 
   users  User[]
   admins Admin[]
@@ -107,75 +98,62 @@ model FavouriteItem {
   user    User    @relation(fields: [user_id], references: [id])
 
   @@unique([user_id, product_id])
-  @@index([product_id])
-  @@index([user_id])
 }
 
 model Product {
-  id              BigInt   @id @default(autoincrement())
+  id              BigInt    @id @default(autoincrement())
   user_id         BigInt
-  title           String   @db.VarChar(255)
-  description     String   @db.VarChar(255)
-  year            Int      @db.SmallInt
-  brand_id        BigInt
-  model_id        BigInt
-  custom_model    String   @db.VarChar(255)
+  title           String
+  description     String
+  year            Int
+  brand_id        BigInt?
+  model_id        BigInt?
+  custom_model    String?
   color_id        BigInt
   price           Float
-  floor_price     Boolean
-  currency_id     BigInt
+  floor_price     Boolean   @default(true)
+  currency_id     BigInt    @default(1)
   is_new          Boolean
   has_document    Boolean
   address_id      BigInt
   phone_id        BigInt
   storage         BigInt
   ram             BigInt
-  views           BigInt   @default(0)
-  is_archived     Boolean  @default(false)
-  is_sold         Boolean  @default(false)
-  is_checked      Boolean  @default(false)
-  admin_id        BigInt
-  is_top          Boolean  @default(false)
-  top_expire_date DateTime @db.Date
+  views           BigInt    @default(0)
+  is_archived     Boolean   @default(false)
+  is_sold         Boolean   @default(false)
+  is_checked      Boolean   @default(false)
+  admin_id        BigInt?
+  is_top          Boolean   @default(false)
+  top_expire_date DateTime?
 
-  user         User     @relation(fields: [user_id], references: [id])
-  brand        Brand    @relation(fields: [brand_id], references: [id])
-  model        Model    @relation(fields: [model_id], references: [id])
-  color        Color    @relation(fields: [color_id], references: [id])
-  currency     Currency @relation(fields: [currency_id], references: [id])
-  address      Address  @relation(fields: [address_id], references: [id])
-  contactPhone Phone    @relation(fields: [phone_id], references: [id])
-  admin        Admin    @relation(fields: [admin_id], references: [id])
+  user          User     @relation(fields: [user_id], references: [id])
+  brand         Brand?   @relation(fields: [brand_id], references: [id])
+  model         Model?   @relation(fields: [model_id], references: [id])
+  color         Color    @relation(fields: [color_id], references: [id])
+  currency      Currency @relation(fields: [currency_id], references: [id])
+  address       Address  @relation(fields: [address_id], references: [id])
+  contact_phone Phone    @relation(fields: [phone_id], references: [id])
+  admin         Admin?   @relation(fields: [admin_id], references: [id])
 
-  images       ProductImage[]
-  favouritedBy FavouriteItem[]
-  comments     Comment[]
-
-  @@index([user_id])
-  @@index([brand_id])
-  @@index([model_id])
-  @@index([color_id])
-  @@index([currency_id])
-  @@index([address_id])
-  @@index([phone_id])
-  @@index([admin_id])
+  images        ProductImage[]
+  favourited_by FavouriteItem[]
+  comments      Comment[]
 }
 
 model ProductImage {
   id         BigInt  @id @default(autoincrement())
-  url        String  @db.VarChar(255)
+  url        String
   product_id BigInt
   is_main    Boolean @default(false)
 
   product Product @relation(fields: [product_id], references: [id])
-
-  @@index([product_id])
 }
 
 model Brand {
   id   BigInt @id @default(autoincrement())
-  name String @unique @db.VarChar(255)
-  logo String @db.VarChar(255)
+  name String @unique
+  logo String
 
   models   Model[]
   products Product[]
@@ -183,63 +161,58 @@ model Brand {
 
 model Model {
   id       BigInt @id @default(autoincrement())
-  name     String @db.VarChar(255)
+  name     String
   brand_id BigInt
 
   brand    Brand     @relation(fields: [brand_id], references: [id])
   products Product[]
 
   @@unique([brand_id, name])
-  @@index([brand_id])
 }
 
 model Color {
   id   BigInt @id @default(autoincrement())
-  name String @unique @db.VarChar(255)
+  name String @unique
+  hex  String
 
   products Product[]
 }
 
 model Currency {
   id     BigInt @id @default(autoincrement())
-  name   String @unique @db.VarChar(255)
-  symbol String @db.VarChar(255)
+  name   String @unique
+  symbol String
 
-  userPreferences User[]    @relation("UserPreferredCurrency")
-  products        Product[]
+  user_preferences User[]    @relation("UserPreferredCurrency")
+  products         Product[]
 }
 
 model Admin {
   id            BigInt   @id @default(autoincrement())
-  name          String   @db.VarChar(255)
-  surname       String   @db.VarChar(255)
-  birth_date    DateTime @db.Date
-  phone         String   @unique @db.VarChar(255)
-  password      String   @db.VarChar(255)
-  avatar        String   @db.VarChar(255)
-  refresh_token String   @db.VarChar(255)
-  lang_id       BigInt
+  name          String
+  surname       String
+  birth_date    DateTime
+  phone         String   @unique
+  password      String
+  avatar        String?
+  refresh_token String?
+  lang_id       BigInt   @default(1)
   is_creator    Boolean  @default(false)
 
-  language        Language  @relation(fields: [lang_id], references: [id])
-  blocksIssued    Block[]
-  productsManaged Product[]
-
-  @@index([lang_id])
+  language         Language  @relation(fields: [lang_id], references: [id])
+  blocks_issued    Block[]
+  products_managed Product[]
 }
 
 model Block {
-  id         BigInt   @id @default(autoincrement())
-  user_id    BigInt
-  admin_id   BigInt
-  reason     String   @db.VarChar(255)
-  expireDate DateTime @map("expire_data") @db.Date
+  id          BigInt   @id @default(autoincrement())
+  user_id     BigInt
+  admin_id    BigInt
+  reason      String
+  expire_date DateTime
 
   user  User  @relation(fields: [user_id], references: [id])
   admin Admin @relation(fields: [admin_id], references: [id])
-
-  @@index([user_id])
-  @@index([admin_id])
 }
 
 model Payment {
@@ -248,29 +221,23 @@ model Payment {
   amount            Float
   payment_method_id BigInt
 
-  user          User          @relation(fields: [user_id], references: [id])
-  paymentMethod PaymentMethod @relation(fields: [payment_method_id], references: [id])
-
-  @@index([user_id])
-  @@index([payment_method_id])
+  user           User          @relation(fields: [user_id], references: [id])
+  payment_method PaymentMethod @relation(fields: [payment_method_id], references: [id])
 }
 
 model Comment {
   id         BigInt @id @default(autoincrement())
   user_id    BigInt
   product_id BigInt
-  text       String @db.VarChar(255)
+  text       String
 
   user    User    @relation(fields: [user_id], references: [id])
   product Product @relation(fields: [product_id], references: [id])
-
-  @@index([user_id])
-  @@index([product_id])
 }
 
 model PaymentMethod {
   id   BigInt @id @default(autoincrement())
-  name String @unique @db.VarChar(255)
+  name String @unique
 
   payments Payment[]
 }

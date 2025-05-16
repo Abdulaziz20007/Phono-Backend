@@ -18,13 +18,15 @@ import { BlockModule } from './block/block.module';
 import { PaymentModule } from './payment/payment.module';
 import { CommentModule } from './comment/comment.module';
 import { PaymentMethodModule } from './payment-method/payment-method.module';
+import { PrismaModule } from './prisma/prisma.module';
 
 @Module({
   imports: [
-    ProductModule,
     ConfigModule.forRoot({
       isGlobal: true,
     }),
+    PrismaModule,
+    ProductModule,
     UserModule,
     OtpModule,
     PhoneModule,
