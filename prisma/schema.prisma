@@ -6,7 +6,6 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../generated/prisma"
 }
 
 datasource db {
@@ -15,21 +14,18 @@ datasource db {
 }
 
 model User {
-  id            BigInt    @id @default(autoincrement())
+  id            Int    @id @default(autoincrement())
   name          String
   surname       String
-  birth_date    DateTime?
-  phone         String
+  phone         String   @unique
+  password      String?
   avatar        String?
+  balance       Float   @default(0)
+  currency_id   Int     @default(1)
+  is_active     Boolean  @default(false)
   refresh_token String?
-  balance       Float     @default(0)
-  otp_id        BigInt?
-  lang_id       BigInt    @default(1)
-  currency_id   BigInt    @map("currency")
 
-  otp      OTP?     @relation(fields: [otp_id], references: [id])
-  language Language @relation(fields: [lang_id], references: [id])
-  currency Currency @relation("UserPreferredCurrency", fields: [currency_id], references: [id])
+  currency Currency? @relation("UserPreferredCurrency", fields: [currency_id], references: [id])
 
   emails            Email[]
   additional_phones Phone[]         @relation("UserAdditionalPhones")
@@ -39,60 +35,54 @@ model User {
   comments          Comment[]
   payments          Payment[]
   blocks            Block[]
+  otps             Otp[]
 }
 
-model OTP {
-  id     BigInt   @id @default(autoincrement())
-  uuid   String
-  otp    Int
-  expire DateTime
+model Otp {
+  id         Int      @id @default(autoincrement())
+  user_id    Int
+  uuid       String   @unique
+  otp        String
+  expire     DateTime
+  created_at DateTime @default(now())
 
-  users User[]
+  user User @relation(fields: [user_id], references: [id])
 }
 
 model Phone {
-  id      BigInt @id @default(autoincrement())
+  id      Int @id @default(autoincrement())
   phone   String
-  user_id BigInt
+  user_id Int
 
   user     User      @relation("UserAdditionalPhones", fields: [user_id], references: [id])
   products Product[]
 }
 
 model Email {
-  id      BigInt @id @default(autoincrement())
+  id      Int @id @default(autoincrement())
   email   String @unique
-  user_id BigInt
+  user_id Int
 
   user User @relation(fields: [user_id], references: [id])
 }
 
 model Address {
-  id            BigInt  @id @default(autoincrement())
+  id            Int  @id @default(autoincrement())
   name          String
-  address_value BigInt  @map("address")
+  address       String
   lat           String
   long          String
-  user_id       BigInt
+  user_id       Int
   is_active     Boolean
 
   user     User      @relation(fields: [user_id], references: [id])
   products Product[]
 }
 
-model Language {
-  id       BigInt @id @default(autoincrement())
-  name     String @unique
-  flag_url String
-
-  users  User[]
-  admins Admin[]
-}
-
 model FavouriteItem {
-  id         BigInt @id @default(autoincrement())
-  product_id BigInt
-  user_id    BigInt
+  id         Int @id @default(autoincrement())
+  product_id Int
+  user_id    Int
 
   product Product @relation(fields: [product_id], references: [id])
   user    User    @relation(fields: [user_id], references: [id])
@@ -101,29 +91,29 @@ model FavouriteItem {
 }
 
 model Product {
-  id              BigInt    @id @default(autoincrement())
-  user_id         BigInt
+  id              Int    @id @default(autoincrement())
+  user_id         Int
   title           String
   description     String
   year            Int
-  brand_id        BigInt?
-  model_id        BigInt?
+  brand_id        Int?
+  model_id        Int?
   custom_model    String?
-  color_id        BigInt
+  color_id        Int
   price           Float
   floor_price     Boolean   @default(true)
-  currency_id     BigInt    @default(1)
+  currency_id     Int    @default(1)
   is_new          Boolean
   has_document    Boolean
-  address_id      BigInt
-  phone_id        BigInt
-  storage         BigInt
-  ram             BigInt
-  views           BigInt    @default(0)
+  address_id      Int
+  phone_id        Int
+  storage         Int
+  ram             Int
+  views           Int    @default(0)
   is_archived     Boolean   @default(false)
   is_sold         Boolean   @default(false)
   is_checked      Boolean   @default(false)
-  admin_id        BigInt?
+  admin_id        Int?
   is_top          Boolean   @default(false)
   top_expire_date DateTime?
 
@@ -142,16 +132,16 @@ model Product {
 }
 
 model ProductImage {
-  id         BigInt  @id @default(autoincrement())
+  id         Int  @id @default(autoincrement())
   url        String
-  product_id BigInt
+  product_id Int
   is_main    Boolean @default(false)
 
   product Product @relation(fields: [product_id], references: [id])
 }
 
 model Brand {
-  id   BigInt @id @default(autoincrement())
+  id   Int @id @default(autoincrement())
   name String @unique
   logo String
 
@@ -160,9 +150,9 @@ model Brand {
 }
 
 model Model {
-  id       BigInt @id @default(autoincrement())
+  id       Int @id @default(autoincrement())
   name     String
-  brand_id BigInt
+  brand_id Int
 
   brand    Brand     @relation(fields: [brand_id], references: [id])
   products Product[]
@@ -171,7 +161,7 @@ model Model {
 }
 
 model Color {
-  id   BigInt @id @default(autoincrement())
+  id   Int @id @default(autoincrement())
   name String @unique
   hex  String
 
@@ -179,7 +169,7 @@ model Color {
 }
 
 model Currency {
-  id     BigInt @id @default(autoincrement())
+  id     Int @id @default(autoincrement())
   name   String @unique
   symbol String
 
@@ -188,7 +178,7 @@ model Currency {
 }
 
 model Admin {
-  id            BigInt   @id @default(autoincrement())
+  id            Int   @id @default(autoincrement())
   name          String
   surname       String
   birth_date    DateTime
@@ -196,18 +186,16 @@ model Admin {
   password      String
   avatar        String?
   refresh_token String?
-  lang_id       BigInt   @default(1)
   is_creator    Boolean  @default(false)
 
-  language         Language  @relation(fields: [lang_id], references: [id])
   blocks_issued    Block[]
   products_managed Product[]
 }
 
 model Block {
-  id          BigInt   @id @default(autoincrement())
-  user_id     BigInt
-  admin_id    BigInt
+  id          Int   @id @default(autoincrement())
+  user_id     Int
+  admin_id    Int
   reason      String
   expire_date DateTime
 
@@ -216,19 +204,19 @@ model Block {
 }
 
 model Payment {
-  id                BigInt @id @default(autoincrement())
-  user_id           BigInt
+  id                Int @id @default(autoincrement())
+  user_id           Int
   amount            Float
-  payment_method_id BigInt
+  payment_method_id Int
 
   user           User          @relation(fields: [user_id], references: [id])
   payment_method PaymentMethod @relation(fields: [payment_method_id], references: [id])
 }
 
 model Comment {
-  id         BigInt @id @default(autoincrement())
-  user_id    BigInt
-  product_id BigInt
+  id         Int @id @default(autoincrement())
+  user_id    Int
+  product_id Int
   text       String
 
   user    User    @relation(fields: [user_id], references: [id])
@@ -236,7 +224,7 @@ model Comment {
 }
 
 model PaymentMethod {
-  id   BigInt @id @default(autoincrement())
+  id   Int @id @default(autoincrement())
   name String @unique
 
   payments Payment[]

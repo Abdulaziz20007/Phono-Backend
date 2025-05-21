@@ -1,34 +1,80 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { ModelService } from './model.service';
-import { CreateModelDto } from './dto/create-model.dto';
-import { UpdateModelDto } from './dto/update-model.dto';
+import {
+  Controller,
+  Post,
+  Body,
+  HttpCode,
+  Get,
+  Param,
+  ParseIntPipe,
+  Patch,
+  Delete,
+  UseInterceptors,
+  Query,
+  BadRequestException,
+} from "@nestjs/common";
+import { ModelService } from "./model.service";
+import { CreateModelDto, UpdateModelDto } from "./dto";
+import { ApiTags, ApiBody, ApiConsumes, ApiQuery } from "@nestjs/swagger";
+import { NoFilesInterceptor } from "@nestjs/platform-express";
+import { Model } from "@prisma/client";
 
-@Controller('model')
+@ApiTags("Model")
+@Controller("model")
 export class ModelController {
   constructor(private readonly modelService: ModelService) {}
 
   @Post()
-  create(@Body() createModelDto: CreateModelDto) {
+  @HttpCode(201)
+  @ApiConsumes("multipart/form-data", "application/json")
+  @UseInterceptors(NoFilesInterceptor())
+  @ApiBody({ type: CreateModelDto })
+  async create(@Body() createModelDto: CreateModelDto): Promise<Model> {
     return this.modelService.create(createModelDto);
   }
 
   @Get()
-  findAll() {
-    return this.modelService.findAll();
+  @ApiQuery({
+    name: "brandId",
+    required: false,
+    type: Number,
+    description: "Brand ID bo'yicha filterlash",
+  })
+  async findAll(@Query("brandId") brandIdQuery?: string): Promise<Model[]> {
+    // Parametr nomi o'zgartirildi
+    let brandIdNumber: number | undefined = undefined;
+
+    if (brandIdQuery) {
+      // Agar brandIdQuery mavjud bo'lsa (bo'sh string emas)
+      brandIdNumber = parseInt(brandIdQuery, 10);
+      if (isNaN(brandIdNumber)) {
+        throw new BadRequestException("brandId raqam bo'lishi kerak.");
+      }
+    }
+    // Endi brandIdNumber yoki number yoki undefined
+    return this.modelService.findAll(brandIdNumber);
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.modelService.findOne(+id);
+  @Get(":id")
+  async findOne(@Param("id", ParseIntPipe) id: number): Promise<Model> {
+    return this.modelService.findOne(id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateModelDto: UpdateModelDto) {
-    return this.modelService.update(+id, updateModelDto);
+  @Patch(":id")
+  @ApiConsumes("multipart/form-data", "application/json")
+  @UseInterceptors(NoFilesInterceptor())
+  @ApiBody({ type: UpdateModelDto })
+  async update(
+    @Param("id", ParseIntPipe) id: number,
+    @Body() updateModelDto: UpdateModelDto
+  ): Promise<Model> {
+    return this.modelService.update(id, updateModelDto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.modelService.remove(+id);
+  @Delete(":id")
+  @HttpCode(204)
+  async remove(
+    @Param("id", ParseIntPipe) id: number
+  ): Promise<{ message: string }> {
+    return this.modelService.remove(id);
   }
 }
