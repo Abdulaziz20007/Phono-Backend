@@ -17,6 +17,7 @@ import { generateOtp } from '../common/otp';
 import { OtpService } from '../otp/otp.service';
 import { phoneChecker } from '../common/phone';
 import * as bcrypt from 'bcrypt';
+import { Response } from 'express';
 
 @Injectable()
 export class AuthService {
@@ -25,6 +26,11 @@ export class AuthService {
     private readonly userService: UserService,
     private readonly otpService: OtpService,
   ) {}
+
+  COOKIE_OPTIONS = {
+    httpOnly: true,
+    maxAge: Number(process.env.COOKIE_TIME) || 864000000,
+  };
 
   userJwtGenerate(payload: UserJwtDto): object {
     const tokens = {
@@ -166,7 +172,7 @@ export class AuthService {
     return response;
   }
 
-  async login(loginDto: LoginDto) {
+  async login(loginDto: LoginDto, res?: Response) {
     if (!phoneChecker(loginDto.phone)) {
       throw new BadRequestException("Noto'g'ri telefon raqam");
     }
@@ -194,17 +200,15 @@ export class AuthService {
       is_active: user.is_active,
     });
 
-    return {
-      user: {
-        id: user.id,
-        phone: user.phone,
-        is_active: user.is_active,
-      },
-      ...tokens,
-    };
+    if (res) {
+      res.cookie('refreshToken', tokens['refresh_token'], this.COOKIE_OPTIONS);
+      return { access_token: tokens['access_token'] };
+    }
+
+    return tokens;
   }
 
-  async refreshToken(refreshTokenDto: RefreshTokenDto) {
+  async refreshToken(refreshTokenDto: RefreshTokenDto, res?: Response) {
     try {
       const payload = await this.jwtService.verify(
         refreshTokenDto.refresh_token,
@@ -228,24 +232,22 @@ export class AuthService {
         is_active: user.is_active,
       });
 
-      return {
-        user: {
-          id: user.id,
-          phone: user.phone,
-          is_active: user.is_active,
-        },
-        ...tokens,
-      };
+      if (res) {
+        res.cookie(
+          'refreshToken',
+          tokens['refresh_token'],
+          this.COOKIE_OPTIONS,
+        );
+        return { access_token: tokens['access_token'] };
+      }
+
+      return tokens;
     } catch (error) {
       throw new UnauthorizedException('Yaroqsiz refresh token');
     }
   }
 
-  async logout(userId: number) {
-    // In a real application, you might want to:
-    // 1. Add the token to a blacklist
-    // 2. Clear any session data
-    // 3. Clear any refresh tokens
-    return { message: 'Muvaffaqiyatli chiqildi' };
+  logout(res: Response) {
+    res.clearCookie('refreshToken');
   }
 }

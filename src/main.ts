@@ -15,7 +15,6 @@ async function bootstrap() {
       logger: WinstonModule.createLogger(winstonConfig),
     });
 
-    // Swagger configuration
     const config = new DocumentBuilder()
       .setTitle('Phono API')
       .setDescription('Phono API documentation')
@@ -27,14 +26,12 @@ async function bootstrap() {
     const document = SwaggerModule.createDocument(app, config);
     SwaggerModule.setup('api/docs', app, document);
 
-    // Enable CORS
     app.enableCors({
       origin: ['*'],
       methods: ['*'],
       allowedHeaders: ['*'],
     });
 
-    // Middleware and global pipes
     app.use(cookieParser());
     app.useGlobalPipes(
       new ValidationPipe({

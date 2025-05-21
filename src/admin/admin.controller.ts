@@ -11,15 +11,18 @@ import {
   UploadedFile,
   HttpCode,
   ParseIntPipe,
-} from "@nestjs/common";
-import { AdminService } from "./admin.service";
-import { CreateAdminDto, UpdateAdminDto, UpdatePasswordDto } from "./dto";
-import { FileInterceptor } from "@nestjs/platform-express";
-import { ApiTags, ApiConsumes, ApiBody } from "@nestjs/swagger";
-import { Admin } from "@prisma/client";
-import { Express } from "express";
+} from '@nestjs/common';
+import { AdminService } from './admin.service';
+import { CreateAdminDto, UpdateAdminDto, UpdatePasswordDto } from './dto';
+import { FileInterceptor } from '@nestjs/platform-express';
+import { ApiTags, ApiConsumes, ApiBody } from '@nestjs/swagger';
+import { Admin } from '@prisma/client';
+import { Express } from 'express';
+import { Roles } from '../common/decorators/roles.decorator';
+import { Role } from '../common/enums/roles.enum';
+import { Public } from '../common/decorators/public.decorator';
 
-type AdminPublicData = Omit<Admin, "password" | "refresh_token">;
+type AdminPublicData = Omit<Admin, 'password' | 'refresh_token'>;
 type SelectedAdminDataForPasswordUpdate = {
   id: number;
   name: string;
@@ -29,23 +32,23 @@ type SelectedAdminDataForPasswordUpdate = {
   avatar: string | null;
 };
 
-@ApiTags("Admin")
-@Controller("admin")
+@ApiTags('Admin')
+@Controller('admin')
 export class AdminController {
   constructor(private readonly adminService: AdminService) {}
 
   @Post()
   @HttpCode(201)
-  @ApiConsumes("multipart/form-data")
+  @ApiConsumes('multipart/form-data')
   @UseInterceptors(
-    FileInterceptor("avatar", {
+    FileInterceptor('avatar', {
       fileFilter: (req, file, callback) => {
         if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/i)) {
           return callback(
             new BadRequestException(
-              "Faqat rasm fayllari (jpg, jpeg, png, gif) yuklanishi mumkin!"
+              'Faqat rasm fayllari (jpg, jpeg, png, gif) yuklanishi mumkin!',
             ),
-            false
+            false,
           );
         }
         callback(null, true);
@@ -53,39 +56,42 @@ export class AdminController {
       limits: {
         fileSize: 2 * 1024 * 1024, // 2MB
       },
-    })
+    }),
   )
   @ApiBody({ type: CreateAdminDto })
+  @Roles(Role.SUPERADMIN)
   async create(
     @Body() createAdminDto: CreateAdminDto,
-    @UploadedFile() avatarFile?: Express.Multer.File
+    @UploadedFile() avatarFile?: Express.Multer.File,
   ): Promise<AdminPublicData> {
     return this.adminService.create(createAdminDto, avatarFile);
   }
 
   @Get()
+  @Roles(Role.ADMIN)
   async findAll(): Promise<AdminPublicData[]> {
     return this.adminService.findAll();
   }
 
-  @Get(":id")
+  @Get(':id')
+  @Roles(Role.ADMIN)
   async findOne(
-    @Param("id", ParseIntPipe) id: number
+    @Param('id', ParseIntPipe) id: number,
   ): Promise<AdminPublicData> {
     return this.adminService.findOne(id);
   }
 
-  @Patch(":id")
-  @ApiConsumes("multipart/form-data")
+  @Patch(':id')
+  @ApiConsumes('multipart/form-data')
   @UseInterceptors(
-    FileInterceptor("avatar", {
+    FileInterceptor('avatar', {
       fileFilter: (req, file, callback) => {
         if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/i)) {
           return callback(
             new BadRequestException(
-              "Faqat rasm fayllari (jpg, jpeg, png, gif) yuklanishi mumkin!"
+              'Faqat rasm fayllari (jpg, jpeg, png, gif) yuklanishi mumkin!',
             ),
-            false
+            false,
           );
         }
         callback(null, true);
@@ -93,13 +99,14 @@ export class AdminController {
       limits: {
         fileSize: 2 * 1024 * 1024, // 2MB
       },
-    })
+    }),
   )
   @ApiBody({ type: UpdateAdminDto })
+  @Roles(Role.SUPERADMIN)
   async update(
-    @Param("id", ParseIntPipe) id: number,
+    @Param('id', ParseIntPipe) id: number,
     @Body() updateAdminDto: UpdateAdminDto,
-    @UploadedFile() avatarFile?: Express.Multer.File
+    @UploadedFile() avatarFile?: Express.Multer.File,
   ): Promise<AdminPublicData> {
     if (Object.keys(updateAdminDto).length === 0 && !avatarFile) {
       throw new BadRequestException("Yangilash uchun ma'lumot yuborilmadi.");
@@ -107,19 +114,21 @@ export class AdminController {
     return this.adminService.update(id, updateAdminDto, avatarFile);
   }
 
-  @Delete(":id")
+  @Delete(':id')
   @HttpCode(204)
-  async remove(@Param("id", ParseIntPipe) id: number): Promise<void> {
+  @Roles(Role.SUPERADMIN)
+  async remove(@Param('id', ParseIntPipe) id: number): Promise<void> {
     await this.adminService.remove(id);
   }
 
-  @Patch("update-password/:id")
+  @Patch('update-password/:id')
   @HttpCode(200)
-  @ApiConsumes("application/json")
+  @ApiConsumes('application/json')
   @ApiBody({ type: UpdatePasswordDto })
+  @Roles(Role.SUPERADMIN)
   async updatePassword(
-    @Param("id", ParseIntPipe) id: number,
-    @Body() updatePasswordDto: UpdatePasswordDto
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updatePasswordDto: UpdatePasswordDto,
   ): Promise<{ message: string; data: SelectedAdminDataForPasswordUpdate }> {
     return this.adminService.updatePassword(id, updatePasswordDto);
   }
