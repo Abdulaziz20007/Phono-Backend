@@ -1,26 +1,156 @@
-import { Injectable } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { CreateBlockDto } from './dto/create-block.dto';
 import { UpdateBlockDto } from './dto/update-block.dto';
+import { PrismaService } from '../prisma/prisma.service';
+import { Prisma } from '@prisma/client';
 
 @Injectable()
-export class BlockService {
-  create(createBlockDto: CreateBlockDto) {
-    return 'This action adds a new block';
+export class BlocksService {
+  constructor(private readonly prisma: PrismaService) {}
+
+  async create(createBlockDto: CreateBlockDto) {
+    const { user_id, admin_id, reason, expire_date } = createBlockDto;
+
+    try {
+      // Check if user exists
+      const user = await this.prisma.user.findUnique({
+        where: { id: user_id },
+      });
+      if (!user) {
+        throw new NotFoundException(`User with id ${user_id} not found`);
+      }
+
+      // Check if admin exists
+      const admin = await this.prisma.admin.findUnique({
+        where: { id: admin_id },
+      });
+      if (!admin) {
+        throw new NotFoundException(`Admin with id ${admin_id} not found`);
+      }
+
+      // Create new block
+      const newBlock = await this.prisma.block.create({
+        data: {
+          user_id,
+          admin_id,
+          reason,
+          expire_date: expire_date,
+        },
+        include: {
+          user: true,
+          admin: true,
+        },
+      });
+
+      return newBlock;
+    } catch (error) {
+      if (error instanceof NotFoundException) {
+        throw error;
+      }
+      throw new BadRequestException('Failed to create block: ' + error.message);
+    }
   }
 
-  findAll() {
-    return `This action returns all block`;
+  async findAll() {
+    try {
+      return await this.prisma.block.findMany({
+        include: {
+          user: true,
+          admin: true,
+        },
+      });
+    } catch (error) {
+      throw new BadRequestException('Failed to fetch blocks: ' + error.message);
+    }
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} block`;
+  async findOne(id: number) {
+    try {
+      const block = await this.prisma.block.findUnique({
+        where: { id },
+        include: {
+          user: true,
+          admin: true,
+        },
+      });
+
+      if (!block) {
+        throw new NotFoundException(`Block with id ${id} not found`);
+      }
+
+      return block;
+    } catch (error) {
+      if (error instanceof NotFoundException) {
+        throw error;
+      }
+      throw new BadRequestException('Failed to fetch block: ' + error.message);
+    }
   }
 
-  update(id: number, updateBlockDto: UpdateBlockDto) {
-    return `This action updates a #${id} block`;
+  async update(id: number, updateBlockDto: UpdateBlockDto) {
+    try {
+      // Check if block exists
+      const existingBlock = await this.prisma.block.findUnique({
+        where: { id },
+      });
+
+      if (!existingBlock) {
+        throw new NotFoundException(`Block with id ${id} not found`);
+      }
+
+      // Convert UpdateBlockDto to Prisma update input
+      const updateData: Prisma.BlockUpdateInput = {
+        ...updateBlockDto,
+        expire_date: updateBlockDto.expire_date || new Date(),
+      };
+
+      // Update block
+      const updatedBlock = await this.prisma.block.update({
+        where: { id },
+        data: updateData,
+        include: {
+          user: true,
+          admin: true,
+        },
+      });
+
+      return updatedBlock;
+    } catch (error) {
+      if (error instanceof NotFoundException) {
+        throw error;
+      }
+      throw new BadRequestException('Failed to update block: ' + error.message);
+    }
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} block`;
+  async remove(id: number) {
+    try {
+      // Check if block exists
+      const existingBlock = await this.prisma.block.findUnique({
+        where: { id },
+      });
+
+      if (!existingBlock) {
+        throw new NotFoundException(`Block with id ${id} not found`);
+      }
+
+      // Delete block
+      return await this.prisma.block.delete({
+        where: { id },
+        include: {
+          user: true,
+          admin: true,
+        },
+      });
+    } catch (error) {
+      if (error instanceof NotFoundException) {
+        throw error;
+      }
+      throw new BadRequestException('Failed to delete block: ' + error.message);
+    }
   }
 }

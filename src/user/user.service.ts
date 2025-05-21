@@ -22,6 +22,12 @@ export class UserService {
     });
   }
 
+  findByPhone(phone: string) {
+    return this.prisma.user.findFirst({
+      where: { phone },
+    });
+  }
+
   update(id: number, updateUserDto: UpdateUserDto) {
     return this.prisma.user.update({
       where: { id },

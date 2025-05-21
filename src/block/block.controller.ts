@@ -1,11 +1,19 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { BlockService } from './block.service';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common';
+import { BlocksService } from './block.service';
 import { CreateBlockDto } from './dto/create-block.dto';
 import { UpdateBlockDto } from './dto/update-block.dto';
 
 @Controller('block')
 export class BlockController {
-  constructor(private readonly blockService: BlockService) {}
+  constructor(private readonly blockService: BlocksService) {}
 
   @Post()
   create(@Body() createBlockDto: CreateBlockDto) {

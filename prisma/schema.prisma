@@ -17,14 +17,14 @@ model User {
   id            Int    @id @default(autoincrement())
   name          String
   surname       String
-  phone         String
+  phone         String   @unique
+  password      String?
   avatar        String?
+  balance       Float   @default(0)
+  currency_id   Int     @default(1)
+  is_active     Boolean  @default(false)
   refresh_token String?
-  balance       Float     @default(0)
-  otp_id        Int?
-  currency_id   Int?    @default(1)
 
-  otp      OTP?     @relation(fields: [otp_id], references: [id])
   currency Currency? @relation("UserPreferredCurrency", fields: [currency_id], references: [id])
 
   emails            Email[]
@@ -35,15 +35,18 @@ model User {
   comments          Comment[]
   payments          Payment[]
   blocks            Block[]
+  otps             Otp[]
 }
 
-model OTP {
-  id     Int   @id @default(autoincrement())
-  uuid   String
-  otp    Int
-  expire DateTime
+model Otp {
+  id         Int      @id @default(autoincrement())
+  user_id    Int
+  uuid       String   @unique
+  otp        String
+  expire     DateTime
+  created_at DateTime @default(now())
 
-  users User[]
+  user User @relation(fields: [user_id], references: [id])
 }
 
 model Phone {

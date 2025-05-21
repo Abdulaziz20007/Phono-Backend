@@ -1,0 +1,6 @@
+-- AlterTable
+ALTER TABLE "User" ADD COLUMN     "is_active" BOOLEAN DEFAULT false,
+ADD COLUMN     "password" TEXT,
+ALTER COLUMN "name" DROP NOT NULL,
+ALTER COLUMN "surname" DROP NOT NULL,
+ALTER COLUMN "balance" DROP NOT NULL;

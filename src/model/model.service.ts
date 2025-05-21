@@ -1,26 +1,158 @@
-import { Injectable } from '@nestjs/common';
-import { CreateModelDto } from './dto/create-model.dto';
-import { UpdateModelDto } from './dto/update-model.dto';
+import {
+  Injectable,
+  InternalServerErrorException,
+  BadRequestException,
+  NotFoundException,
+} from "@nestjs/common";
+import { CreateModelDto, UpdateModelDto } from "./dto";
+import { PrismaService } from "../prisma/prisma.service"; // O'zingizning PrismaService yo'lingizni ko'rsating
+import { Model } from "@prisma/client";
 
 @Injectable()
 export class ModelService {
-  create(createModelDto: CreateModelDto) {
-    return 'This action adds a new model';
+  constructor(private readonly prismaService: PrismaService) {}
+
+  async create(createModelDto: CreateModelDto): Promise<Model> {
+    try {
+      const brandExists = await this.prismaService.brand.findUnique({
+        where: { id: createModelDto.brand_id },
+      });
+      if (!brandExists) {
+        throw new BadRequestException(
+          `Brand with ID ${createModelDto.brand_id} not found.`
+        );
+      }
+
+      const model = await this.prismaService.model.create({
+        data: {
+          name: createModelDto.name,
+          brand_id: createModelDto.brand_id,
+        },
+        include: {
+          brand: true,
+        },
+      });
+      return model;
+    } catch (error) {
+      if (
+        error.code === "P2002" &&
+        error.meta?.target?.includes("brand_id") &&
+        error.meta?.target?.includes("name")
+      ) {
+        throw new BadRequestException(
+          `Model with name '${createModelDto.name}' already exists for brand ID ${createModelDto.brand_id}.`
+        );
+      }
+      if (error instanceof BadRequestException) {
+        throw error;
+      }
+      console.error("Error creating model:", error);
+      throw new InternalServerErrorException("Could not create model.");
+    }
   }
 
-  findAll() {
-    return `This action returns all model`;
+  async findAll(brandIdInput?: number): Promise<Model[]> {
+    // Parametr nomi o'zgartirildi va turi ixtiyoriy
+    return this.prismaService.model.findMany({
+      where: {
+        brand_id: brandIdInput, // Agar brandIdInput undefined bo'lsa, Prisma bu shartni e'tiborsiz qoldiradi
+      },
+      include: {
+        brand: true,
+      },
+    });
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} model`;
+  async findOne(id: number): Promise<Model> {
+    const model = await this.prismaService.model.findUnique({
+      where: { id },
+      include: {
+        brand: true,
+      },
+    });
+    if (!model) {
+      throw new NotFoundException(`Model with ID ${id} not found.`);
+    }
+    return model;
   }
 
-  update(id: number, updateModelDto: UpdateModelDto) {
-    return `This action updates a #${id} model`;
+  async update(id: number, updateModelDto: UpdateModelDto): Promise<Model> {
+    try {
+      const existingModel = await this.findOne(id); // Model mavjudligini tekshirish
+
+      let brandIdToUse = existingModel.brand_id; // Joriy brand ID
+      if (updateModelDto.brand_id !== undefined) {
+        // Agar DTOda brand_id kelgan bo'lsa
+        const brandExists = await this.prismaService.brand.findUnique({
+          where: { id: updateModelDto.brand_id },
+        });
+        if (!brandExists) {
+          throw new BadRequestException(
+            `Brand with ID ${updateModelDto.brand_id} not found.`
+          );
+        }
+        brandIdToUse = updateModelDto.brand_id;
+      }
+
+      const dataToUpdate: { name?: string; brand_id?: number } = {};
+      if (updateModelDto.name !== undefined) {
+        dataToUpdate.name = updateModelDto.name;
+      }
+      if (updateModelDto.brand_id !== undefined) {
+        dataToUpdate.brand_id = updateModelDto.brand_id;
+      }
+
+      const updatedModel = await this.prismaService.model.update({
+        where: { id },
+        data: dataToUpdate,
+        include: {
+          brand: true,
+        },
+      });
+      return updatedModel;
+    } catch (error) {
+      if (
+        error.code === "P2002" &&
+        error.meta?.target?.includes("brand_id") &&
+        error.meta?.target?.includes("name")
+      ) {
+        const nameToCheck =
+          updateModelDto.name || (await this.findOne(id)).name;
+        const brandIdToCheck =
+          updateModelDto.brand_id || (await this.findOne(id)).brand_id;
+        throw new BadRequestException(
+          `Model with name '${nameToCheck}' already exists for brand ID ${brandIdToCheck}.`
+        );
+      }
+      if (
+        error instanceof NotFoundException ||
+        error instanceof BadRequestException
+      ) {
+        throw error;
+      }
+      console.error(`Error updating model with ID ${id}:`, error);
+      throw new InternalServerErrorException("Could not update model.");
+    }
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} model`;
+  async remove(id: number): Promise<{ message: string }> {
+    try {
+      await this.findOne(id);
+      await this.prismaService.model.delete({
+        where: { id },
+      });
+      return { message: `Model with ID ${id} deleted successfully.` };
+    } catch (error) {
+      console.error(`Error deleting model with ID ${id}:`, error);
+      if (error instanceof NotFoundException) {
+        throw error;
+      }
+      if (error.code === "P2003") {
+        throw new BadRequestException(
+          `Cannot delete model with ID ${id} as it is still referenced by other records (e.g., Products).`
+        );
+      }
+      throw new InternalServerErrorException("Could not delete model.");
+    }
   }
 }

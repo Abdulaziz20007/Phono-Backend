@@ -1,34 +1,61 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { ColorService } from './color.service';
-import { CreateColorDto } from './dto/create-color.dto';
-import { UpdateColorDto } from './dto/update-color.dto';
+import {
+  Controller,
+  Post,
+  Body,
+  HttpCode,
+  Get,
+  Param,
+  ParseIntPipe,
+  Patch,
+  Delete,
+  UseInterceptors,
+} from "@nestjs/common";
+import { ColorService } from "./color.service";
+import { CreateColorDto, UpdateColorDto } from "./dto";
+import { ApiTags, ApiBody, ApiConsumes } from "@nestjs/swagger";
+import { NoFilesInterceptor } from "@nestjs/platform-express";
+import { Color } from "@prisma/client";
 
-@Controller('color')
+@ApiTags("Color")
+@Controller("color")
 export class ColorController {
   constructor(private readonly colorService: ColorService) {}
 
   @Post()
-  create(@Body() createColorDto: CreateColorDto) {
+  @HttpCode(201)
+  @ApiConsumes("multipart/form-data", "application/json") // form-data va JSON ni qo'llab-quvvatlash
+  @UseInterceptors(NoFilesInterceptor()) // form-data uchun
+  @ApiBody({ type: CreateColorDto })
+  async create(@Body() createColorDto: CreateColorDto): Promise<Color> {
     return this.colorService.create(createColorDto);
   }
 
   @Get()
-  findAll() {
+  async findAll(): Promise<Color[]> {
     return this.colorService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.colorService.findOne(+id);
+  @Get(":id")
+  async findOne(@Param("id", ParseIntPipe) id: number): Promise<Color> {
+    return this.colorService.findOne(id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateColorDto: UpdateColorDto) {
-    return this.colorService.update(+id, updateColorDto);
+  @Patch(":id")
+  @ApiConsumes("multipart/form-data", "application/json") // form-data va JSON ni qo'llab-quvvatlash
+  @UseInterceptors(NoFilesInterceptor()) // form-data uchun
+  @ApiBody({ type: UpdateColorDto })
+  async update(
+    @Param("id", ParseIntPipe) id: number,
+    @Body() updateColorDto: UpdateColorDto
+  ): Promise<Color> {
+    return this.colorService.update(id, updateColorDto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.colorService.remove(+id);
+  @Delete(":id")
+  @HttpCode(204)
+  async remove(
+    @Param("id", ParseIntPipe) id: number
+  ): Promise<{ message: string }> {
+    return this.colorService.remove(id);
   }
 }

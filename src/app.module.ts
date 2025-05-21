@@ -6,7 +6,6 @@ import { OtpModule } from './otp/otp.module';
 import { PhoneModule } from './phone/phone.module';
 import { EmailModule } from './email/email.module';
 import { AddressModule } from './address/address.module';
-import { LanguageModule } from './language/language.module';
 import { FavouriteItemModule } from './favourite-item/favourite-item.module';
 import { ProductImageModule } from './product-image/product-image.module';
 import { BrandModule } from './brand/brand.module';
@@ -19,6 +18,7 @@ import { PaymentModule } from './payment/payment.module';
 import { CommentModule } from './comment/comment.module';
 import { PaymentMethodModule } from './payment-method/payment-method.module';
 import { PrismaModule } from './prisma/prisma.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -32,7 +32,6 @@ import { PrismaModule } from './prisma/prisma.module';
     PhoneModule,
     EmailModule,
     AddressModule,
-    LanguageModule,
     FavouriteItemModule,
     ProductImageModule,
     BrandModule,
@@ -44,6 +43,7 @@ import { PrismaModule } from './prisma/prisma.module';
     PaymentModule,
     CommentModule,
     PaymentMethodModule,
+    AuthModule,
   ],
   controllers: [],
   providers: [],
