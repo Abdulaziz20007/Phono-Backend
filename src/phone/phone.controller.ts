@@ -12,15 +12,13 @@ import {
 import { PhoneService } from './phone.service';
 import { CreatePhoneDto } from './dto/create-phone.dto';
 import { UpdatePhoneDto } from './dto/update-phone.dto';
-import { Phone } from '@prisma/client';
 import { Roles } from '../common/decorators/roles.decorator';
 import { Role } from '../common/enums/roles.enum';
-import { Public } from '../common/decorators/public.decorator';
 import { GetUser } from '../common/decorators/get-user.decorator';
 import { UserType } from '../common/types/user.type';
 import { AdminType } from '../common/types/admin.type';
 
-@Controller('phones')
+@Controller('phone')
 export class PhoneController {
   constructor(private readonly phoneService: PhoneService) {}
 

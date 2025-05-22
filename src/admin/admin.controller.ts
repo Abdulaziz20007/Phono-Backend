@@ -36,7 +36,7 @@ type SelectedAdminDataForPasswordUpdate = {
 };
 
 @Controller('admin')
-@Roles(Role.ADMIN, Role.SUPERADMIN)
+@Roles(Role.SUPERADMIN)
 export class AdminController {
   constructor(private readonly adminService: AdminService) {}
 

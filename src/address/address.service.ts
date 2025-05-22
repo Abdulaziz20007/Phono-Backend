@@ -32,7 +32,7 @@ export class AddressService {
     return this.prismaService.address.findMany({
       where:
         user.role === 'ADMIN' || user.role === 'SUPERADMIN'
-          ? { user_id: user.id }
+          ? {}
           : { user_id: user.id },
     });
   }

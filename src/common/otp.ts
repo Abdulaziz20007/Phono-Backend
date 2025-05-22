@@ -19,25 +19,27 @@ export function generateOtp(): object {
 let TOKEN = '';
 
 export async function sendOtp(phone: string, otp: string) {
-  const token = checkTokenExp(TOKEN);
-  if (!token) {
-    const newToken = await loginEskiz();
-    TOKEN = newToken;
-  }
-  const formData = new FormData();
-  formData.append('mobile_phone', phone);
-  formData.append('message', `Your verification code is: ${otp}`);
-  formData.append('from', '4546');
+  // const token = checkTokenExp(TOKEN);
+  // if (!token) {
+  //   const newToken = await loginEskiz();
+  //   TOKEN = newToken;
+  // }
+  // const formData = new FormData();
+  // formData.append('mobile_phone', phone);
+  // formData.append('message', `Your verification code is: ${otp}`);
+  // formData.append('from', '4546');
 
-  const response = await fetch('notify.eskiz.uz/api/message/sms/send', {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${TOKEN}`,
-    },
-    body: formData,
-  });
+  // const response = await fetch('notify.eskiz.uz/api/message/sms/send', {
+  //   method: 'POST',
+  //   headers: {
+  //     Authorization: `Bearer ${TOKEN}`,
+  //   },
+  //   body: formData,
+  // });
 
-  return response.json();
+  // return response.json();
+
+  return console.log(otp);
 }
 
 async function loginEskiz() {
