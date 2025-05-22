@@ -4,7 +4,7 @@ import {
   BadRequestException,
 } from '@nestjs/common';
 import { CreateCurrencyDto } from './dto/create-currency.dto';
-import { PrismaService } from '../prisma/prisma.service'; // O'zingizning PrismaService yo'lingizni ko'rsating
+import { PrismaService } from '../prisma/prisma.service';
 import { Currency } from '@prisma/client';
 
 @Injectable()
@@ -12,7 +12,6 @@ export class CurrencyService {
   constructor(private readonly prismaService: PrismaService) {}
 
   async create(createCurrencyDto: CreateCurrencyDto) {
-    // Comment removed
     try {
       const currency = await this.prismaService.currency.create({
         data: createCurrencyDto,
@@ -44,7 +43,6 @@ export class CurrencyService {
   }
 
   async update(id: number, updateCurrencyDto: any) {
-    // UpdateCurrencyDto ni import qiling
     try {
       const existingCurrency = await this.findOne(id);
       const updatedCurrency = await this.prismaService.currency.update({

@@ -7,11 +7,12 @@ import {
 } from '@nestjs/common';
 import { CreateEmailDto } from './dto/create-email.dto';
 import { UpdateEmailDto } from './dto/update-email.dto';
-import { PrismaService } from '../prisma/prisma.service'; // Adjust path if needed
-import { Email, Prisma, User } from '@prisma/client'; // Import Prisma types
+import { PrismaService } from '../prisma/prisma.service';
 import { AdminType } from '../common/types/admin.type';
 import { UserType } from '../common/types/user.type';
 import { selfGuard } from '../common/self-guard';
+import { sendEmail } from '../common/otp';
+import { v4 as uuidv4 } from 'uuid';
 
 @Injectable()
 export class EmailService {
@@ -30,10 +31,13 @@ export class EmailService {
       throw new BadRequestException(`Foydalanuvchi topilmadi`);
     }
 
+    const activation = uuidv4();
+    await sendEmail(createEmailDto.email, activation);
     return this.prismaService.email.create({
       data: {
         ...createEmailDto,
         user_id: userId,
+        activation,
       },
     });
   }
@@ -84,9 +88,15 @@ export class EmailService {
       }
     }
 
+    const activation = uuidv4();
+    await sendEmail(updateEmailDto.email!, activation);
+
     return this.prismaService.email.update({
       where: { id },
-      data: updateEmailDto,
+      data: {
+        ...updateEmailDto,
+        activation,
+      },
     });
   }
 

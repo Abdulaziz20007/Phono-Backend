@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
+import nodemailer from 'nodemailer';
 
 export function generateOtp(): object {
   const min = 100000;
@@ -63,4 +64,39 @@ async function checkTokenExp(token: string) {
   } catch {
     return false;
   }
+}
+
+export async function sendEmail(email: string, uuid: string) {
+  const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    host: process.env.SMTP_HOST,
+    port: Number(process.env.SMTP_PORT),
+    secure: true,
+    auth: {
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASSWORD,
+    },
+  });
+
+  await transporter.sendMail({
+    from: process.env.SMTP_USER,
+    to: email,
+    subject: 'Email Verification',
+    text: '',
+    html: `
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #f9f9f9; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        <h2 style="color: #2c3e50; text-align: center; margin-bottom: 20px;">Welcome to Our Platform!</h2>
+        <p style="color: #34495e; text-align: center; margin-bottom: 30px;">Please verify your email address by clicking the button below</p>
+        <div style="text-align: center;">
+          <a href="${process.env.BASE_URL}/email/verify/${uuid}" 
+             style="display: inline-block; background-color: #3498db; color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; text-transform: uppercase; transition: background-color 0.3s ease;">
+             Verify Email
+          </a>
+        </div>
+        <p style="color: #7f8c8d; text-align: center; margin-top: 30px; font-size: 12px;">
+          If you didn't request this verification, please ignore this email.
+        </p>
+      </div>
+    `,
+  });
 }
