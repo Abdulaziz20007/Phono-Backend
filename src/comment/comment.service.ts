@@ -24,6 +24,12 @@ export class CommentService {
     return this.prismaService.comment.findMany();
   }
 
+  findByProductId(id: number) {
+    return this.prismaService.comment.findMany({
+      where: { product_id: id },
+    });
+  }
+
   async findOne(id: number) {
     const comment = await this.prismaService.comment.findUnique({
       where: { id },

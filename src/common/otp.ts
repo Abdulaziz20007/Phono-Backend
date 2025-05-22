@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-import nodemailer from 'nodemailer';
+import * as nodemailer from 'nodemailer';
 
 export function generateOtp(): object {
   const min = 100000;
@@ -69,6 +69,10 @@ async function checkTokenExp(token: string) {
 }
 
 export async function sendEmail(email: string, uuid: string) {
+  if (!nodemailer || typeof nodemailer.createTransport !== 'function') {
+    throw new Error('Nodemailer is not properly imported or initialized.');
+  }
+
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     host: process.env.SMTP_HOST,

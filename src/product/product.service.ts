@@ -10,10 +10,9 @@ export class ProductService {
   constructor(private readonly prisma: PrismaService) {}
 
   create(createProductDto: CreateProductDto, user: UserType | AdminType) {
-    const user_id =
-      user.role == 'ADMIN' || user.role == 'SUPERADMIN'
-        ? createProductDto.user_id!
-        : user.id;
+    const user_id = user.role == 'ADMIN' ? createProductDto.user_id! : user.id;
+
+    console.log({ ...createProductDto, user_id });
 
     return this.prisma.product.create({
       data: { ...createProductDto, user_id },
@@ -35,10 +34,7 @@ export class ProductService {
     updateProductDto: UpdateProductDto,
     user: UserType | AdminType,
   ) {
-    const user_id =
-      user.role == 'ADMIN' || user.role == 'SUPERADMIN'
-        ? updateProductDto.user_id
-        : user.id;
+    const user_id = user.role == 'ADMIN' ? updateProductDto.user_id : user.id;
     return this.prisma.product.update({
       where: { id, user_id },
       data: updateProductDto,

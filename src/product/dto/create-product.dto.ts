@@ -4,13 +4,14 @@ import {
   IsBoolean,
   IsNumber,
   IsNotEmpty,
+  IsOptional,
 } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateProductDto {
   @ApiProperty({ example: 1, description: 'User ID who owns the product' })
   @IsInt()
-  @IsNotEmpty()
+  @IsOptional()
   user_id?: number;
 
   @ApiProperty({ example: 'iPhone 13 Pro Max', description: 'Product title' })
@@ -46,7 +47,7 @@ export class CreateProductDto {
     description: 'Custom model name if not in standard models',
   })
   @IsString()
-  @IsNotEmpty()
+  @IsOptional()
   custom_model?: string;
 
   @ApiProperty({ example: 1, description: 'Color ID' })

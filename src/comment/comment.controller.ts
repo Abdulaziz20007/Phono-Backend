@@ -21,7 +21,7 @@ import { GetUser } from '../common/decorators/get-user.decorator';
 import { UserType } from '../common/types/user.type';
 import { AdminType } from '../common/types/admin.type';
 
-@Controller('comments')
+@Controller('comment')
 export class CommentController {
   constructor(private readonly commentService: CommentService) {}
 
@@ -39,6 +39,12 @@ export class CommentController {
   @Public()
   findAll() {
     return this.commentService.findAll();
+  }
+
+  @Get('/product/:id')
+  @Public()
+  findByProductId(@Param('id', ParseIntPipe) id: number) {
+    return this.commentService.findByProductId(id);
   }
 
   @Get(':id')

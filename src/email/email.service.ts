@@ -30,13 +30,14 @@ export class EmailService {
 
     const activation = uuidv4();
     await sendEmail(createEmailDto.email, activation);
-    return this.prismaService.email.create({
+    this.prismaService.email.create({
       data: {
         ...createEmailDto,
         user_id: userId,
         activation,
       },
     });
+    return { message: "Email qo'shildi" };
   }
 
   async findAll(user: UserType | AdminType) {
@@ -105,5 +106,24 @@ export class EmailService {
       where: { id },
     });
     return { message: "Email o'chirildi" };
+  }
+
+  async verifyEmail(uuid: string) {
+    const email = await this.prismaService.email.findFirst({
+      where: { activation: uuid },
+    });
+    if (!email) {
+      throw new NotFoundException("Noto'g'ri link");
+    }
+    if (email.is_active) {
+      return { message: 'Email avval aktivlashtirilgan' };
+    }
+
+    await this.prismaService.email.update({
+      where: { id: email.id },
+      data: { is_active: true },
+    });
+
+    return { message: 'Email aktivlashtirildi' };
   }
 }

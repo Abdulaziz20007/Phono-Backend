@@ -26,8 +26,7 @@ export class CurrencyController {
 
   @Post()
   @HttpCode(201)
-  // @Roles(Role.ADMIN)
-  @Public()
+  @Roles(Role.ADMIN)
   @UseInterceptors(NoFilesInterceptor()) // <--- QO'SHILDI: form-data ni parse qilish uchun
   create(
     @Body() createCurrencyDto: CreateCurrencyDto,

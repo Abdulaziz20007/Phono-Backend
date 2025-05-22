@@ -18,6 +18,7 @@ import { phoneChecker } from '../common/phone';
 import * as bcrypt from 'bcrypt';
 import { Response } from 'express';
 import { AdminService } from '../admin/admin.service';
+import { PhoneService } from '../phone/phone.service';
 
 @Injectable()
 export class AuthService {
@@ -26,6 +27,7 @@ export class AuthService {
     private readonly userService: UserService,
     private readonly otpService: OtpService,
     private readonly adminService: AdminService,
+    private readonly phoneService: PhoneService,
   ) {}
 
   COOKIE_OPTIONS = {
@@ -129,6 +131,11 @@ export class AuthService {
       ...registerDto,
       password: hashedPassword,
     });
+
+    await this.phoneService.create(
+      { phone: newUser.phone },
+      { user_id: newUser.id },
+    );
 
     const otp = generateOtp() as OtpDto;
 

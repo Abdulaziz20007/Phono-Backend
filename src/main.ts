@@ -33,7 +33,7 @@ async function bootstrap() {
         },
       }),
     );
-    app.useGlobalFilters(new AllExceptionsFilter());
+    // app.useGlobalFilters(new AllExceptionsFilter());
     // app.setGlobalPrefix('api');
 
     // Apply JWT and Roles guards globally

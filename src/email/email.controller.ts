@@ -19,6 +19,7 @@ import { AdminType } from '../common/types/admin.type';
 import { UserType } from '../common/types/user.type';
 import { GetUser } from '../common/decorators/get-user.decorator';
 import { Role } from '../common/enums/roles.enum';
+import { Public } from '../common/decorators/public.decorator';
 
 @Controller('email')
 @UseGuards(JwtAuthGuard, RolesGuard)
@@ -26,7 +27,7 @@ export class EmailController {
   constructor(private readonly emailService: EmailService) {}
 
   @Post()
-  @Roles(Role.ADMIN, Role.SUPERADMIN, Role.USER)
+  @Roles(Role.ADMIN, Role.USER)
   create(
     @Body() createEmailDto: CreateEmailDto,
     @GetUser() user: UserType | AdminType,
@@ -35,13 +36,13 @@ export class EmailController {
   }
 
   @Get()
-  @Roles(Role.ADMIN, Role.SUPERADMIN, Role.USER)
+  @Roles(Role.ADMIN, Role.USER)
   findAll(@GetUser() user: UserType | AdminType) {
     return this.emailService.findAll(user);
   }
 
   @Get(':id')
-  @Roles(Role.ADMIN, Role.SUPERADMIN, Role.USER)
+  @Roles(Role.ADMIN, Role.USER)
   findOne(
     @Param('id', ParseIntPipe) id: number,
     @GetUser() user: UserType | AdminType,
@@ -50,7 +51,7 @@ export class EmailController {
   }
 
   @Patch(':id')
-  @Roles(Role.ADMIN, Role.SUPERADMIN, Role.USER)
+  @Roles(Role.ADMIN, Role.USER)
   update(
     @Param('id', ParseIntPipe) id: number,
     @Body() updateEmailDto: UpdateEmailDto,
@@ -60,11 +61,17 @@ export class EmailController {
   }
 
   @Delete(':id')
-  @Roles(Role.ADMIN, Role.SUPERADMIN, Role.USER)
+  @Roles(Role.ADMIN, Role.USER)
   remove(
     @Param('id', ParseIntPipe) id: number,
     @GetUser() user: UserType | AdminType,
   ) {
     return this.emailService.remove(id, user);
+  }
+
+  @Get('/verify/:id')
+  @Public()
+  verifyEmail(@Param('id') id: string) {
+    return this.emailService.verifyEmail(id);
   }
 }

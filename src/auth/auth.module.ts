@@ -7,6 +7,7 @@ import { OtpModule } from '../otp/otp.module';
 import { JwtAuthGuard } from '../common/guards/jwt-auth.guard';
 import { RolesGuard } from '../common/guards/roles.guard';
 import { AdminModule } from '../admin/admin.module';
+import { PhoneModule } from '../phone/phone.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { AdminModule } from '../admin/admin.module';
     UserModule,
     OtpModule,
     AdminModule,
+    PhoneModule,
   ],
   controllers: [AuthController],
   providers: [AuthService, JwtAuthGuard, RolesGuard],

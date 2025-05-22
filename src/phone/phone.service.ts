@@ -16,7 +16,10 @@ import { phoneChecker } from '../common/phone';
 export class PhoneService {
   constructor(private readonly prismaService: PrismaService) {}
 
-  async create(createPhoneDto: CreatePhoneDto, user: UserType | AdminType) {
+  async create(
+    createPhoneDto: CreatePhoneDto,
+    user: UserType | AdminType | any,
+  ) {
     const userId = user.role === 'ADMIN' ? createPhoneDto.user_id! : user.id;
 
     const userExists = await this.prismaService.user.findUnique({
