@@ -1,66 +1,69 @@
 import {
   Controller,
+  Get,
   Post,
   Body,
-  HttpCode,
-  Get,
-  Param,
-  ParseIntPipe,
   Patch,
+  Param,
   Delete,
+  UseGuards,
+  ParseIntPipe,
 } from '@nestjs/common';
 import { EmailService } from './email.service';
 import { CreateEmailDto } from './dto/create-email.dto';
 import { UpdateEmailDto } from './dto/update-email.dto';
-import { Email } from '@prisma/client'; // For response type hinting
-import { Roles } from '../common/decorators/roles.decorator';
-import { Role } from '../common/enums/roles.enum';
-import { GetUser } from '../common/decorators/get-user.decorator';
-import { UserType } from '../common/types/user.type';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { RolesGuard } from '../auth/guards/roles.guard';
+import { Roles } from '../auth/decorators/roles.decorator';
+import { User } from '../auth/decorators/user.decorator';
 import { AdminType } from '../common/types/admin.type';
+import { UserType } from '../common/types/user.type';
 
-@Controller('emails')
-@Roles(Role.ADMIN, Role.SUPERADMIN)
+@Controller('email')
+@UseGuards(JwtAuthGuard, RolesGuard)
 export class EmailController {
   constructor(private readonly emailService: EmailService) {}
 
   @Post()
-  @HttpCode(201)
+  @Roles('ADMIN', 'SUPERADMIN', 'USER')
   create(
     @Body() createEmailDto: CreateEmailDto,
-    @GetUser() user: UserType | AdminType,
-  ): Promise<Email> {
-    return this.emailService.create(createEmailDto);
+    @User() user: UserType | AdminType,
+  ) {
+    return this.emailService.create(createEmailDto, user);
   }
 
   @Get()
-  findAll(@GetUser() user: UserType | AdminType): Promise<Email[]> {
-    return this.emailService.findAll();
+  @Roles('ADMIN', 'SUPERADMIN', 'USER')
+  findAll(@User() user: UserType | AdminType) {
+    return this.emailService.findAll(user);
   }
 
   @Get(':id')
+  @Roles('ADMIN', 'SUPERADMIN', 'USER')
   findOne(
     @Param('id', ParseIntPipe) id: number,
-    @GetUser() user: UserType | AdminType,
-  ): Promise<Email> {
-    return this.emailService.findOne(id);
+    @User() user: UserType | AdminType,
+  ) {
+    return this.emailService.findOne(id, user);
   }
 
   @Patch(':id')
+  @Roles('ADMIN', 'SUPERADMIN', 'USER')
   update(
     @Param('id', ParseIntPipe) id: number,
     @Body() updateEmailDto: UpdateEmailDto,
-    @GetUser() user: UserType | AdminType,
-  ): Promise<Email> {
+    @User() user: UserType | AdminType,
+  ) {
     return this.emailService.update(id, updateEmailDto, user);
   }
 
   @Delete(':id')
-  @HttpCode(204)
+  @Roles('ADMIN', 'SUPERADMIN', 'USER')
   remove(
     @Param('id', ParseIntPipe) id: number,
-    @GetUser() user: UserType | AdminType,
-  ): Promise<{ message: string }> {
+    @User() user: UserType | AdminType,
+  ) {
     return this.emailService.remove(id, user);
   }
 }

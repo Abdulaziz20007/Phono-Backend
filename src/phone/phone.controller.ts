@@ -26,28 +26,28 @@ export class PhoneController {
 
   @Post()
   @HttpCode(201)
-  @Roles(Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.USER, Role.ADMIN, Role.SUPERADMIN)
   create(
     @Body() createPhoneDto: CreatePhoneDto,
     @GetUser() user: UserType | AdminType,
   ) {
-    return this.phoneService.create(createPhoneDto);
+    return this.phoneService.create(createPhoneDto, user);
   }
 
   @Get()
-  @Public()
-  findAll() {
-    return this.phoneService.findAll();
+  @Roles(Role.USER, Role.ADMIN, Role.SUPERADMIN)
+  findAll(@GetUser() user: UserType | AdminType) {
+    return this.phoneService.findAll(user);
   }
 
   @Get(':id')
-  @Public()
-  findOne(@Param('id', ParseIntPipe) id: number) {
-    return this.phoneService.findOne(id);
+  @Roles(Role.USER, Role.ADMIN, Role.SUPERADMIN)
+  findOne(@Param('id', ParseIntPipe) user: AdminType | UserType, id: number) {
+    return this.phoneService.findOne(id, user);
   }
 
   @Patch(':id')
-  @Roles(Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.USER, Role.ADMIN, Role.SUPERADMIN)
   update(
     @Param('id', ParseIntPipe) id: number,
     @Body() updatePhoneDto: UpdatePhoneDto,
@@ -58,7 +58,7 @@ export class PhoneController {
 
   @Delete(':id')
   @HttpCode(204)
-  @Roles(Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.USER, Role.ADMIN, Role.SUPERADMIN)
   remove(
     @Param('id', ParseIntPipe) id: number,
     @GetUser() user: UserType | AdminType,

@@ -26,7 +26,7 @@ export class AddressController {
 
   @Post()
   @HttpCode(201)
-  @Roles(Role.USER, Role.ADMIN)
+  @Roles(Role.USER, Role.ADMIN, Role.SUPERADMIN)
   create(
     @Body() createAddressDto: CreateAddressDto,
     @GetUser() user: UserType | AdminType,
@@ -36,13 +36,13 @@ export class AddressController {
   }
 
   @Get()
-  @Roles(Role.USER, Role.ADMIN)
+  @Roles(Role.USER, Role.ADMIN, Role.SUPERADMIN)
   findAll(@GetUser() user: UserType | AdminType) {
     return this.addressService.findAll(user);
   }
 
   @Get(':id')
-  @Roles(Role.USER, Role.ADMIN)
+  @Roles(Role.USER, Role.ADMIN, Role.SUPERADMIN)
   findOne(
     @Param('id', ParseIntPipe) id: number,
     @GetUser() user: UserType | AdminType,
@@ -51,7 +51,7 @@ export class AddressController {
   }
 
   @Patch(':id')
-  @Roles(Role.USER, Role.ADMIN)
+  @Roles(Role.USER, Role.ADMIN, Role.SUPERADMIN)
   update(
     @Param('id', ParseIntPipe) id: number,
     @Body() updateAddressDto: UpdateAddressDto,
@@ -61,7 +61,7 @@ export class AddressController {
   }
 
   @Delete(':id')
-  @Roles(Role.USER, Role.ADMIN)
+  @Roles(Role.USER, Role.ADMIN, Role.SUPERADMIN)
   remove(
     @Param('id', ParseIntPipe) id: number,
     @GetUser() user: UserType | AdminType,
