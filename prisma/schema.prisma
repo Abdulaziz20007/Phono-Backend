@@ -27,15 +27,15 @@ model User {
 
   currency Currency? @relation("UserPreferredCurrency", fields: [currency_id], references: [id])
 
-  emails            Email[]
-  additional_phones Phone[]         @relation("UserAdditionalPhones")
-  favourite_items   FavouriteItem[]
-  addresses         Address[]
-  products          Product[]
-  comments          Comment[]
-  payments          Payment[]
-  blocks            Block[]
-  otps             Otp[]
+  emails            Email[]            @relation("UserEmails")
+  additional_phones Phone[]            @relation("UserAdditionalPhones")
+  favourite_items   FavouriteItem[]    @relation("UserFavorites")
+  addresses         Address[]          @relation("UserAddresses")
+  products          Product[]          @relation("UserProducts")
+  comments          Comment[]          @relation("UserComments")
+  payments          Payment[]          @relation("UserPayments")
+  blocks            Block[]            @relation("UserBlocks")
+  otps             Otp[]              @relation("UserOtps")
 }
 
 model Otp {
@@ -46,7 +46,7 @@ model Otp {
   expire     DateTime
   created_at DateTime @default(now())
 
-  user User @relation(fields: [user_id], references: [id])
+  user User @relation("UserOtps", fields: [user_id], references: [id], onDelete: Cascade)
 }
 
 model Phone {
@@ -54,16 +54,18 @@ model Phone {
   phone   String
   user_id Int
 
-  user     User      @relation("UserAdditionalPhones", fields: [user_id], references: [id])
-  products Product[]
+  user     User      @relation("UserAdditionalPhones", fields: [user_id], references: [id], onDelete: Cascade)
+  products Product[] @relation("PhoneProducts")
 }
 
 model Email {
   id      Int @id @default(autoincrement())
   email   String @unique
   user_id Int
+  is_active Boolean @default(false)
+  activation String @default("")
 
-  user User @relation(fields: [user_id], references: [id])
+  user User @relation("UserEmails", fields: [user_id], references: [id], onDelete: Cascade)
 }
 
 model Address {
@@ -73,10 +75,9 @@ model Address {
   lat           String
   long          String
   user_id       Int
-  is_active     Boolean
 
-  user     User      @relation(fields: [user_id], references: [id])
-  products Product[]
+  user     User      @relation("UserAddresses", fields: [user_id], references: [id], onDelete: Cascade)
+  products Product[] @relation("AddressProducts")
 }
 
 model FavouriteItem {
@@ -84,8 +85,8 @@ model FavouriteItem {
   product_id Int
   user_id    Int
 
-  product Product @relation(fields: [product_id], references: [id])
-  user    User    @relation(fields: [user_id], references: [id])
+  product Product @relation(fields: [product_id], references: [id], onDelete: Cascade)
+  user    User    @relation("UserFavorites", fields: [user_id], references: [id], onDelete: Cascade)
 
   @@unique([user_id, product_id])
 }
@@ -117,18 +118,18 @@ model Product {
   is_top          Boolean   @default(false)
   top_expire_date DateTime?
 
-  user          User     @relation(fields: [user_id], references: [id])
+  user          User     @relation("UserProducts", fields: [user_id], references: [id], onDelete: Cascade)
   brand         Brand?   @relation(fields: [brand_id], references: [id])
   model         Model?   @relation(fields: [model_id], references: [id])
   color         Color    @relation(fields: [color_id], references: [id])
   currency      Currency @relation(fields: [currency_id], references: [id])
-  address       Address  @relation(fields: [address_id], references: [id])
-  contact_phone Phone    @relation(fields: [phone_id], references: [id])
+  address       Address  @relation("AddressProducts", fields: [address_id], references: [id])
+  contact_phone Phone    @relation("PhoneProducts", fields: [phone_id], references: [id])
   admin         Admin?   @relation(fields: [admin_id], references: [id])
 
-  images        ProductImage[]
-  favourited_by FavouriteItem[]
-  comments      Comment[]
+  images        ProductImage[]   @relation("ProductImages")
+  favourited_by FavouriteItem[] 
+  comments      Comment[]        @relation("ProductComments")
 }
 
 model ProductImage {
@@ -137,7 +138,7 @@ model ProductImage {
   product_id Int
   is_main    Boolean @default(false)
 
-  product Product @relation(fields: [product_id], references: [id])
+  product Product @relation("ProductImages", fields: [product_id], references: [id], onDelete: Cascade)
 }
 
 model Brand {
@@ -199,7 +200,7 @@ model Block {
   reason      String
   expire_date DateTime
 
-  user  User  @relation(fields: [user_id], references: [id])
+  user  User  @relation("UserBlocks", fields: [user_id], references: [id], onDelete: Cascade)
   admin Admin @relation(fields: [admin_id], references: [id])
 }
 
@@ -209,7 +210,7 @@ model Payment {
   amount            Float
   payment_method_id Int
 
-  user           User          @relation(fields: [user_id], references: [id])
+  user           User          @relation("UserPayments", fields: [user_id], references: [id], onDelete: Cascade)
   payment_method PaymentMethod @relation(fields: [payment_method_id], references: [id])
 }
 
@@ -219,8 +220,8 @@ model Comment {
   product_id Int
   text       String
 
-  user    User    @relation(fields: [user_id], references: [id])
-  product Product @relation(fields: [product_id], references: [id])
+  user    User    @relation("UserComments", fields: [user_id], references: [id], onDelete: Cascade)
+  product Product @relation("ProductComments", fields: [product_id], references: [id], onDelete: Cascade)
 }
 
 model PaymentMethod {

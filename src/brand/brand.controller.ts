@@ -10,30 +10,29 @@ import {
   UploadedFile,
   BadRequestException,
   HttpCode,
-  ParseIntPipe, // ID ni number ga o'tkazish uchun
+  ParseIntPipe,
 } from '@nestjs/common';
 import { BrandService } from './brand.service';
 import { CreateBrandDto } from './dto/create-brand.dto';
 import { UpdateBrandDto } from './dto/update-brand.dto';
 import { FileInterceptor } from '@nestjs/platform-express';
-import { ApiConsumes, ApiTags } from '@nestjs/swagger'; // ApiTags qo'shildi
 import { Express } from 'express';
 import { Roles } from '../common/decorators/roles.decorator';
 import { Role } from '../common/enums/roles.enum';
 import { Public } from '../common/decorators/public.decorator';
+import { GetUser } from '../common/decorators/get-user.decorator';
+import { UserType } from '../common/types/user.type';
+import { AdminType } from '../common/types/admin.type';
 
-@ApiTags('Brand') // Swagger guruhlash uchun
 @Controller('brand')
 export class BrandController {
   constructor(private readonly brandService: BrandService) {}
 
   @Post()
-  @Roles(Role.ADMIN)
-  @HttpCode(201) // Yaratilganda 201 status qaytarish yaxshiroq
-  @ApiConsumes('multipart/form-data')
+  @HttpCode(201)
+  @Roles(Role.ADMIN, Role.SUPERADMIN)
   @UseInterceptors(
     FileInterceptor('image', {
-      // 'image' form-data dagi fayl maydonining nomi
       fileFilter: (req, file, callback) => {
         if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/i)) {
           return callback(
@@ -46,13 +45,14 @@ export class BrandController {
         callback(null, true);
       },
       limits: {
-        fileSize: 5 * 1024 * 1024, // Masalan, 5MB
+        fileSize: 5 * 1024 * 1024,
       },
     }),
   )
   create(
     @Body() createBrandDto: CreateBrandDto,
-    @UploadedFile() image: Express.Multer.File, // Rasm ixtiyoriy
+    @GetUser() user: UserType | AdminType,
+    @UploadedFile() image: Express.Multer.File,
   ) {
     if (!image) {
       throw new BadRequestException('Brand logotipi yuklanishi shart!');
@@ -69,13 +69,11 @@ export class BrandController {
   @Get(':id')
   @Public()
   findOne(@Param('id', ParseIntPipe) id: number) {
-    // ParseIntPipe ID ni number ga aylantiradi
     return this.brandService.findOne(id);
   }
 
   @Patch(':id')
-  @Roles(Role.ADMIN)
-  @ApiConsumes('multipart/form-data')
+  @Roles(Role.ADMIN, Role.SUPERADMIN)
   @UseInterceptors(
     FileInterceptor('image', {
       fileFilter: (req, file, callback) => {
@@ -90,13 +88,14 @@ export class BrandController {
         callback(null, true);
       },
       limits: {
-        fileSize: 5 * 1024 * 1024, // Masalan, 5MB
+        fileSize: 5 * 1024 * 1024,
       },
     }),
   )
   update(
     @Param('id', ParseIntPipe) id: number,
     @Body() updateBrandDto: UpdateBrandDto,
+    @GetUser() user: UserType | AdminType,
     @UploadedFile() image?: Express.Multer.File,
   ) {
     if (Object.keys(updateBrandDto).length === 0 && !image) {
@@ -108,9 +107,12 @@ export class BrandController {
   }
 
   @Delete(':id')
-  @Roles(Role.ADMIN)
-  @HttpCode(204) // Muvaffaqiyatli o'chirilganda odatda 204 No Content qaytariladi
-  remove(@Param('id', ParseIntPipe) id: number) {
+  @HttpCode(204)
+  @Roles(Role.ADMIN, Role.SUPERADMIN)
+  remove(
+    @Param('id', ParseIntPipe) id: number,
+    @GetUser() user: UserType | AdminType,
+  ) {
     return this.brandService.remove(id);
   }
 }

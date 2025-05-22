@@ -1,18 +1,23 @@
 import {
   BadRequestException,
   ConflictException,
+  ForbiddenException,
   Injectable,
   InternalServerErrorException,
   NotFoundException,
-} from "@nestjs/common";
-import { CreateAdminDto, UpdateAdminDto, UpdatePasswordDto } from "./dto";
-import { PrismaService } from "../prisma/prisma.service";
-import { JwtService } from "@nestjs/jwt";
-import { FileAmazonService } from "../file-amazon/file-amazon.service";
-import * as bcrypt from "bcrypt";
-import { Admin, Prisma } from "@prisma/client";
+} from '@nestjs/common';
+import { CreateAdminDto } from './dto/create-admin.dto';
+import { UpdateAdminDto } from './dto/update-admin.dto';
+import { UpdatePasswordDto } from './dto/update-password.dto';
+import { PrismaService } from '../prisma/prisma.service';
+import { FileAmazonService } from '../file-amazon/file-amazon.service';
+import * as bcrypt from 'bcrypt';
+import { Admin, Prisma } from '@prisma/client';
+import { phoneChecker } from '../common/phone';
+import { AdminType } from '../common/types/admin.type';
+import { UserType } from '../common/types/user.type';
 
-type AdminPublicData = Omit<Admin, "password" | "refresh_token">;
+type AdminPublicData = Omit<Admin, 'password' | 'refresh_token'>;
 type SelectedAdminDataForPasswordUpdate = {
   id: number;
   name: string;
@@ -25,14 +30,17 @@ type SelectedAdminDataForPasswordUpdate = {
 export class AdminService {
   constructor(
     private readonly prismaService: PrismaService,
-    private readonly jwtService: JwtService,
-    private readonly fileAmazonService: FileAmazonService
+    private readonly fileAmazonService: FileAmazonService,
   ) {}
 
   async create(
     createAdminDto: CreateAdminDto,
-    image?: Express.Multer.File
+    image?: Express.Multer.File,
   ): Promise<AdminPublicData> {
+    if (!phoneChecker(createAdminDto.phone)) {
+      throw new BadRequestException("Telefon raqam noto'g'ri.");
+    }
+
     try {
       let fileUrl: string | undefined = undefined;
       if (image) {
@@ -47,7 +55,6 @@ export class AdminService {
         birth_date: new Date(createAdminDto.birth_date),
         phone: createAdminDto.phone,
         password: password_hash,
-        is_creator: createAdminDto.is_creator ?? false,
       };
 
       if (fileUrl) {
@@ -62,23 +69,26 @@ export class AdminService {
       return result;
     } catch (error) {
       if (error instanceof Prisma.PrismaClientKnownRequestError) {
-        if (error.code === "P2002") {
+        if (error.code === 'P2002') {
           const target = error.meta?.target as string[] | undefined;
-          if (target && target.includes("phone")) {
+          if (target && target.includes('phone')) {
             throw new ConflictException(
-              `Telefon raqami ${createAdminDto.phone} allaqachon band.`
+              `Telefon raqami ${createAdminDto.phone} allaqachon band.`,
             );
           }
         }
       }
-      console.error("Admin yaratishda xatolik:", error);
+      console.error('Admin yaratishda xatolik:', error);
       throw new InternalServerErrorException(
-        "Admin yaratishda kutilmagan xatolik yuz berdi."
+        'Admin yaratishda kutilmagan xatolik yuz berdi.',
       );
     }
   }
 
   findAdminByPhone(phone: string): Promise<Admin | null> {
+    if (!phoneChecker(phone)) {
+      throw new BadRequestException("Telefon raqam noto'g'ri.");
+    }
     return this.prismaService.admin.findUnique({
       where: { phone },
       include: { blocks_issued: true, products_managed: true },
@@ -110,134 +120,85 @@ export class AdminService {
   async update(
     id: number,
     updateAdminDto: UpdateAdminDto,
-    avatarFile?: Express.Multer.File
-  ): Promise<AdminPublicData> {
-    try {
-      const existingAdmin = await this.prismaService.admin.findUnique({
-        where: { id },
+    user: AdminType,
+    avatarFile?: Express.Multer.File,
+  ) {
+    const existingAdmin = await this.prismaService.admin.findUnique({
+      where: user.is_creator ? { id } : { id: user.id },
+    });
+    if (!existingAdmin)
+      throw new NotFoundException(`Admin ID ${id} topilmadi.`);
+
+    const dataToUpdate: any = {};
+
+    if (updateAdminDto.name) dataToUpdate.name = updateAdminDto.name;
+    if (updateAdminDto.surname) dataToUpdate.surname = updateAdminDto.surname;
+    if (updateAdminDto.birth_date)
+      dataToUpdate.birth_date = new Date(updateAdminDto.birth_date);
+
+    if (updateAdminDto.phone && updateAdminDto.phone !== existingAdmin.phone) {
+      if (!phoneChecker(updateAdminDto.phone))
+        throw new BadRequestException("Telefon raqam noto'g'ri.");
+      const adminWithNewPhone = await this.prismaService.admin.findUnique({
+        where: user.is_creator
+          ? { phone: updateAdminDto.phone }
+          : { phone: updateAdminDto.phone, id: user.id },
       });
-
-      if (!existingAdmin) {
-        throw new NotFoundException(`Admin ID ${id} topilmadi.`);
-      }
-
-      const dataToUpdate: Prisma.AdminUpdateInput = {};
-
-      if (updateAdminDto.name) dataToUpdate.name = updateAdminDto.name;
-      if (updateAdminDto.surname) dataToUpdate.surname = updateAdminDto.surname;
-      if (updateAdminDto.birth_date)
-        dataToUpdate.birth_date = new Date(updateAdminDto.birth_date);
-      if (updateAdminDto.is_creator !== undefined)
-        dataToUpdate.is_creator = updateAdminDto.is_creator;
-
-      if (
-        updateAdminDto.phone &&
-        updateAdminDto.phone !== existingAdmin.phone
-      ) {
-        const adminWithNewPhone = await this.prismaService.admin.findUnique({
-          where: { phone: updateAdminDto.phone },
-        });
-        if (adminWithNewPhone && adminWithNewPhone.id !== id) {
-          throw new ConflictException(
-            `Telefon raqami ${updateAdminDto.phone} allaqachon mavjud.`
-          );
-        }
-        dataToUpdate.phone = updateAdminDto.phone;
-      }
-
-      if (avatarFile) {
-        dataToUpdate.avatar =
-          await this.fileAmazonService.uploadFile(avatarFile);
-      }
-
-      if (Object.keys(dataToUpdate).length === 0) {
-        throw new BadRequestException(
-          "Yangilash uchun hech qanday ma'lumot yuborilmadi."
+      if (adminWithNewPhone && adminWithNewPhone.id !== id) {
+        throw new ConflictException(
+          `Telefon raqami ${updateAdminDto.phone} allaqachon mavjud.`,
         );
       }
+      dataToUpdate.phone = updateAdminDto.phone;
+    }
 
-      const updatedAdmin = await this.prismaService.admin.update({
-        where: { id },
-        data: dataToUpdate,
-      });
+    if (avatarFile) {
+      dataToUpdate.avatar = await this.fileAmazonService.uploadFile(avatarFile);
+    }
 
-      const { password, refresh_token, ...result } = updatedAdmin;
-      return result;
-    } catch (error) {
-      if (
-        error instanceof NotFoundException ||
-        error instanceof BadRequestException ||
-        error instanceof ConflictException
-      ) {
-        throw error;
-      }
-      if (error instanceof Prisma.PrismaClientKnownRequestError) {
-        if (error.code === "P2002") {
-          const target = error.meta?.target as string[] | undefined;
-          if (target && target.includes("phone")) {
-            throw new ConflictException(
-              `Telefon raqami ${updateAdminDto.phone} allaqachon band.`
-            );
-          }
-        }
-      }
-      console.error(`Admin ID ${id} ni yangilashda xatolik:`, error);
-      throw new InternalServerErrorException(
-        "Adminni yangilashda kutilmagan xatolik yuz berdi."
+    if (Object.keys(dataToUpdate).length === 0) {
+      throw new BadRequestException(
+        "Yangilash uchun hech qanday ma'lumot yuborilmadi.",
       );
     }
+
+    const updatedAdmin = await this.prismaService.admin.update({
+      where: user.is_creator ? { id } : { id: user.id },
+      data: dataToUpdate,
+    });
+
+    const { password, refresh_token, ...result } = updatedAdmin;
+    return result;
   }
 
-  async getTokens(admin: Admin) {
-    const payload = {
-      id: admin.id,
-      phone: admin.phone,
-      is_creator: admin.is_creator,
-      role: "ADMIN",
-    };
-
-    const [accessToken, refreshToken] = await Promise.all([
-      this.jwtService.signAsync(payload, {
-        secret: process.env.ACCESS_TOKEN_KEY_ADMIN,
-        expiresIn: process.env.ACCESS_TOKEN_TIME,
-      }),
-      this.jwtService.signAsync(payload, {
-        secret: process.env.REFRESH_TOKEN_KEY_ADMIN,
-        expiresIn: process.env.REFRESH_TOKEN_TIME,
-      }),
-    ]);
-
-    return {
-      access_token: accessToken,
-      refresh_token: refreshToken,
-    };
-  }
-
-  async remove(id: number): Promise<void> {
+  async remove(id: number, user: AdminType): Promise<void> {
     const admin = await this.prismaService.admin.findUnique({
-      where: { id },
+      where: user.is_creator ? { id } : { id: user.id },
     });
 
     if (!admin) {
       throw new NotFoundException(`Admin ID ${id} topilmadi.`);
     }
     try {
-      await this.prismaService.admin.delete({ where: { id } });
+      await this.prismaService.admin.delete({
+        where: user.is_creator ? { id } : { id: user.id },
+      });
     } catch (error) {
       console.error(`Admin ID ${id} ni o'chirishda xatolik:`, error);
       throw new InternalServerErrorException(
-        `Admin ID ${id} ni o'chirishda kutilmagan xatolik yuz berdi.`
+        `Admin ID ${id} ni o'chirishda kutilmagan xatolik yuz berdi.`,
       );
     }
   }
 
   async updatePassword(
     id: number,
-    updatePasswordDto: UpdatePasswordDto
+    updatePasswordDto: UpdatePasswordDto,
+    user: AdminType,
   ): Promise<{ message: string; data: SelectedAdminDataForPasswordUpdate }> {
     try {
       const admin = await this.prismaService.admin.findUnique({
-        where: { id },
+        where: user.is_creator ? { id } : { id: user.id },
       });
 
       if (!admin) {
@@ -246,7 +207,7 @@ export class AdminService {
 
       const isPasswordValid = await bcrypt.compare(
         updatePasswordDto.oldPassword,
-        admin.password
+        admin.password,
       );
 
       if (!isPasswordValid) {
@@ -256,26 +217,26 @@ export class AdminService {
       if (
         updatePasswordDto.newPassword !== updatePasswordDto.confirmNewPassword
       ) {
-        throw new BadRequestException("Yangi parollar mos kelmaydi.");
+        throw new BadRequestException('Yangi parollar mos kelmaydi.');
       }
 
       const isSameAsOld = await bcrypt.compare(
         updatePasswordDto.newPassword,
-        admin.password
+        admin.password,
       );
       if (isSameAsOld) {
         throw new BadRequestException(
-          "Yangi parol eski paroldan farqli bo'lishi kerak."
+          "Yangi parol eski paroldan farqli bo'lishi kerak.",
         );
       }
 
       const hashedPassword = await bcrypt.hash(
         updatePasswordDto.newPassword,
-        7
+        7,
       );
 
       const updatedAdmin = await this.prismaService.admin.update({
-        where: { id },
+        where: user.is_creator ? { id } : { id: user.id },
         data: {
           password: hashedPassword,
         },
@@ -290,7 +251,7 @@ export class AdminService {
       });
 
       return {
-        message: "Parol muvaffaqiyatli yangilandi.",
+        message: 'Parol muvaffaqiyatli yangilandi.',
         data: updatedAdmin,
       };
     } catch (error) {
@@ -302,7 +263,7 @@ export class AdminService {
       }
       console.error(`Admin ID ${id} parolini yangilashda xatolik:`, error);
       throw new InternalServerErrorException(
-        "Parolni yangilashda kutilmagan xatolik yuz berdi."
+        'Parolni yangilashda kutilmagan xatolik yuz berdi.',
       );
     }
   }

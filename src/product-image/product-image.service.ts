@@ -21,7 +21,7 @@ export class ProductImageService {
   async create(
     createProductImageDto: CreateProductImageDto,
     imageFile: Express.Multer.File,
-  ): Promise<ProductImage> {
+  ) {
     if (!imageFile) {
       throw new BadRequestException('Product image file is required.');
     }
@@ -100,13 +100,13 @@ export class ProductImageService {
     }
   }
 
-  async findAll(productId?: number): Promise<ProductImage[]> {
+  async findAll(productId?: number) {
     return this.prisma.productImage.findMany({
       where: productId ? { product_id: productId } : {},
     });
   }
 
-  async findOne(id: number): Promise<ProductImage | null> {
+  async findOne(id: number) {
     const productImage = await this.prisma.productImage.findUnique({
       where: { id },
     });
@@ -121,7 +121,7 @@ export class ProductImageService {
     id: number,
     updateProductImageDto: UpdateProductImageDto,
     imageFile?: Express.Multer.File,
-  ): Promise<ProductImage> {
+  ) {
     const existingProductImage = await this.prisma.productImage.findUnique({
       where: { id },
     });
@@ -223,7 +223,7 @@ export class ProductImageService {
     }
   }
 
-  async remove(id: number): Promise<{ message: string }> {
+  async remove(id: number) {
     const existingProductImage = await this.prisma.productImage.findUnique({
       where: { id },
     });
@@ -261,7 +261,7 @@ export class ProductImageService {
   }
 
   // Helper to set a specific image as main, and others as not main for a product
-  async setMainImage(productImageId: number): Promise<ProductImage> {
+  async setMainImage(productImageId: number) {
     const imageToSetMain = await this.prisma.productImage.findUnique({
       where: { id: productImageId },
     });

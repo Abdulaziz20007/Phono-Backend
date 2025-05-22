@@ -8,6 +8,9 @@ import {
 import { CreateFavouriteItemDto } from './dto/create-favourite-item.dto';
 import { FavouriteItem, Prisma } from '@prisma/client';
 import { PrismaService } from '../prisma/prisma.service'; // PrismaService joylashuviga qarab o'zgartiring
+import { AdminType } from '../common/types/admin.type';
+import { UserType } from '../common/types/user.type';
+import { selfGuard } from '../common/self-guard';
 
 @Injectable()
 export class FavouriteItemService {
@@ -154,10 +157,24 @@ export class FavouriteItemService {
     return favouriteItem;
   }
 
-  async remove(id: number): Promise<{ message: string }> {
-    // Avval yozuv mavjudligini tekshiramiz
-    // `findOne` topilmasa `NotFoundException` tashlaydi
-    await this.findOne(id);
+  async remove(
+    id: number,
+    user: UserType | AdminType,
+  ): Promise<{ message: string }> {
+    const favouriteItem = await this.prismaService.favouriteItem.findUnique({
+      where: { id },
+    });
+
+    if (!favouriteItem) {
+      throw new NotFoundException(
+        `IDsi ${id} bo'lgan sevimlilar yozuvi topilmadi.`,
+      );
+    }
+
+    // Check permission using self guard if not admin
+    if (user.role !== 'ADMIN' && user.role !== 'SUPERADMIN') {
+      selfGuard(user.id, favouriteItem);
+    }
 
     try {
       await this.prismaService.favouriteItem.delete({
@@ -191,7 +208,15 @@ export class FavouriteItemService {
   async removeByProductIdAndUserId(
     productId: number,
     userId: number,
+    user: UserType | AdminType,
   ): Promise<{ message: string }> {
+    // First check user permission
+    if (user.role !== 'ADMIN' && user.id !== userId) {
+      throw new NotFoundException(
+        `Siz bu ma'lumotni o'zgartirishga ruxsat berilmagan`,
+      );
+    }
+
     // 1. Foydalanuvchi mavjudligini tekshirish
     const userExists = await this.prismaService.user.findUnique({
       where: { id: userId },

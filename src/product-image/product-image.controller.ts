@@ -17,8 +17,13 @@ import { ProductImageService } from './product-image.service';
 import { CreateProductImageDto } from './dto/create-product-image.dto';
 import { UpdateProductImageDto } from './dto/update-product-image.dto';
 import { FileInterceptor } from '@nestjs/platform-express';
-import { ApiConsumes, ApiTags, ApiBody, ApiQuery } from '@nestjs/swagger'; // ApiBody for DTO + file
 import { Express } from 'express';
+import { Roles } from '../common/decorators/roles.decorator';
+import { Role } from '../common/enums/roles.enum';
+import { Public } from '../common/decorators/public.decorator';
+import { GetUser } from '../common/decorators/get-user.decorator';
+import { UserType } from '../common/types/user.type';
+import { AdminType } from '../common/types/admin.type';
 
 // Reusable file filter options
 const imageFileFilter = (req, file, callback) => {
@@ -37,14 +42,13 @@ const imageUploadLimits = {
   fileSize: 5 * 1024 * 1024, // 5MB
 };
 
-@ApiTags('Product Image')
 @Controller('product-images') // Changed to plural and kebab-case for RESTful convention
 export class ProductImageController {
   constructor(private readonly productImageService: ProductImageService) {}
 
   @Post()
   @HttpCode(201)
-  @ApiConsumes('multipart/form-data')
+  @Roles(Role.ADMIN, Role.SUPERADMIN)
   @UseInterceptors(
     FileInterceptor('image', {
       // 'image' must match the key in CreateProductImageDto for Swagger
@@ -52,9 +56,9 @@ export class ProductImageController {
       limits: imageUploadLimits,
     }),
   )
-  @ApiBody({ type: CreateProductImageDto }) // Helps Swagger understand the DTO fields alongside the file
   create(
     @Body() createProductImageDto: CreateProductImageDto,
+    @GetUser() user: UserType | AdminType,
     @UploadedFile() imageFile: Express.Multer.File,
   ) {
     if (!imageFile) {
@@ -66,12 +70,7 @@ export class ProductImageController {
   }
 
   @Get()
-  @ApiQuery({
-    name: 'productId',
-    required: false,
-    type: Number,
-    description: 'Filter images by product ID',
-  })
+  @Public()
   findAll(
     @Query('productId', new ParseIntPipe({ optional: true }))
     productId?: number,
@@ -80,12 +79,13 @@ export class ProductImageController {
   }
 
   @Get(':id')
+  @Public()
   findOne(@Param('id', ParseIntPipe) id: number) {
     return this.productImageService.findOne(id);
   }
 
   @Patch(':id')
-  @ApiConsumes('multipart/form-data')
+  @Roles(Role.ADMIN, Role.SUPERADMIN)
   @UseInterceptors(
     FileInterceptor('image', {
       // 'image' must match the key in UpdateProductImageDto
@@ -93,10 +93,10 @@ export class ProductImageController {
       limits: imageUploadLimits,
     }),
   )
-  @ApiBody({ type: UpdateProductImageDto })
   update(
     @Param('id', ParseIntPipe) id: number,
     @Body() updateProductImageDto: UpdateProductImageDto,
+    @GetUser() user: UserType | AdminType,
     @UploadedFile() imageFile?: Express.Multer.File, // Image is optional for update
   ) {
     if (Object.keys(updateProductImageDto).length === 0 && !imageFile) {
@@ -113,13 +113,21 @@ export class ProductImageController {
 
   @Patch(':id/set-main')
   @HttpCode(200)
-  setMainImage(@Param('id', ParseIntPipe) id: number) {
+  @Roles(Role.ADMIN, Role.SUPERADMIN)
+  setMainImage(
+    @Param('id', ParseIntPipe) id: number,
+    @GetUser() user: UserType | AdminType,
+  ) {
     return this.productImageService.setMainImage(id);
   }
 
   @Delete(':id')
   @HttpCode(204) // No Content for successful deletion
-  async remove(@Param('id', ParseIntPipe) id: number) {
+  @Roles(Role.ADMIN, Role.SUPERADMIN)
+  async remove(
+    @Param('id', ParseIntPipe) id: number,
+    @GetUser() user: UserType | AdminType,
+  ) {
     await this.productImageService.remove(id);
     // No content returned, so no explicit return statement needed for data
   }

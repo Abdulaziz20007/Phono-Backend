@@ -13,14 +13,17 @@ import {
   ParseIntPipe,
 } from '@nestjs/common';
 import { AdminService } from './admin.service';
-import { CreateAdminDto, UpdateAdminDto, UpdatePasswordDto } from './dto';
+import { CreateAdminDto } from './dto/create-admin.dto';
+import { UpdateAdminDto } from './dto/update-admin.dto';
+import { UpdatePasswordDto } from './dto/update-password.dto';
 import { FileInterceptor } from '@nestjs/platform-express';
-import { ApiTags, ApiConsumes, ApiBody } from '@nestjs/swagger';
 import { Admin } from '@prisma/client';
 import { Express } from 'express';
 import { Roles } from '../common/decorators/roles.decorator';
 import { Role } from '../common/enums/roles.enum';
-import { Public } from '../common/decorators/public.decorator';
+import { GetUser } from '../common/decorators/get-user.decorator';
+import { UserType } from '../common/types/user.type';
+import { AdminType } from '../common/types/admin.type';
 
 type AdminPublicData = Omit<Admin, 'password' | 'refresh_token'>;
 type SelectedAdminDataForPasswordUpdate = {
@@ -32,14 +35,14 @@ type SelectedAdminDataForPasswordUpdate = {
   avatar: string | null;
 };
 
-@ApiTags('Admin')
 @Controller('admin')
+@Roles(Role.ADMIN, Role.SUPERADMIN)
 export class AdminController {
   constructor(private readonly adminService: AdminService) {}
 
   @Post()
   @HttpCode(201)
-  @ApiConsumes('multipart/form-data')
+  @Roles(Role.SUPERADMIN)
   @UseInterceptors(
     FileInterceptor('avatar', {
       fileFilter: (req, file, callback) => {
@@ -58,31 +61,35 @@ export class AdminController {
       },
     }),
   )
-  @ApiBody({ type: CreateAdminDto })
-  @Roles(Role.SUPERADMIN)
   async create(
     @Body() createAdminDto: CreateAdminDto,
+    @GetUser() user: UserType | AdminType,
     @UploadedFile() avatarFile?: Express.Multer.File,
-  ): Promise<AdminPublicData> {
+  ) {
+    console.log('a');
+
     return this.adminService.create(createAdminDto, avatarFile);
   }
 
   @Get()
-  @Roles(Role.ADMIN)
-  async findAll(): Promise<AdminPublicData[]> {
+  @Roles(Role.ADMIN, Role.SUPERADMIN)
+  async findAll(
+    @GetUser() user: UserType | AdminType,
+  ): Promise<AdminPublicData[]> {
     return this.adminService.findAll();
   }
 
   @Get(':id')
-  @Roles(Role.ADMIN)
+  @Roles(Role.ADMIN, Role.SUPERADMIN)
   async findOne(
     @Param('id', ParseIntPipe) id: number,
+    @GetUser() user: UserType | AdminType,
   ): Promise<AdminPublicData> {
     return this.adminService.findOne(id);
   }
 
   @Patch(':id')
-  @ApiConsumes('multipart/form-data')
+  @Roles(Role.ADMIN, Role.SUPERADMIN)
   @UseInterceptors(
     FileInterceptor('avatar', {
       fileFilter: (req, file, callback) => {
@@ -101,35 +108,36 @@ export class AdminController {
       },
     }),
   )
-  @ApiBody({ type: UpdateAdminDto })
-  @Roles(Role.SUPERADMIN)
   async update(
     @Param('id', ParseIntPipe) id: number,
     @Body() updateAdminDto: UpdateAdminDto,
+    @GetUser() user: AdminType,
     @UploadedFile() avatarFile?: Express.Multer.File,
-  ): Promise<AdminPublicData> {
+  ) {
     if (Object.keys(updateAdminDto).length === 0 && !avatarFile) {
       throw new BadRequestException("Yangilash uchun ma'lumot yuborilmadi.");
     }
-    return this.adminService.update(id, updateAdminDto, avatarFile);
+    return this.adminService.update(id, updateAdminDto, user, avatarFile);
   }
 
   @Delete(':id')
   @HttpCode(204)
-  @Roles(Role.SUPERADMIN)
-  async remove(@Param('id', ParseIntPipe) id: number): Promise<void> {
-    await this.adminService.remove(id);
+  @Roles(Role.SUPERADMIN, Role.ADMIN)
+  async remove(
+    @Param('id', ParseIntPipe) id: number,
+    @GetUser() user: AdminType,
+  ) {
+    await this.adminService.remove(id, user);
   }
 
   @Patch('update-password/:id')
   @HttpCode(200)
-  @ApiConsumes('application/json')
-  @ApiBody({ type: UpdatePasswordDto })
-  @Roles(Role.SUPERADMIN)
+  @Roles(Role.ADMIN, Role.SUPERADMIN)
   async updatePassword(
     @Param('id', ParseIntPipe) id: number,
     @Body() updatePasswordDto: UpdatePasswordDto,
+    @GetUser() user: AdminType,
   ): Promise<{ message: string; data: SelectedAdminDataForPasswordUpdate }> {
-    return this.adminService.updatePassword(id, updatePasswordDto);
+    return this.adminService.updatePassword(id, updatePasswordDto, user);
   }
 }

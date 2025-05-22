@@ -1,8 +1,8 @@
 import { Injectable, CanActivate, ExecutionContext } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
-import { Role } from '../common/enums/roles.enum';
-import { ROLES_KEY } from '../common/decorators/roles.decorator';
-import { IS_PUBLIC_KEY } from '../common/decorators/public.decorator';
+import { Role } from '../enums/roles.enum';
+import { ROLES_KEY } from '../decorators/roles.decorator';
+import { IS_PUBLIC_KEY } from '../decorators/public.decorator';
 
 @Injectable()
 export class RolesGuard implements CanActivate {
@@ -33,19 +33,16 @@ export class RolesGuard implements CanActivate {
       return false;
     }
 
-    // Check for SUPERADMIN role
-    if (requiredRoles.includes(Role.SUPERADMIN)) {
-      return user.is_creator === true;
-    }
-
-    // For ADMIN role, check if user is admin
-    if (requiredRoles.includes(Role.ADMIN)) {
-      return user.role === Role.ADMIN;
-    }
-
-    // For USER role, check if user is user
-    if (requiredRoles.includes(Role.USER)) {
-      return user.role === Role.USER;
+    if (
+      requiredRoles.includes(Role.ADMIN) ||
+      requiredRoles.includes(Role.USER) ||
+      requiredRoles.includes(Role.SUPERADMIN)
+    ) {
+      return (
+        user.role === Role.ADMIN ||
+        user.role === Role.USER ||
+        user.role === Role.SUPERADMIN
+      );
     }
 
     return false;

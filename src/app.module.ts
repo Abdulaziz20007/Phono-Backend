@@ -19,8 +19,6 @@ import { CommentModule } from './comment/comment.module';
 import { PaymentMethodModule } from './payment-method/payment-method.module';
 import { PrismaModule } from './prisma/prisma.module';
 import { AuthModule } from './auth/auth.module';
-import { APP_GUARD } from '@nestjs/core';
-import { RolesGuard } from './guards/roles.guard';
 
 @Module({
   imports: [
@@ -48,11 +46,6 @@ import { RolesGuard } from './guards/roles.guard';
     AuthModule,
   ],
   controllers: [],
-  providers: [
-    {
-      provide: APP_GUARD,
-      useClass: RolesGuard,
-    },
-  ],
+  providers: [],
 })
 export class AppModule {}

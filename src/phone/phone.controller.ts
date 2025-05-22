@@ -8,63 +8,61 @@ import {
   ParseIntPipe,
   Patch,
   Delete,
-} from "@nestjs/common";
-import { PhoneService } from "./phone.service";
-import { CreatePhoneDto } from "./dto/create-phone.dto";
-import { UpdatePhoneDto } from "./dto/update-phone.dto";
-import { ApiTags, ApiBody, ApiOperation, ApiResponse } from "@nestjs/swagger";
-import { Phone } from "@prisma/client";
+} from '@nestjs/common';
+import { PhoneService } from './phone.service';
+import { CreatePhoneDto } from './dto/create-phone.dto';
+import { UpdatePhoneDto } from './dto/update-phone.dto';
+import { Phone } from '@prisma/client';
+import { Roles } from '../common/decorators/roles.decorator';
+import { Role } from '../common/enums/roles.enum';
+import { Public } from '../common/decorators/public.decorator';
+import { GetUser } from '../common/decorators/get-user.decorator';
+import { UserType } from '../common/types/user.type';
+import { AdminType } from '../common/types/admin.type';
 
-@ApiTags("Phones") // Tegni o'zgartirish
-@Controller("phones") // Yo'lni ko'plikka o'zgartirish
+@Controller('phones')
 export class PhoneController {
   constructor(private readonly phoneService: PhoneService) {}
 
   @Post()
   @HttpCode(201)
-  @ApiOperation({ summary: "Yangi telefon raqami yaratish" })
-  @ApiBody({ type: CreatePhoneDto })
-  @ApiResponse({ status: 201, description: "Telefon raqami muvaffaqiyatli yaratildi.", type: CreatePhoneDto })
-  @ApiResponse({ status: 400, description: "Noto'g'ri so'rov." })
-  create(@Body() createPhoneDto: CreatePhoneDto): Promise<Phone> {
+  @Roles(Role.ADMIN, Role.SUPERADMIN)
+  create(
+    @Body() createPhoneDto: CreatePhoneDto,
+    @GetUser() user: UserType | AdminType,
+  ) {
     return this.phoneService.create(createPhoneDto);
   }
 
   @Get()
-  @ApiOperation({ summary: "Barcha telefon raqamlarini olish" })
-  @ApiResponse({ status: 200, description: "Barcha telefon raqamlari ro'yxati.", type: [CreatePhoneDto] })
-  findAll(): Promise<Phone[]> {
+  @Public()
+  findAll() {
     return this.phoneService.findAll();
   }
 
-  @Get(":id")
-  @ApiOperation({ summary: "ID bo'yicha telefon raqamini olish" })
-  @ApiResponse({ status: 200, description: "Telefon raqami topildi.", type: CreatePhoneDto })
-  @ApiResponse({ status: 404, description: "Telefon raqami topilmadi." })
-  findOne(@Param("id", ParseIntPipe) id: number): Promise<Phone> {
+  @Get(':id')
+  @Public()
+  findOne(@Param('id', ParseIntPipe) id: number) {
     return this.phoneService.findOne(id);
   }
 
-  @Patch(":id")
-  @ApiOperation({ summary: "ID bo'yicha telefon raqamini yangilash" })
-  @ApiBody({ type: UpdatePhoneDto })
-  @ApiResponse({ status: 200, description: "Telefon raqami muvaffaqiyatli yangilandi.", type: CreatePhoneDto })
-  @ApiResponse({ status: 404, description: "Yangilanadigan telefon raqami topilmadi." })
-  @ApiResponse({ status: 400, description: "Noto'g'ri so'rov." })
+  @Patch(':id')
+  @Roles(Role.ADMIN, Role.SUPERADMIN)
   update(
-    @Param("id", ParseIntPipe) id: number,
-    @Body() updatePhoneDto: UpdatePhoneDto
-  ): Promise<Phone> {
-    return this.phoneService.update(id, updatePhoneDto);
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updatePhoneDto: UpdatePhoneDto,
+    @GetUser() user: UserType | AdminType,
+  ) {
+    return this.phoneService.update(id, updatePhoneDto, user);
   }
 
-  @Delete(":id")
+  @Delete(':id')
   @HttpCode(204)
-  @ApiOperation({ summary: "ID bo'yicha telefon raqamini o'chirish" })
-  @ApiResponse({ status: 204, description: "Telefon raqami muvaffaqiyatli o'chirildi." })
-  @ApiResponse({ status: 404, description: "O'chiriladigan telefon raqami topilmadi." })
-  @ApiResponse({ status: 400, description: "O'chirish imkonsiz (masalan, boshqa yozuvlarga bog'langan)." })
-  remove(@Param("id", ParseIntPipe) id: number): Promise<{ message: string }> {
-    return this.phoneService.remove(id);
+  @Roles(Role.ADMIN, Role.SUPERADMIN)
+  remove(
+    @Param('id', ParseIntPipe) id: number,
+    @GetUser() user: UserType | AdminType,
+  ) {
+    return this.phoneService.remove(id, user);
   }
 }

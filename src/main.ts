@@ -3,10 +3,12 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
 import * as cookieParser from 'cookie-parser';
-import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { WinstonModule } from 'nest-winston';
-import { winstonConfig } from './logger/winston-logger';
-import { AllExceptionsFilter } from './logger/error.handling';
+import { winstonConfig } from './common/logger/winston-logger';
+import { AllExceptionsFilter } from './common/logger/error.handling';
+import { JwtAuthGuard } from './common/guards/jwt-auth.guard';
+import { RolesGuard } from './common/guards/roles.guard';
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 async function bootstrap() {
   try {
@@ -14,17 +16,6 @@ async function bootstrap() {
     const app = await NestFactory.create(AppModule, {
       logger: WinstonModule.createLogger(winstonConfig),
     });
-
-    const config = new DocumentBuilder()
-      .setTitle('Phono API')
-      .setDescription('Phono API documentation')
-      .setVersion('1.0')
-      .addBearerAuth()
-      .addServer('/api')
-      .build();
-
-    const document = SwaggerModule.createDocument(app, config);
-    SwaggerModule.setup('api/docs', app, document);
 
     app.enableCors({
       origin: ['*'],
@@ -43,11 +34,28 @@ async function bootstrap() {
       }),
     );
     app.useGlobalFilters(new AllExceptionsFilter());
-    app.setGlobalPrefix('api');
+    // app.setGlobalPrefix('api');
+
+    // Apply JWT and Roles guards globally
+    const jwtAuthGuard = app.get(JwtAuthGuard);
+    const rolesGuard = app.get(RolesGuard);
+    app.useGlobalGuards(jwtAuthGuard, rolesGuard);
+
+    // Swagger configuration
+    const config = new DocumentBuilder()
+      .setTitle('API Documentation')
+      .setDescription('The API description')
+      .setVersion('1.0')
+      .addBearerAuth()
+      .build();
+    const document = SwaggerModule.createDocument(app, config);
+    SwaggerModule.setup('docs', app, document);
 
     await app.listen(PORT, () => {
       console.log(`Server started at: http://localhost:${PORT}`);
-      console.log(`Swagger docs: http://localhost:${PORT}/api/docs`);
+      console.log(
+        `Swagger documentation available at: http://localhost:${PORT}/docs`,
+      );
     });
   } catch (error) {
     console.error('Error starting the server:', error);

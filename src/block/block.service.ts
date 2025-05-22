@@ -7,6 +7,8 @@ import { CreateBlockDto } from './dto/create-block.dto';
 import { UpdateBlockDto } from './dto/update-block.dto';
 import { PrismaService } from '../prisma/prisma.service';
 import { Prisma } from '@prisma/client';
+import { UserType } from '../common/types/user.type';
+import { AdminType } from '../common/types/admin.type';
 
 @Injectable()
 export class BlocksService {
@@ -55,9 +57,13 @@ export class BlocksService {
     }
   }
 
-  async findAll() {
+  async findAll(user: UserType | AdminType) {
     try {
       return await this.prisma.block.findMany({
+        where:
+          user.role === 'ADMIN' || user.role === 'SUPERADMIN'
+            ? { admin_id: user.id }
+            : { user_id: user.id },
         include: {
           user: true,
           admin: true,
@@ -68,10 +74,13 @@ export class BlocksService {
     }
   }
 
-  async findOne(id: number) {
+  async findOne(id: number, user: UserType | AdminType) {
     try {
       const block = await this.prisma.block.findUnique({
-        where: { id },
+        where:
+          user.role === 'ADMIN' || user.role === 'SUPERADMIN'
+            ? { id }
+            : { id, user_id: user.id },
         include: {
           user: true,
           admin: true,

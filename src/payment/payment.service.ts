@@ -6,6 +6,9 @@ import {
 import { CreatePaymentDto } from './dto/create-payment.dto';
 import { UpdatePaymentDto } from './dto/update-payment.dto';
 import { PrismaService } from '../prisma/prisma.service';
+import { AdminType } from '../common/types/admin.type';
+import { UserType } from '../common/types/user.type';
+import { selfGuard } from '../common/self-guard';
 
 @Injectable()
 export class PaymentService {
@@ -47,6 +50,9 @@ export class PaymentService {
       const payment = await this.prismaService.payment.findUnique({
         where: { id },
       });
+      if (!payment) {
+        throw new NotFoundException(`Payment with id ${id} not found`);
+      }
       return payment;
     } catch (error) {
       console.log('findOne payment', error);
@@ -54,8 +60,25 @@ export class PaymentService {
     }
   }
 
-  async update(id: number, updatePaymentDto: UpdatePaymentDto) {
+  async update(
+    id: number,
+    updatePaymentDto: UpdatePaymentDto,
+    user: UserType | AdminType,
+  ) {
     try {
+      const payment = await this.prismaService.payment.findUnique({
+        where: { id },
+      });
+
+      if (!payment) {
+        throw new NotFoundException(`Payment with id ${id} not found`);
+      }
+
+      // Check permission using self guard if not admin
+      if (user.role !== 'ADMIN' && user.role !== 'SUPERADMIN') {
+        selfGuard(user.id, payment);
+      }
+
       const updatedPayment = await this.prismaService.payment.update({
         where: { id },
         data: { ...updatePaymentDto },
@@ -67,8 +90,20 @@ export class PaymentService {
     }
   }
 
-  async remove(id: number) {
-    await this.findOne(id);
+  async remove(id: number, user: UserType | AdminType) {
+    const payment = await this.prismaService.payment.findUnique({
+      where: { id },
+    });
+
+    if (!payment) {
+      throw new NotFoundException(`Payment with id ${id} not found`);
+    }
+
+    // Check permission using self guard if not admin
+    if (user.role !== 'ADMIN' && user.role !== 'SUPERADMIN') {
+      selfGuard(user.id, payment);
+    }
+
     return this.prismaService.payment.delete({ where: { id } });
   }
 }

@@ -13,11 +13,12 @@ import {
   AdminJwtDto,
 } from './dto/auth.dto';
 import { UserService } from 'src/user/user.service';
-import { generateOtp } from '../common/otp';
+import { generateOtp, sendOtp } from '../common/otp';
 import { OtpService } from '../otp/otp.service';
 import { phoneChecker } from '../common/phone';
 import * as bcrypt from 'bcrypt';
 import { Response } from 'express';
+import { AdminService } from '../admin/admin.service';
 
 @Injectable()
 export class AuthService {
@@ -25,6 +26,7 @@ export class AuthService {
     private readonly jwtService: JwtService,
     private readonly userService: UserService,
     private readonly otpService: OtpService,
+    private readonly adminService: AdminService,
   ) {}
 
   COOKIE_OPTIONS = {
@@ -32,13 +34,16 @@ export class AuthService {
     maxAge: Number(process.env.COOKIE_TIME) || 864000000,
   };
 
-  userJwtGenerate(payload: UserJwtDto): object {
+  userJwtGenerate(payload: UserJwtDto): {
+    accessToken: string;
+    refreshToken: string;
+  } {
     const tokens = {
-      access_token: this.jwtService.sign(payload, {
+      accessToken: this.jwtService.sign(payload, {
         secret: process.env.USER_ACCESS,
         expiresIn: process.env.ACCESS_TOKEN_TIME,
       }),
-      refresh_token: this.jwtService.sign(payload, {
+      refreshToken: this.jwtService.sign(payload, {
         secret: process.env.USER_REFRESH,
         expiresIn: process.env.REFRESH_TOKEN_TIME,
       }),
@@ -46,13 +51,16 @@ export class AuthService {
     return tokens;
   }
 
-  adminJwtGenerate(payload: AdminJwtDto): object {
+  adminJwtGenerate(payload: AdminJwtDto): {
+    accessToken: string;
+    refreshToken: string;
+  } {
     const tokens = {
-      access_token: this.jwtService.sign(payload, {
+      accessToken: this.jwtService.sign(payload, {
         secret: process.env.ADMIN_ACCESS,
         expiresIn: process.env.ACCESS_TOKEN_TIME,
       }),
-      refresh_token: this.jwtService.sign(payload, {
+      refreshToken: this.jwtService.sign(payload, {
         secret: process.env.ADMIN_REFRESH,
         expiresIn: process.env.REFRESH_TOKEN_TIME,
       }),
@@ -76,15 +84,20 @@ export class AuthService {
     }
 
     const otp = generateOtp() as OtpDto;
+
+    sendOtp(user?.phone!, otp.otp);
+
     await this.otpService.create({
       user_id: user?.id!,
       otp: otp.otp,
       expire: otp.expire,
       uuid: otp.uuid,
     });
+
     const response = {
       uuid: otp.uuid,
       expire: otp.expire,
+      phone: phone,
     };
     return response;
   }
@@ -94,11 +107,17 @@ export class AuthService {
       throw new BadRequestException("Noto'g'ri telefon raqam");
     }
     const oldUser = await this.userService.findByPhone(registerDto.phone);
+
     if (oldUser) {
-      throw new BadRequestException('Bu nomer avval ro`yhatdan otgan');
+      if (!oldUser.is_active) {
+        await this.userService.remove(oldUser.id);
+      } else {
+        throw new BadRequestException('Bu nomer avval ro`yhatdan otgan');
+      }
     }
 
     const password = registerDto.password.trim();
+
     if (password.length < 6) {
       throw new BadRequestException(
         'Parol kamida 6 ta belgidan iborat bo`lishi kerak',
@@ -113,6 +132,8 @@ export class AuthService {
     });
 
     const otp = generateOtp() as OtpDto;
+
+    sendOtp(newUser.phone, otp.otp);
 
     await this.otpService.create({
       user_id: newUser.id,
@@ -130,7 +151,7 @@ export class AuthService {
     return response;
   }
 
-  async verifyOtp(otpDto: OtpDto) {
+  async verifyOtp(otpDto: OtpDto, res: Response) {
     if (!phoneChecker(otpDto.phone)) {
       throw new BadRequestException("Noto'g'ri telefon raqam");
     }
@@ -142,6 +163,7 @@ export class AuthService {
     }
 
     if (otp.expire < new Date()) {
+      await this.otpService.remove(otp.id);
       throw new BadRequestException('Otp vaqti tugadi');
     }
 
@@ -159,27 +181,41 @@ export class AuthService {
     }
 
     if (user.is_active) {
+      await this.otpService.remove(otp.id);
       throw new BadRequestException('User allaqachon aktiv');
     }
 
     await this.userService.update(user.id, { is_active: true });
 
-    const response = this.userJwtGenerate({
+    await this.otpService.remove(otp.id);
+
+    const { accessToken, refreshToken } = this.userJwtGenerate({
       id: user.id,
       phone: user.phone,
       is_active: user.is_active,
     });
-    return response;
+
+    res.cookie('refreshToken', refreshToken, this.COOKIE_OPTIONS);
+
+    return { accessToken };
   }
 
   async login(loginDto: LoginDto, res?: Response) {
     if (!phoneChecker(loginDto.phone)) {
-      throw new BadRequestException("Noto'g'ri telefon raqam");
+      throw new BadRequestException("Telefon raqam yoki parol noto'g'ri");
     }
 
     const user = await this.userService.findByPhone(loginDto.phone);
+
     if (!user) {
-      throw new UnauthorizedException('User topilmadi');
+      throw new UnauthorizedException("Telefon raqam yoki parol noto'g'ri");
+    }
+
+    if (
+      user.blocks &&
+      user.blocks.some((block) => block.expire_date > new Date())
+    ) {
+      throw new UnauthorizedException(`User bloklangan`);
     }
 
     if (!user.is_active) {
@@ -191,7 +227,7 @@ export class AuthService {
       user.password,
     );
     if (!isPasswordValid) {
-      throw new UnauthorizedException("Noto'g'ri parol");
+      throw new UnauthorizedException("Telefon raqam yoki parol noto'g'ri");
     }
 
     const tokens = this.userJwtGenerate({
@@ -201,8 +237,8 @@ export class AuthService {
     });
 
     if (res) {
-      res.cookie('refreshToken', tokens['refresh_token'], this.COOKIE_OPTIONS);
-      return { access_token: tokens['access_token'] };
+      res.cookie('refreshToken', tokens['refreshToken'], this.COOKIE_OPTIONS);
+      return { accessToken: tokens['accessToken'] };
     }
 
     return tokens;
@@ -222,6 +258,13 @@ export class AuthService {
         throw new UnauthorizedException('User topilmadi');
       }
 
+      if (
+        user.blocks &&
+        user.blocks.some((block) => block.expire_date > new Date())
+      ) {
+        throw new UnauthorizedException(`User bloklangan`);
+      }
+
       if (!user.is_active) {
         throw new UnauthorizedException('User aktiv emas');
       }
@@ -233,12 +276,8 @@ export class AuthService {
       });
 
       if (res) {
-        res.cookie(
-          'refreshToken',
-          tokens['refresh_token'],
-          this.COOKIE_OPTIONS,
-        );
-        return { access_token: tokens['access_token'] };
+        res.cookie('refreshToken', tokens['refreshToken'], this.COOKIE_OPTIONS);
+        return { accessToken: tokens['accessToken'] };
       }
 
       return tokens;
@@ -249,5 +288,65 @@ export class AuthService {
 
   logout(res: Response) {
     res.clearCookie('refreshToken');
+    return { message: 'Tizimdan chiqildi' };
+  }
+
+  async adminLogin(loginDto: LoginDto, res?: Response) {
+    const admin = await this.adminService.findAdminByPhone(loginDto.phone);
+    if (!admin) {
+      throw new UnauthorizedException("Telefon raqam yoki parol noto'g'ri");
+    }
+
+    const isPasswordValid = await bcrypt.compare(
+      loginDto.password,
+      admin.password,
+    );
+    if (!isPasswordValid) {
+      throw new UnauthorizedException("Telefon raqam yoki parol noto'g'ri");
+    }
+
+    const tokens = this.adminJwtGenerate({
+      id: admin.id,
+      phone: admin.phone,
+      is_creator: admin.is_creator,
+    });
+
+    if (res) {
+      res.cookie('refreshToken', tokens.refreshToken, this.COOKIE_OPTIONS);
+      return { accessToken: tokens.accessToken };
+    }
+
+    return tokens;
+  }
+
+  async adminRefreshToken(refreshTokenDto: RefreshTokenDto, res?: Response) {
+    try {
+      const payload = await this.jwtService.verify(
+        refreshTokenDto.refresh_token,
+        {
+          secret: process.env.ADMIN_REFRESH,
+        },
+      );
+
+      const admin = await this.adminService.findOne(payload.id);
+      if (!admin) {
+        throw new UnauthorizedException('Admin topilmadi');
+      }
+
+      const tokens = this.adminJwtGenerate({
+        id: admin.id,
+        phone: admin.phone,
+        is_creator: admin.is_creator,
+      });
+
+      if (res) {
+        res.cookie('refreshToken', tokens.refreshToken, this.COOKIE_OPTIONS);
+        return { accessToken: tokens.accessToken };
+      }
+
+      return tokens;
+    } catch (error) {
+      throw new UnauthorizedException('Yaroqsiz refresh token');
+    }
   }
 }

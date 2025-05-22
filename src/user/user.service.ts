@@ -13,18 +13,52 @@ export class UserService {
   }
 
   findAll() {
-    return this.prisma.user.findMany();
+    return this.prisma.user.findMany({
+      include: {
+        addresses: true,
+        additional_phones: true,
+        emails: true,
+        favourite_items: true,
+        payments: true,
+        products: true,
+        comments: true,
+        blocks: true,
+        otps: true,
+      },
+    });
   }
 
   findOne(id: number) {
     return this.prisma.user.findUnique({
       where: { id },
+      include: {
+        addresses: true,
+        additional_phones: true,
+        emails: true,
+        favourite_items: true,
+        payments: true,
+        products: true,
+        comments: true,
+        blocks: true,
+        otps: true,
+      },
     });
   }
 
   findByPhone(phone: string) {
     return this.prisma.user.findFirst({
       where: { phone },
+      include: {
+        addresses: true,
+        additional_phones: true,
+        emails: true,
+        favourite_items: true,
+        payments: true,
+        products: true,
+        comments: true,
+        blocks: true,
+        otps: true,
+      },
     });
   }
 
@@ -32,10 +66,21 @@ export class UserService {
     return this.prisma.user.update({
       where: { id },
       data: updateUserDto,
+      include: {
+        addresses: true,
+        additional_phones: true,
+        emails: true,
+        favourite_items: true,
+        payments: true,
+        products: true,
+        comments: true,
+        blocks: true,
+        otps: true,
+      },
     });
   }
 
-  remove(id: number) {
+  async remove(id: number) {
     return this.prisma.user.delete({
       where: { id },
     });

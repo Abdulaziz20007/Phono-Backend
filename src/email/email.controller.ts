@@ -8,62 +8,59 @@ import {
   ParseIntPipe,
   Patch,
   Delete,
-} from "@nestjs/common";
-import { EmailService } from "./email.service";
-import { CreateEmailDto } from "./dto/create-email.dto";
-import { UpdateEmailDto } from "./dto/update-email.dto";
-import { ApiTags, ApiBody, ApiOperation, ApiResponse } from "@nestjs/swagger";
-import { Email } from "@prisma/client"; // For response type hinting
+} from '@nestjs/common';
+import { EmailService } from './email.service';
+import { CreateEmailDto } from './dto/create-email.dto';
+import { UpdateEmailDto } from './dto/update-email.dto';
+import { Email } from '@prisma/client'; // For response type hinting
+import { Roles } from '../common/decorators/roles.decorator';
+import { Role } from '../common/enums/roles.enum';
+import { GetUser } from '../common/decorators/get-user.decorator';
+import { UserType } from '../common/types/user.type';
+import { AdminType } from '../common/types/admin.type';
 
-@ApiTags("Emails") // Changed tag
-@Controller("emails") // Changed path to plural
+@Controller('emails')
+@Roles(Role.ADMIN, Role.SUPERADMIN)
 export class EmailController {
   constructor(private readonly emailService: EmailService) {}
 
   @Post()
   @HttpCode(201)
-  @ApiOperation({ summary: "Yangi elektron pochta yaratish" })
-  @ApiBody({ type: CreateEmailDto })
-  @ApiResponse({ status: 201, description: "Elektron pochta muvaffaqiyatli yaratildi.", type: CreateEmailDto }) // Using DTO for example, actual response is Email entity
-  @ApiResponse({ status: 400, description: "Noto'g'ri so'rov (masalan, email mavjud yoki user_id topilmadi)." })
-  create(@Body() createEmailDto: CreateEmailDto): Promise<Email> {
+  create(
+    @Body() createEmailDto: CreateEmailDto,
+    @GetUser() user: UserType | AdminType,
+  ): Promise<Email> {
     return this.emailService.create(createEmailDto);
   }
 
   @Get()
-  @ApiOperation({ summary: "Barcha elektron pochtalarni olish" })
-  @ApiResponse({ status: 200, description: "Barcha elektron pochtalar ro'yxati.", type: [CreateEmailDto] }) // Using DTO array for example
-  findAll(): Promise<Email[]> {
+  findAll(@GetUser() user: UserType | AdminType): Promise<Email[]> {
     return this.emailService.findAll();
   }
 
-  @Get(":id")
-  @ApiOperation({ summary: "ID bo'yicha elektron pochtani olish" })
-  @ApiResponse({ status: 200, description: "Elektron pochta topildi.", type: CreateEmailDto }) // Using DTO for example
-  @ApiResponse({ status: 404, description: "Elektron pochta topilmadi." })
-  findOne(@Param("id", ParseIntPipe) id: number): Promise<Email> {
+  @Get(':id')
+  findOne(
+    @Param('id', ParseIntPipe) id: number,
+    @GetUser() user: UserType | AdminType,
+  ): Promise<Email> {
     return this.emailService.findOne(id);
   }
 
-  @Patch(":id")
-  @ApiOperation({ summary: "ID bo'yicha elektron pochtani yangilash" })
-  @ApiBody({ type: UpdateEmailDto })
-  @ApiResponse({ status: 200, description: "Elektron pochta muvaffaqiyatli yangilandi.", type: CreateEmailDto }) // Using DTO for example
-  @ApiResponse({ status: 404, description: "Yangilanadigan elektron pochta topilmadi." })
-  @ApiResponse({ status: 400, description: "Noto'g'ri so'rov." })
+  @Patch(':id')
   update(
-    @Param("id", ParseIntPipe) id: number,
-    @Body() updateEmailDto: UpdateEmailDto
+    @Param('id', ParseIntPipe) id: number,
+    @Body() updateEmailDto: UpdateEmailDto,
+    @GetUser() user: UserType | AdminType,
   ): Promise<Email> {
-    return this.emailService.update(id, updateEmailDto);
+    return this.emailService.update(id, updateEmailDto, user);
   }
 
-  @Delete(":id")
+  @Delete(':id')
   @HttpCode(204)
-  @ApiOperation({ summary: "ID bo'yicha elektron pochtani o'chirish" })
-  @ApiResponse({ status: 204, description: "Elektron pochta muvaffaqiyatli o'chirildi." })
-  @ApiResponse({ status: 404, description: "O'chiriladigan elektron pochta topilmadi." })
-  remove(@Param("id", ParseIntPipe) id: number): Promise<{ message: string }> {
-    return this.emailService.remove(id);
+  remove(
+    @Param('id', ParseIntPipe) id: number,
+    @GetUser() user: UserType | AdminType,
+  ): Promise<{ message: string }> {
+    return this.emailService.remove(id, user);
   }
 }

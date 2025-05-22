@@ -2,38 +2,38 @@ import {
   Injectable,
   InternalServerErrorException,
   BadRequestException,
-} from "@nestjs/common";
-import { CreateCurrencyDto } from "./dto/create-currency.dto";
-import { PrismaService } from "../prisma/prisma.service"; // O'zingizning PrismaService yo'lingizni ko'rsating
-import { Currency } from "@prisma/client";
+} from '@nestjs/common';
+import { CreateCurrencyDto } from './dto/create-currency.dto';
+import { PrismaService } from '../prisma/prisma.service'; // O'zingizning PrismaService yo'lingizni ko'rsating
+import { Currency } from '@prisma/client';
 
 @Injectable()
 export class CurrencyService {
   constructor(private readonly prismaService: PrismaService) {}
 
-  async create(createCurrencyDto: CreateCurrencyDto): Promise<Currency> {
-    // Promise<Currency> bo'lishi kerak
+  async create(createCurrencyDto: CreateCurrencyDto) {
+    // Comment removed
     try {
       const currency = await this.prismaService.currency.create({
         data: createCurrencyDto,
       });
       return currency;
     } catch (error) {
-      if (error.code === "P2002" && error.meta?.target?.includes("name")) {
+      if (error.code === 'P2002' && error.meta?.target?.includes('name')) {
         throw new BadRequestException(
-          `Currency with name '${createCurrencyDto.name}' already exists.`
+          `Currency with name '${createCurrencyDto.name}' already exists.`,
         );
       }
-      console.error("Error creating currency:", error);
-      throw new InternalServerErrorException("Could not create currency.");
+      console.error('Error creating currency:', error);
+      throw new InternalServerErrorException('Could not create currency.');
     }
   }
 
-  async findAll(): Promise<any[]> {
+  async findAll() {
     return this.prismaService.currency.findMany();
   }
 
-  async findOne(id: number): Promise<any> {
+  async findOne(id: number) {
     const currency = await this.prismaService.currency.findUnique({
       where: { id },
     });
@@ -43,7 +43,7 @@ export class CurrencyService {
     return currency;
   }
 
-  async update(id: number, updateCurrencyDto: any): Promise<any> {
+  async update(id: number, updateCurrencyDto: any) {
     // UpdateCurrencyDto ni import qiling
     try {
       const existingCurrency = await this.findOne(id);
@@ -53,18 +53,18 @@ export class CurrencyService {
       });
       return updatedCurrency;
     } catch (error) {
-      if (error.code === "P2002" && error.meta?.target?.includes("name")) {
+      if (error.code === 'P2002' && error.meta?.target?.includes('name')) {
         throw new BadRequestException(
-          `Currency with name '${updateCurrencyDto.name}' already exists.`
+          `Currency with name '${updateCurrencyDto.name}' already exists.`,
         );
       }
       console.error(`Error updating currency with ID ${id}:`, error);
       if (error instanceof BadRequestException) throw error;
-      throw new InternalServerErrorException("Could not update currency.");
+      throw new InternalServerErrorException('Could not update currency.');
     }
   }
 
-  async remove(id: number): Promise<{ message: string }> {
+  async remove(id: number) {
     try {
       await this.findOne(id); // Mavjudligini tekshirish
       await this.prismaService.currency.delete({
@@ -74,12 +74,12 @@ export class CurrencyService {
     } catch (error) {
       console.error(`Error deleting currency with ID ${id}:`, error);
       if (error instanceof BadRequestException) throw error;
-      if (error.code === "P2003") {
+      if (error.code === 'P2003') {
         throw new BadRequestException(
-          `Cannot delete currency with ID ${id} as it is still referenced by other records.`
+          `Cannot delete currency with ID ${id} as it is still referenced by other records.`,
         );
       }
-      throw new InternalServerErrorException("Could not delete currency.");
+      throw new InternalServerErrorException('Could not delete currency.');
     }
   }
 }

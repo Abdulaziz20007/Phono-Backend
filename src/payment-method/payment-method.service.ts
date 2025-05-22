@@ -9,50 +9,32 @@ export class PaymentMethodService {
 
   create(createPaymentMethodDto: CreatePaymentMethodDto) {
     return this.prismaService.paymentMethod.create({
-      data: createPaymentMethodDto,
-      include: {
-        payments: true,
-      },
+      data: createPaymentMethodDto
     });
-
-    
   }
 
   findAll() {
-    return this.prismaService.paymentMethod.findMany({
-      include: {
-        payments: true,
-      },
-    });
+    return this.prismaService.paymentMethod.findMany();
   }
 
   async findOne(id: number) {
     const paymentMethod = await this.prismaService.paymentMethod.findUnique({
-      where: { id },
-      include: {
-        payments: true,
-      },
+      where: { id }
     });
-    if (!paymentMethod) throw new NotFoundException("Payment Method topilmadi");
+    if (!paymentMethod) throw new NotFoundException("Payment Method not found");
     return paymentMethod;
   }
 
-  async update(id: number, updatePaymentMethodDto: UpdatePaymentMethodDto) {
-    try {
-      return await this.prismaService.paymentMethod.update({
-        where: { id },
-        data: { ...updatePaymentMethodDto },
-        include: {
-          payments: true,
-        },
-      });
-    } catch (error) {
-      throw error;
-    }
+  update(id: number, updatePaymentMethodDto: UpdatePaymentMethodDto) {
+    return this.prismaService.paymentMethod.update({
+      where: { id },
+      data: updatePaymentMethodDto
+    });
   }
 
-  async remove(id: number) {
-    await this.findOne(id);
-    return this.prismaService.paymentMethod.delete({ where: { id } });
+  remove(id: number) {
+    return this.prismaService.paymentMethod.delete({
+      where: { id }
+    });
   }
 }

@@ -3,23 +3,23 @@ import {
   InternalServerErrorException,
   BadRequestException,
   NotFoundException,
-} from "@nestjs/common";
-import { CreateModelDto, UpdateModelDto } from "./dto";
-import { PrismaService } from "../prisma/prisma.service"; // O'zingizning PrismaService yo'lingizni ko'rsating
-import { Model } from "@prisma/client";
+} from '@nestjs/common';
+import { CreateModelDto, UpdateModelDto } from './dto';
+import { PrismaService } from '../prisma/prisma.service'; // O'zingizning PrismaService yo'lingizni ko'rsating
+import { Model } from '@prisma/client';
 
 @Injectable()
 export class ModelService {
   constructor(private readonly prismaService: PrismaService) {}
 
-  async create(createModelDto: CreateModelDto): Promise<Model> {
+  async create(createModelDto: CreateModelDto) {
     try {
       const brandExists = await this.prismaService.brand.findUnique({
         where: { id: createModelDto.brand_id },
       });
       if (!brandExists) {
         throw new BadRequestException(
-          `Brand with ID ${createModelDto.brand_id} not found.`
+          `Brand with ID ${createModelDto.brand_id} not found.`,
         );
       }
 
@@ -35,23 +35,23 @@ export class ModelService {
       return model;
     } catch (error) {
       if (
-        error.code === "P2002" &&
-        error.meta?.target?.includes("brand_id") &&
-        error.meta?.target?.includes("name")
+        error.code === 'P2002' &&
+        error.meta?.target?.includes('brand_id') &&
+        error.meta?.target?.includes('name')
       ) {
         throw new BadRequestException(
-          `Model with name '${createModelDto.name}' already exists for brand ID ${createModelDto.brand_id}.`
+          `Model with name '${createModelDto.name}' already exists for brand ID ${createModelDto.brand_id}.`,
         );
       }
       if (error instanceof BadRequestException) {
         throw error;
       }
-      console.error("Error creating model:", error);
-      throw new InternalServerErrorException("Could not create model.");
+      console.error('Error creating model:', error);
+      throw new InternalServerErrorException('Could not create model.');
     }
   }
 
-  async findAll(brandIdInput?: number): Promise<Model[]> {
+  async findAll(brandIdInput?: number) {
     // Parametr nomi o'zgartirildi va turi ixtiyoriy
     return this.prismaService.model.findMany({
       where: {
@@ -63,7 +63,7 @@ export class ModelService {
     });
   }
 
-  async findOne(id: number): Promise<Model> {
+  async findOne(id: number) {
     const model = await this.prismaService.model.findUnique({
       where: { id },
       include: {
@@ -76,7 +76,7 @@ export class ModelService {
     return model;
   }
 
-  async update(id: number, updateModelDto: UpdateModelDto): Promise<Model> {
+  async update(id: number, updateModelDto: UpdateModelDto) {
     try {
       const existingModel = await this.findOne(id); // Model mavjudligini tekshirish
 
@@ -88,7 +88,7 @@ export class ModelService {
         });
         if (!brandExists) {
           throw new BadRequestException(
-            `Brand with ID ${updateModelDto.brand_id} not found.`
+            `Brand with ID ${updateModelDto.brand_id} not found.`,
           );
         }
         brandIdToUse = updateModelDto.brand_id;
@@ -112,16 +112,16 @@ export class ModelService {
       return updatedModel;
     } catch (error) {
       if (
-        error.code === "P2002" &&
-        error.meta?.target?.includes("brand_id") &&
-        error.meta?.target?.includes("name")
+        error.code === 'P2002' &&
+        error.meta?.target?.includes('brand_id') &&
+        error.meta?.target?.includes('name')
       ) {
         const nameToCheck =
           updateModelDto.name || (await this.findOne(id)).name;
         const brandIdToCheck =
           updateModelDto.brand_id || (await this.findOne(id)).brand_id;
         throw new BadRequestException(
-          `Model with name '${nameToCheck}' already exists for brand ID ${brandIdToCheck}.`
+          `Model with name '${nameToCheck}' already exists for brand ID ${brandIdToCheck}.`,
         );
       }
       if (
@@ -131,11 +131,11 @@ export class ModelService {
         throw error;
       }
       console.error(`Error updating model with ID ${id}:`, error);
-      throw new InternalServerErrorException("Could not update model.");
+      throw new InternalServerErrorException('Could not update model.');
     }
   }
 
-  async remove(id: number): Promise<{ message: string }> {
+  async remove(id: number) {
     try {
       await this.findOne(id);
       await this.prismaService.model.delete({
@@ -147,12 +147,12 @@ export class ModelService {
       if (error instanceof NotFoundException) {
         throw error;
       }
-      if (error.code === "P2003") {
+      if (error.code === 'P2003') {
         throw new BadRequestException(
-          `Cannot delete model with ID ${id} as it is still referenced by other records (e.g., Products).`
+          `Cannot delete model with ID ${id} as it is still referenced by other records (e.g., Products).`,
         );
       }
-      throw new InternalServerErrorException("Could not delete model.");
+      throw new InternalServerErrorException('Could not delete model.');
     }
   }
 }
