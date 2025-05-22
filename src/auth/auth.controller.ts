@@ -1,8 +1,9 @@
 import { Controller, Post, Body, Res } from '@nestjs/common';
 import { AuthService } from './auth.service';
-import { LoginDto, RefreshTokenDto, RegisterDto, OtpDto } from './dto/auth.dto';
+import { LoginDto, RegisterDto, OtpDto } from './dto/auth.dto';
 import { Response } from 'express';
 import { Public } from '../common/decorators/public.decorator';
+import { CookieGetter } from '../common/decorators/cookie-getter.decorator';
 
 @Controller('auth')
 export class AuthController {
@@ -35,10 +36,10 @@ export class AuthController {
   @Post('refresh-token')
   @Public()
   refreshToken(
-    @Body() refreshTokenDto: RefreshTokenDto,
+    @CookieGetter('refreshToken') refreshToken: string,
     @Res({ passthrough: true }) res: Response,
   ) {
-    return this.authService.refreshToken(refreshTokenDto, res);
+    return this.authService.refreshToken(refreshToken, res);
   }
 
   @Post('logout')
@@ -48,17 +49,20 @@ export class AuthController {
   }
 
   @Post('admin/login')
-  @Public() 
-  adminLogin(@Body() loginDto: LoginDto, @Res({ passthrough: true }) res: Response) {
+  @Public()
+  adminLogin(
+    @Body() loginDto: LoginDto,
+    @Res({ passthrough: true }) res: Response,
+  ) {
     return this.authService.adminLogin(loginDto, res);
   }
 
   @Post('admin/refresh-token')
   @Public()
   adminRefreshToken(
-    @Body() refreshTokenDto: RefreshTokenDto,
+    @CookieGetter('refreshToken') refreshToken: string,
     @Res({ passthrough: true }) res: Response,
   ) {
-    return this.authService.adminRefreshToken(refreshTokenDto, res);
+    return this.authService.adminRefreshToken(refreshToken, res);
   }
 }

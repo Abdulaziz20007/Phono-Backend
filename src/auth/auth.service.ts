@@ -6,7 +6,6 @@ import {
 import { JwtService } from '@nestjs/jwt';
 import {
   LoginDto,
-  RefreshTokenDto,
   RegisterDto,
   OtpDto,
   UserJwtDto,
@@ -244,14 +243,11 @@ export class AuthService {
     return tokens;
   }
 
-  async refreshToken(refreshTokenDto: RefreshTokenDto, res?: Response) {
+  async refreshToken(refreshToken: string, res: Response) {
     try {
-      const payload = await this.jwtService.verify(
-        refreshTokenDto.refresh_token,
-        {
-          secret: process.env.USER_REFRESH,
-        },
-      );
+      const payload = await this.jwtService.verify(refreshToken, {
+        secret: process.env.USER_REFRESH,
+      });
 
       const user = await this.userService.findOne(payload.id);
       if (!user) {
@@ -275,12 +271,8 @@ export class AuthService {
         is_active: user.is_active,
       });
 
-      if (res) {
-        res.cookie('refreshToken', tokens['refreshToken'], this.COOKIE_OPTIONS);
-        return { accessToken: tokens['accessToken'] };
-      }
-
-      return tokens;
+      res.cookie('refreshToken', tokens['refreshToken'], this.COOKIE_OPTIONS);
+      return { accessToken: tokens['accessToken'] };
     } catch (error) {
       throw new UnauthorizedException('Yaroqsiz refresh token');
     }
@@ -319,14 +311,11 @@ export class AuthService {
     return tokens;
   }
 
-  async adminRefreshToken(refreshTokenDto: RefreshTokenDto, res?: Response) {
+  async adminRefreshToken(refreshToken: string, res: Response) {
     try {
-      const payload = await this.jwtService.verify(
-        refreshTokenDto.refresh_token,
-        {
-          secret: process.env.ADMIN_REFRESH,
-        },
-      );
+      const payload = await this.jwtService.verify(refreshToken, {
+        secret: process.env.ADMIN_REFRESH,
+      });
 
       const admin = await this.adminService.findOne(payload.id);
       if (!admin) {

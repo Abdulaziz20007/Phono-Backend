@@ -36,7 +36,6 @@ export class UserController {
   @Get(':id')
   @Roles(Role.ADMIN, Role.USER)
   findOne(@Param('id') id: string, @GetUser() user: UserType | AdminType) {
-    // If user is not admin, they can only access their own data
     if (user.role !== Role.ADMIN && user.id !== +id) {
       return this.userService.findOne(user.id);
     }
@@ -50,7 +49,6 @@ export class UserController {
     @Body() updateUserDto: UpdateUserDto,
     @GetUser() user: UserType | AdminType,
   ) {
-    // If user is not admin, they can only update their own data
     if (user.role !== Role.ADMIN && user.id !== +id) {
       return this.userService.update(user.id, updateUserDto);
     }
