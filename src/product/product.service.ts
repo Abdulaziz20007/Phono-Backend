@@ -4,7 +4,6 @@ import { UpdateProductDto } from './dto/update-product.dto';
 import { PrismaService } from '../prisma/prisma.service';
 import { AdminType } from '../common/types/admin.type';
 import { UserType } from '../common/types/user.type';
-import { selfGuard } from '../common/self-guard';
 
 @Injectable()
 export class ProductService {
@@ -13,8 +12,9 @@ export class ProductService {
   create(createProductDto: CreateProductDto, user: UserType | AdminType) {
     const user_id =
       user.role == 'ADMIN' || user.role == 'SUPERADMIN'
-        ? createProductDto.user_id
+        ? createProductDto.user_id!
         : user.id;
+
     return this.prisma.product.create({
       data: { ...createProductDto, user_id },
     });

@@ -22,7 +22,7 @@ export class PaymentMethodController {
   constructor(private readonly paymentMethodService: PaymentMethodService) {}
 
   @Post()
-  @Roles(Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.ADMIN)
   create(
     @Body() createPaymentMethodDto: CreatePaymentMethodDto,
     @GetUser() user: UserType | AdminType,
@@ -43,7 +43,7 @@ export class PaymentMethodController {
   }
 
   @Patch(':id')
-  @Roles(Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.ADMIN)
   update(
     @Param('id') id: string,
     @Body() updatePaymentMethodDto: UpdatePaymentMethodDto,
@@ -53,7 +53,7 @@ export class PaymentMethodController {
   }
 
   @Delete(':id')
-  @Roles(Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.ADMIN)
   remove(@Param('id') id: string, @GetUser() user: UserType | AdminType) {
     return this.paymentMethodService.remove(+id);
   }

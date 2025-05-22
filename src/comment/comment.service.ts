@@ -15,10 +15,7 @@ export class CommentService {
     return this.prismaService.comment.create({
       data: {
         ...createCommentDto,
-        user_id:
-          user.role === 'ADMIN' || user.role === 'SUPERADMIN'
-            ? createCommentDto.user_id!
-            : user.id,
+        user_id: user.role === 'ADMIN' ? createCommentDto.user_id! : user.id,
       },
     });
   }

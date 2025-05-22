@@ -28,19 +28,19 @@ export class OtpController {
   }
 
   @Get()
-  @Roles(Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.ADMIN)
   findAll(@GetUser() user: UserType | AdminType) {
     return this.otpService.findAll();
   }
 
   @Get(':id')
-  @Roles(Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.ADMIN)
   findOne(@Param('id') id: string, @GetUser() user: UserType | AdminType) {
     return this.otpService.findOne(+id);
   }
 
   @Patch(':id')
-  @Roles(Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.ADMIN)
   update(
     @Param('id') id: string,
     @Body() updateOtpDto: UpdateOtpDto,
@@ -50,7 +50,7 @@ export class OtpController {
   }
 
   @Delete(':id')
-  @Roles(Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.ADMIN)
   remove(@Param('id') id: string, @GetUser() user: UserType | AdminType) {
     return this.otpService.remove(+id);
   }

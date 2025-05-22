@@ -13,7 +13,6 @@ import {
 import { AddressService } from './address.service';
 import { CreateAddressDto } from './dto/create-address.dto';
 import { UpdateAddressDto } from './dto/update-address.dto';
-import { Address } from '@prisma/client';
 import { Roles } from 'src/common/decorators/roles.decorator';
 import { Role } from 'src/common/enums/roles.enum';
 import { GetUser } from 'src/common/decorators/get-user.decorator';
@@ -26,7 +25,7 @@ export class AddressController {
 
   @Post()
   @HttpCode(201)
-  @Roles(Role.USER, Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.USER, Role.ADMIN)
   create(
     @Body() createAddressDto: CreateAddressDto,
     @GetUser() user: UserType | AdminType,
@@ -36,13 +35,13 @@ export class AddressController {
   }
 
   @Get()
-  @Roles(Role.USER, Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.USER, Role.ADMIN)
   findAll(@GetUser() user: UserType | AdminType) {
     return this.addressService.findAll(user);
   }
 
   @Get(':id')
-  @Roles(Role.USER, Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.USER, Role.ADMIN)
   findOne(
     @Param('id', ParseIntPipe) id: number,
     @GetUser() user: UserType | AdminType,
@@ -51,7 +50,7 @@ export class AddressController {
   }
 
   @Patch(':id')
-  @Roles(Role.USER, Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.USER, Role.ADMIN)
   update(
     @Param('id', ParseIntPipe) id: number,
     @Body() updateAddressDto: UpdateAddressDto,
@@ -61,7 +60,7 @@ export class AddressController {
   }
 
   @Delete(':id')
-  @Roles(Role.USER, Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.USER, Role.ADMIN)
   remove(
     @Param('id', ParseIntPipe) id: number,
     @GetUser() user: UserType | AdminType,

@@ -20,29 +20,20 @@ export class AddressService {
     return this.prismaService.address.create({
       data: {
         ...createAddressDto,
-        user_id:
-          user.role === 'ADMIN' || user.role === 'SUPERADMIN'
-            ? createAddressDto.user_id!
-            : user.id,
+        user_id: user.role === 'ADMIN' ? createAddressDto.user_id! : user.id,
       },
     });
   }
 
   async findAll(user: UserType | AdminType) {
     return this.prismaService.address.findMany({
-      where:
-        user.role === 'ADMIN' || user.role === 'SUPERADMIN'
-          ? {}
-          : { user_id: user.id },
+      where: user.role === 'ADMIN' ? {} : { user_id: user.id },
     });
   }
 
   async findOne(id: number, user: UserType | AdminType) {
     const address = await this.prismaService.address.findUnique({
-      where:
-        user.role === 'ADMIN' || user.role === 'SUPERADMIN'
-          ? { id }
-          : { id, user_id: user.id },
+      where: user.role === 'ADMIN' ? { id } : { id, user_id: user.id },
     });
     if (!address) {
       throw new NotFoundException('Manzil topilmadi');

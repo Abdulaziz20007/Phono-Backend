@@ -24,7 +24,7 @@ export class PhoneController {
 
   @Post()
   @HttpCode(201)
-  @Roles(Role.USER, Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.USER, Role.ADMIN)
   create(
     @Body() createPhoneDto: CreatePhoneDto,
     @GetUser() user: UserType | AdminType,
@@ -33,19 +33,19 @@ export class PhoneController {
   }
 
   @Get()
-  @Roles(Role.USER, Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.USER, Role.ADMIN)
   findAll(@GetUser() user: UserType | AdminType) {
     return this.phoneService.findAll(user);
   }
 
   @Get(':id')
-  @Roles(Role.USER, Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.USER, Role.ADMIN)
   findOne(@Param('id', ParseIntPipe) user: AdminType | UserType, id: number) {
     return this.phoneService.findOne(id, user);
   }
 
   @Patch(':id')
-  @Roles(Role.USER, Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.USER, Role.ADMIN)
   update(
     @Param('id', ParseIntPipe) id: number,
     @Body() updatePhoneDto: UpdatePhoneDto,
@@ -56,7 +56,7 @@ export class PhoneController {
 
   @Delete(':id')
   @HttpCode(204)
-  @Roles(Role.USER, Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.USER, Role.ADMIN)
   remove(
     @Param('id', ParseIntPipe) id: number,
     @GetUser() user: UserType | AdminType,

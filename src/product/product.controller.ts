@@ -22,7 +22,7 @@ export class ProductController {
   constructor(private readonly productService: ProductService) {}
 
   @Post()
-  @Roles(Role.USER, Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.USER, Role.ADMIN)
   create(
     @Body() createProductDto: CreateProductDto,
     @GetUser() user: UserType | AdminType,
@@ -43,7 +43,7 @@ export class ProductController {
   }
 
   @Patch(':id')
-  @Roles(Role.USER, Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.USER, Role.ADMIN)
   update(
     @Param('id') id: string,
     @Body() updateProductDto: UpdateProductDto,
@@ -53,7 +53,7 @@ export class ProductController {
   }
 
   @Delete(':id')
-  @Roles(Role.USER, Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.USER, Role.ADMIN)
   remove(@Param('id') id: string, @GetUser() user: UserType | AdminType) {
     return this.productService.remove(+id, user);
   }

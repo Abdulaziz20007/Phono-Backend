@@ -300,7 +300,6 @@ export class AuthService {
     const tokens = this.adminJwtGenerate({
       id: admin.id,
       phone: admin.phone,
-      is_creator: admin.is_creator,
     });
 
     if (res) {
@@ -325,7 +324,6 @@ export class AuthService {
       const tokens = this.adminJwtGenerate({
         id: admin.id,
         phone: admin.phone,
-        is_creator: admin.is_creator,
       });
 
       if (res) {

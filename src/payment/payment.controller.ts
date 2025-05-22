@@ -33,7 +33,7 @@ export class PaymentController {
   }
 
   @Get()
-  @Roles(Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.ADMIN)
   findAll() {
     return this.paymentService.findAll();
   }
@@ -52,7 +52,7 @@ export class PaymentController {
   }
 
   @Patch(':id')
-  @Roles(Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.ADMIN)
   update(
     @Param('id') id: string,
     @Body() updatePaymentDto: UpdatePaymentDto,
@@ -62,7 +62,7 @@ export class PaymentController {
   }
 
   @Delete(':id')
-  @Roles(Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.ADMIN)
   remove(@Param('id') id: string, @GetUser() user: UserType | AdminType) {
     return this.paymentService.remove(+id, user);
   }

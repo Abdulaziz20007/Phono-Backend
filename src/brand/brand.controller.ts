@@ -30,7 +30,7 @@ export class BrandController {
 
   @Post()
   @HttpCode(201)
-  @Roles(Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.ADMIN)
   @UseInterceptors(
     FileInterceptor('image', {
       fileFilter: (req, file, callback) => {
@@ -73,7 +73,7 @@ export class BrandController {
   }
 
   @Patch(':id')
-  @Roles(Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.ADMIN)
   @UseInterceptors(
     FileInterceptor('image', {
       fileFilter: (req, file, callback) => {
@@ -108,7 +108,7 @@ export class BrandController {
 
   @Delete(':id')
   @HttpCode(204)
-  @Roles(Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.ADMIN)
   remove(
     @Param('id', ParseIntPipe) id: number,
     @GetUser() user: UserType | AdminType,

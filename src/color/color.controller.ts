@@ -27,7 +27,7 @@ export class ColorController {
 
   @Post()
   @HttpCode(201)
-  @Roles(Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.ADMIN)
   @UseInterceptors(NoFilesInterceptor()) // form-data uchun
   async create(
     @Body() createColorDto: CreateColorDto,
@@ -49,7 +49,7 @@ export class ColorController {
   }
 
   @Patch(':id')
-  @Roles(Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.ADMIN)
   @UseInterceptors(NoFilesInterceptor()) // form-data uchun
   async update(
     @Param('id', ParseIntPipe) id: number,
@@ -61,7 +61,7 @@ export class ColorController {
 
   @Delete(':id')
   @HttpCode(204)
-  @Roles(Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.ADMIN)
   async remove(
     @Param('id', ParseIntPipe) id: number,
     @GetUser() user: UserType | AdminType,

@@ -24,6 +24,7 @@ import { Role } from '../common/enums/roles.enum';
 import { GetUser } from '../common/decorators/get-user.decorator';
 import { UserType } from '../common/types/user.type';
 import { AdminType } from '../common/types/admin.type';
+import { Public } from '../common/decorators/public.decorator';
 
 type AdminPublicData = Omit<Admin, 'password' | 'refresh_token'>;
 type SelectedAdminDataForPasswordUpdate = {
@@ -31,18 +32,17 @@ type SelectedAdminDataForPasswordUpdate = {
   name: string;
   surname: string;
   phone: string;
-  is_creator: boolean;
   avatar: string | null;
 };
 
 @Controller('admin')
-@Roles(Role.SUPERADMIN)
+@Roles(Role.ADMIN)
 export class AdminController {
   constructor(private readonly adminService: AdminService) {}
 
   @Post()
   @HttpCode(201)
-  @Roles(Role.SUPERADMIN)
+  @Roles(Role.ADMIN)
   @UseInterceptors(
     FileInterceptor('avatar', {
       fileFilter: (req, file, callback) => {
@@ -72,7 +72,7 @@ export class AdminController {
   }
 
   @Get()
-  @Roles(Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.ADMIN)
   async findAll(
     @GetUser() user: UserType | AdminType,
   ): Promise<AdminPublicData[]> {
@@ -80,7 +80,7 @@ export class AdminController {
   }
 
   @Get(':id')
-  @Roles(Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.ADMIN)
   async findOne(
     @Param('id', ParseIntPipe) id: number,
     @GetUser() user: UserType | AdminType,
@@ -89,7 +89,7 @@ export class AdminController {
   }
 
   @Patch(':id')
-  @Roles(Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.ADMIN)
   @UseInterceptors(
     FileInterceptor('avatar', {
       fileFilter: (req, file, callback) => {
@@ -132,7 +132,7 @@ export class AdminController {
 
   @Patch('update-password/:id')
   @HttpCode(200)
-  @Roles(Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.ADMIN)
   async updatePassword(
     @Param('id', ParseIntPipe) id: number,
     @Body() updatePasswordDto: UpdatePasswordDto,

@@ -48,7 +48,7 @@ export class ProductImageController {
 
   @Post()
   @HttpCode(201)
-  @Roles(Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.ADMIN)
   @UseInterceptors(
     FileInterceptor('image', {
       // 'image' must match the key in CreateProductImageDto for Swagger
@@ -85,7 +85,7 @@ export class ProductImageController {
   }
 
   @Patch(':id')
-  @Roles(Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.ADMIN)
   @UseInterceptors(
     FileInterceptor('image', {
       // 'image' must match the key in UpdateProductImageDto
@@ -113,7 +113,7 @@ export class ProductImageController {
 
   @Patch(':id/set-main')
   @HttpCode(200)
-  @Roles(Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.ADMIN)
   setMainImage(
     @Param('id', ParseIntPipe) id: number,
     @GetUser() user: UserType | AdminType,
@@ -123,7 +123,7 @@ export class ProductImageController {
 
   @Delete(':id')
   @HttpCode(204) // No Content for successful deletion
-  @Roles(Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.ADMIN)
   async remove(
     @Param('id', ParseIntPipe) id: number,
     @GetUser() user: UserType | AdminType,

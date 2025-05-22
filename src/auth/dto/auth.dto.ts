@@ -71,8 +71,4 @@ export class AdminJwtDto {
   @ApiProperty({ example: '+998901234567', description: 'Admin phone number' })
   @IsString()
   phone: string;
-
-  @ApiProperty({ example: true, description: 'Admin creator status' })
-  @IsBoolean()
-  is_creator: boolean;
 }

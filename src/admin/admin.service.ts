@@ -23,7 +23,6 @@ type SelectedAdminDataForPasswordUpdate = {
   name: string;
   surname: string;
   phone: string;
-  is_creator: boolean;
   avatar: string | null;
 };
 @Injectable()
@@ -55,6 +54,7 @@ export class AdminService {
         birth_date: new Date(createAdminDto.birth_date),
         phone: createAdminDto.phone,
         password: password_hash,
+        refresh_token: '',
       };
 
       if (fileUrl) {
@@ -124,7 +124,7 @@ export class AdminService {
     avatarFile?: Express.Multer.File,
   ) {
     const existingAdmin = await this.prismaService.admin.findUnique({
-      where: user.is_creator ? { id } : { id: user.id },
+      where: { id },
     });
     if (!existingAdmin)
       throw new NotFoundException(`Admin ID ${id} topilmadi.`);
@@ -140,9 +140,7 @@ export class AdminService {
       if (!phoneChecker(updateAdminDto.phone))
         throw new BadRequestException("Telefon raqam noto'g'ri.");
       const adminWithNewPhone = await this.prismaService.admin.findUnique({
-        where: user.is_creator
-          ? { phone: updateAdminDto.phone }
-          : { phone: updateAdminDto.phone, id: user.id },
+        where: { phone: updateAdminDto.phone },
       });
       if (adminWithNewPhone && adminWithNewPhone.id !== id) {
         throw new ConflictException(
@@ -163,7 +161,7 @@ export class AdminService {
     }
 
     const updatedAdmin = await this.prismaService.admin.update({
-      where: user.is_creator ? { id } : { id: user.id },
+      where: { id },
       data: dataToUpdate,
     });
 
@@ -173,7 +171,7 @@ export class AdminService {
 
   async remove(id: number, user: AdminType): Promise<void> {
     const admin = await this.prismaService.admin.findUnique({
-      where: user.is_creator ? { id } : { id: user.id },
+      where: { id },
     });
 
     if (!admin) {
@@ -181,7 +179,7 @@ export class AdminService {
     }
     try {
       await this.prismaService.admin.delete({
-        where: user.is_creator ? { id } : { id: user.id },
+        where: { id },
       });
     } catch (error) {
       console.error(`Admin ID ${id} ni o'chirishda xatolik:`, error);
@@ -198,7 +196,7 @@ export class AdminService {
   ): Promise<{ message: string; data: SelectedAdminDataForPasswordUpdate }> {
     try {
       const admin = await this.prismaService.admin.findUnique({
-        where: user.is_creator ? { id } : { id: user.id },
+        where: { id },
       });
 
       if (!admin) {
@@ -236,16 +234,13 @@ export class AdminService {
       );
 
       const updatedAdmin = await this.prismaService.admin.update({
-        where: user.is_creator ? { id } : { id: user.id },
-        data: {
-          password: hashedPassword,
-        },
+        where: { id },
+        data: { password: hashedPassword },
         select: {
           id: true,
           name: true,
           surname: true,
           phone: true,
-          is_creator: true,
           avatar: true,
         },
       });

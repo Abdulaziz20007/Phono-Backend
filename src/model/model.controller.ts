@@ -29,7 +29,7 @@ export class ModelController {
 
   @Post()
   @HttpCode(201)
-  @Roles(Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.ADMIN)
   @UseInterceptors(NoFilesInterceptor())
   async create(
     @Body() createModelDto: CreateModelDto,
@@ -62,7 +62,7 @@ export class ModelController {
   }
 
   @Patch(':id')
-  @Roles(Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.ADMIN)
   @UseInterceptors(NoFilesInterceptor())
   async update(
     @Param('id', ParseIntPipe) id: number,
@@ -74,7 +74,7 @@ export class ModelController {
 
   @Delete(':id')
   @HttpCode(204)
-  @Roles(Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.ADMIN)
   async remove(
     @Param('id', ParseIntPipe) id: number,
     @GetUser() user: UserType | AdminType,

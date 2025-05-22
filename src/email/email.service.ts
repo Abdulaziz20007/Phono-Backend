@@ -19,10 +19,7 @@ export class EmailService {
   constructor(private readonly prismaService: PrismaService) {}
 
   async create(createEmailDto: CreateEmailDto, user: UserType | AdminType) {
-    const userId =
-      user.role === 'ADMIN' || user.role === 'SUPERADMIN'
-        ? createEmailDto.user_id!
-        : user.id;
+    const userId = user.role === 'ADMIN' ? createEmailDto.user_id! : user.id;
 
     const userExists = await this.prismaService.user.findUnique({
       where: { id: userId },
@@ -45,18 +42,13 @@ export class EmailService {
   async findAll(user: UserType | AdminType) {
     return this.prismaService.email.findMany({
       where:
-        user.role === 'ADMIN' || user.role === 'SUPERADMIN'
-          ? { user_id: user.id }
-          : { user_id: user.id },
+        user.role === 'ADMIN' ? { user_id: user.id } : { user_id: user.id },
     });
   }
 
   async findOne(id: number, user: UserType | AdminType) {
     const email = await this.prismaService.email.findUnique({
-      where:
-        user.role === 'ADMIN' || user.role === 'SUPERADMIN'
-          ? { id }
-          : { id, user_id: user.id },
+      where: user.role === 'ADMIN' ? { id } : { id, user_id: user.id },
     });
     if (!email) {
       throw new NotFoundException('Email topilmadi');

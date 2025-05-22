@@ -11,7 +11,7 @@ export class CreateProductDto {
   @ApiProperty({ example: 1, description: 'User ID who owns the product' })
   @IsInt()
   @IsNotEmpty()
-  user_id: number;
+  user_id?: number;
 
   @ApiProperty({ example: 'iPhone 13 Pro Max', description: 'Product title' })
   @IsString()
@@ -47,7 +47,7 @@ export class CreateProductDto {
   })
   @IsString()
   @IsNotEmpty()
-  custom_model: string;
+  custom_model?: string;
 
   @ApiProperty({ example: 1, description: 'Color ID' })
   @IsInt()

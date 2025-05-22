@@ -60,8 +60,7 @@ export class JwtAuthGuard implements CanActivate {
           name: adminPayload.name,
           surname: adminPayload.surname,
           phone: adminPayload.phone,
-          is_creator: adminPayload.is_creator,
-          role: adminPayload.is_creator ? 'SUPERADMIN' : 'ADMIN',
+          role: 'ADMIN',
         };
 
         return true;

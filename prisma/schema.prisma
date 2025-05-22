@@ -18,7 +18,7 @@ model User {
   name          String
   surname       String
   phone         String   @unique
-  password      String?
+  password      String
   avatar        String?
   balance       Float   @default(0)
   currency_id   Int     @default(1)
@@ -186,8 +186,7 @@ model Admin {
   phone         String   @unique
   password      String
   avatar        String?
-  refresh_token String?
-  is_creator    Boolean  @default(false)
+  refresh_token String
 
   blocks_issued    Block[]
   products_managed Product[]

@@ -22,25 +22,25 @@ export class BlockController {
   constructor(private readonly blockService: BlocksService) {}
 
   @Post()
-  @Roles(Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.ADMIN)
   create(@Body() createBlockDto: CreateBlockDto, @GetUser() user: AdminType) {
     return this.blockService.create(createBlockDto);
   }
 
   @Get()
-  @Roles(Role.USER, Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.USER, Role.ADMIN)
   findAll(@GetUser() user: UserType | AdminType) {
     return this.blockService.findAll(user);
   }
 
   @Get(':id')
-  @Roles(Role.USER, Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.USER, Role.ADMIN)
   findOne(@Param('id') id: string, @GetUser() user: UserType | AdminType) {
     return this.blockService.findOne(+id, user);
   }
 
   @Patch(':id')
-  @Roles(Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.ADMIN)
   update(
     @Param('id') id: string,
     @Body() updateBlockDto: UpdateBlockDto,
@@ -50,7 +50,7 @@ export class BlockController {
   }
 
   @Delete(':id')
-  @Roles(Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.ADMIN)
   remove(@Param('id') id: string, @GetUser() user: AdminType) {
     return this.blockService.remove(+id);
   }

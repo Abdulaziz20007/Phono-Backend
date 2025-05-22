@@ -17,10 +17,7 @@ export class PhoneService {
   constructor(private readonly prismaService: PrismaService) {}
 
   async create(createPhoneDto: CreatePhoneDto, user: UserType | AdminType) {
-    const userId =
-      user.role === 'ADMIN' || user.role === 'SUPERADMIN'
-        ? createPhoneDto.user_id!
-        : user.id;
+    const userId = user.role === 'ADMIN' ? createPhoneDto.user_id! : user.id;
 
     const userExists = await this.prismaService.user.findUnique({
       where: { id: userId },
@@ -29,7 +26,7 @@ export class PhoneService {
       throw new BadRequestException(`Foydalanuvchi topilmadi`);
     }
 
-    if (phoneChecker(createPhoneDto.phone)) {
+    if (!phoneChecker(createPhoneDto.phone)) {
       throw new BadRequestException(`Telefon raqam noto'g'ri`);
     }
 
@@ -44,18 +41,13 @@ export class PhoneService {
   async findAll(user: UserType | AdminType) {
     return this.prismaService.phone.findMany({
       where:
-        user.role === 'ADMIN' || user.role === 'SUPERADMIN'
-          ? { user_id: user.id }
-          : { user_id: user.id },
+        user.role === 'ADMIN' ? { user_id: user.id } : { user_id: user.id },
     });
   }
 
   async findOne(id: number, user: UserType | AdminType) {
     const phone = await this.prismaService.phone.findUnique({
-      where:
-        user.role === 'ADMIN' || user.role === 'SUPERADMIN'
-          ? { id }
-          : { id, user_id: user.id },
+      where: user.role === 'ADMIN' ? { id } : { id, user_id: user.id },
     });
     if (!phone) {
       throw new NotFoundException('Telefon raqami topilmadi');

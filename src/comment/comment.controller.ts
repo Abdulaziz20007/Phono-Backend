@@ -48,7 +48,7 @@ export class CommentController {
   }
 
   @Patch(':id')
-  @Roles(Role.USER, Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.USER, Role.ADMIN)
   async update(
     @Param('id', ParseIntPipe) id: number,
     @Body() updateCommentDto: UpdateCommentDto,
@@ -59,7 +59,7 @@ export class CommentController {
 
   @Delete(':id')
   @HttpCode(204)
-  @Roles(Role.USER, Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.USER, Role.ADMIN)
   async remove(
     @Param('id', ParseIntPipe) id: number,
     @GetUser() user: UserType | AdminType,

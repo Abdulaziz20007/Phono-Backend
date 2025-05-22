@@ -26,7 +26,8 @@ export class CurrencyController {
 
   @Post()
   @HttpCode(201)
-  @Roles(Role.ADMIN, Role.SUPERADMIN)
+  // @Roles(Role.ADMIN)
+  @Public()
   @UseInterceptors(NoFilesInterceptor()) // <--- QO'SHILDI: form-data ni parse qilish uchun
   create(
     @Body() createCurrencyDto: CreateCurrencyDto,
@@ -50,7 +51,7 @@ export class CurrencyController {
   }
 
   @Patch(':id')
-  @Roles(Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.ADMIN)
   @UseInterceptors(NoFilesInterceptor()) // <--- Agar update ham form-data qabul qilsa
   update(
     @Param('id', ParseIntPipe) id: number,
@@ -62,7 +63,7 @@ export class CurrencyController {
 
   @Delete(':id')
   @HttpCode(204)
-  @Roles(Role.ADMIN, Role.SUPERADMIN)
+  @Roles(Role.ADMIN)
   remove(
     @Param('id', ParseIntPipe) id: number,
     @GetUser() user: UserType | AdminType,

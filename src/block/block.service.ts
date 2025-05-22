@@ -61,9 +61,7 @@ export class BlocksService {
     try {
       return await this.prisma.block.findMany({
         where:
-          user.role === 'ADMIN' || user.role === 'SUPERADMIN'
-            ? { admin_id: user.id }
-            : { user_id: user.id },
+          user.role === 'ADMIN' ? { admin_id: user.id } : { user_id: user.id },
         include: {
           user: true,
           admin: true,
@@ -77,10 +75,7 @@ export class BlocksService {
   async findOne(id: number, user: UserType | AdminType) {
     try {
       const block = await this.prisma.block.findUnique({
-        where:
-          user.role === 'ADMIN' || user.role === 'SUPERADMIN'
-            ? { id }
-            : { id, user_id: user.id },
+        where: user.role === 'ADMIN' ? { id } : { id, user_id: user.id },
         include: {
           user: true,
           admin: true,
