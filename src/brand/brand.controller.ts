@@ -23,6 +23,7 @@ import { Public } from '../common/decorators/public.decorator';
 import { GetUser } from '../common/decorators/get-user.decorator';
 import { UserType } from '../common/types/user.type';
 import { AdminType } from '../common/types/admin.type';
+import { Brand } from '@prisma/client';
 
 @Controller('brand')
 export class BrandController {
@@ -30,14 +31,16 @@ export class BrandController {
 
   @Post()
   @HttpCode(201)
-  @Roles(Role.ADMIN)
+  @Roles(Role.ADMIN, Role.SUPERADMIN)
   @UseInterceptors(
     FileInterceptor('image', {
+      // Fayl maydoni nomi 'logo' bo'lishi logikroq
       fileFilter: (req, file, callback) => {
-        if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/i)) {
+        if (!file.originalname.match(/\.(jpg|jpeg|png|gif|svg|webp)$/i)) {
+          // Ko'proq rasm formatlari
           return callback(
             new BadRequestException(
-              'Faqat rasm fayllari (jpg, jpeg, png, gif) yuklanishi mumkin!',
+              'Faqat rasm fayllari (jpg, jpeg, png, gif, svg, webp) yuklanishi mumkin!',
             ),
             false,
           );
@@ -45,42 +48,43 @@ export class BrandController {
         callback(null, true);
       },
       limits: {
-        fileSize: 5 * 1024 * 1024,
+        fileSize: 5 * 1024 * 1024, // 5MB
       },
     }),
   )
   create(
     @Body() createBrandDto: CreateBrandDto,
-    @GetUser() user: UserType | AdminType,
-    @UploadedFile() image: Express.Multer.File,
-  ) {
-    if (!image) {
+    @GetUser() user: UserType | AdminType, // Bu parametr ishlatilmayapti service.create da, agar kerak bo'lsa uzating
+    @UploadedFile() logo: Express.Multer.File,
+  ): Promise<Brand> {
+    if (!logo) {
       throw new BadRequestException('Brand logotipi yuklanishi shart!');
     }
-    return this.brandService.create(createBrandDto, image);
+    return this.brandService.create(createBrandDto, logo);
   }
 
   @Get()
   @Public()
-  findAll() {
+  findAll(): Promise<Brand[]> {
     return this.brandService.findAll();
   }
 
   @Get(':id')
   @Public()
-  findOne(@Param('id', ParseIntPipe) id: number) {
+  findOne(@Param('id', ParseIntPipe) id: number): Promise<Brand | null> {
     return this.brandService.findOne(id);
   }
 
   @Patch(':id')
-  @Roles(Role.ADMIN)
+  @Roles(Role.ADMIN, Role.SUPERADMIN)
   @UseInterceptors(
     FileInterceptor('image', {
+      // Fayl maydoni nomi 'logo'
       fileFilter: (req, file, callback) => {
-        if (!file.originalname.match(/\.(jpg|jpeg|png|gif)$/i)) {
+        if (!file.originalname.match(/\.(jpg|jpeg|png|gif|svg|webp)$/i)) {
           return callback(
             new BadRequestException(
-              'Faqat rasm fayllari (jpg, jpeg, png, gif) yuklanishi mumkin!',
+              'Faqat rasm fayllari (jpg, jpeg, png, gif, svg, webp) yuklanishi mumkin!',
             ),
             false,
           );
@@ -88,31 +92,31 @@ export class BrandController {
         callback(null, true);
       },
       limits: {
-        fileSize: 5 * 1024 * 1024,
+        fileSize: 5 * 1024 * 1024, // 5MB
       },
     }),
   )
   update(
     @Param('id', ParseIntPipe) id: number,
     @Body() updateBrandDto: UpdateBrandDto,
-    @GetUser() user: UserType | AdminType,
-    @UploadedFile() image?: Express.Multer.File,
-  ) {
-    if (Object.keys(updateBrandDto).length === 0 && !image) {
+    @GetUser() user: UserType | AdminType, // Bu parametr ishlatilmayapti service.update da, agar kerak bo'lsa uzating
+    @UploadedFile() logo?: Express.Multer.File,
+  ): Promise<Brand> {
+    if (Object.keys(updateBrandDto).length === 0 && !logo) {
       throw new BadRequestException(
         "Yangilash uchun hech bo'lmaganda bitta maydon yoki rasm yuboring.",
       );
     }
-    return this.brandService.update(id, updateBrandDto, image);
+    return this.brandService.update(id, updateBrandDto, logo);
   }
 
   @Delete(':id')
   @HttpCode(204)
-  @Roles(Role.ADMIN)
+  @Roles(Role.ADMIN, Role.SUPERADMIN)
   remove(
     @Param('id', ParseIntPipe) id: number,
-    @GetUser() user: UserType | AdminType,
-  ) {
+    @GetUser() user: UserType | AdminType, // Bu parametr ishlatilmayapti service.remove da, agar kerak bo'lsa uzating
+  ): Promise<{ message: string }> {
     return this.brandService.remove(id);
   }
 }

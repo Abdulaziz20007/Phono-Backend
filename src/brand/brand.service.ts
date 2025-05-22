@@ -3,63 +3,100 @@ import {
   NotFoundException,
   InternalServerErrorException,
   BadRequestException,
+  ConflictException,
 } from '@nestjs/common';
 import { CreateBrandDto } from './dto/create-brand.dto';
 import { UpdateBrandDto } from './dto/update-brand.dto';
-import { PrismaService } from '../prisma/prisma.service'; // PrismaService yo'lini to'g'rilang
-import { FileAmazonService } from '../file-amazon/file-amazon.service'; // FileAmazonService yo'lini to'g'rilang
-import { Express } from 'express';
-import { Brand } from '@prisma/client';
+import { PrismaService } from '../prisma/prisma.service';
+import { FileAmazonService } from '../file-amazon/file-amazon.service';
+import { Brand, Prisma } from '@prisma/client';
 
 @Injectable()
 export class BrandService {
   constructor(
     private readonly prismaService: PrismaService,
-    private readonly fileAmazonService: FileAmazonService, // Fayl servis dependency injection
+    private readonly fileAmazonService: FileAmazonService,
   ) {}
 
   async create(
     createBrandDto: CreateBrandDto,
-    image: Express.Multer.File,
+    logoFile: Express.Multer.File,
   ): Promise<Brand> {
-    try {
-      let imageUrl: string | undefined = undefined;
+    if (!logoFile) {
+      // Bu controllerda allaqachon tekshirilgan, lekin xavfsizlik uchun qoldiramiz
+      throw new BadRequestException('Brand logotipi yuklanishi shart!');
+    }
 
-      if (image) {
-        imageUrl = await this.fileAmazonService.uploadFile(image); // Faylni S3 ga yuklash
+    try {
+      // FileAmazonService.uploadFile ning return type i string | undefined deb hisoblaymiz
+      const imageUrl: string | undefined =
+        await this.fileAmazonService.uploadFile(logoFile);
+
+      // Agar uploadFile undefined qaytarsa, bu kutilmagan holat, chunki logoFile majburiy
+      if (imageUrl === undefined) {
+        console.error(
+          'FileAmazonService.uploadFile returned undefined for a mandatory logo.',
+        );
+        throw new InternalServerErrorException(
+          'Fayl S3 ga yuklandi, lekin URL manzili olinmadi.',
+        );
       }
 
       const brand = await this.prismaService.brand.create({
         data: {
-          ...createBrandDto,
-          logo: imageUrl!, // image_url Prisma schemadagi maydon nomi bilan mos bo'lishi kerak
+          name: createBrandDto.name,
+          logo: imageUrl, // Bu yerda imageUrl string bo'lishi kafolatlangan (yuqoridagi if tufayli)
         },
       });
       return brand;
     } catch (error) {
       console.error('Error while creating brand:', error);
-      if (error.code === 'P2002' && error.meta?.target?.includes('name')) {
-        throw new BadRequestException(
-          `Brand with name '${createBrandDto.name}' already exists.`,
-        );
+      if (error instanceof Prisma.PrismaClientKnownRequestError) {
+        if (error.code === 'P2002') {
+          const target = error.meta?.target as string[] | undefined;
+          if (target && target.includes('name')) {
+            throw new ConflictException(
+              `'${createBrandDto.name}' nomli brand allaqachon mavjud.`,
+            );
+          }
+        }
       }
-      throw new InternalServerErrorException({
-        message: error.message || 'Could not create brand',
-      });
+      // Agar xatolik allaqachon biz kutgan turlardan biri bo'lsa, uni qayta tashlaymiz
+      if (
+        error instanceof BadRequestException ||
+        error instanceof ConflictException ||
+        error instanceof InternalServerErrorException
+      ) {
+        throw error;
+      }
+      // Aks holda, umumiy InternalServerErrorException
+      throw new InternalServerErrorException(
+        (error as Error).message ||
+          "Brand yaratishda noma'lum xatolik yuz berdi.",
+      );
     }
   }
 
+  // ... qolgan methodlar (findAll, findOne, update, remove) avvalgidek ...
+  // update methodida ham shunga o'xshash tekshiruvni newImageUrl uchun qilishingiz mumkin
   async findAll(): Promise<Brand[]> {
-    return this.prismaService.brand.findMany();
+    return this.prismaService.brand.findMany({
+      include: {
+        models: true,
+      },
+    });
   }
 
   async findOne(id: number): Promise<Brand | null> {
     const brand = await this.prismaService.brand.findUnique({
       where: { id },
+      include: {
+        models: true,
+      },
     });
 
     if (!brand) {
-      throw new NotFoundException(`Brand with ID ${id} not found`);
+      throw new NotFoundException(`${id} ID'li brand topilmadi.`);
     }
     return brand;
   }
@@ -67,38 +104,46 @@ export class BrandService {
   async update(
     id: number,
     updateBrandDto: UpdateBrandDto,
-    image?: Express.Multer.File,
+    logoFile?: Express.Multer.File,
   ): Promise<Brand> {
+    const existingBrand = await this.prismaService.brand.findUnique({
+      where: { id },
+    });
+
+    if (!existingBrand) {
+      throw new NotFoundException(`${id} ID'li brand topilmadi.`);
+    }
+
+    if (Object.keys(updateBrandDto).length === 0 && !logoFile) {
+      throw new BadRequestException(
+        "Yangilash uchun hech bo'lmaganda bitta maydon yoki rasm yuboring.",
+      );
+    }
+
+    const dataToUpdate: Prisma.BrandUpdateInput = {};
+
+    if (updateBrandDto.name) {
+      dataToUpdate.name = updateBrandDto.name;
+    }
+
     try {
-      const existingBrand = await this.prismaService.brand.findUnique({
-        where: { id },
-      });
-
-      if (!existingBrand) {
-        throw new NotFoundException(`Brand with ID ${id} not found`);
-      }
-
-      const dataToUpdate: any = { ...updateBrandDto }; // Yoki Prisma.BrandUpdateInput
-
-      if (image) {
+      if (logoFile) {
         if (existingBrand.logo) {
-          try {
-            console.warn(
-              `Old brand image ${existingBrand.logo} was not deleted. Implement deletion if necessary.`,
-            );
-          } catch (deleteError) {
-            console.error(
-              'Error deleting old brand image from S3:',
-              deleteError,
-            );
-          }
+          console.warn(
+            `Old brand logo ${existingBrand.logo} was not deleted from S3. Implement deletion if necessary.`,
+          );
         }
-        const newImageUrl = await this.fileAmazonService.uploadFile(image);
-        dataToUpdate.image_url = newImageUrl;
-      }
-
-      if (Object.keys(updateBrandDto).length === 0 && !image) {
-        throw new BadRequestException('No data provided for update.');
+        const newImageUrl: string | undefined =
+          await this.fileAmazonService.uploadFile(logoFile);
+        if (newImageUrl === undefined) {
+          console.error(
+            'FileAmazonService.uploadFile returned undefined for an optional logo during update.',
+          );
+          throw new InternalServerErrorException(
+            'Fayl S3 ga yuklandi (yangilash), lekin URL manzili olinmadi.',
+          );
+        }
+        dataToUpdate.logo = newImageUrl;
       }
 
       const updatedBrand = await this.prismaService.brand.update({
@@ -111,51 +156,57 @@ export class BrandService {
       console.error('Error while updating brand:', error);
       if (
         error instanceof NotFoundException ||
-        error instanceof BadRequestException
+        error instanceof BadRequestException ||
+        error instanceof ConflictException ||
+        error instanceof InternalServerErrorException
       ) {
         throw error;
       }
-      if (
-        error.code === 'P2002' &&
-        error.meta?.target?.includes('name') &&
-        updateBrandDto.name
-      ) {
-        throw new BadRequestException(
-          `Brand with name '${updateBrandDto.name}' already exists.`,
-        );
+      if (error instanceof Prisma.PrismaClientKnownRequestError) {
+        if (error.code === 'P2002') {
+          const target = error.meta?.target as string[] | undefined;
+          if (target && target.includes('name') && updateBrandDto.name) {
+            throw new ConflictException(
+              `'${updateBrandDto.name}' nomli brand allaqachon mavjud.`,
+            );
+          }
+        }
       }
-      throw new InternalServerErrorException({
-        message: error.message || 'Could not update brand',
-      });
+      throw new InternalServerErrorException(
+        (error as Error).message ||
+          "Brandni yangilashda noma'lum xatolik yuz berdi.",
+      );
     }
   }
 
   async remove(id: number): Promise<{ message: string }> {
+    const existingBrand = await this.prismaService.brand.findUnique({
+      where: { id },
+    });
+
+    if (!existingBrand) {
+      throw new NotFoundException(`${id} ID'li brand topilmadi.`);
+    }
+
     try {
-      const existingBrand = await this.prismaService.brand.findUnique({
-        where: { id },
-      });
-
-      if (!existingBrand) {
-        throw new NotFoundException(`Brand with ID ${id} not found`);
-      }
-
       await this.prismaService.brand.delete({ where: { id } });
-
-      return { message: `Brand with ID ${id} deleted successfully` };
+      return { message: `${id} ID'li brand muvaffaqiyatli o'chirildi.` };
     } catch (error) {
       console.error('Error while deleting brand:', error);
       if (error instanceof NotFoundException) {
         throw error;
       }
-      if (error.code === 'P2003') {
-        throw new BadRequestException(
-          `Cannot delete brand with ID ${id} as it is still referenced by other records. Please update or delete those records first.`,
-        );
+      if (error instanceof Prisma.PrismaClientKnownRequestError) {
+        if (error.code === 'P2003') {
+          throw new BadRequestException(
+            `${id} ID'li brandni o'chirib bo'lmadi, chunki u boshqa yozuvlar (masalan, modellar yoki mahsulotlar) tomonidan ishlatilmoqda. Avval o'sha yozuvlarni o'chiring yoki yangilang.`,
+          );
+        }
       }
-      throw new InternalServerErrorException({
-        message: error.message || 'Could not delete brand',
-      });
+      throw new InternalServerErrorException(
+        (error as Error).message ||
+          "Brandni o'chirishda noma'lum xatolik yuz berdi.",
+      );
     }
   }
 }
