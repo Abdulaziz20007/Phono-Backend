@@ -34,12 +34,15 @@ export class UserController {
   }
 
   @Get(':id')
-  @Roles(Role.ADMIN, Role.USER)
-  findOne(@Param('id') id: string, @GetUser() user: UserType | AdminType) {
-    if (user.role !== Role.ADMIN && user.id !== +id) {
-      return this.userService.findOne(user.id);
-    }
+  @Roles(Role.ADMIN)
+  findOne(@Param('id') id: string) {
     return this.userService.findOne(+id);
+  }
+
+  @Get('/profile/:id')
+  @Public()
+  profile(@Param('id') id: string) {
+    return this.userService.profile(+id);
   }
 
   @Patch(':id')

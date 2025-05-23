@@ -1,31 +1,27 @@
 import {
   Injectable,
-  InternalServerErrorException,
   BadRequestException,
+  NotFoundException,
 } from '@nestjs/common';
 import { CreateCurrencyDto } from './dto/create-currency.dto';
 import { PrismaService } from '../prisma/prisma.service';
-import { Currency } from '@prisma/client';
 
 @Injectable()
 export class CurrencyService {
   constructor(private readonly prismaService: PrismaService) {}
 
   async create(createCurrencyDto: CreateCurrencyDto) {
-    try {
-      const currency = await this.prismaService.currency.create({
-        data: createCurrencyDto,
-      });
-      return currency;
-    } catch (error) {
-      if (error.code === 'P2002' && error.meta?.target?.includes('name')) {
-        throw new BadRequestException(
-          `Currency with name '${createCurrencyDto.name}' already exists.`,
-        );
-      }
-      console.error('Error creating currency:', error);
-      throw new InternalServerErrorException('Could not create currency.');
+    const existing = await this.prismaService.currency.findUnique({
+      where: { name: createCurrencyDto.name },
+    });
+    if (existing) {
+      throw new BadRequestException(
+        `Ushbu nomdagi valyuta ('${createCurrencyDto.name}') allaqachon mavjud.`,
+      );
     }
+    return this.prismaService.currency.create({
+      data: createCurrencyDto,
+    });
   }
 
   async findAll() {
@@ -37,47 +33,36 @@ export class CurrencyService {
       where: { id },
     });
     if (!currency) {
-      throw new BadRequestException(`Currency with ID ${id} not found.`);
+      throw new NotFoundException(`IDsi ${id} bo'lgan valyuta topilmadi.`);
     }
     return currency;
   }
 
   async update(id: number, updateCurrencyDto: any) {
-    try {
-      const existingCurrency = await this.findOne(id);
-      const updatedCurrency = await this.prismaService.currency.update({
-        where: { id },
-        data: updateCurrencyDto,
-      });
-      return updatedCurrency;
-    } catch (error) {
-      if (error.code === 'P2002' && error.meta?.target?.includes('name')) {
-        throw new BadRequestException(
-          `Currency with name '${updateCurrencyDto.name}' already exists.`,
-        );
-      }
-      console.error(`Error updating currency with ID ${id}:`, error);
-      if (error instanceof BadRequestException) throw error;
-      throw new InternalServerErrorException('Could not update currency.');
+    const existing = await this.prismaService.currency.findUnique({
+      where: { name: updateCurrencyDto.name },
+    });
+    if (existing) {
+      throw new BadRequestException(
+        `Ushbu nomdagi valyuta ('${updateCurrencyDto.name}') allaqachon mavjud.`,
+      );
     }
+    return this.prismaService.currency.update({
+      where: { id },
+      data: updateCurrencyDto,
+    });
   }
 
   async remove(id: number) {
-    try {
-      await this.findOne(id); // Mavjudligini tekshirish
-      await this.prismaService.currency.delete({
-        where: { id },
-      });
-      return { message: `Currency with ID ${id} deleted successfully.` };
-    } catch (error) {
-      console.error(`Error deleting currency with ID ${id}:`, error);
-      if (error instanceof BadRequestException) throw error;
-      if (error.code === 'P2003') {
-        throw new BadRequestException(
-          `Cannot delete currency with ID ${id} as it is still referenced by other records.`,
-        );
-      }
-      throw new InternalServerErrorException('Could not delete currency.');
+    const existing = await this.prismaService.currency.findUnique({
+      where: { id },
+    });
+    if (!existing) {
+      throw new NotFoundException('Ushbu valyuta topilmadi');
     }
+    await this.prismaService.currency.delete({
+      where: { id },
+    });
+    return { message: `IDsi ${id} bo'lgan valyuta muvaffaqiyatli o'chirildi.` };
   }
 }

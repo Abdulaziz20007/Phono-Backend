@@ -54,6 +54,18 @@ export class UserService {
     });
   }
 
+  async profile(id: number) {
+    const user = await this.prisma.user.findUnique({
+      where: { id },
+      include: {
+        products: true,
+      },
+    });
+    if (!user) return null;
+    const { password, refresh_token, balance, ...rest } = user;
+    return rest;
+  }
+
   findByPhone(phone: string) {
     return this.prisma.user.findFirst({
       where: { phone },

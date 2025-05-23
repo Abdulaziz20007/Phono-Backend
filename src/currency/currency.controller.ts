@@ -8,11 +8,11 @@ import {
   ParseIntPipe,
   Patch,
   Delete,
-  UseInterceptors, // <--- QO'SHILDI
+  UseInterceptors,
 } from '@nestjs/common';
 import { CurrencyService } from './currency.service';
 import { CreateCurrencyDto } from './dto/create-currency.dto';
-import { NoFilesInterceptor } from '@nestjs/platform-express'; // <--- QO'SHILDI
+import { NoFilesInterceptor } from '@nestjs/platform-express';
 import { Roles } from '../common/decorators/roles.decorator';
 import { Role } from '../common/enums/roles.enum';
 import { Public } from '../common/decorators/public.decorator';
@@ -27,13 +27,8 @@ export class CurrencyController {
   @Post()
   @HttpCode(201)
   @Roles(Role.ADMIN)
-  @UseInterceptors(NoFilesInterceptor()) // <--- QO'SHILDI: form-data ni parse qilish uchun
-  create(
-    @Body() createCurrencyDto: CreateCurrencyDto,
-    @GetUser() user: UserType | AdminType,
-  ) {
-    // Agar kerak bo'lsa, bu yerda kelgan DTO ni log qilib ko'rishingiz mumkin
-    // console.log('Received DTO for currency:', createCurrencyDto);
+  @UseInterceptors(NoFilesInterceptor())
+  create(@Body() createCurrencyDto: CreateCurrencyDto) {
     return this.currencyService.create(createCurrencyDto);
   }
 
@@ -51,11 +46,10 @@ export class CurrencyController {
 
   @Patch(':id')
   @Roles(Role.ADMIN)
-  @UseInterceptors(NoFilesInterceptor()) // <--- Agar update ham form-data qabul qilsa
+  @UseInterceptors(NoFilesInterceptor())
   update(
     @Param('id', ParseIntPipe) id: number,
-    @Body() updateCurrencyDto: any, // UpdateCurrencyDto ni ishlating
-    @GetUser() user: UserType | AdminType,
+    @Body() updateCurrencyDto: any,
   ) {
     return this.currencyService.update(id, updateCurrencyDto);
   }
@@ -63,10 +57,7 @@ export class CurrencyController {
   @Delete(':id')
   @HttpCode(204)
   @Roles(Role.ADMIN)
-  remove(
-    @Param('id', ParseIntPipe) id: number,
-    @GetUser() user: UserType | AdminType,
-  ) {
+  remove(@Param('id', ParseIntPipe) id: number) {
     return this.currencyService.remove(id);
   }
 }

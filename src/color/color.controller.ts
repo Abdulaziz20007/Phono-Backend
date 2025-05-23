@@ -17,9 +17,6 @@ import { Color } from '@prisma/client';
 import { Roles } from '../common/decorators/roles.decorator';
 import { Role } from '../common/enums/roles.enum';
 import { Public } from '../common/decorators/public.decorator';
-import { GetUser } from '../common/decorators/get-user.decorator';
-import { UserType } from '../common/types/user.type';
-import { AdminType } from '../common/types/admin.type';
 
 @Controller('color')
 export class ColorController {
@@ -28,11 +25,8 @@ export class ColorController {
   @Post()
   @HttpCode(201)
   @Roles(Role.ADMIN)
-  @UseInterceptors(NoFilesInterceptor()) // form-data uchun
-  async create(
-    @Body() createColorDto: CreateColorDto,
-    @GetUser() user: UserType | AdminType,
-  ): Promise<Color> {
+  @UseInterceptors(NoFilesInterceptor())
+  async create(@Body() createColorDto: CreateColorDto): Promise<Color> {
     return this.colorService.create(createColorDto);
   }
 
@@ -50,11 +44,10 @@ export class ColorController {
 
   @Patch(':id')
   @Roles(Role.ADMIN)
-  @UseInterceptors(NoFilesInterceptor()) // form-data uchun
+  @UseInterceptors(NoFilesInterceptor())
   async update(
     @Param('id', ParseIntPipe) id: number,
     @Body() updateColorDto: UpdateColorDto,
-    @GetUser() user: UserType | AdminType,
   ): Promise<Color> {
     return this.colorService.update(id, updateColorDto);
   }
@@ -62,10 +55,7 @@ export class ColorController {
   @Delete(':id')
   @HttpCode(204)
   @Roles(Role.ADMIN)
-  async remove(
-    @Param('id', ParseIntPipe) id: number,
-    @GetUser() user: UserType | AdminType,
-  ): Promise<{ message: string }> {
+  async remove(@Param('id', ParseIntPipe) id: number) {
     return this.colorService.remove(id);
   }
 }
