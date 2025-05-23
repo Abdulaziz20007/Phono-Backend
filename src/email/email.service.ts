@@ -28,28 +28,50 @@ export class EmailService {
       throw new BadRequestException(`Foydalanuvchi topilmadi`);
     }
 
+    const emailExists = await this.prismaService.email.findUnique({
+      where: { email: createEmailDto.email },
+    });
+    if (emailExists) {
+      throw new BadRequestException(`Email allaqachon mavjud`);
+    }
     const activation = uuidv4();
     await sendEmail(createEmailDto.email, activation);
-    this.prismaService.email.create({
+    await this.prismaService.email.create({
       data: {
         ...createEmailDto,
         user_id: userId,
         activation,
       },
     });
-    return { message: "Email qo'shildi" };
+    return { message: 'Emailga tasdiqlash xabari yuborildi' };
   }
 
   async findAll(user: UserType | AdminType) {
     return this.prismaService.email.findMany({
       where:
         user.role === 'ADMIN' ? { user_id: user.id } : { user_id: user.id },
+      select: {
+        id: true,
+        email: true,
+        is_active: true,
+      },
     });
   }
 
   async findOne(id: number, user: UserType | AdminType) {
     const email = await this.prismaService.email.findUnique({
       where: user.role === 'ADMIN' ? { id } : { id, user_id: user.id },
+      select: {
+        id: true,
+        email: true,
+        is_active: true,
+        user: {
+          select: {
+            id: true,
+            name: true,
+          },
+        },
+      },
     });
     if (!email) {
       throw new NotFoundException('Email topilmadi');
@@ -84,13 +106,16 @@ export class EmailService {
     const activation = uuidv4();
     await sendEmail(updateEmailDto.email!, activation);
 
-    return this.prismaService.email.update({
+    await this.prismaService.email.update({
       where: { id },
       data: {
         ...updateEmailDto,
         activation,
+        is_active: false,
       },
     });
+
+    return { message: 'Emailga tasdiqlash xabari yuborildi' };
   }
 
   async remove(id: number, user: UserType | AdminType) {
