@@ -19,27 +19,40 @@ export function generateOtp(): object {
 let TOKEN = '';
 
 export async function sendOtp(phone: string, otp: string) {
-  // const token = checkTokenExp(TOKEN);
-  // if (!token) {
-  //   const newToken = await loginEskiz();
-  //   TOKEN = newToken;
-  // }
-  // const formData = new FormData();
-  // formData.append('mobile_phone', phone);
-  // formData.append('message', `Your verification code is: ${otp}`);
-  // formData.append('from', '4546');
+  const token = await checkTokenExp(TOKEN);
 
-  // const response = await fetch('notify.eskiz.uz/api/message/sms/send', {
-  //   method: 'POST',
-  //   headers: {
-  //     Authorization: `Bearer ${TOKEN}`,
-  //   },
-  //   body: formData,
-  // });
+  if (!token) {
+    const newToken = await loginEskiz();
+    TOKEN = newToken;
+  }
 
-  // return response.json();
+  const formattedPhone = phone.startsWith('+') ? phone.substring(1) : phone;
 
-  return console.log(otp);
+  const formData = new FormData();
+  formData.append('mobile_phone', formattedPhone);
+  formData.append(
+    'message',
+    `Assalamu alaykum, hurmatli foydalanuvchi, sizning "Phono" platformasidagi tasdiqlash kodingiz: ${otp}`,
+  );
+  formData.append('from', '4546');
+
+  try {
+    const response = await fetch(
+      'https://notify.eskiz.uz/api/message/sms/send',
+      {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${TOKEN}`,
+        },
+        body: formData,
+      },
+    );
+
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    return { error: 'Failed to send SMS' };
+  }
 }
 
 async function loginEskiz() {
@@ -47,23 +60,31 @@ async function loginEskiz() {
   formData.append('email', process.env.ESKIZ_EMAIL!);
   formData.append('password', process.env.ESKIZ_PASSWORD!);
 
-  const response = await fetch('notify.eskiz.uz/api/auth/login', {
-    method: 'POST',
-    body: formData,
-  });
+  try {
+    const response = await fetch('https://notify.eskiz.uz/api/auth/login', {
+      method: 'POST',
+      body: formData,
+    });
 
-  const data = await response.json();
-  return data.data.token;
+    const data = await response.json();
+
+    if (data && data.data && data.data.token) {
+      return data.data.token;
+    }
+    return '';
+  } catch (error) {
+    return '';
+  }
 }
 
 async function checkTokenExp(token: string) {
-  if (!token) {
+  if (!token || token === '') {
     return false;
   }
   try {
     const payload = JSON.parse(atob(token.split('.')[1]));
     return payload.exp > Date.now() / 1000;
-  } catch {
+  } catch (error) {
     return false;
   }
 }

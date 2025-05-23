@@ -26,6 +26,8 @@ export class AddressService {
   }
 
   async findAll(user: UserType | AdminType) {
+    console.log(user);
+
     return this.prismaService.address.findMany({
       where: user.role === 'ADMIN' ? {} : { user_id: user.id },
     });
