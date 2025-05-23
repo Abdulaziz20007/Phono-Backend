@@ -1,9 +1,14 @@
-import { Injectable } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
 import { PrismaService } from '../prisma/prisma.service';
 import { AdminType } from '../common/types/admin.type';
 import { UserType } from '../common/types/user.type';
+import { UpgradeProductDto } from './dto/upgrade-product.dto';
 
 @Injectable()
 export class ProductService {
@@ -23,6 +28,12 @@ export class ProductService {
     return this.prisma.product.findMany();
   }
 
+  findUserProducts(user_id: number) {
+    return this.prisma.product.findMany({
+      where: { user_id },
+    });
+  }
+
   findOne(id: number) {
     return this.prisma.product.findUnique({
       where: { id },
@@ -39,6 +50,43 @@ export class ProductService {
       where: { id, user_id },
       data: updateProductDto,
     });
+  }
+
+  async upgrade(
+    id: number,
+    user: UserType | AdminType,
+    upgradeProductDto: UpgradeProductDto,
+  ) {
+    const user_id = user.role == 'ADMIN' ? upgradeProductDto.user_id : user.id;
+    const product = await this.prisma.product.findFirst({
+      where: { id, user_id },
+    });
+    if (!product) {
+      throw new NotFoundException('Product topilmadi');
+    }
+    if (product.top_expire_date > new Date()) {
+      throw new BadRequestException('Product allaqachon topga yuklangan');
+    }
+    const thisUser = await this.prisma.user.findUnique({
+      where: { id: user_id },
+    });
+    if (!thisUser) {
+      throw new NotFoundException('User topilmadi');
+    }
+    if (thisUser.balance < 10000) {
+      throw new BadRequestException('Balans yetarli emas');
+    }
+    const top_expire_date = new Date();
+    top_expire_date.setDate(top_expire_date.getDate() + 7);
+    await this.prisma.product.update({
+      where: { id },
+      data: { top_expire_date },
+    });
+    await this.prisma.user.update({
+      where: { id: user_id },
+      data: { balance: thisUser.balance - 10000 },
+    });
+    return { message: 'Product topga yuklandi' };
   }
 
   remove(id: number, user: UserType | AdminType) {

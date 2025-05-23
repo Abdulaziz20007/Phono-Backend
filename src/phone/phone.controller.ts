@@ -40,7 +40,10 @@ export class PhoneController {
 
   @Get(':id')
   @Roles(Role.USER, Role.ADMIN)
-  findOne(@Param('id', ParseIntPipe) user: AdminType | UserType, id: number) {
+  findOne(
+    @Param('id', ParseIntPipe) id: number,
+    @GetUser() user: UserType | AdminType,
+  ) {
     return this.phoneService.findOne(id, user);
   }
 

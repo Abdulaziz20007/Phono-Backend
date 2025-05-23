@@ -134,7 +134,7 @@ export class AuthService {
 
     await this.phoneService.create(
       { phone: newUser.phone },
-      { user_id: newUser.id },
+      { id: newUser.id },
     );
 
     const otp = generateOtp() as OtpDto;

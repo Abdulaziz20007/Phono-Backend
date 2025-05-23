@@ -115,8 +115,7 @@ model Product {
   is_sold         Boolean   @default(false)
   is_checked      Boolean   @default(false)
   admin_id        Int?
-  is_top          Boolean   @default(false)
-  top_expire_date DateTime?
+  top_expire_date DateTime  @default(now())
 
   user          User     @relation("UserProducts", fields: [user_id], references: [id], onDelete: Cascade)
   brand         Brand?   @relation(fields: [brand_id], references: [id])

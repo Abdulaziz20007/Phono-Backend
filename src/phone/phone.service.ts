@@ -50,7 +50,10 @@ export class PhoneService {
 
   async findOne(id: number, user: UserType | AdminType) {
     const phone = await this.prismaService.phone.findUnique({
-      where: user.role === 'ADMIN' ? { id } : { id, user_id: user.id },
+      where: {
+        id: id,
+        ...(user.role !== 'ADMIN' && { user_id: user.id }),
+      },
     });
     if (!phone) {
       throw new NotFoundException('Telefon raqami topilmadi');
@@ -68,6 +71,9 @@ export class PhoneService {
     });
     if (!phone) {
       throw new NotFoundException('Telefon raqami topilmadi');
+    }
+    if (updatePhoneDto.phone && !phoneChecker(updatePhoneDto.phone)) {
+      throw new BadRequestException(`Telefon raqam noto'g'ri`);
     }
     selfGuard(user.id, phone);
 
