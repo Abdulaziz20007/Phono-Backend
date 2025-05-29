@@ -19,6 +19,7 @@ import { CommentModule } from './comment/comment.module';
 import { PaymentMethodModule } from './payment-method/payment-method.module';
 import { PrismaModule } from './prisma/prisma.module';
 import { AuthModule } from './auth/auth.module';
+import { WebModule } from './web/web.module';
 
 @Module({
   imports: [
@@ -44,6 +45,7 @@ import { AuthModule } from './auth/auth.module';
     CommentModule,
     PaymentMethodModule,
     AuthModule,
+    WebModule,
   ],
   controllers: [],
   providers: [],

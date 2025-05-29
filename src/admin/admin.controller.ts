@@ -43,6 +43,7 @@ export class AdminController {
   @Post()
   @HttpCode(201)
   @Roles(Role.ADMIN)
+  // @Public()
   @UseInterceptors(
     FileInterceptor('avatar', {
       fileFilter: (req, file, callback) => {

@@ -1,7 +1,8 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { PrismaService } from '../prisma/prisma.service';
+import { UserType } from '../common/types/user.type';
 
 @Injectable()
 export class UserService {
@@ -63,6 +64,29 @@ export class UserService {
     });
     if (!user) return null;
     const { password, refresh_token, balance, ...rest } = user;
+    return rest;
+  }
+
+  async me(user: UserType) {
+    console.log(user);
+    const theUser = await this.prisma.user.findUnique({
+      where: { id: user.id },
+      include: {
+        addresses: true,
+        additional_phones: true,
+        emails: true,
+        favourite_items: true,
+        payments: true,
+        products: true,
+        comments: true,
+        blocks: true,
+        otps: true,
+      },
+    });
+    if (!theUser) {
+      throw new NotFoundException('User topilmadi');
+    }
+    const { password, refresh_token, otps, ...rest } = theUser;
     return rest;
   }
 

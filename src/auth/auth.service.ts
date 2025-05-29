@@ -110,11 +110,38 @@ export class AuthService {
     const oldUser = await this.userService.findByPhone(registerDto.phone);
 
     if (oldUser) {
-      if (!oldUser.is_active) {
-        await this.userService.remove(oldUser.id);
-      } else {
+      if (oldUser.is_active) {
         throw new BadRequestException('Bu nomer avval ro`yhatdan otgan');
       }
+
+      const existingOtp = oldUser.otps;
+      if (
+        existingOtp &&
+        existingOtp.length > 0 &&
+        existingOtp[0].expire > new Date()
+      ) {
+        throw new BadRequestException('Kod avval yuborilgan');
+      }
+
+      if (existingOtp && existingOtp.length > 0) {
+        await this.otpService.remove(existingOtp[0].id);
+      }
+
+      const otp = generateOtp() as OtpDto;
+      sendOtp(oldUser.phone, otp.otp);
+
+      await this.otpService.create({
+        user_id: oldUser.id,
+        otp: otp.otp,
+        expire: otp.expire,
+        uuid: otp.uuid,
+      });
+
+      return {
+        uuid: otp.uuid,
+        expire: otp.expire,
+        phone: oldUser.phone,
+      };
     }
 
     const password = registerDto.password.trim();

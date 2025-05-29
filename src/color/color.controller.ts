@@ -53,7 +53,7 @@ export class ColorController {
   }
 
   @Delete(':id')
-  @HttpCode(204)
+  // @HttpCode(204)
   @Roles(Role.ADMIN)
   async remove(@Param('id', ParseIntPipe) id: number) {
     return this.colorService.remove(id);

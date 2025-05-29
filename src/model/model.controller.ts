@@ -15,7 +15,6 @@ import {
 import { ModelService } from './model.service';
 import { CreateModelDto, UpdateModelDto } from './dto';
 import { NoFilesInterceptor } from '@nestjs/platform-express';
-import { Model } from '@prisma/client';
 import { Roles } from '../common/decorators/roles.decorator';
 import { Role } from '../common/enums/roles.enum';
 import { Public } from '../common/decorators/public.decorator';
@@ -41,18 +40,21 @@ export class ModelController {
   @Get()
   @Public()
   async findAll(@Query('brandId') brandIdQuery?: string) {
-    // Parametr nomi o'zgartirildi
     let brandIdNumber: number | undefined = undefined;
 
     if (brandIdQuery) {
-      // Agar brandIdQuery mavjud bo'lsa (bo'sh string emas)
       brandIdNumber = parseInt(brandIdQuery, 10);
       if (isNaN(brandIdNumber)) {
         throw new BadRequestException("brandId raqam bo'lishi kerak.");
       }
     }
-    // Endi brandIdNumber yoki number yoki undefined
     return this.modelService.findAll(brandIdNumber);
+  }
+
+  @Get('brand/:id')
+  @Public()
+  async findAllWithBrandId(@Param('id', ParseIntPipe) id: number) {
+    return this.modelService.findAllWithBrandId(id);
   }
 
   @Get(':id')

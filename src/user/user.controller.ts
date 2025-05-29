@@ -33,6 +33,12 @@ export class UserController {
     return this.userService.findAll();
   }
 
+  @Get('/me')
+  @Roles(Role.USER)
+  me(@GetUser() user: UserType) {
+    return this.userService.me(user);
+  }
+
   @Get(':id')
   @Roles(Role.ADMIN)
   findOne(@Param('id') id: string) {

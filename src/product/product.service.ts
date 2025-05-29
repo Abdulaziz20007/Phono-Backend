@@ -25,18 +25,52 @@ export class ProductService {
   }
 
   findAll() {
-    return this.prisma.product.findMany();
+    return this.prisma.product.findMany({
+      include: {
+        images: true,
+        brand: true,
+        model: true,
+        user: true,
+      },
+    });
   }
 
   findUserProducts(user_id: number) {
     return this.prisma.product.findMany({
       where: { user_id },
+      include: {
+        images: true,
+      },
+    });
+  }
+
+  findByBrandId(brand_id: number) {
+    return this.prisma.product.findMany({
+      where: { brand_id },
+      include: {
+        images: true,
+      },
+    });
+  }
+
+  findByModelId(model_id: number) {
+    return this.prisma.product.findMany({
+      where: { model_id },
+      include: {
+        images: true,
+      },
     });
   }
 
   findOne(id: number) {
     return this.prisma.product.findUnique({
       where: { id },
+      include: {
+        images: true,
+        brand: true,
+        model: true,
+        user: true,
+      },
     });
   }
 

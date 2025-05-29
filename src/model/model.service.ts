@@ -5,8 +5,7 @@ import {
   NotFoundException,
 } from '@nestjs/common';
 import { CreateModelDto, UpdateModelDto } from './dto';
-import { PrismaService } from '../prisma/prisma.service'; // O'zingizning PrismaService yo'lingizni ko'rsating
-import { Model } from '@prisma/client';
+import { PrismaService } from '../prisma/prisma.service';
 
 @Injectable()
 export class ModelService {
@@ -63,6 +62,17 @@ export class ModelService {
     });
   }
 
+  async findAllWithBrandId(brandId: number) {
+    return this.prismaService.model.findMany({
+      where: {
+        brand_id: brandId,
+      },
+      include: {
+        brand: true,
+      },
+    });
+  }
+
   async findOne(id: number) {
     const model = await this.prismaService.model.findUnique({
       where: { id },
@@ -78,11 +88,10 @@ export class ModelService {
 
   async update(id: number, updateModelDto: UpdateModelDto) {
     try {
-      const existingModel = await this.findOne(id); // Model mavjudligini tekshirish
+      const existingModel = await this.findOne(id);
 
-      let brandIdToUse = existingModel.brand_id; // Joriy brand ID
+      let brandIdToUse = existingModel.brand_id;
       if (updateModelDto.brand_id !== undefined) {
-        // Agar DTOda brand_id kelgan bo'lsa
         const brandExists = await this.prismaService.brand.findUnique({
           where: { id: updateModelDto.brand_id },
         });

@@ -42,13 +42,13 @@ const imageUploadLimits = {
   fileSize: 5 * 1024 * 1024, // 5MB
 };
 
-@Controller('product-images') // Changed to plural and kebab-case for RESTful convention
+@Controller('product-image') // Changed to plural and kebab-case for RESTful convention
 export class ProductImageController {
   constructor(private readonly productImageService: ProductImageService) {}
 
   @Post()
   @HttpCode(201)
-  @Roles(Role.ADMIN)
+  @Roles(Role.ADMIN, Role.USER)
   @UseInterceptors(
     FileInterceptor('image', {
       // 'image' must match the key in CreateProductImageDto for Swagger
@@ -85,7 +85,7 @@ export class ProductImageController {
   }
 
   @Patch(':id')
-  @Roles(Role.ADMIN)
+  @Roles(Role.ADMIN, Role.USER)
   @UseInterceptors(
     FileInterceptor('image', {
       // 'image' must match the key in UpdateProductImageDto
@@ -113,7 +113,7 @@ export class ProductImageController {
 
   @Patch(':id/set-main')
   @HttpCode(200)
-  @Roles(Role.ADMIN)
+  @Roles(Role.ADMIN, Role.USER)
   setMainImage(
     @Param('id', ParseIntPipe) id: number,
     @GetUser() user: UserType | AdminType,
@@ -123,7 +123,7 @@ export class ProductImageController {
 
   @Delete(':id')
   @HttpCode(204) // No Content for successful deletion
-  @Roles(Role.ADMIN)
+  @Roles(Role.ADMIN, Role.USER)
   async remove(
     @Param('id', ParseIntPipe) id: number,
     @GetUser() user: UserType | AdminType,

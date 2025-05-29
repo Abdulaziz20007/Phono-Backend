@@ -43,6 +43,18 @@ export class ProductController {
     return this.productService.findUserProducts(+id);
   }
 
+  @Get('brand/:id')
+  @Public()
+  findByBrandId(@Param('id') id: string) {
+    return this.productService.findByBrandId(+id);
+  }
+
+  @Get('model/:id')
+  @Public()
+  findByModelId(@Param('id') id: string) {
+    return this.productService.findByModelId(+id);
+  }
+
   @Get(':id')
   @Public()
   findOne(@Param('id') id: string) {

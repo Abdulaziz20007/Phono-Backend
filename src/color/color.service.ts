@@ -65,8 +65,11 @@ export class ColorService {
     if (!existing) {
       throw new NotFoundException(`Ushbu rang topilmadi`);
     }
-    return this.prismaService.color.delete({
+    const message = await this.prismaService.color.delete({
       where: { id },
+      
     });
+     console.log(1, message);
+    return message
   }
 }
