@@ -21,6 +21,7 @@ async function bootstrap() {
         'http://localhost:3000',
         'http://localhost:3001',
         'http://142.93.135.99:3000',
+        'https://phono.ligma.uz',
       ],
       methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
       allowedHeaders: 'Content-Type,Accept,Authorization',
