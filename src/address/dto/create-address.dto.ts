@@ -43,6 +43,11 @@ export class CreateAddressDto {
   @IsOptional()
   user_id?: number;
 
+  @ApiProperty({ example: 1, description: 'Mintaqa IDsi' })
+  @IsInt({ message: "region_id butun son bo'lishi kerak." })
+  @IsNotEmpty({ message: "region_id bo'sh bo'lmasligi kerak." })
+  region_id: number;
+
   @ApiProperty({
     example: true,
     description: 'Manzil aktivmi?',

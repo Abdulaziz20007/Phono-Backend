@@ -228,6 +228,8 @@ export class AuthService {
       is_active: user.is_active,
     });
 
+    await this.userService.updateRefreshToken(user.id, refreshToken);
+
     res.cookie('refreshToken', refreshToken, this.COOKIE_OPTIONS);
 
     return { accessToken };

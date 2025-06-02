@@ -142,6 +142,13 @@ export class UserService {
     });
   }
 
+  updateRefreshToken(id: number, refreshToken: string) {
+    return this.prisma.user.update({
+      where: { id },
+      data: { refresh_token: refreshToken },
+    });
+  }
+
   async updatePassword(id: number, updatePasswordDto: UpdatePasswordDto) {
     const user = await this.prisma.user.findUnique({
       where: { id },

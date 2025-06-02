@@ -1,0 +1,569 @@
+export const data = {
+  Currency: [
+    {
+      id: 1,
+      name: 'Uzbekistan Som',
+      symbol: 'UZS',
+    },
+    {
+      id: 2,
+      name: 'United States Dollar',
+      symbol: 'USD',
+    },
+  ],
+  Region: [
+    {
+      id: 1,
+      name: 'Tashkent City',
+    },
+    {
+      id: 2,
+      name: 'Tashkent Region',
+    },
+    {
+      id: 3,
+      name: 'Fergana',
+    },
+    {
+      id: 4,
+      name: 'Andijan',
+    },
+    {
+      id: 5,
+      name: 'Namangan',
+    },
+    {
+      id: 6,
+      name: 'Khorezm',
+    },
+    {
+      id: 7,
+      name: 'Samarkand',
+    },
+    {
+      id: 8,
+      name: 'Bukhara',
+    },
+    {
+      id: 9,
+      name: 'Karakalpakstan',
+    },
+    {
+      id: 10,
+      name: 'Navoi',
+    },
+    {
+      id: 11,
+      name: 'Jizzakh',
+    },
+    {
+      id: 12,
+      name: 'Sirdarya',
+    },
+    {
+      id: 13,
+      name: 'Surkhandarya',
+    },
+    {
+      id: 14,
+      name: 'Kashkadarya',
+    },
+  ],
+  User: [
+    {
+      id: 1,
+      name: 'Abdulaziz',
+      surname: 'Nabijonov',
+      phone: '944448088',
+      avatar: null,
+      refresh_token: null, // Note: If UserCreateManyInput has similar constraints, this might also need changing.
+      balance: 0,
+      currency_id: 1,
+      is_active: true,
+      password: '$2b$07$7Nm7drlozempoGw2nExgL.h41bkmVoZgTZerQoFPYu9fyMAECSTFq',
+    },
+  ],
+  Address: [
+    {
+      id: 1,
+      name: 'Uy',
+      address: 'Chilonzor-9, 2, 1',
+      lat: '41.11111',
+      long: '41.11111',
+      user_id: 1,
+      region_id: 1,
+    },
+  ],
+  Admin: [
+    {
+      id: 1,
+      name: 'Ahror',
+      surname: 'Sulaymonov',
+      birth_date: '1990-01-15T00:00:00Z',
+      phone: '901234567',
+      password: '$2b$07$EUyBV1sbbIuQzzNM0X95seGC325Kn6Bk9coOwyVTN7QsI9pr8RD9e',
+      avatar: null,
+      refresh_token: '', // Changed from null to an empty string
+    },
+  ],
+  Block: [],
+  Brand: [
+    {
+      id: 1,
+      name: 'Iphone',
+      logo: 'https://chelak.s3.eu-central-1.amazonaws.com/f6b2eda6-dad3-4363-b8b8-f60e621a2b1f',
+    },
+    {
+      id: 2,
+      name: 'Samsung',
+      logo: 'https://chelak.s3.eu-central-1.amazonaws.com/84909585-edbd-4f00-adde-f1b522f2e376',
+    },
+    {
+      id: 3,
+      name: 'Huawei',
+      logo: 'https://chelak.s3.eu-central-1.amazonaws.com/2d2ceb1d-2a24-4f1d-b6de-29da730e76ab',
+    },
+    {
+      id: 4,
+      name: 'Xiaomi',
+      logo: 'https://chelak.s3.eu-central-1.amazonaws.com/8aef5121-44c6-4e78-95af-163d4480784a',
+    },
+    {
+      id: 5,
+      name: 'Philips',
+      logo: 'https://chelak.s3.eu-central-1.amazonaws.com/a90dc8ae-677d-4953-a147-4fd62818b54a',
+    },
+    {
+      id: 6,
+      name: 'Blackview',
+      logo: 'https://chelak.s3.eu-central-1.amazonaws.com/b13a3339-6225-42ab-91a9-5a41dbec9dbd',
+    },
+  ],
+  Color: [
+    {
+      id: 1,
+      name: 'Black',
+      hex: '#000000',
+    },
+    {
+      id: 2,
+      name: 'White',
+      hex: '#FFFFFF',
+    },
+    {
+      id: 3,
+      name: 'Silver',
+      hex: '#C0C0C0',
+    },
+    {
+      id: 4,
+      name: 'Gold',
+      hex: '#FFD700',
+    },
+    {
+      id: 5,
+      name: 'Space Gray',
+      hex: '#5f5f5f',
+    },
+    {
+      id: 6,
+      name: 'Blue',
+      hex: '#0000FF',
+    },
+    {
+      id: 7,
+      name: 'Red',
+      hex: '#FF0000',
+    },
+    {
+      id: 8,
+      name: 'Green',
+      hex: '#008000',
+    },
+    {
+      id: 9,
+      name: 'Rose Gold',
+      hex: '#B76E79',
+    },
+    {
+      id: 10,
+      name: 'Midnight Green',
+      hex: '#004953',
+    },
+  ],
+  Model: [
+    {
+      id: 1,
+      name: 'iPhone 15 Pro Max',
+      brand_id: 1,
+    },
+    {
+      id: 2,
+      name: 'iPhone 15 Pro',
+      brand_id: 1,
+    },
+    {
+      id: 3,
+      name: 'iPhone 15 Plus',
+      brand_id: 1,
+    },
+    {
+      id: 4,
+      name: 'iPhone 15',
+      brand_id: 1,
+    },
+    {
+      id: 5,
+      name: 'iPhone 14 Pro Max',
+      brand_id: 1,
+    },
+    {
+      id: 6,
+      name: 'iPhone 14 Pro',
+      brand_id: 1,
+    },
+    {
+      id: 7,
+      name: 'iPhone 14',
+      brand_id: 1,
+    },
+    {
+      id: 8,
+      name: 'iPhone SE (3rd generation)',
+      brand_id: 1,
+    },
+    {
+      id: 9,
+      name: 'iPhone 13 Pro',
+      brand_id: 1,
+    },
+    {
+      id: 10,
+      name: 'iPhone 13',
+      brand_id: 1,
+    },
+    {
+      id: 11,
+      name: 'Galaxy S24 Ultra',
+      brand_id: 2,
+    },
+    {
+      id: 12,
+      name: 'Galaxy S24+',
+      brand_id: 2,
+    },
+    {
+      id: 13,
+      name: 'Galaxy S24',
+      brand_id: 2,
+    },
+    {
+      id: 14,
+      name: 'Galaxy Z Fold 5',
+      brand_id: 2,
+    },
+    {
+      id: 15,
+      name: 'Galaxy Z Flip 5',
+      brand_id: 2,
+    },
+    {
+      id: 16,
+      name: 'Galaxy A55',
+      brand_id: 2,
+    },
+    {
+      id: 17,
+      name: 'Galaxy A35',
+      brand_id: 2,
+    },
+    {
+      id: 18,
+      name: 'Galaxy S23 FE',
+      brand_id: 2,
+    },
+    {
+      id: 19,
+      name: 'Galaxy M34',
+      brand_id: 2,
+    },
+    {
+      id: 20,
+      name: 'Galaxy F54',
+      brand_id: 2,
+    },
+    {
+      id: 21,
+      name: 'Pura 70 Ultra',
+      brand_id: 3,
+    },
+    {
+      id: 22,
+      name: 'Pura 70 Pro+',
+      brand_id: 3,
+    },
+    {
+      id: 23,
+      name: 'Pura 70 Pro',
+      brand_id: 3,
+    },
+    {
+      id: 24,
+      name: 'Pura 70',
+      brand_id: 3,
+    },
+    {
+      id: 25,
+      name: 'Mate 60 Pro+',
+      brand_id: 3,
+    },
+    {
+      id: 26,
+      name: 'Mate 60 Pro',
+      brand_id: 3,
+    },
+    {
+      id: 27,
+      name: 'Nova 12 Ultra',
+      brand_id: 3,
+    },
+    {
+      id: 28,
+      name: 'Nova 12 Pro',
+      brand_id: 3,
+    },
+    {
+      id: 29,
+      name: 'Enjoy 70 Pro',
+      brand_id: 3,
+    },
+    {
+      id: 30,
+      name: 'Pocket 2',
+      brand_id: 3,
+    },
+    {
+      id: 31,
+      name: 'Xiaomi 14 Ultra',
+      brand_id: 4,
+    },
+    {
+      id: 32,
+      name: 'Xiaomi 14 Pro',
+      brand_id: 4,
+    },
+    {
+      id: 33,
+      name: 'Xiaomi 14',
+      brand_id: 4,
+    },
+    {
+      id: 34,
+      name: 'Redmi Note 13 Pro+',
+      brand_id: 4,
+    },
+    {
+      id: 35,
+      name: 'Redmi Note 13 Pro',
+      brand_id: 4,
+    },
+    {
+      id: 36,
+      name: 'Poco F6 Pro',
+      brand_id: 4,
+    },
+    {
+      id: 37,
+      name: 'Poco X6 Pro',
+      brand_id: 4,
+    },
+    {
+      id: 38,
+      name: 'Redmi K70 Pro',
+      brand_id: 4,
+    },
+    {
+      id: 39,
+      name: 'Xiaomi Civi 4 Pro',
+      brand_id: 4,
+    },
+    {
+      id: 40,
+      name: 'Redmi Turbo 3',
+      brand_id: 4,
+    },
+    {
+      id: 41,
+      name: 'Xenium X818',
+      brand_id: 5,
+    },
+    {
+      id: 42,
+      name: 'S397',
+      brand_id: 5,
+    },
+    {
+      id: 43,
+      name: 'E570',
+      brand_id: 5,
+    },
+    {
+      id: 44,
+      name: 'Xenium E2602',
+      brand_id: 5,
+    },
+    {
+      id: 45,
+      name: 'S566',
+      brand_id: 5,
+    },
+    {
+      id: 46,
+      name: 'Xenium 9@9k',
+      brand_id: 5,
+    },
+    {
+      id: 47,
+      name: 'Philips W6610',
+      brand_id: 5,
+    },
+    {
+      id: 48,
+      name: 'Philips S329',
+      brand_id: 5,
+    },
+    {
+      id: 49,
+      name: 'Philips Xenium E182',
+      brand_id: 5,
+    },
+    {
+      id: 50,
+      name: 'Philips E103',
+      brand_id: 5,
+    },
+    {
+      id: 51,
+      name: 'BV9300 Pro',
+      brand_id: 6,
+    },
+    {
+      id: 52,
+      name: 'BL9000 Pro',
+      brand_id: 6,
+    },
+    {
+      id: 53,
+      name: 'BV8900',
+      brand_id: 6,
+    },
+    {
+      id: 54,
+      name: 'N1000',
+      brand_id: 6,
+    },
+    {
+      id: 55,
+      name: 'Shark 8',
+      brand_id: 6,
+    },
+    {
+      id: 56,
+      name: 'A200 Pro',
+      brand_id: 6,
+    },
+    {
+      id: 57,
+      name: 'OscaL Tiger 12',
+      brand_id: 6,
+    },
+    {
+      id: 58,
+      name: 'BV5200 Pro',
+      brand_id: 6,
+    },
+    {
+      id: 59,
+      name: 'BL8000',
+      brand_id: 6,
+    },
+    {
+      id: 60,
+      name: 'BV9200',
+      brand_id: 6,
+    },
+  ],
+  Phone: [
+    {
+      id: 1,
+      phone: '944448088',
+      user_id: 1,
+    },
+  ],
+  Product: [
+    {
+      id: 1,
+      user_id: 1,
+      title: 'user telefoni',
+      description: 'Excellent condition, barely used',
+      year: 2023,
+      brand_id: 1,
+      model_id: 1,
+      custom_model: null,
+      color_id: 1,
+      price: 999,
+      floor_price: false,
+      currency_id: 1,
+      is_new: true,
+      has_document: true,
+      address_id: 1,
+      phone_id: 1,
+      storage: 256,
+      ram: 8,
+      views: 0,
+      is_archived: false,
+      is_sold: false,
+      is_checked: true,
+      admin_id: null,
+      top_expire_date: '2025-05-29T04:58:49.664Z',
+    },
+  ],
+  Comment: [],
+  Email: [],
+  FavouriteItem: [],
+  Otp: [],
+  PaymentMethod: [
+    {
+      id: 1,
+      name: 'Click',
+    },
+    {
+      id: 2,
+      name: 'Payme',
+    },
+    {
+      id: 3,
+      name: 'Paynet',
+    },
+    {
+      id: 4,
+      name: 'Uzum Bank',
+    },
+  ],
+  Payment: [],
+  ProductImage: [
+    {
+      id: 1,
+      url: 'https://chelak.s3.eu-central-1.amazonaws.com/19f1def8-d6be-4101-84e3-a7c9e27e0a41',
+      product_id: 1,
+      is_main: false,
+    },
+    {
+      id: 2,
+      url: 'https://chelak.s3.eu-central-1.amazonaws.com/7457f2fd-761e-4e90-b228-99f53955f190',
+      product_id: 1,
+      is_main: true,
+    },
+  ],
+  _prisma_migrations: [],
+};

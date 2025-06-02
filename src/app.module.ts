@@ -20,6 +20,8 @@ import { PaymentMethodModule } from './payment-method/payment-method.module';
 import { PrismaModule } from './prisma/prisma.module';
 import { AuthModule } from './auth/auth.module';
 import { WebModule } from './web/web.module';
+import { RegionModule } from './region/region.module';
+import { InitModule } from './init/init.module';
 
 @Module({
   imports: [
@@ -46,6 +48,8 @@ import { WebModule } from './web/web.module';
     PaymentMethodModule,
     AuthModule,
     WebModule,
+    RegionModule,
+    InitModule,
   ],
   controllers: [],
   providers: [],

@@ -9,6 +9,7 @@ import { PrismaService } from '../prisma/prisma.service';
 import { AdminType } from '../common/types/admin.type';
 import { UserType } from '../common/types/user.type';
 import { UpgradeProductDto } from './dto/upgrade-product.dto';
+import { SearchProductDto } from './dto/search-product.dto';
 
 @Injectable()
 export class ProductService {
@@ -59,6 +60,58 @@ export class ProductService {
       include: {
         images: true,
       },
+    });
+  }
+
+  search(searchProductDto: SearchProductDto) {
+    const {
+      search,
+      region_id,
+      category_id,
+      brand_id,
+      color_id,
+      price_from,
+      price_to,
+      memory_from,
+      memory_to,
+      ram_from,
+      ram_to,
+    } = searchProductDto;
+
+    const where: any = {
+      title: { contains: search, mode: 'insensitive' },
+    };
+
+    if (region_id) {
+      where.address = {
+        region_id,
+      };
+    }
+
+    if (category_id) where.category_id = category_id;
+    if (brand_id) where.brand_id = brand_id;
+    if (color_id) where.color_id = color_id;
+
+    if (price_from || price_to) {
+      where.price = {};
+      if (price_from) where.price.gte = price_from;
+      if (price_to) where.price.lte = price_to;
+    }
+
+    if (memory_from || memory_to) {
+      where.memory = {};
+      if (memory_from) where.memory.gte = memory_from;
+      if (memory_to) where.memory.lte = memory_to;
+    }
+
+    if (ram_from || ram_to) {
+      where.ram = {};
+      if (ram_from) where.ram.gte = ram_from;
+      if (ram_to) where.ram.lte = ram_to;
+    }
+
+    return this.prisma.product.findMany({
+      where,
     });
   }
 

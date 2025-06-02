@@ -3,7 +3,7 @@ import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateUserDto {
   @ApiProperty({
-    example: '+998901234567',
+    example: '901234567',
     description: 'User phone number',
   })
   @IsString()

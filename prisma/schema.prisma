@@ -68,6 +68,13 @@ model Email {
   user User @relation("UserEmails", fields: [user_id], references: [id], onDelete: Cascade)
 }
 
+model Region {
+  id   Int @id @default(autoincrement())
+  name String @unique
+
+  addresses Address[]
+}
+
 model Address {
   id            Int  @id @default(autoincrement())
   name          String
@@ -75,9 +82,11 @@ model Address {
   lat           String
   long          String
   user_id       Int
+  region_id     Int
 
   user     User      @relation("UserAddresses", fields: [user_id], references: [id], onDelete: Cascade)
   products Product[] @relation("AddressProducts")
+  region   Region    @relation(fields: [region_id], references: [id])
 }
 
 model FavouriteItem {
@@ -185,7 +194,7 @@ model Admin {
   phone         String   @unique
   password      String
   avatar        String?
-  refresh_token String
+  refresh_token String?
 
   blocks_issued    Block[]
   products_managed Product[]

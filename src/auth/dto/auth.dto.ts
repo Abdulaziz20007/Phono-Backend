@@ -11,7 +11,7 @@ import {
 export class RegisterDto extends CreateUserDto {}
 
 export class LoginDto {
-  @ApiProperty({ example: '+998901234567', description: 'User phone number' })
+  @ApiProperty({ example: '901234567', description: 'User phone number' })
   @IsString()
   @IsNotEmpty()
   phone: string;
@@ -43,7 +43,7 @@ export class OtpDto {
   @IsDate()
   expire: Date;
 
-  @ApiProperty({ example: '+998901234567', description: 'Phone number' })
+  @ApiProperty({ example: '901234567', description: 'Phone number' })
   @IsString()
   @IsNotEmpty()
   phone: string;
@@ -54,7 +54,7 @@ export class UserJwtDto {
   @IsNumber()
   id: number;
 
-  @ApiProperty({ example: '+998901234567', description: 'User phone number' })
+  @ApiProperty({ example: '901234567', description: 'User phone number' })
   @IsString()
   phone: string;
 
@@ -68,7 +68,7 @@ export class AdminJwtDto {
   @IsNumber()
   id: number;
 
-  @ApiProperty({ example: '+998901234567', description: 'Admin phone number' })
+  @ApiProperty({ example: '901234567', description: 'Admin phone number' })
   @IsString()
   phone: string;
 }
