@@ -76,6 +76,7 @@ export class ProductService {
       memory_to,
       ram_from,
       ram_to,
+      top,
     } = searchProductDto;
 
     const where: any = {
@@ -110,6 +111,12 @@ export class ProductService {
       if (ram_to) where.ram.lte = ram_to;
     }
 
+    if (top) {
+      where.top_expire_date = {
+        gt: new Date(),
+      };
+    }
+
     return this.prisma.product.findMany({
       where,
     });
@@ -122,7 +129,26 @@ export class ProductService {
         images: true,
         brand: true,
         model: true,
-        user: true,
+        user: {
+          select: {
+            id: true,
+            name: true,
+            surname: true,
+            avatar: true,
+            addresses: {
+              select: { id: true, address: true, lat: true, long: true },
+            },
+            additional_phones: { select: { id: true, phone: true } },
+            emails: { select: { id: true, email: true } },
+            products: {
+              select: {
+                id: true,
+                title: true,
+                images: { select: { id: true, url: true } },
+              },
+            },
+          },
+        },
       },
     });
   }

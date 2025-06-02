@@ -1,5 +1,6 @@
 export class SearchProductDto {
   search: string;
+  top?: boolean;
   region_id?: number;
   category_id?: number;
   brand_id?: number;
