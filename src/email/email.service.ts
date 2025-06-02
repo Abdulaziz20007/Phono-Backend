@@ -34,15 +34,24 @@ export class EmailService {
     if (emailExists) {
       throw new BadRequestException(`Email allaqachon mavjud`);
     }
+
     const activation = uuidv4();
     await sendEmail(createEmailDto.email, activation);
-    await this.prismaService.email.create({
+
+    const createdEmail = await this.prismaService.email.create({
       data: {
         ...createEmailDto,
         user_id: userId,
         activation,
       },
     });
+
+    if (!createdEmail) {
+      throw new InternalServerErrorException(
+        'Email yaratishda xatolik yuz berdi',
+      );
+    }
+
     return { message: 'Emailga tasdiqlash xabari yuborildi' };
   }
 
