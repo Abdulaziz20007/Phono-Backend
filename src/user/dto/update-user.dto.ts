@@ -32,3 +32,21 @@ export class UpdateUserDto extends PartialType(CreateUserDto) {
   @IsOptional()
   is_active?: boolean;
 }
+
+export class UpdatePasswordDto {
+  @ApiProperty({
+    example: '123456789',
+    description: 'User current password',
+    required: true,
+  })
+  @IsString()
+  password: string;
+
+  @ApiProperty({
+    example: '987654321',
+    description: 'User new password',
+    required: true,
+  })
+  @IsString()
+  new_password: string;
+}

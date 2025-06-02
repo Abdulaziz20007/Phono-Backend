@@ -1,8 +1,13 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+  Injectable,
+  NotFoundException,
+  UnauthorizedException,
+} from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
-import { UpdateUserDto } from './dto/update-user.dto';
+import { UpdateUserDto, UpdatePasswordDto } from './dto/update-user.dto';
 import { PrismaService } from '../prisma/prisma.service';
 import { UserType } from '../common/types/user.type';
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class UserService {
@@ -74,10 +79,21 @@ export class UserService {
       include: {
         addresses: true,
         additional_phones: true,
-        emails: true,
+        emails: {
+          select: {
+            id: true,
+            user_id: true,
+            email: true,
+            is_active: true,
+          },
+        },
         favourite_items: true,
         payments: true,
-        products: true,
+        products: {
+          include: {
+            images: true,
+          },
+        },
         comments: true,
         blocks: true,
         otps: true,
@@ -108,9 +124,10 @@ export class UserService {
   }
 
   update(id: number, updateUserDto: UpdateUserDto) {
+    const { password, ...rest } = updateUserDto;
     return this.prisma.user.update({
       where: { id },
-      data: updateUserDto,
+      data: rest,
       include: {
         addresses: true,
         additional_phones: true,
@@ -123,6 +140,34 @@ export class UserService {
         otps: true,
       },
     });
+  }
+
+  async updatePassword(id: number, updatePasswordDto: UpdatePasswordDto) {
+    const user = await this.prisma.user.findUnique({
+      where: { id },
+    });
+    if (!user) {
+      throw new NotFoundException('User topilmadi');
+    }
+
+    const isPasswordValid = await bcrypt.compare(
+      updatePasswordDto.password,
+      user.password,
+    );
+
+    if (!isPasswordValid) {
+      throw new UnauthorizedException("Joriy parol noto'g'ri");
+    }
+
+    const hashedPassword = await bcrypt.hash(
+      updatePasswordDto.new_password,
+      10,
+    );
+    await this.prisma.user.update({
+      where: { id },
+      data: { password: hashedPassword },
+    });
+    return { message: "Parol muvaffaqiyatli o'zgartirildi" };
   }
 
   async remove(id: number) {

@@ -1,0 +1,27 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# API Documentation Guide
+
+This project uses Swagger/OpenAPI for API documentation.
+
+## Swagger Setup
+Swagger is configured in [src/main.ts](mdc:src/main.ts) and is available at the `/docs` endpoint.
+
+## Documented Endpoints
+API endpoints are documented in [endpoints.md](mdc:endpoints.md).
+
+## Documentation Best Practices
+When adding new endpoints:
+1. Use `@ApiTags()` to categorize endpoints
+2. Use `@ApiOperation()` to describe endpoint functionality
+3. Use `@ApiParam()` to document path parameters
+4. Use `@ApiQuery()` to document query parameters
+5. Use `@ApiBody()` to document request body
+6. Use `@ApiResponse()` to document response structure
+7. Use `@ApiBearerAuth()` for authenticated endpoints
+
+## DTO Documentation
+DTOs should be documented using `@ApiProperty()` decorators to provide metadata for Swagger.

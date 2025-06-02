@@ -98,8 +98,14 @@ export class PhoneService {
     const phone = await this.prismaService.phone.findUnique({
       where: { id },
     });
+    const mainPhone = user.phone;
     if (!phone) {
       throw new NotFoundException('Telefon raqami topilmadi');
+    }
+    if (mainPhone === phone.phone) {
+      throw new BadRequestException(
+        "Asosiy telefon raqamni o'chirish mumkin emas",
+      );
     }
     selfGuard(user.id, phone);
 

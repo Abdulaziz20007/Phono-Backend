@@ -1,0 +1,29 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Architecture Patterns Guide
+
+This project follows NestJS architecture patterns with a modular structure.
+
+## Module Structure
+Each feature module typically follows this structure:
+- `module-name.module.ts`: Module definition
+- `module-name.controller.ts`: REST API endpoints
+- `module-name.service.ts`: Business logic
+- `dto/`: Data Transfer Objects for validation
+- `entities/`: Entity definitions (when applicable)
+
+## Key Architectural Components
+- **Modules**: Encapsulate related functionality
+- **Controllers**: Handle HTTP requests and define API endpoints
+- **Services**: Implement business logic
+- **DTOs**: Define data shapes for requests/responses
+- **Guards**: Implement authentication and authorization
+- **Decorators**: Extend functionality with metadata
+- **Prisma Service**: Database access layer using Prisma ORM
+
+## Database
+The application uses PostgreSQL with Prisma ORM for database access.
+Database schema is defined in [prisma/schema.prisma](mdc:prisma/schema.prisma).

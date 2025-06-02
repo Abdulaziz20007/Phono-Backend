@@ -1,0 +1,35 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Database Models Guide
+
+The application uses Prisma ORM with PostgreSQL. The database schema is defined in [prisma/schema.prisma](mdc:prisma/schema.prisma).
+
+## Core Models
+- **User**: End user accounts with authentication
+- **Admin**: Administrator accounts
+- **Product**: Main product listings
+- **Brand**: Product brands
+- **Model**: Product models linked to brands
+- **Color**: Product color options
+- **Currency**: Currency types and exchange rates
+- **Address**: User address information
+- **Phone**: User phone contact information
+- **Email**: User email addresses
+- **Payment**: Payment transactions
+- **PaymentMethod**: Available payment methods
+- **Comment**: Product comments and reviews
+- **FavouriteItem**: User's favorite products
+- **Block**: User blocks/bans by admins
+- **Otp**: One-time passwords for verification
+
+## Relationships
+The schema includes various relationships between models:
+- One-to-many (e.g., User to Products)
+- Many-to-many (e.g., Users to FavouriteItems)
+- One-to-one relationships
+
+## Prisma Service
+Database operations are performed through the Prisma service defined in [src/prisma/prisma.service.ts](mdc:src/prisma/prisma.service.ts).

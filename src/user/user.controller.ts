@@ -9,7 +9,7 @@ import {
 } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
-import { UpdateUserDto } from './dto/update-user.dto';
+import { UpdateUserDto, UpdatePasswordDto } from './dto/update-user.dto';
 import { Public } from '../common/decorators/public.decorator';
 import { Roles } from '../common/decorators/roles.decorator';
 import { Role } from '../common/enums/roles.enum';
@@ -62,6 +62,19 @@ export class UserController {
       return this.userService.update(user.id, updateUserDto);
     }
     return this.userService.update(+id, updateUserDto);
+  }
+
+  @Patch('/password/:id')
+  @Roles(Role.USER)
+  updatePassword(
+    @Param('id') id: string,
+    @Body() updatePasswordDto: UpdatePasswordDto,
+    @GetUser() user: UserType,
+  ) {
+    if (user.id !== +id) {
+      return { message: "Siz faqat o'zingizni parolingizni o'zgartira olasiz" };
+    }
+    return this.userService.updatePassword(+id, updatePasswordDto);
   }
 
   @Delete(':id')

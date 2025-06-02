@@ -1,0 +1,28 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Code Organization Guide
+
+## Module Organization
+Modules are organized by feature following NestJS conventions:
+- Each module has its own directory in the `src/` folder
+- Related functionality is grouped together within modules
+- Common/shared code is placed in the `src/common/` directory
+
+## File Naming Conventions
+- Files are named using kebab-case
+- File names include their type (e.g., `.controller.ts`, `.service.ts`, `.module.ts`)
+- DTOs are organized in a `dto/` folder within each module
+- Interfaces and types should use `.interface.ts` and `.type.ts` suffixes
+
+## Import Organization
+Imports should be organized in the following order:
+1. External libraries and frameworks (e.g., NestJS)
+2. Internal modules and services
+3. Local imports (from same directory)
+4. Interface and type imports
+
+## Code Style
+The project uses Prettier for code formatting with configuration in [.prettierrc](mdc:.prettierrc).

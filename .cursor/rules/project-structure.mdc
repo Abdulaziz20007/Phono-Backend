@@ -1,0 +1,18 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Project Structure Guide
+
+The main entry point is [src/main.ts](mdc:src/main.ts), which bootstraps the NestJS application.
+The application structure follows the NestJS modular architecture pattern.
+
+## Key Files
+- [package.json](mdc:package.json): Project dependencies and scripts
+- [tsconfig.json](mdc:tsconfig.json): TypeScript configuration
+- [prisma/schema.prisma](mdc:prisma/schema.prisma): Database schema definition
+- [src/app.module.ts](mdc:src/app.module.ts): Root application module
+
+## Structure Reference
+- [structure.md](mdc:structure.md): Complete file system structure

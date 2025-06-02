@@ -1,0 +1,29 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Error Handling Guide
+
+## Global Exception Filter
+The application uses a global exception filter defined in [src/common/logger/error.handling.ts](mdc:src/common/logger/error.handling.ts).
+
+## Logging
+Logging is handled using Winston through NestJS's logger module:
+- Configuration: [src/common/logger/winston-logger.ts](mdc:src/common/logger/winston-logger.ts)
+- Integration: Applied in [src/main.ts](mdc:src/main.ts)
+
+## Error Response Structure
+Error responses follow a consistent structure:
+- `statusCode`: HTTP status code
+- `message`: Error message or messages array
+- `error`: Error type
+- `timestamp`: When the error occurred
+- `path`: Request path that caused the error
+
+## Best Practices
+1. Use specific exception types from `@nestjs/common` (e.g., `BadRequestException`, `NotFoundException`)
+2. Include helpful error messages
+3. Validate input data using class-validator and DTOs
+4. Handle service-level errors properly and transform them into appropriate HTTP responses
+5. Log errors at appropriate levels (error, warn, info)

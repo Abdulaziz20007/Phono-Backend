@@ -1,0 +1,23 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Authentication Guide
+
+This application uses JWT-based authentication with role-based access control.
+
+## Key Components
+- [src/auth/auth.module.ts](mdc:src/auth/auth.module.ts): Authentication module
+- [src/common/guards/jwt-auth.guard.ts](mdc:src/common/guards/jwt-auth.guard.ts): JWT Authentication guard
+- [src/common/guards/roles.guard.ts](mdc:src/common/guards/roles.guard.ts): Role-based authorization guard
+
+## Authentication Flow
+1. Users register or login to receive JWT tokens
+2. JWT tokens are stored as HTTP-only cookies
+3. The JwtAuthGuard validates tokens on protected endpoints
+4. The RolesGuard checks user permissions for specific endpoints
+
+## Protecting Routes
+Routes are protected using the JwtAuthGuard and RolesGuard, which are applied globally in [src/main.ts](mdc:src/main.ts).
+Specific routes can be excluded from authentication using decorators.
