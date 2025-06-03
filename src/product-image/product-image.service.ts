@@ -18,10 +18,36 @@ export class ProductImageService {
     private readonly fileAmazonService: FileAmazonService, // Ensure this service has uploadFile and deleteFile
   ) {}
 
+  // Helper method to reset the ProductImage ID sequence
+  private async resetProductImageSequence() {
+    try {
+      // Find the maximum ID in the ProductImage table
+      const result = await this.prisma.$queryRaw<
+        Array<{ max_id: number | null }>
+      >`
+        SELECT MAX(id) as max_id FROM "ProductImage"
+      `;
+      const maxId = result[0]?.max_id || 0;
+
+      // Reset the sequence to max_id + 1
+      await this.prisma.$executeRaw`
+        SELECT setval('"ProductImage_id_seq"', ${maxId + 1}, false)
+      `;
+
+      console.log(`Reset ProductImage ID sequence to ${maxId + 1}`);
+    } catch (error) {
+      console.error('Error resetting ProductImage ID sequence:', error);
+      // Non-critical error, continue with operation
+    }
+  }
+
   async create(
     createProductImageDto: CreateProductImageDto,
     imageFile: Express.Multer.File,
   ) {
+    // Reset sequence before creating a new record
+    await this.resetProductImageSequence();
+
     if (!imageFile) {
       throw new BadRequestException('Product image file is required.');
     }
@@ -74,7 +100,6 @@ export class ProductImageService {
       if (finalImageUrl) {
         // Check if we have a URL to delete
         try {
-          // @ts-ignore // Remove this ignore if deleteFile is correctly typed in FileAmazonService
           await this.fileAmazonService.deleteFile(finalImageUrl);
           console.log(
             `Orphaned S3 file ${finalImageUrl} deleted after DB error.`,
@@ -91,6 +116,15 @@ export class ProductImageService {
           // Foreign key constraint failed
           throw new BadRequestException(
             `Product with ID ${createProductImageDto.product_id} does not exist.`,
+          );
+        }
+        if (
+          error.code === 'P2002' &&
+          Array.isArray(error.meta?.target) &&
+          error.meta.target.includes('id')
+        ) {
+          throw new BadRequestException(
+            'A conflict occurred with the image ID. Please try again.',
           );
         }
       }
@@ -183,7 +217,6 @@ export class ProductImageService {
       // If update was successful, a new image was uploaded, and it's different from old, delete the old one
       if (newImageUrl && oldImageUrl && newImageUrl !== oldImageUrl) {
         try {
-          // @ts-ignore // Remove this ignore if deleteFile is correctly typed in FileAmazonService
           await this.fileAmazonService.deleteFile(oldImageUrl);
         } catch (deleteError) {
           console.error(
@@ -199,7 +232,6 @@ export class ProductImageService {
       // If DB update failed but a new file was uploaded, try to delete the new (now orphaned) file
       if (newImageUrl) {
         try {
-          // @ts-ignore // Remove this ignore if deleteFile is correctly typed in FileAmazonService
           await this.fileAmazonService.deleteFile(newImageUrl);
           console.log(
             `Orphaned new S3 file ${newImageUrl} deleted after DB error during update.`,
@@ -238,7 +270,6 @@ export class ProductImageService {
       // If DB deletion was successful, delete the file from S3
       if (existingProductImage.url) {
         try {
-          // @ts-ignore // Remove this ignore if deleteFile is correctly typed in FileAmazonService
           await this.fileAmazonService.deleteFile(existingProductImage.url);
         } catch (deleteError) {
           console.error(
@@ -294,5 +325,11 @@ export class ProductImageService {
       });
       return updatedImage;
     });
+  }
+
+  // Public method for resetting the ProductImage ID sequence
+  async resetSequence() {
+    await this.resetProductImageSequence();
+    return { message: 'ProductImage ID sequence reset successfully' };
   }
 }

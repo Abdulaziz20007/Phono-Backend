@@ -121,6 +121,13 @@ export class ProductImageController {
     return this.productImageService.setMainImage(id);
   }
 
+  @Post('reset-sequence')
+  @HttpCode(200)
+  @Roles(Role.ADMIN) // Only accessible by admin
+  resetSequence() {
+    return this.productImageService.resetSequence();
+  }
+
   @Delete(':id')
   @HttpCode(204) // No Content for successful deletion
   @Roles(Role.ADMIN, Role.USER)

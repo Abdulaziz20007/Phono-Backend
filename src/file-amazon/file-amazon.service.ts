@@ -1,5 +1,9 @@
 import { Injectable, InternalServerErrorException } from '@nestjs/common';
-import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
+import {
+  S3Client,
+  PutObjectCommand,
+  DeleteObjectCommand,
+} from '@aws-sdk/client-s3';
 import * as dotenv from 'dotenv';
 import { v4 as uuidv4 } from 'uuid';
 dotenv.config();
@@ -36,6 +40,28 @@ export class FileAmazonService {
       console.error('S3 Upload Error:', error);
       throw new InternalServerErrorException(
         "File yuklashda xatolik ro'y berdi",
+      );
+    }
+  }
+
+  async deleteFile(fileUrl: string) {
+    try {
+      // Extract the key from the URL
+      // URL format: https://bucket-name.s3.region.amazonaws.com/file-key
+      const urlParts = fileUrl.split('/');
+      const key = urlParts[urlParts.length - 1];
+
+      const deleteParams = {
+        Bucket: this.AWS_S3_BUCKET,
+        Key: key,
+      };
+
+      await this.s3Client.send(new DeleteObjectCommand(deleteParams));
+      return true;
+    } catch (error) {
+      console.error('S3 Delete Error:', error);
+      throw new InternalServerErrorException(
+        "File o'chirishda xatolik ro'y berdi",
       );
     }
   }
