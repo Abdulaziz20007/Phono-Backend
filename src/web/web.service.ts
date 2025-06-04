@@ -19,7 +19,12 @@ export class WebService {
     const regions = await this.regionService.findAll();
     const now = new Date();
     const filteredProducts = allProducts
-      .filter((product) => product.is_checked === true)
+      .filter(
+        (product) =>
+          product.is_checked === true &&
+          product.is_sold === false &&
+          product.is_archived === false,
+      )
       .sort((a, b) => {
         // First sort by whether the product is top (has future expiration date)
         const aIsTop = new Date(a.top_expire_date) > now;
@@ -28,7 +33,12 @@ export class WebService {
         if (aIsTop && !bIsTop) return -1;
         if (!aIsTop && bIsTop) return 1;
 
-        // Then sort by expiration date (newer expiration dates first)
+        // For non-top products, sort by creation date or other criteria
+        if (!aIsTop && !bIsTop) {
+          return b.id - a.id; // Sort by ID (newer first) as fallback
+        }
+
+        // For top products, sort by expiration date (newer expiration dates first)
         return (
           new Date(b.top_expire_date).getTime() -
           new Date(a.top_expire_date).getTime()

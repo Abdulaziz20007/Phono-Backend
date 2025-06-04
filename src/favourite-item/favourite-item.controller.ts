@@ -7,6 +7,7 @@ import {
   Delete,
   ParseIntPipe,
   HttpCode,
+  // UseGuards, // Agar global guardlaringiz bo'lsa, bu kerak emas
 } from '@nestjs/common';
 import { FavouriteItemService } from './favourite-item.service';
 import { CreateFavouriteItemDto } from './dto/create-favourite-item.dto';
@@ -29,13 +30,25 @@ export class FavouriteItemController {
     return this.favouriteItemService.create(createFavouriteItemDto, user);
   }
 
+  @Post('/user/add')
+  @Roles(Role.USER)
+  async addUserFavouriteItem(
+    @Body() createFavouriteItemDto: CreateFavouriteItemDto,
+    @GetUser() user: UserType,
+  ) {
+    return this.favouriteItemService.userFavouriteItem(
+      createFavouriteItemDto.product_id,
+      user,
+    );
+  }
+
   @Get()
   @Roles(Role.ADMIN, Role.USER)
   findAll(@GetUser() user: UserType | AdminType) {
     return this.favouriteItemService.findAll(user);
   }
 
-  @Get(':id')
+  @Get(':id') // Bu favourite_item ning ID si bo'yicha topadi
   @Roles(Role.ADMIN, Role.USER)
   findOne(
     @Param('id', ParseIntPipe) id: number,
@@ -44,7 +57,21 @@ export class FavouriteItemController {
     return this.favouriteItemService.findOne(id, user);
   }
 
-  @Delete(':id')
+  // YANGI O'CHIRISH ENDPOINTI (USER uchun product_id bo'yicha)
+  @Delete('/user/product/:productId')
+  @Roles(Role.USER) // Faqat USER uchun
+  @HttpCode(200) // Muvaffaqiyatli o'chirilganda 200 OK yoki 204 No Content qaytarish mumkin
+  async removeUserFavouriteItem(
+    @Param('productId', ParseIntPipe) productId: number,
+    @GetUser() user: UserType,
+  ) {
+    return this.favouriteItemService.removeUserFavouriteItemByProductId(
+      productId,
+      user,
+    );
+  }
+
+  @Delete(':id') // Bu favourite_item ning ID si bo'yicha o'chiradi
   @Roles(Role.ADMIN, Role.USER)
   @HttpCode(200)
   remove(

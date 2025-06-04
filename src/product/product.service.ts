@@ -31,7 +31,26 @@ export class ProductService {
         images: true,
         brand: true,
         model: true,
-        user: true,
+        user: {
+          select: {
+            id: true,
+            name: true,
+            surname: true,
+            avatar: true,
+            addresses: {
+              select: { id: true, address: true, lat: true, long: true },
+            },
+            additional_phones: { select: { id: true, phone: true } },
+            emails: { select: { id: true, email: true } },
+            products: {
+              select: {
+                id: true,
+                title: true,
+                images: { select: { id: true, url: true } },
+              },
+            },
+          },
+        },
       },
     });
   }
@@ -145,6 +164,18 @@ export class ProductService {
                 id: true,
                 title: true,
                 images: { select: { id: true, url: true } },
+              },
+            },
+          },
+        },
+        comments: {
+          include: {
+            user: {
+              select: {
+                id: true,
+                name: true,
+                surname: true,
+                avatar: true,
               },
             },
           },

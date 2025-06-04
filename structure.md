@@ -4,6 +4,7 @@
 
 - `endpoints.md`: API endpoints documentation
 - `docs-json.json`: Generated OpenAPI documentation
+- `favourite-item-docs.md`: Detailed documentation for favourite item functionality
 - `package.json`: Project dependencies and scripts
 - `tsconfig.json`: TypeScript configuration
 - `tsconfig.build.json`: TypeScript build configuration
