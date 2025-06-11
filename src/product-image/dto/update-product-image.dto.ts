@@ -2,7 +2,7 @@
 import { ApiProperty, PartialType } from '@nestjs/swagger';
 import { IsBoolean, IsOptional } from 'class-validator';
 // We don't extend CreateProductImageDto directly because product_id shouldn't be updatable here
-// and 'image' has a different 'required' status.
+// and 'images' has a different 'required' status.
 
 export class UpdateProductImageDto {
   @ApiProperty({
@@ -15,11 +15,14 @@ export class UpdateProductImageDto {
   is_main?: boolean;
 
   @ApiProperty({
-    type: 'string',
-    format: 'binary',
-    description: 'New product image file to replace the old one (optional)',
+    type: 'array',
+    items: {
+      type: 'string',
+      format: 'binary',
+    },
+    description: 'New product image files to replace the old ones (optional)',
     required: false,
   })
   @IsOptional()
-  image?: any; // This will be handled by FileInterceptor
+  images?: any[]; // This will be handled by FileInterceptor
 }

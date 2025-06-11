@@ -7,7 +7,7 @@ import {
   Param,
   Delete,
   UseInterceptors,
-  UploadedFile,
+  UploadedFiles,
   BadRequestException,
   HttpCode,
   ParseIntPipe,
@@ -16,7 +16,7 @@ import {
 import { ProductImageService } from './product-image.service';
 import { CreateProductImageDto } from './dto/create-product-image.dto';
 import { UpdateProductImageDto } from './dto/update-product-image.dto';
-import { FileInterceptor } from '@nestjs/platform-express';
+import { FilesInterceptor } from '@nestjs/platform-express';
 import { Express } from 'express';
 import { Roles } from '../common/decorators/roles.decorator';
 import { Role } from '../common/enums/roles.enum';
@@ -50,8 +50,8 @@ export class ProductImageController {
   @HttpCode(201)
   @Roles(Role.ADMIN, Role.USER)
   @UseInterceptors(
-    FileInterceptor('image', {
-      // 'image' must match the key in CreateProductImageDto for Swagger
+    FilesInterceptor('images', 10, {
+      // 'images' must match the key in createdto, allow up to 10 files
       fileFilter: imageFileFilter,
       limits: imageUploadLimits,
     }),
@@ -59,14 +59,16 @@ export class ProductImageController {
   create(
     @Body() createProductImageDto: CreateProductImageDto,
     @GetUser() user: UserType | AdminType,
-    @UploadedFile() imageFile: Express.Multer.File,
+    @UploadedFiles() imageFiles: Express.Multer.File[],
   ) {
-    if (!imageFile) {
-      // Double check, though interceptor should handle required
-      throw new BadRequestException('Product image file is required.');
+    if (!imageFiles || imageFiles.length === 0) {
+      // double check, though interceptor should handle required
+      throw new BadRequestException(
+        'at least one product image file is required.',
+      );
     }
-    // The 'image' property in DTO is for Swagger, actual file is in imageFile
-    return this.productImageService.create(createProductImageDto, imageFile);
+    // the 'images' property in dto is for swagger, actual files are in imagefiles
+    return this.productImageService.create(createProductImageDto, imageFiles);
   }
 
   @Get()
@@ -87,8 +89,8 @@ export class ProductImageController {
   @Patch(':id')
   @Roles(Role.ADMIN, Role.USER)
   @UseInterceptors(
-    FileInterceptor('image', {
-      // 'image' must match the key in UpdateProductImageDto
+    FilesInterceptor('images', 10, {
+      // 'images' must match the key in updatedto
       fileFilter: imageFileFilter,
       limits: imageUploadLimits,
     }),
@@ -97,17 +99,20 @@ export class ProductImageController {
     @Param('id', ParseIntPipe) id: number,
     @Body() updateProductImageDto: UpdateProductImageDto,
     @GetUser() user: UserType | AdminType,
-    @UploadedFile() imageFile?: Express.Multer.File, // Image is optional for update
+    @UploadedFiles() imageFiles?: Express.Multer.File[], // images are optional for update
   ) {
-    if (Object.keys(updateProductImageDto).length === 0 && !imageFile) {
+    if (
+      Object.keys(updateProductImageDto).length === 0 &&
+      (!imageFiles || imageFiles.length === 0)
+    ) {
       throw new BadRequestException(
-        'At least one field to update or a new image must be provided.',
+        'at least one field to update or a new image must be provided.',
       );
     }
     return this.productImageService.update(
       id,
       updateProductImageDto,
-      imageFile,
+      imageFiles,
     );
   }
 

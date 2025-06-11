@@ -282,6 +282,64 @@ All responses follow a standard JSON format with appropriate HTTP status codes.
 - **Request Body**: Upgrade configuration
 - **Success Response**: `200 OK` with upgraded product data
 
+### Search Products
+
+- **URL**: `/product/search`
+- **Method**: `POST`
+- **Auth required**: No
+- **Request Body**:
+  - `search` (required): Text to search in product titles
+  - `top`: Only return featured products (true/false)
+  - `region_id`: Filter by region ID
+  - `category_id`: Filter by category ID
+  - `brand_id`: Filter by brand ID
+  - `color_id`: Filter by color ID
+  - `price_from`: Minimum price (inclusive)
+  - `price_to`: Maximum price (inclusive)
+  - `memory_from`: Minimum storage capacity in GB (inclusive)
+  - `memory_to`: Maximum storage capacity in GB (inclusive)
+  - `ram_from`: Minimum RAM capacity in GB (inclusive)
+  - `ram_to`: Maximum RAM capacity in GB (inclusive)
+- **Success Response**: `200 OK` with list of products matching the criteria, including related entities (images, brand, model, color, currency, user)
+- **Response Example**:
+  ```json
+  [
+    {
+      "id": 123,
+      "title": "iPhone 13 Pro Max",
+      "description": "Excellent condition",
+      "price": 899.99,
+      "storage": 256,
+      "ram": 6,
+      "year": 2021,
+      "images": [
+        {
+          "id": 456,
+          "url": "https://example.com/images/product123_1.jpg",
+          "is_main": true
+        }
+      ],
+      "brand": {
+        "id": 1,
+        "name": "Apple"
+      },
+      "model": {
+        "id": 5,
+        "name": "iPhone 13 Pro Max"
+      },
+      "user": {
+        "id": 42,
+        "name": "John",
+        "surname": "Doe"
+      }
+    }
+  ]
+  ```
+- **Notes**:
+  - Search is case-insensitive and uses partial matching
+  - Results are returned in descending order by ID
+  - The `memory_from` and `memory_to` parameters filter the `storage` field in the database
+
 ## Product Images
 
 ### Add Product Image

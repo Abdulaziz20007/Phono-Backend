@@ -6,6 +6,7 @@ import {
   Patch,
   Param,
   Delete,
+  Query,
 } from '@nestjs/common';
 import { ProductService } from './product.service';
 import { CreateProductDto } from './dto/create-product.dto';
@@ -17,6 +18,7 @@ import { GetUser } from '../common/decorators/get-user.decorator';
 import { UserType } from '../common/types/user.type';
 import { AdminType } from '../common/types/admin.type';
 import { UpgradeProductDto } from './dto/upgrade-product.dto';
+import { SearchProductDto } from './dto/search-product.dto';
 
 @Controller('product')
 export class ProductController {
@@ -35,6 +37,12 @@ export class ProductController {
   @Public()
   findAll() {
     return this.productService.findAll();
+  }
+
+  @Post('search')
+  @Public()
+  search(@Body() searchProductDto: SearchProductDto) {
+    return this.productService.search(searchProductDto);
   }
 
   @Get('user/:id')

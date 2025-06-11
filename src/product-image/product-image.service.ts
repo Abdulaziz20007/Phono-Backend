@@ -43,34 +43,19 @@ export class ProductImageService {
 
   async create(
     createProductImageDto: CreateProductImageDto,
-    imageFile: Express.Multer.File,
+    imageFiles: Express.Multer.File[],
   ) {
-    // Reset sequence before creating a new record
+    // Reset sequence before creating new records
     await this.resetProductImageSequence();
 
-    if (!imageFile) {
-      throw new BadRequestException('Product image file is required.');
-    }
-
-    let imageUrl: string | undefined; // <<<< MODIFIED: Allow undefined initially
-    try {
-      imageUrl = await this.fileAmazonService.uploadFile(imageFile);
-      if (!imageUrl) {
-        // <<<< ADDED: Check if URL is actually returned
-        throw new InternalServerErrorException(
-          'File upload succeeded but no URL was returned.',
-        );
-      }
-    } catch (uploadError: any) {
-      console.error('Error uploading product image to S3:', uploadError);
-      throw new InternalServerErrorException(
-        uploadError.message || 'Could not upload product image.',
+    if (!imageFiles || imageFiles.length === 0) {
+      throw new BadRequestException(
+        'At least one product image file is required.',
       );
     }
 
-    // At this point, imageUrl is confirmed to be a string if no error was thrown.
-    // We can assign it to a new const to help TypeScript infer its narrowed type.
-    const finalImageUrl: string = imageUrl;
+    const uploadedImages: ProductImage[] = [];
+    const uploadedUrls: string[] = [];
 
     try {
       // If is_main is true, set other images for the same product_id to is_main = false
@@ -86,31 +71,65 @@ export class ProductImageService {
         });
       }
 
-      const productImage = await this.prisma.productImage.create({
-        data: {
-          url: finalImageUrl, // Use the confirmed string URL
-          product_id: createProductImageDto.product_id,
-          is_main: createProductImageDto.is_main ?? false,
-        },
+      // Upload all images and create records in a transaction
+      await this.prisma.$transaction(async (prismaTransaction) => {
+        // Upload all files first
+        for (const imageFile of imageFiles) {
+          try {
+            const imageUrl = await this.fileAmazonService.uploadFile(imageFile);
+            if (!imageUrl) {
+              throw new InternalServerErrorException(
+                'File upload succeeded but no URL was returned.',
+              );
+            }
+            uploadedUrls.push(imageUrl);
+          } catch (uploadError: any) {
+            console.error('Error uploading product image to S3:', uploadError);
+            throw new InternalServerErrorException(
+              uploadError.message || 'Could not upload product image.',
+            );
+          }
+        }
+
+        // Determine which image will be the main one (the first one if is_main is true)
+        let isFirstImage = true;
+
+        // Create database records for all uploaded images
+        for (const imageUrl of uploadedUrls) {
+          // Only set the first image as main if is_main is true
+          const isMain = createProductImageDto.is_main && isFirstImage;
+          if (isFirstImage) {
+            isFirstImage = false;
+          }
+
+          const productImage = await prismaTransaction.productImage.create({
+            data: {
+              url: imageUrl,
+              product_id: createProductImageDto.product_id,
+              is_main: isMain,
+            },
+          });
+          uploadedImages.push(productImage);
+        }
       });
-      return productImage;
+
+      return uploadedImages;
     } catch (error: any) {
-      console.error('Error while creating product image record:', error);
-      // Attempt to delete the uploaded file if DB operation fails
-      if (finalImageUrl) {
-        // Check if we have a URL to delete
+      console.error('Error while creating product image records:', error);
+
+      // Attempt to delete any uploaded files if DB operation fails
+      for (const imageUrl of uploadedUrls) {
         try {
-          await this.fileAmazonService.deleteFile(finalImageUrl);
-          console.log(
-            `Orphaned S3 file ${finalImageUrl} deleted after DB error.`,
-          );
+          await this.fileAmazonService.deleteFile(imageUrl);
+          console.log(`Orphaned S3 file ${imageUrl} deleted after DB error.`);
         } catch (deleteError) {
           console.error(
-            `Failed to delete orphaned S3 file ${finalImageUrl}:`,
+            `Failed to delete orphaned S3 file ${imageUrl}:`,
             deleteError,
           );
         }
       }
+
       if (error instanceof Prisma.PrismaClientKnownRequestError) {
         if (error.code === 'P2003') {
           // Foreign key constraint failed
@@ -129,7 +148,7 @@ export class ProductImageService {
         }
       }
       throw new InternalServerErrorException({
-        message: error.message || 'Could not create product image record',
+        message: error.message || 'Could not create product image records',
       });
     }
   }
@@ -154,7 +173,7 @@ export class ProductImageService {
   async update(
     id: number,
     updateProductImageDto: UpdateProductImageDto,
-    imageFile?: Express.Multer.File,
+    imageFiles?: Express.Multer.File[],
   ) {
     const existingProductImage = await this.prisma.productImage.findUnique({
       where: { id },
@@ -165,23 +184,33 @@ export class ProductImageService {
     }
 
     const dataToUpdate: Prisma.ProductImageUpdateInput = {};
-    let newImageUrl: string | undefined = undefined; // <<<< MODIFIED: Allow undefined initially
+    let newImageUrl: string | undefined = undefined;
     const oldImageUrl = existingProductImage.url;
 
-    if (imageFile) {
+    // Handle a single image update for the existing product image
+    if (imageFiles && imageFiles.length > 0) {
       try {
-        newImageUrl = await this.fileAmazonService.uploadFile(imageFile);
+        // We only update the first image for the existing record
+        newImageUrl = await this.fileAmazonService.uploadFile(imageFiles[0]);
         if (!newImageUrl) {
-          // <<<< ADDED: Check if URL is actually returned
           throw new InternalServerErrorException(
             'File upload for update succeeded but no URL was returned.',
           );
         }
-        dataToUpdate.url = newImageUrl; // Assign if valid string
+        dataToUpdate.url = newImageUrl;
       } catch (uploadError: any) {
         console.error('Error uploading new product image to S3:', uploadError);
         throw new InternalServerErrorException(
           uploadError.message || 'Could not upload new product image.',
+        );
+      }
+
+      // If there are additional images, create new records for them
+      if (imageFiles.length > 1) {
+        this.createAdditionalImages(
+          existingProductImage.product_id,
+          imageFiles.slice(1),
+          updateProductImageDto.is_main === true ? false : undefined,
         );
       }
     }
@@ -200,7 +229,7 @@ export class ProductImageService {
         await this.prisma.productImage.updateMany({
           where: {
             product_id: existingProductImage.product_id,
-            id: { not: id }, // Don't update the current image in this step
+            id: { not: id },
             is_main: true,
           },
           data: {
@@ -251,6 +280,77 @@ export class ProductImageService {
       }
       throw new InternalServerErrorException({
         message: error.message || 'Could not update product image',
+      });
+    }
+  }
+
+  // Helper method to create additional images for a product
+  private async createAdditionalImages(
+    productId: number,
+    imageFiles: Express.Multer.File[],
+    isMain?: boolean,
+  ) {
+    const uploadedUrls: string[] = [];
+    try {
+      // Upload all files first
+      for (const imageFile of imageFiles) {
+        try {
+          const imageUrl = await this.fileAmazonService.uploadFile(imageFile);
+          if (!imageUrl) {
+            throw new InternalServerErrorException(
+              'File upload succeeded but no URL was returned.',
+            );
+          }
+          uploadedUrls.push(imageUrl);
+        } catch (uploadError: any) {
+          console.error(
+            'Error uploading additional product image to S3:',
+            uploadError,
+          );
+          throw new InternalServerErrorException(
+            uploadError.message || 'Could not upload additional product image.',
+          );
+        }
+      }
+
+      // Create database records for all uploaded images
+      const createdImages = await this.prisma.$transaction(
+        uploadedUrls.map((url) =>
+          this.prisma.productImage.create({
+            data: {
+              url,
+              product_id: productId,
+              is_main: isMain || false,
+            },
+          }),
+        ),
+      );
+
+      return createdImages;
+    } catch (error: any) {
+      console.error(
+        'Error while creating additional product image records:',
+        error,
+      );
+
+      // Attempt to delete any uploaded files if DB operation fails
+      for (const imageUrl of uploadedUrls) {
+        try {
+          await this.fileAmazonService.deleteFile(imageUrl);
+          console.log(
+            `Orphaned additional S3 file ${imageUrl} deleted after DB error.`,
+          );
+        } catch (deleteError) {
+          console.error(
+            `Failed to delete orphaned additional S3 file ${imageUrl}:`,
+            deleteError,
+          );
+        }
+      }
+
+      throw new InternalServerErrorException({
+        message:
+          error.message || 'Could not create additional product image records',
       });
     }
   }

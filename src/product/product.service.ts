@@ -31,6 +31,8 @@ export class ProductService {
         images: true,
         brand: true,
         model: true,
+        color: true,
+        currency: true,
         user: {
           select: {
             id: true,
@@ -60,6 +62,10 @@ export class ProductService {
       where: { user_id },
       include: {
         images: true,
+        brand: true,
+        model: true,
+        color: true,
+        currency: true,
       },
     });
   }
@@ -69,6 +75,10 @@ export class ProductService {
       where: { brand_id },
       include: {
         images: true,
+        brand: true,
+        model: true,
+        color: true,
+        currency: true,
       },
     });
   }
@@ -78,6 +88,10 @@ export class ProductService {
       where: { model_id },
       include: {
         images: true,
+        brand: true,
+        model: true,
+        color: true,
+        currency: true,
       },
     });
   }
@@ -100,6 +114,9 @@ export class ProductService {
 
     const where: any = {
       title: { contains: search, mode: 'insensitive' },
+      is_archived: false,
+      is_sold: false,
+      is_checked: true,
     };
 
     if (region_id) {
@@ -119,9 +136,9 @@ export class ProductService {
     }
 
     if (memory_from || memory_to) {
-      where.memory = {};
-      if (memory_from) where.memory.gte = memory_from;
-      if (memory_to) where.memory.lte = memory_to;
+      where.storage = {};
+      if (memory_from) where.storage.gte = memory_from;
+      if (memory_to) where.storage.lte = memory_to;
     }
 
     if (ram_from || ram_to) {
@@ -130,7 +147,7 @@ export class ProductService {
       if (ram_to) where.ram.lte = ram_to;
     }
 
-    if (top) {
+    if (top === false) {
       where.top_expire_date = {
         gt: new Date(),
       };
@@ -138,6 +155,24 @@ export class ProductService {
 
     return this.prisma.product.findMany({
       where,
+      include: {
+        images: true,
+        brand: true,
+        model: true,
+        color: true,
+        currency: true,
+        user: {
+          select: {
+            id: true,
+            name: true,
+            surname: true,
+            avatar: true,
+          },
+        },
+      },
+      orderBy: {
+        id: 'desc',
+      },
     });
   }
 
@@ -148,6 +183,8 @@ export class ProductService {
         images: true,
         brand: true,
         model: true,
+        color: true,
+        currency: true,
         user: {
           select: {
             id: true,

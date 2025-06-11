@@ -5,7 +5,7 @@ import { IsBoolean, IsInt, IsNotEmpty, IsOptional } from 'class-validator';
 export class CreateProductImageDto {
   @ApiProperty({
     example: 1,
-    description: 'ID of the product this image belongs to',
+    description: 'id of the product this image belongs to',
   })
   @IsInt()
   @IsNotEmpty()
@@ -13,7 +13,7 @@ export class CreateProductImageDto {
 
   @ApiProperty({
     example: true,
-    description: 'Is this the main image for the product?',
+    description: 'is this the main image for the product?',
     required: false,
     default: false,
   })
@@ -22,10 +22,13 @@ export class CreateProductImageDto {
   is_main?: boolean = false;
 
   @ApiProperty({
-    type: 'string',
-    format: 'binary',
-    description: 'Product image file (jpg, jpeg, png, gif)',
-    required: true, // Assuming an image is always required for creation
+    type: 'array',
+    items: {
+      type: 'string',
+      format: 'binary',
+    },
+    description: 'product image files (jpg, jpeg, png, gif)',
+    required: true, // assuming at least one image is required for creation
   })
-  image: any; // This will be handled by FileInterceptor, Swagger uses 'any' for binary
+  images: any[]; // this will be handled by filesinterceptor, swagger uses 'any' for binary
 }
