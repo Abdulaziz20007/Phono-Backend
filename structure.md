@@ -51,6 +51,18 @@
   - `prisma.service.ts`: Extends PrismaClient to provide database access
   - `prisma.module.ts`: Module definition for Prisma service
 - `product/`: Product management
+  - `product.controller.ts`: Handles product management endpoints
+  - `product.service.ts`: Manages product operations
+  - `product.module.ts`: Module definition
+  - `add-product.md`: Documentation for product creation and image management
+  - `search-product.md`: Documentation for product search functionality
+  - `product-management.md`: Documentation for product editing, archiving, and upgrading
+  - `dto/`: Data transfer objects for product operations
+    - `create-product.dto.ts`: DTO for creating products
+    - `update-product.dto.ts`: DTO for updating products
+    - `search-product.dto.ts`: DTO for searching products
+    - `archive-product.dto.ts`: DTO for archiving products
+    - `upgrade-product.dto.ts`: DTO for upgrading products
 - `product-image/`: Product images management (supports multiple image uploads)
   - `product-image.controller.ts`: Handles image upload/management endpoints
   - `product-image.service.ts`: Manages product image storage and retrieval

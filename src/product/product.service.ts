@@ -10,6 +10,7 @@ import { AdminType } from '../common/types/admin.type';
 import { UserType } from '../common/types/user.type';
 import { UpgradeProductDto } from './dto/upgrade-product.dto';
 import { SearchProductDto } from './dto/search-product.dto';
+import { ArchiveProductDto } from './dto/archive-product.dto';
 
 @Injectable()
 export class ProductService {
@@ -33,12 +34,15 @@ export class ProductService {
         model: true,
         color: true,
         currency: true,
+        address: true,
+        contact_phone: true,
         user: {
           select: {
             id: true,
             name: true,
             surname: true,
             avatar: true,
+            phone: true,
             addresses: {
               select: { id: true, address: true, lat: true, long: true },
             },
@@ -66,6 +70,8 @@ export class ProductService {
         model: true,
         color: true,
         currency: true,
+        address: true,
+        contact_phone: true,
       },
     });
   }
@@ -79,6 +85,8 @@ export class ProductService {
         model: true,
         color: true,
         currency: true,
+        address: true,
+        contact_phone: true,
       },
     });
   }
@@ -92,6 +100,8 @@ export class ProductService {
         model: true,
         color: true,
         currency: true,
+        address: true,
+        contact_phone: true,
       },
     });
   }
@@ -161,6 +171,8 @@ export class ProductService {
         model: true,
         color: true,
         currency: true,
+        address: true,
+        contact_phone: true,
         user: {
           select: {
             id: true,
@@ -185,12 +197,15 @@ export class ProductService {
         model: true,
         color: true,
         currency: true,
+        address: true,
+        contact_phone: true,
         user: {
           select: {
             id: true,
             name: true,
             surname: true,
             avatar: true,
+            phone: true,
             addresses: {
               select: { id: true, address: true, lat: true, long: true },
             },
@@ -200,6 +215,10 @@ export class ProductService {
               select: {
                 id: true,
                 title: true,
+                is_new: true,
+                storage: true,
+                price: true,
+                floor_price: true,
                 images: { select: { id: true, url: true } },
               },
             },
@@ -218,6 +237,46 @@ export class ProductService {
           },
         },
       },
+    });
+  }
+
+  async archive(
+    id: number,
+    archiveProductDto: ArchiveProductDto,
+    user: UserType | AdminType,
+  ) {
+    const product = await this.prisma.product.findUnique({
+      where: user.role == 'ADMIN' ? { id } : { id, user_id: user.id },
+    });
+
+    if (!product) {
+      throw new NotFoundException('Product topilmadi');
+    }
+    if (product.is_archived) {
+      throw new BadRequestException('Product allaqachon arxivga olingan');
+    }
+    if (product.is_sold) {
+      throw new BadRequestException('Product sotilgan');
+    }
+    return this.prisma.product.update({
+      where: user.role == 'ADMIN' ? { id } : { id, user_id: user.id },
+      data: { is_archived: true, is_sold: archiveProductDto.is_sold || false },
+    });
+  }
+
+  async unarchive(id: number, user: UserType | AdminType) {
+    const product = await this.prisma.product.findUnique({
+      where: user.role == 'ADMIN' ? { id } : { id, user_id: user.id },
+    });
+    if (!product) {
+      throw new NotFoundException('Product topilmadi');
+    }
+    if (!product.is_archived) {
+      throw new BadRequestException('Product allaqachon arxivga olingan emas');
+    }
+    return this.prisma.product.update({
+      where: user.role == 'ADMIN' ? { id } : { id, user_id: user.id },
+      data: { is_archived: false, is_sold: false },
     });
   }
 

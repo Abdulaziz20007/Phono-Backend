@@ -135,7 +135,11 @@ export class UserService {
             is_active: true,
           },
         },
-        favourite_items: true,
+        favourite_items: {
+          include: {
+            product: true,
+          },
+        },
         payments: true,
         products: {
           include: {
@@ -144,14 +148,13 @@ export class UserService {
         },
         comments: true,
         blocks: true,
-        otps: true, // `otps` ni olib tashlashimiz kerak, chunki u ...rest bilan qaytarilmayapti
+        otps: true,
       },
     });
     if (!theUser) {
       throw new NotFoundException('User topilmadi');
     }
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { password, refresh_token, otps, ...rest } = theUser; // otps ni ...rest dan oldin olib tashladik
+    const { password, refresh_token, otps, ...rest } = theUser;
     return rest;
   }
 

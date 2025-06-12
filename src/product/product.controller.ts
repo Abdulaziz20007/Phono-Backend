@@ -19,6 +19,7 @@ import { UserType } from '../common/types/user.type';
 import { AdminType } from '../common/types/admin.type';
 import { UpgradeProductDto } from './dto/upgrade-product.dto';
 import { SearchProductDto } from './dto/search-product.dto';
+import { ArchiveProductDto } from './dto/archive-product.dto';
 
 @Controller('product')
 export class ProductController {
@@ -77,6 +78,23 @@ export class ProductController {
     @GetUser() user: UserType | AdminType,
   ) {
     return this.productService.update(+id, updateProductDto, user);
+  }
+
+  @Patch('archive/:id')
+  @Roles(Role.USER, Role.ADMIN)
+  archive(
+    @Param('id') id: string,
+    @Body() archiveProductDto: ArchiveProductDto,
+    @GetUser() user: UserType | AdminType,
+  ) {
+    return this.productService.archive(+id, archiveProductDto, user);
+  }
+
+  @Patch('unarchive/:id')
+  @Patch('unarchive/:id')
+  @Roles(Role.USER, Role.ADMIN)
+  unarchive(@Param('id') id: string, @GetUser() user: UserType | AdminType) {
+    return this.productService.unarchive(+id, user);
   }
 
   @Patch('upgrade/:id')
