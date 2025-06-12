@@ -115,7 +115,8 @@ export async function sendEmail(email: string, uuid: string) {
         <h2 style="color: #2c3e50; text-align: center; margin-bottom: 20px;">Welcome to Our Platform!</h2>
         <p style="color: #34495e; text-align: center; margin-bottom: 30px;">Please verify your email address by clicking the button below</p>
         <div style="text-align: center;">
-          <a href="${process.env.BASE_URL}/email/verify/${uuid}" 
+          <a href="${process.env.FRONT_BASE_URL}/email/verify/${uuid}" 
+             target="_blank"
              style="display: inline-block; background-color: #3498db; color: white; padding: 12px 30px; text-decoration: none; border-radius: 5px; font-weight: bold; text-transform: uppercase; transition: background-color 0.3s ease;">
              Verify Email
           </a>
