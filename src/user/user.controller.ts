@@ -6,8 +6,8 @@ import {
   Patch,
   Param,
   Delete,
-  ParseIntPipe, // id ni numberga o'tkazish uchun
-  ForbiddenException, // Foydalanuvchi o'zining ma'lumotlarini o'zgartirishi uchun
+  ParseIntPipe,
+  ForbiddenException,
 } from '@nestjs/common';
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -17,8 +17,10 @@ import { Roles } from '../common/decorators/roles.decorator';
 import { Role } from '../common/enums/roles.enum';
 import { GetUser } from '../common/decorators/get-user.decorator';
 import { UserType } from '../common/types/user.type';
-import { AdminType } from '../common/types/admin.type'; // Agar AdminType ishlatilsa
-import { FavouriteItemType } from './user.service'; // Servisdan tipni import qilamiz
+import { AdminType } from '../common/types/admin.type';
+import { FavouriteItemType } from './user.service';
+import { FileInterceptor } from '@nestjs/platform-express';
+import { UseInterceptors, UploadedFile } from '@nestjs/common';
 
 @Controller('user')
 export class UserController {
@@ -45,55 +47,51 @@ export class UserController {
   @Get('/me')
   @Roles(Role.USER)
   me(@GetUser() user: UserType) {
-    // Bu yerda ham aniq tip qaytarilishi mumkin
     return this.userService.me(user);
   }
 
   @Get(':id')
   @Roles(Role.ADMIN)
   findOne(@Param('id', ParseIntPipe) id: number) {
-    // ParseIntPipe ishlatildi
     return this.userService.findOne(id);
   }
 
   @Get('/profile/:id')
   @Public()
   profile(@Param('id', ParseIntPipe) id: number) {
-    // ParseIntPipe ishlatildi
     return this.userService.profile(id);
   }
 
   @Patch(':id')
   @Roles(Role.ADMIN, Role.USER)
+  @UseInterceptors(FileInterceptor('avatar'))
   update(
-    @Param('id', ParseIntPipe) id: number, // ParseIntPipe ishlatildi
+    @Param('id', ParseIntPipe) id: number,
     @Body() updateUserDto: UpdateUserDto,
-    @GetUser() userFromToken: UserType | AdminType, // Nomini o'zgartirdim, tushunarliroq bo'lishi uchun
+    @GetUser() userFromToken: UserType | AdminType,
+    @UploadedFile() avatarFile?: Express.Multer.File,
   ) {
-    // Agar foydalanuvchi admin bo'lmasa va o'zining id sini o'zgartirmayotgan bo'lsa
     if (
-      (!('role' in userFromToken) || userFromToken.role !== Role.ADMIN) && // Agar UserType da role bo'lmasa
+      (!('role' in userFromToken) || userFromToken.role !== Role.ADMIN) &&
       userFromToken.id !== id
     ) {
-      // Oddiy foydalanuvchi faqat o'zining ma'lumotlarini (userFromToken.id) o'zgartirishi mumkin
-      // Boshqa birovning ma'lumotlarini (id) o'zgartirishga urinayotgan bo'lsa xatolik berish kerak
-      // Yoki faqat o'zining ma'lumotlarini o'zgartirishga ruxsat berish:
-      // throw new ForbiddenException("Siz faqat o'zingizni ma'lumotlaringizni o'zgartira olasiz.");
-      return this.userService.update(userFromToken.id, updateUserDto); // Faqat o'zini o'zgartiradi
+      return this.userService.update(
+        userFromToken.id,
+        updateUserDto,
+        avatarFile,
+      );
     }
-    // Admin yoki o'zini o'zgartirayotgan foydalanuvchi
-    return this.userService.update(id, updateUserDto);
+    return this.userService.update(id, updateUserDto, avatarFile);
   }
 
   @Patch('/password/:id')
   @Roles(Role.USER)
   updatePassword(
-    @Param('id', ParseIntPipe) id: number, // ParseIntPipe ishlatildi
+    @Param('id', ParseIntPipe) id: number,
     @Body() updatePasswordDto: UpdatePasswordDto,
     @GetUser() user: UserType,
   ) {
     if (user.id !== id) {
-      // Bu xabarni ForbiddenException bilan almashtirish yaxshiroq
       throw new ForbiddenException(
         "Siz faqat o'zingizni parolingizni o'zgartira olasiz",
       );
@@ -104,7 +102,6 @@ export class UserController {
   @Delete(':id')
   @Roles(Role.ADMIN)
   remove(@Param('id', ParseIntPipe) id: number) {
-    // ParseIntPipe ishlatildi
     return this.userService.remove(id);
   }
 }

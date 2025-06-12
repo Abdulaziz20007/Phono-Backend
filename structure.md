@@ -35,7 +35,7 @@
 - `currency/`: Currency management
 - `email/`: Email functionality
 - `favourite-item/`: User favorites management
-- `file-amazon/`: Amazon S3 file upload functionality
+- `file-amazon/`: Amazon S3 file upload functionality (used for user avatar uploads)
 - `init/`: Database initialization and seeding
   - `init.module.ts`: Module definition
   - `init.controller.ts`: Controller for handling initialization requests
@@ -71,7 +71,7 @@
     - `create-product-image.dto.ts`: Dto for creating product images with multiple file uploads
     - `update-product-image.dto.ts`: Dto for updating product images with optional multiple file uploads
 - `region/`: Region management functionality
-- `user/`: User management
+- `user/`: User management (supports avatar upload via PATCH /user/:id)
 - `web/`: Web-related functionality
 
 ### Common Utilities (common/)
@@ -87,7 +87,7 @@
 
 The application uses Prisma ORM with the following models:
 
-- `User`: User accounts and profile information
+- `User`: User accounts and profile information (with optional avatar field)
 - `Admin`: Administrative user accounts
 - `Region`: Geographical regions
 - `Address`: User addresses linked to regions

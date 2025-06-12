@@ -152,7 +152,10 @@ export class AuthService {
       );
     }
 
-    const hashedPassword = await bcrypt.hash(password, 7);
+    const hashedPassword = await bcrypt.hash(
+      password,
+      Number(process.env.BCRYPT_ROUNDS),
+    );
 
     const newUser = await this.userService.create({
       ...registerDto,

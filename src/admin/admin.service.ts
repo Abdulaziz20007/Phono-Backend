@@ -46,7 +46,10 @@ export class AdminService {
         fileUrl = await this.fileAmazonService.uploadFile(image);
       }
 
-      const password_hash = await bcrypt.hash(createAdminDto.password, 7);
+      const password_hash = await bcrypt.hash(
+        createAdminDto.password,
+        Number(process.env.BCRYPT_ROUNDS),
+      );
 
       const newAdminData: Prisma.AdminCreateInput = {
         name: createAdminDto.name,

@@ -8,24 +8,20 @@ import { UpdateUserDto, UpdatePasswordDto } from './dto/update-user.dto';
 import { PrismaService } from '../prisma/prisma.service';
 import { UserType } from '../common/types/user.type';
 import * as bcrypt from 'bcrypt';
+import { FileAmazonService } from '../file-amazon/file-amazon.service';
 
-// Agar Prisma schemangizda FavouriteItem uchun model mavjud bo'lsa (odatda FavouriteItem deb nomlanadi),
-// uni @prisma/client dan import qilishingiz mumkin:
-// import { FavouriteItem as PrismaFavouriteItem } from '@prisma/client';
-// Agar yo'q bo'lsa yoki boshqacha nomlangan bo'lsa, quyidagi interfeysdan foydalaning.
-// Bu sizning `favourite_items` massividagi har bir obyektning tuzilishiga mos kelishi kerak.
 export interface FavouriteItemType {
-  // Tip nomini Prisma tipi bilan chalkashmasligi uchun o'zgartirdim
   id: number;
   product_id: number;
   user_id: number;
-  // Agar favourite_items modelingizda boshqa maydonlar bo'lsa, ularni shu yerga qo'shing
-  // Masalan: createdAt?: Date; updatedAt?: Date; product?: any; // Agar productni ham include qilsangiz
 }
 
 @Injectable()
 export class UserService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly fileAmazonService: FileAmazonService,
+  ) {}
 
   async create(createUserDto: CreateUserDto) {
     console.log(createUserDto);
@@ -33,7 +29,7 @@ export class UserService {
     return this.prisma.user.create({
       data: {
         phone,
-        password, // Bu yerda passwordni hash qilish kerak edi, lekin hozirgi talab bu emas
+        password,
         name,
         surname,
       },
@@ -88,31 +84,23 @@ export class UserService {
   async favouriteItem(user: UserType) {
     console.log('Fetching favourite products for user:', user.id);
 
-    // 1. Foydalanuvchining user_id siga teng bo'lgan FavouriteItem yozuvlarini topamiz.
-    // 2. Har bir FavouriteItem yozuvi bilan bog'liq bo'lgan Product ma'lumotlarini ham yuklaymiz (include).
     const favouriteEntries = await this.prisma.favouriteItem.findMany({
-      // Model nomini to'g'ri yozing (masalan, favouriteItem yoki FavouriteItem)
       where: {
         user_id: user.id,
       },
       include: {
         product: {
-          // Bu yerda "product" - FavouriteItem modelidagi Product ga bo'lgan relation nomi
           include: {
-            // Agar mahsulotning rasmlarini ham olish kerak bo'lsa
-            images: true, // "images" - Product modelidagi Image ga bo'lgan relation nomi
+            images: true,
           },
         },
       },
     });
 
     if (!favouriteEntries || favouriteEntries.length === 0) {
-      return []; // Agar sevimlilar bo'lmasa, bo'sh massiv qaytaramiz
+      return [];
     }
 
-    // 3. Natijadan faqat Product obyektlarini ajratib olamiz.
-    //    Agar `product` null bo'lishi mumkin bo'lsa (masalan, ma'lumotlar bazasida nomuvofiqlik bo'lsa),
-    //    ularni filterlab o'tkazib yuboramiz.
     const favouriteProducts = favouriteEntries
       .map((entry) => entry.product)
       .filter((product) => product !== null && product !== undefined);
@@ -175,9 +163,16 @@ export class UserService {
     });
   }
 
-  update(id: number, updateUserDto: UpdateUserDto) {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { password, ...rest } = updateUserDto; // passwordni update qilmaymiz bu yerda
+  async update(
+    id: number,
+    updateUserDto: UpdateUserDto,
+    avatarFile?: Express.Multer.File,
+  ) {
+    const { password, ...rest } = updateUserDto;
+    if (avatarFile) {
+      const avatarUrl = await this.fileAmazonService.uploadFile(avatarFile);
+      rest.avatar = avatarUrl;
+    }
     return this.prisma.user.update({
       where: { id },
       data: rest,
@@ -221,7 +216,7 @@ export class UserService {
 
     const hashedPassword = await bcrypt.hash(
       updatePasswordDto.new_password,
-      10, // Salt rounds
+      Number(process.env.BCRYPT_ROUNDS),
     );
     await this.prisma.user.update({
       where: { id },
@@ -231,9 +226,6 @@ export class UserService {
   }
 
   async remove(id: number) {
-    // Bog'liq ma'lumotlarni o'chirish yoki aloqani uzish kerak bo'lishi mumkin
-    // Masalan, favourite_items, products, comments va hokazo.
-    // Bu Prisma schemangizdagi cascade qoidalariga bog'liq.
     return this.prisma.user.delete({
       where: { id },
     });
